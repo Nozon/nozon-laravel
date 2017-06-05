@@ -15,11 +15,17 @@
   <body>
   <p>Une page de test</p>
   <p>
+
     Attention Antoine modife des trucxxxxx
   </p>
 bf
   <p>
     rofinrfr
   </p>
+
+    JE modifie le master
+  </p>
+  <p>Nicolas ajoute quelque chose dans une branche qui s'appelle "test_nicolas"</p>
+
   </body>
 </html>
