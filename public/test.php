@@ -14,5 +14,8 @@
   </head>
   <body>
   <p>Une page de test</p>
+  <p>
+    JE modifie le master
+  </p>
   </body>
 </html>
