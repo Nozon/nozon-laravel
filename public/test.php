@@ -26,6 +26,7 @@ bf
     JE modifie le master
   </p>
   <p>Nicolas ajoute quelque chose dans une branche qui s'appelle "test_nicolas"</p>
+  <p>Salut je suis GUIDO!</p>
 
   </body>
 </html>
