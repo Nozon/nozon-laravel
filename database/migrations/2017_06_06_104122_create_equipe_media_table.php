@@ -15,6 +15,8 @@ class CreateEquipeMediaTable extends Migration
     {
         Schema::create('equipe_media', function (Blueprint $table) {
             $table->increments('id');
+            $table->foreign('equipe_id')->references('id')->on('equipes');
+            $table->foreign('media_id')->references('id')->on('medias');
             $table->timestamps();
         });
     }

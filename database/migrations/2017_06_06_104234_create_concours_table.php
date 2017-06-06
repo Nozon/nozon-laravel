@@ -15,6 +15,9 @@ class CreateConcoursTable extends Migration
     {
         Schema::create('concours', function (Blueprint $table) {
             $table->increments('id');
+            $table->date('date');
+            $table->text('texte');
+            $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });
     }

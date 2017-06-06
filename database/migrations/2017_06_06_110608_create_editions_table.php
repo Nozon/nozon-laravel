@@ -15,6 +15,9 @@ class CreateEditionsTable extends Migration
     {
         Schema::create('editions', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('annee');
+            $table->text('textePresentation');
+            $table->string('lieu');
             $table->timestamps();
         });
     }
