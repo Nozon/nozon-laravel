@@ -15,7 +15,11 @@ class CreateMediaPublicationTable extends Migration
     {
         Schema::create('media_publication', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('media_id');
+            $table->string('publication_id');
             $table->timestamps();
+            $table->foreign('media_id')->references('id')->on('medias');
+            $table->foreign('publication_id')->references('id')->on('publications');
         });
     }
 

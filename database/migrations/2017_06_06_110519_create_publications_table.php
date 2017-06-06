@@ -15,7 +15,11 @@ class CreatePublicationsTable extends Migration
     {
         Schema::create('publications', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titre');
+            $table->text('texte');
             $table->timestamps();
+            $table->integer('edition_annee');
+            $table->foreign('edition_annee')->references('annee')->on('editions');
         });
     }
 
