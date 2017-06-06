@@ -16,6 +16,8 @@ class CreateUtilisateursTable extends Migration
         Schema::create('utiisateurs', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('email');
+            $table->string('motDePasse');
         });
     }
 

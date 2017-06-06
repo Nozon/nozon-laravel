@@ -16,6 +16,7 @@ class CreateRessourcesTable extends Migration
         Schema::create('ressources', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->string('nom');
         });
     }
 

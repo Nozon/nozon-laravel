@@ -14,8 +14,10 @@ class CreateConcoursMediaTable extends Migration
     public function up()
     {
         Schema::create('concours_media', function (Blueprint $table) {
-            $table->increments('id');
             $table->timestamps();
+            $table->foreign('concours_id')->references('id')->on('concours');
+            $table->foreign('media_id')->references('id')->on('media');
+            
         });
     }
 
