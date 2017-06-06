@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUtilisateursTable extends Migration
+class CreateEquipeMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('utiisateurs', function (Blueprint $table) {
+        Schema::create('equipe_media', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('equipe_id');
+            $table->integer('media_id');
+            $table->foreign('equipe_id')->references('id')->on('equipes');
+            $table->foreign('media_id')->references('id')->on('medias');
             $table->timestamps();
-            $table->string('email');
-            $table->string('motDePasse');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateUtilisateursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('utiisateurs');
+        Schema::dropIfExists('equipe_media');
     }
 }

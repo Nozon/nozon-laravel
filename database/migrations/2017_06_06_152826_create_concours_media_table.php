@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePressesTable extends Migration
+class CreateConcoursMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,13 @@ class CreatePressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('presses', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('concours_media', function (Blueprint $table) {
             $table->timestamps();
+            $table->integer('concours_id');
+            $table->integer('media_id');
+            $table->foreign('concours_id')->references('id')->on('concours');
+            $table->foreign('media_id')->references('id')->on('media');
+
         });
     }
 
@@ -26,6 +30,6 @@ class CreatePressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('presses');
+        Schema::dropIfExists('concours_media');
     }
 }

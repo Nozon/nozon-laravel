@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGroupeRessourceTable extends Migration
+class CreateMediaPublicationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateGroupeRessourceTable extends Migration
      */
     public function up()
     {
-        Schema::create('groupe_ressource', function (Blueprint $table) {
+        Schema::create('media_publication', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('media_id');
+            $table->integer('publication_id');
             $table->timestamps();
-            $table->foreign('ressource_id')->references('id')->on('ressources');
-            $table->foreign('groupe_id')->references('id')->on('groupes');
+            $table->foreign('media_id')->references('id')->on('medias');
+            $table->foreign('publication_id')->references('id')->on('publications');
         });
     }
 
@@ -28,6 +30,6 @@ class CreateGroupeRessourceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('groupe_ressource');
+        Schema::dropIfExists('media_publication');
     }
 }

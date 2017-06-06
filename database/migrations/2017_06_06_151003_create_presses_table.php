@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConcoursTable extends Migration
+class CreatePressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateConcoursTable extends Migration
      */
     public function up()
     {
-        Schema::create('concours', function (Blueprint $table) {
+        Schema::create('presses', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('url');
+            $table->string('titre');
+            $table->text('description');
             $table->date('date');
-            $table->text('texte');
+            $table->integer('edition_annee')->unsigned(); // Est-ce qu'il faut vraiment ajouter le "unsigned" si c'est déjà précisé dans la migration de editions_table?
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });
@@ -29,6 +32,6 @@ class CreateConcoursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('concours');
+        Schema::dropIfExists('presses');
     }
 }
