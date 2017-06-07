@@ -16,6 +16,8 @@ class CreateGroupeRessourceTable extends Migration
         Schema::create('groupe_ressource', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+            $table->integer('ressource_id')->unsigned();
+            $table->integer('groupe_id')->unsigned();
             $table->foreign('ressource_id')->references('id')->on('ressources');
             $table->foreign('groupe_id')->references('id')->on('groupes');
         });

@@ -18,6 +18,8 @@ class CreateMediaPublicationTable extends Migration
             $table->string('media_id');
             $table->string('publication_id');
             $table->timestamps();
+            $table->integer('media_id')->unsigned();
+            $table->integer('publication_id')->unsigned();
             $table->foreign('media_id')->references('id')->on('medias');
             $table->foreign('publication_id')->references('id')->on('publications');
         });

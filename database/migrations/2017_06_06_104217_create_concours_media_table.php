@@ -15,6 +15,8 @@ class CreateConcoursMediaTable extends Migration
     {
         Schema::create('concours_media', function (Blueprint $table) {
             $table->timestamps();
+            $table->integer('concours_id')->unsigned();
+            $table->integer('media_id')->unsigned();
             $table->foreign('concours_id')->references('id')->on('concours');
             $table->foreign('media_id')->references('id')->on('media');
             

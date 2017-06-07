@@ -15,6 +15,8 @@ class CreateProfilsTable extends Migration
     {
         Schema::create('profils', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('membre_id')->unsigned();
+            $table->integer('equipe_id')->unsigned();
             $table->foreign('membre_id')->references('id')->on('membres');
             $table->foreign('equipe_id')->references('id')->on('equipes');
             $table->string('fonction');

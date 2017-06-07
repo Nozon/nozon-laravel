@@ -15,6 +15,8 @@ class CreateMediaSponsorTable extends Migration
     {
         Schema::create('media_sponsor', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('sponsor_nom')->unsigned();
+            $table->integer('media_id')->unsigned();
             $table->foreign('sponsor_nom')->references('nom')->on('sponsors');
             $table->foreign('media_id')->references('id')->on('medias');
             $table->timestamps();

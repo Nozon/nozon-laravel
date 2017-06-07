@@ -17,6 +17,7 @@ class CreateEquipesTable extends Migration
             $table->increments('id');
             $table->string('nom');
             $table->text('description');
+            $table->integer('edition_annee')->unsignes();
             $table->enum('type', ['principal', 'secondaire']);
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();

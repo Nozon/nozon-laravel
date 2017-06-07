@@ -17,6 +17,7 @@ class CreateConcoursTable extends Migration
             $table->increments('id');
             $table->date('date');
             $table->text('texte');
+            $table->integer('edition_annee')->unsigned();
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });
