@@ -20,7 +20,6 @@ class CreateEditionMediaTable extends Migration
             $table->foreign('edition_id')->references('id')->on('editions');
             $table->foreign('media_id')->references('id')->on('media');
             $table->index(['edition_id','media_id']);
-
         });
     }
 
