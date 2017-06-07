@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMediaSponsorTable extends Migration
+class CreateMediaProfilTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateMediaSponsorTable extends Migration
      */
     public function up()
     {
-        Schema::create('media_sponsor', function (Blueprint $table) {
+        Schema::create('media_profil', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('sponsor_nom')->references('nom')->on('sponsors');
+            $table->integer('media_id');
+            $table->integer('profil_id');
             $table->foreign('media_id')->references('id')->on('medias');
-            $table->timestamps();
+            $table->foreign('profil_id')->references('id')->on('profils');
+            $table->index(['media_id','profil_id']);
         });
     }
 
@@ -28,6 +30,6 @@ class CreateMediaSponsorTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('media_sponsor');
+        Schema::dropIfExists('media_profil');
     }
 }
