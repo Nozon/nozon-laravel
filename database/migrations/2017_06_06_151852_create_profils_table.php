@@ -14,22 +14,16 @@ class CreateProfilsTable extends Migration
     public function up()
     {
         Schema::create('profils', function (Blueprint $table) {
-            $table->increments('id');
-<<<<<<< HEAD:database/migrations/2017_06_06_103648_create_profils_table.php
+            // $table->increments('id'); // Pas besoin d'id
             $table->integer('membre_id')->unsigned();
-            $table->integer('equipe_id')->unsigned();
-            $table->foreign('membre_id')->references('id')->on('membres');
-            $table->foreign('equipe_id')->references('id')->on('equipes');
-=======
-            $table->integer('membre_id');
-            $table->integer('equipe_id');
->>>>>>> origin/backend:database/migrations/2017_06_06_151852_create_profils_table.php
+            $table->integer('equipe_id')->unsigned();;
             $table->string('fonction');
             $table->string('departement');
-            $table->string('anneeEtude');
+            $table->int('anneeEtude');
             $table->timestamps();
             $table->foreign('membre_id')->references('id')->on('membres');
             $table->foreign('equipe_id')->references('id')->on('equipes');
+            $table->primary(['membre_id','equipe_id']);
         });
     }
 
