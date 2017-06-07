@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUtilisateursTable extends Migration
+class CreateConcoursTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateUtilisateursTable extends Migration
      */
     public function up()
     {
-        Schema::create('utiisateurs', function (Blueprint $table) {
+        Schema::create('concours', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('edition_annee');
+            $table->date('date');
+            $table->text('texte');
+            $table->integer('edition_annee')->unsigned();
+            $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
-            $table->string('email');
-            $table->string('motDePasse');
         });
     }
 
@@ -28,6 +31,6 @@ class CreateUtilisateursTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('utiisateurs');
+        Schema::dropIfExists('concours');
     }
 }
