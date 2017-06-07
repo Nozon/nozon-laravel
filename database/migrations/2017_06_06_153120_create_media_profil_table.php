@@ -16,10 +16,12 @@ class CreateMediaProfilTable extends Migration
         Schema::create('media_profil', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('media_id');
-            $table->integer('profil_id');
+            $table->integer('profil_equipe_id');
+            $table->integer('profil_membre_id');
             $table->foreign('media_id')->references('id')->on('medias');
-            $table->foreign('profil_id')->references('id')->on('profils');
-            $table->index(['media_id','profil_id']);
+            $table->foreign('profil_equipe_id')->references('equipe_id')->on('profils');
+            $table->foreign('profil_membre_id')->references('membre_id')->on('profils');
+            $table->timestamps();
         });
     }
 

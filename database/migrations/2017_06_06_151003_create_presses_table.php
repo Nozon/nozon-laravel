@@ -19,7 +19,7 @@ class CreatePressesTable extends Migration
             $table->string('titre');
             $table->text('description');
             $table->date('date');
-            $table->integer('edition_annee');
+            $table->integer('edition_annee')->unsigned(); // Est-ce qu'il faut vraiment ajouter le "unsigned" si c'est déjà précisé dans la migration de editions_table?
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });
