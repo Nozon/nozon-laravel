@@ -21,6 +21,7 @@ class CreateNiveauxTable extends Migration
             $table->timestamps();
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->foreign('sponsor_nom')->references('nom')->on('sponsors');
+            $table->index(['edition_annee','sponsor_nom']);
         });
     }
 
