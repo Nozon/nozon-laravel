@@ -18,9 +18,16 @@ class ACLSeeder extends Seeder
       DB::table('ressources')->truncate();
       DB::table('groupe_ressource')->truncate();
 
-        $user1 = new App\Utilisateur();
+        $user1 = new App\Models\Utilisateur();
         $user1->email = 'john@example.com';
         $user1->motDePasse = bcrypt('123456');
         $user1->save();
+        //Creation des groupes
+        $admin = new \App\Models\Groupe();
+        $admin->name = 'admin';
+        $admin->save();
+        $moderator = new \App\Models\Groupe();
+        $moderator->name = 'moderateur';
+        $moderator->save();
     }
 }
