@@ -20,7 +20,7 @@ class ACLSeeder extends Seeder
 
         $user1 = new App\Utilisateur();
         $user1->email = 'john@example.com';
-        $user1->motDePasse = '123456';
+        $user1->motDePasse = bcrypt('123456');
         $user1->save();
     }
 }

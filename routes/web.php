@@ -10,10 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/login', 'AuthController@login');
+Route::post('/auth/login', 'AuthController@check');
 
-Route::post('/login', 'AuthController@check');
+
 
 
 

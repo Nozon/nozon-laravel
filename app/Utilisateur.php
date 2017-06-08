@@ -22,7 +22,9 @@ class Utilisateur extends Authenticatable
      *
      * @var array
      */
+
+
     protected $hidden = [
-        'motDePasse', 'remember_token',
+       'motDePasse', 'remember_token',
     ];
 }
