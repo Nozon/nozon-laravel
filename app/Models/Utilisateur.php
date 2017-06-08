@@ -1,9 +1,9 @@
 <?php
 
-namespace App;
+namespace Models\App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Foundation\Auth\Models\User as Authenticatable;
 
 class Utilisateur extends Authenticatable
 {

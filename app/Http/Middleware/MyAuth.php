@@ -19,7 +19,7 @@ class MyAuth
     {
       if (!Auth::check()) {
           Session::put('oldUrl', $request->fullUrl());
-          Session::flash('flash_message',"Vous n'etes pas autentifié !");
+          echo "passé par MyAuth !";
           return redirect()->action('AuthController@login');
       }
       return $next($request);

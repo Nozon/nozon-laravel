@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use Auth;
-use App\Utilisateur;
+use App\Models\Utilisateur;
 use Hash;
 use Session;
 
