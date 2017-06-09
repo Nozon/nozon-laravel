@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Auth;
+use Session;
 
 class Authenticate
 {
@@ -22,7 +24,7 @@ class Authenticate
            	if (!isset($userId)) {
            		return response('Acces refusé ! Erreur : ', 403);
             }
-     	// Sinon on laisse passer
+     	      // Sinon on laisse passer
            	return $next($request);
      }
 }

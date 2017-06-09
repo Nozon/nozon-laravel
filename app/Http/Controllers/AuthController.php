@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Request;
 use Auth;
-use App\Utilisateur;
+use App\Models\Utilisateur;
 use Hash;
 use Session;
 
@@ -22,21 +22,23 @@ class AuthController extends Controller
 
       // Check user exists
       if (!isset($user)) {
-          return 'login failed : Utilisateur incorrect !'.$mdp;
+          return 'login failed : Utilisateur incorrect !';
       }
 
       // Check password
       if (!Hash::check($mdp, $user->motDePasse)) {
-          return 'login failed : mot de passe incorrect !'.$mdp.$user->motDePasse;
+          return redirect()->action('AuthController@login')->with('error', true);
+
       }
 
       // Auth persistance
       Session::put('user_id', $user->id);
-      return 'login successful';
+
+      redirect()->action('HomeController@index')->;
   }
 
   public function logout(){
-      Session::forget('user_id');
+      Session::flush();
       return 'logout successful';
   }
 }
