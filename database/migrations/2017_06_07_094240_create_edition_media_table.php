@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateConcoursMediaTable extends Migration
+class CreateEditionMediaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateConcoursMediaTable extends Migration
      */
     public function up()
     {
-        Schema::create('concours_media', function (Blueprint $table) {
-            $table->timestamps();
-            $table->integer('concours_id');
+        Schema::create('edition_media', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('edition_id');
             $table->integer('media_id');
-            $table->foreign('concours_id')->references('id')->on('concours');
+            $table->foreign('edition_id')->references('id')->on('editions');
             $table->foreign('media_id')->references('id')->on('media');
+            $table->index(['edition_id','media_id']);
 
         });
     }
@@ -30,6 +31,6 @@ class CreateConcoursMediaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('concours_media');
+        Schema::dropIfExists('edition_media');
     }
 }

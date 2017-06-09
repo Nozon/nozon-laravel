@@ -19,7 +19,7 @@ class CreateMediaSponsorTable extends Migration
             $table->integer('media_id');
             $table->foreign('sponsor_nom')->references('nom')->on('sponsors');
             $table->foreign('media_id')->references('id')->on('medias');
-            $table->timestamps();
+            $table->index(['sponsor_nom','media_id']);
         });
     }
 

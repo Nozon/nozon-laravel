@@ -19,7 +19,7 @@ class CreateEquipeMediaTable extends Migration
             $table->integer('media_id');
             $table->foreign('equipe_id')->references('id')->on('equipes');
             $table->foreign('media_id')->references('id')->on('medias');
-            $table->timestamps();
+            $table->index(['equipe_id','media_id']);
         });
     }
 

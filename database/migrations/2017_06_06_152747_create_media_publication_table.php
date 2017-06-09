@@ -17,9 +17,9 @@ class CreateMediaPublicationTable extends Migration
             $table->increments('id');
             $table->integer('media_id');
             $table->integer('publication_id');
-            $table->timestamps();
             $table->foreign('media_id')->references('id')->on('medias');
             $table->foreign('publication_id')->references('id')->on('publications');
+            $table->index(['publication_id','media_id']);
         });
     }
 
