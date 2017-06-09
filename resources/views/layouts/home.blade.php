@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Links -->
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -35,12 +36,12 @@
         <nav class="navbar navbar-fixed-top">
           <div class="container">
             <ul class="main-nav">
-              <li class="main-nav-link"><a href="team">team</a></li>
+              <li class="main-nav-link"><a href="#team">team</a></li>
               <li class="main-nav-link"><a href="#">concours</a></li>
               <li class="main-nav-link"><a href="#">news</a></li>
               <li class="main-nav-link"><a href="#">médias</a></li>
-              <li class="main-nav-link"><a href="#">presse</a></li>
-              <li class="main-nav-link"><a href="#">récompenses</a></li>
+              <li class="main-nav-link"><a href="#presse">presse</a></li>
+              <li class="main-nav-link"><a href="#prix">prix</a></li>
               <li class="main-nav-link"><a href="#">sponsors</a></li>
             </ul>
           </div>
@@ -60,10 +61,10 @@
           <div class="menu-persistant-container">
             <ul class="menu-persistant">
               <li><a href="#">Contact</a></li>
-              <li><a href="#"><img class="img-responsive socials-icone" src="img/mail.png"></a></li>
-              <li><a href="#"><img class="img-responsive socials-icone" src="img/facebooklogo.png"></a></li>
-              <li><a href="#"><img class="img-responsive socials-icone" src="img/instagramlogo.png"></a></li>
-              <li><a href="#"><img class="img-responsive socials-icone" src="img/youtubelogo.png"></a></li>
+              <li><a href=""><img class="img-responsive socials-icone" src="img/mail.png"></a></li>
+              <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/" target="_blank"><img class="img-responsive socials-icone" src="img/facebooklogo.png"></a></li>
+              <li><a href="https://www.instagram.com/hydrocontest_heig_vd/" target="_blank"><img class="img-responsive socials-icone" src="img/instagramlogo.png"></a></li>
+              <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g" target="_blank"><img class="img-responsive socials-icone" src="img/youtubelogo.png"></a></li>
             </ul>
           </div>
       </div>
