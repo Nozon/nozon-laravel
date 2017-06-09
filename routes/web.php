@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('presse', 'PresseController');
+Route::resource('recompense', 'RecompenseController');
