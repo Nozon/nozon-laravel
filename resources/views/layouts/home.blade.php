@@ -37,12 +37,14 @@
           <div class="container">
             <ul class="main-nav">
               <li class="main-nav-link"><a href="#team">team</a></li>
-              <li class="main-nav-link"><a href="#">concours</a></li>
-              <li class="main-nav-link"><a href="#">news</a></li>
-              <li class="main-nav-link"><a href="#">médias</a></li>
+
+              <li class="main-nav-link"><a href="#concours">concours</a></li>
+              <li class="main-nav-link"><a href="#news">news</a></li>
+              <li class="main-nav-link"><a href="#médias">médias</a></li>
               <li class="main-nav-link"><a href="#presse">presse</a></li>
-              <li class="main-nav-link"><a href="#prix">prix</a></li>
-              <li class="main-nav-link"><a href="#">sponsors</a></li>
+              <li class="main-nav-link"><a href="#prix">récompenses</a></li>
+              <li class="main-nav-link"><a href="#sponsors">sponsors</a></li>
+              
             </ul>
           </div>
         </nav>
@@ -61,10 +63,10 @@
           <div class="menu-persistant-container">
             <ul class="menu-persistant">
               <li><a href="#">Contact</a></li>
-              <li><a href=""><img class="img-responsive socials-icone" src="img/mail.png"></a></li>
-              <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/" target="_blank"><img class="img-responsive socials-icone" src="img/facebooklogo.png"></a></li>
-              <li><a href="https://www.instagram.com/hydrocontest_heig_vd/" target="_blank"><img class="img-responsive socials-icone" src="img/instagramlogo.png"></a></li>
-              <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g" target="_blank"><img class="img-responsive socials-icone" src="img/youtubelogo.png"></a></li>
+              <li><a href="#"><img class="img-responsive socials-icone" src="img/mail.png"></a></li>
+              <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/"><img class="img-responsive socials-icone" src="img/facebooklogo.png"></a></li>
+              <li><a href="https://www.instagram.com/hydrocontest_heig_vd/"><img class="img-responsive socials-icone" src="img/instagramlogo.png"></a></li>
+              <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g"><img class="img-responsive socials-icone" src="img/youtubelogo.png"></a></li>
             </ul>
           </div>
       </div>
@@ -116,46 +118,10 @@
     </div>
     <section id="main-content">
 
-      <div class="pattern-overlay">
+      <div class="row pattern-overlay">
 
-          <div class="container" id="main-sidenav">
-            <div class="row">
-              <div class="col-lg-12 conatiner-home">
-                <div class="nav-edition">
-                  <h4>édition</h4>
-                  <div class="nav-edition-bar">
-                    <ul class="nav-edition-liste">
-                      <li class="nav-edition-circle circle-activ" id="cercle">
-                        <div class="nav-edition-container-year">
-                          <a href="edition-2017" class="nav-edition-year year-activ">2017</a>
-                        </div>
-                      </li>
-                      <li class="nav-edition-circle" id="cercle">
-                        <div class="nav-edition-container-year">
-                          <a href="edition-2016" class="nav-edition-year">2016</a>
-                        </div>
-                      </li>
-                      <li class="nav-edition-circle" id="cercle">
-                        <div class="nav-edition-container-year">
-                          <a href="#" class="nav-edition-year">2015</a>
-                        </div>
-                      </li>
-                      <li class="nav-edition-circle" id="cercle">
-                        <div class="nav-edition-container-year">
-                          <a href="#" class="nav-edition-year">2014</a>
-                        </div>
-                      </li>
-                      <li class="nav-edition-circle" id="cercle">
-                        <div class="nav-edition-container-year">
-                          <a href="#" class="nav-edition-year">2013</a>
-                        </div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+
+          
 
           <div id="content-pages">
             <!-- partie a templater -->
