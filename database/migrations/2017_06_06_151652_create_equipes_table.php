@@ -16,9 +16,10 @@ class CreateEquipesTable extends Migration
         Schema::create('equipes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
-            $table->string('edition_annee');
+            $table->integer('edition_annee')->unsigned();
             $table->text('description');
             $table->enum('type', ['principal', 'secondaire']);
+            $table->index('edition_annee');
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });
