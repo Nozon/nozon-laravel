@@ -1,0 +1,78 @@
+/**************************** GENERIC STYLE ***********************************/
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+.error {
+    background: seashell;
+}
+.msg_error {
+    display: block;
+    background: seashell; 
+    font-style: italic;
+    font-weight: normal;
+    padding: 0.3em;
+    margin: 0.5em 0;
+    border-radius: 0.2em;
+    border: solid seashell 1px;
+    display: none;
+}
+
+form{
+    width: 20em;
+    display: block;
+    margin: 0 auto 0 auto;
+}
+
+/**************************** PAGE CONTAINER **********************************/
+.container {
+    padding: 0;
+    margin: 0;
+    min-height:100%;    
+    position: relative;
+}
+
+/********************************* MAIN ***************************************/
+main {
+    /*padding: 5em 1em 5.5em 15em; */
+
+    display: block;
+    margin-left: 5em;
+}
+
+
+
+/******************************** HEADER **************************************/
+.container > header {
+    height: 2.7em;
+  	padding-bottom: 5em;
+   	padding-top: 8em;
+}
+.container > header > h1 {
+    display: block;
+   text-align: center;
+    margin: 0; 
+    padding: 0 0.5em;
+
+}
+
+
+/********************************* FORM ***************************************/
+fieldset {
+    border-radius: 5px;
+    margin: 1em 0;
+    background-color: #eee;
+    border: 1px solid #aaa;
+}
+input {
+    padding: 0.1em 0.2em;
+}
+input, button {
+    margin: 0.2em;
+}
