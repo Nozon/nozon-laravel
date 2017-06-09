@@ -34,7 +34,7 @@ class AuthController extends Controller
       // Auth persistance
       Session::put('user_id', $user->id);
 
-      redirect()->action('HomeController@index')->;
+      redirect()->action('HomeController@index');
   }
 
   public function logout(){
