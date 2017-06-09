@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Links -->
     <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
@@ -36,12 +37,14 @@
           <div class="container">
             <ul class="main-nav">
               <li class="main-nav-link"><a href="#team">team</a></li>
+
               <li class="main-nav-link"><a href="#concours">concours</a></li>
               <li class="main-nav-link"><a href="#news">news</a></li>
               <li class="main-nav-link"><a href="#médias">médias</a></li>
               <li class="main-nav-link"><a href="#presse">presse</a></li>
               <li class="main-nav-link"><a href="#prix">récompenses</a></li>
               <li class="main-nav-link"><a href="#sponsors">sponsors</a></li>
+              
             </ul>
           </div>
         </nav>

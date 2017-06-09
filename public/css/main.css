@@ -385,3 +385,40 @@ h1, h2, h3, h4, h5 {
   background-color: #203c7f;
   text-align: center;
 }
+
+.sponsor-description{
+   text-align: center;
+}
+.sponsor-description h2{
+    margin: 20px 0px;
+}
+.sponsor-description img{
+    width: 15%;
+    margin-bottom: 20px;
+}
+.presse-description{
+    padding-right: 10%;
+}
+#tabPresse td:nth-child(1){
+    width: 15%;
+}
+#tabPresse td:nth-child(2){
+    width: 15%;
+}
+#tabPrix td:nth-child(1){
+    width: 25%;
+}
+#tabPrix td{
+    vertical-align: middle;
+}
+.fa-trophy{
+    color: gold;
+    margin-right: 15px;
+}
+#tabNews img{
+    width: 150px;
+    margin-right: 15px;
+}
+#tabNews td:nth-child(1){
+    width: 20%;
+}
