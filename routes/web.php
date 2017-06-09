@@ -15,4 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', 'AuthController@login');
+Route::post('/auth/login', 'AuthController@check');
+Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware' => 'MyAuth'], function() {
+    Route::get('/auth/logout', 'AuthController@logout');
+    Route::get('/secure1', function () {
+        return 'Je suis bien logué';
+    });
+});
+
 Route::resource('presse', 'PresseController');
