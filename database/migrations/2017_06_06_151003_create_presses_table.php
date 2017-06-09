@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreatePressesTable extends Migration
 {
     /**
@@ -19,12 +17,11 @@ class CreatePressesTable extends Migration
             $table->string('titre');
             $table->text('description');
             $table->date('date');
-            $table->integer('edition_annee')->unsigned(); // Est-ce qu'il faut vraiment ajouter le "unsigned" si c'est déjà précisé dans la migration de editions_table?
+            $table->integer('edition_annee');
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *
