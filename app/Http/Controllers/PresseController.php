@@ -40,13 +40,14 @@ class PresseController extends Controller {
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+            return "erreur validation";
+            // return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Presse
             Presse::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des sinistres
+            // Message de succès, puis redirection vers la liste des Presses
             Message::success('presse.saved');
             return redirect('presse');
         } catch (\Exception $e) {
