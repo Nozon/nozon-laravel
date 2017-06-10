@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('pages.edition');
 });
 
 Route::get('/login', 'AuthController@login');
