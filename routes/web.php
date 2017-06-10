@@ -15,4 +15,23 @@ Route::get('/', function () {
     return view('pages.edition');
 });
 
+Route::get('/login', 'AuthController@login');
+Route::post('/auth/login', 'AuthController@check');
 
+
+Route::post('home', 'HomeController@index');
+
+Route::group(['middleware' => 'MyAuth'], function() {
+    Route::get('/auth/logout', 'AuthController@logout');
+    Route::get('/secure1', function () {
+        return 'Je suis bien logué';
+    });
+
+    Route::post('home', 'HomeController@index');
+
+
+});
+
+Route::resource('presse', 'PresseController');
+
+Route::resource('recompense', 'RecompenseController');
