@@ -16,15 +16,16 @@ class Presse extends Model
         'url' => ['required', 'string'],
         'titre' => ['required', 'string'],
         'description' => ['required', 'string'],
-        'date' => ['required', 'string']
+        'date' => ['required', 'string'],
+        'edition_annee' => ['sometimes', 'required', 'integer']
     ];
 
     protected $table = 'presses';
 
     public static function getValidation(Request $request)
     {
-        // Récupération des inputs
-        $inputs = $request->only('url', 'titre', 'description', 'date');
+        $inputs = $request->only('url', 'titre', 'description', 'date', 'edition_annee');
+
         // Création du validateur
         $validator = Validator::make($inputs, Presse::$rules);
         // Ajout des contraintes supplémentaires
@@ -59,7 +60,7 @@ class Presse extends Model
         $new->titre = $values['titre'];
         $new->description = $values['description'];
         $new->date = $values['date'];
-        $new->edition_annee = '2017'; // edition_annee : à remplacer une fois que les Model/Controller d'Edition sont faits
+        $new->edition_annee = $values['edition_annee'];
 
         // Enregistrement de Presse
         $new->save();

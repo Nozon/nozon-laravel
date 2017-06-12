@@ -59,7 +59,6 @@ class Recompense extends Model
         $new->type = $values['type'];
         $new->description = $values['description'];
         $new->equipe_id = $values['equipe_id'];
-
         // Enregistrement de Recompense
         $new->save();
     }

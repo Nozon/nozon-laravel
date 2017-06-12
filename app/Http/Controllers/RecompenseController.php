@@ -44,20 +44,17 @@ class RecompenseController extends Controller {
         }
         // En cas de succès de la validation
         try {
-            echo("Dans la fonction store du Controller (validate->getData()) : ");
-            echo(implode(" | ", $validate->getData()));
-            echo("<br />");
             // Tentative d'enregistrement de Recompense
             Recompense::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des recompenses
             //Message::success('recompense.saved');
-            return redirect('recompense');
+            // return redirect('recompense');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             //Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
             //return redirect()->back()->withInput();
-            return 'c est là!';
+            return 'Redirection vers le formulaire, avec inputs';
         }
     }
 
