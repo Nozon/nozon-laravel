@@ -35,6 +35,7 @@ class AuthController extends Controller
       Session::put('user_id', $user->id);
 
       return redirect('/secure1');
+
   }
 
   public function logout() {

@@ -17,7 +17,8 @@ class CreatePressesTable extends Migration
             $table->string('titre');
             $table->text('description');
             $table->date('date');
-            $table->integer('edition_annee');
+            $table->integer('edition_annee')->unsigned();
+            $table->index('edition_annee');
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });

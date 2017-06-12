@@ -25,7 +25,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('presse.create');
+        return view('pages.presse.create');
     }
 
     /**
@@ -40,20 +40,22 @@ class PresseController extends Controller {
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
+            // return "erreur validation";
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Presse
             Presse::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des sinistres
+            // Message de succès, puis redirection vers la liste des Presses
             Message::success('presse.saved');
-            return redirect('presse');
+            return redirect('#presse');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
+            // return redirect()->back()->withInput();
+            echo("bd.error");
         }
     }
 

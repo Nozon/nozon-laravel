@@ -13,8 +13,8 @@ class CreateMediaProfilTable extends Migration
     {
         Schema::create('media_profil', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('media_id');
-            $table->integer('profil_id');
+            $table->integer('media_id')->unsigned();
+            $table->integer('profil_id')->unsigned();
             $table->foreign('media_id')->references('id')->on('medias');
             $table->foreign('profil_id')->references('id')->on('profils');
             $table->index(['media_id','profil_id']);

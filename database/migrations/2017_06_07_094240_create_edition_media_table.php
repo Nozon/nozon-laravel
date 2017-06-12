@@ -15,10 +15,10 @@ class CreateEditionMediaTable extends Migration
     {
         Schema::create('edition_media', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('edition_id');
-            $table->integer('media_id');
+            $table->integer('edition_id')->unsigned();
+            $table->integer('media_id')->unsigned();
             $table->foreign('edition_id')->references('id')->on('editions');
-            $table->foreign('media_id')->references('id')->on('media');
+            $table->foreign('media_id')->references('id')->on('medias');
             $table->index(['edition_id','media_id']);
         });
     }

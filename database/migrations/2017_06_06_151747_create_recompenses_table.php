@@ -16,8 +16,9 @@ class CreateRecompensesTable extends Migration
         Schema::create('recompenses', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type');
-            $table->string('equipe_id');
+            $table->integer('equipe_id')->unsigned();
             $table->text('description');
+            $table->index('equipe_id');
             $table->foreign('equipe_id')->references('id')->on('equipes');
             $table->timestamps();
         });

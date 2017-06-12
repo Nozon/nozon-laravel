@@ -15,8 +15,8 @@ class CreateEquipeMediaTable extends Migration
     {
         Schema::create('equipe_media', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('equipe_id');
-            $table->integer('media_id');
+            $table->integer('equipe_id')->unsigned();
+            $table->integer('media_id')->unsigned();
             $table->foreign('equipe_id')->references('id')->on('equipes');
             $table->foreign('media_id')->references('id')->on('medias');
             $table->index(['equipe_id','media_id']);

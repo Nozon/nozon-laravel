@@ -15,8 +15,8 @@ class CreateNiveauxTable extends Migration
     {
         Schema::create('niveaux', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('edition_annee');
-            $table->integer('sponsor_nom');
+            $table->integer('edition_annee')->unsigned();
+            $table->string('sponsor_nom');
             $table->enum('valeur', ['principal', 'or', 'argent', 'bronze']);
             $table->timestamps();
             $table->foreign('edition_annee')->references('annee')->on('editions');
