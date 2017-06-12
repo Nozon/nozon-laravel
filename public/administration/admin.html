@@ -48,13 +48,13 @@
 
         </section>
 
-        <div class="navbar navbar-default navbar-static-top">
+        <div class="navbar navbar-admin navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="http://127.0.0.1:8000/" class="navbar-brand">Administration</a>
+                    <a href="http://127.0.0.1:8000/" class="navbar-brand"><span id="home" class="glyphicon glyphicon-home"></span></a>
                 </div>
                 <div class="collaps navbar-collapse">
-                    <ul class="nav navbar-nav">
+                    <ul class="nav navbar-nav" id="menu-admin">
                         <li><a href="#accueil" id="btn-accueil">Accueil</a></li>
                         <li><a href="#edition" id="btn-edition">Edition</a></li>
                         <li><a href="#equipe" id="btn-equipe">Equipe</a></li>
@@ -78,22 +78,22 @@
                     <div class="form-group">
                         <label for="file">Modifier le logo</label>
                         <input type="file" />
+                        <button class="btn btn-default btn-xs btnModLogo">Modifier</button>
                     </div>
-                    <button class="btn btn-default btnModLogo">Modifier</button>
                 </form>
                 <form class="form-inline">
                     <div class="form-group">
                         <label>Modifier la vidéo de présentation</label>
                         <input type="file">
+                        <button class="btn btn-default btn-xs btnModVideo">Modifier</button>
                     </div>
-                    <button class="btn btn-default btnModVideo">Modifier</button>
                 </form>
                 <form class="form-inline">
                     <div class="form-group">
                         <label>Modifier la date du compteur</label>
                         <input type="date" class="form-control">
+                        <button class="btn btn-default btn-xs btnModCompteur">Modifier</button>
                     </div>
-                    <button class="btn btn-default btnModCompteur">Modifier</button>
                 </form>
                 <form class="form-inline">
                     <div class="form-group">
@@ -109,158 +109,526 @@
 
             <div id="page_edition" class="page">
                 <h3>L'édition</h3>
-                <form>
-                    <div class="form-group" id="modEdition">
-                        <h4>Modifier edition</h4>
+                <div class="row">
+                    
+                    <div class="administration" id="creerEdition">
+                        <button type="button" id="btn-show-form" class="btn btn-default btn-lg">Créer une nouvelle édition</button>
+                        <form class="form-create">
+                            <div class="form-group">
+                                <label>Année</label>
+                                <input type="number" class="form-control" placeholder="Année">
+                            </div>
+                            <div class="form-group">
+                                <label>Insérer une image du concours</label>
+                                <input type="file" name="imgConcours"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Date du concours</label>
+                                <input type="date" name="dateConcours" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Decription</label>
+                                <textarea class="form-control" rows="3" placeholder="Entrer du texte ici..."></textarea>
+                            </div>
+                            <button class="btn btn-nozon" id="btnCreer">Créer</button>
+                        </form>
                     </div>
-                    <div class="form-group" id="creerEdition">
-                        <h4>Créer une nouvelle edition</h4>
-                        <label>Année</label>
-                        <input type="number" class="form-control">
-                        <label>Insérer une image du concours</label>
-                        <input type="file" name="imgConcours"/>
-                        <label>Date du concours</label>
-                        <input type="date" name="dateConcours" class="form-control"/>
-                        <label>Decription</label>
-                        <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
-                        <button class="btn btn-default btnCreerEdition">Créer</button>
+                    
+                    <div class="administration" id="modEdition">
+                        <h4><button type="button" id="year" class="btn btn-default year-edition">Modifier l'édition</button></h4>
+                        <form class="form-mod">
+                            <div class="form-group">
+                                <label>Année</label>
+                                <input type="number" class="form-control" placeholder="Année">
+                            </div>
+                            <div class="form-group">
+                                <label>Insérer une image du concours</label>
+                                <input type="file" name="imgConcours"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Date du concours</label>
+                                <input type="date" name="dateConcours" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Decription</label>
+                                <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            </div>
+                            <button class="btn btn-nozon" id="btnModifier">Modifier l'édition</button>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
 
 
             <div id="page_equipe" class="page">
                 <h3>L'équipe</h3>
-                <form>
-                    <div id="modEquipe">
+                <div class="row">
+                    
+                    <div class="administration" id="creerEquipe">
+                        <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-membre">Créer un membre</button>
+                    </div>
+                    <form class="form-add-membre">
+                    <!--
+                        <select name="nbrMembres" id="nbrMembres" class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    -->
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="form-control" placeholder="Nom">
+                            <label>Prénom</label>
+                            <input type="text" class="form-control" placeholder="Prénom"/>
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="email@email.com" />
+                            <label>Fonction</label>
+                            <input type="text" class="form-control" placeholder="fonctions" />
+                            <label>Département</label>
+                            <input type="text" class="form-control" placeholder="Département" />
+                            <label>Année(s) d'étude</label>
+                            <input type="number" class="form-control" placeholder="2 ans" />
+                            <label>Insérer une image</label>
+                            <input type="file" name="imgMembre"/>
+                            <label>Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            <button class="btn btn-nozon" id="btnCreer">Ajouter membre</button>
+                        </div>
+                    </form>
+                    <div class="administration" id="modEquipe">
                         <h4>Modifier un membre</h4>
-                        <div>
-                            <img src=""/>
-                            <p>Sami Othmane</p>
-                            <p>sami.othmane@hieg-vd.ch</p>
-                            <p>Etudiant</p>
-                            <p>Département Comem</p>
-                            <p>2ème année</p>
-                            <p>blablablablalblablalblllablablalblabla</p>
-                            <button class="btn btn-default btnModMembre">Modifier</button>
-                        </div> 
+                        <div class="row">
+                            <ul class="liste" id="liste-memmbre">
+                                <li><button type="button" id="year" class="btn btn-default membre">Antoine Lot</button></li>
+                                <li><button type="button" id="year" class="btn btn-default membre">Christophe Baer</button></li>
+                                <li><button type="button" id="year" class="btn btn-default membre">Sami othmane</button></li>
+                                <li><button type="button" id="year" class="btn btn-default membre">Philippe Spat</button></li>
+                            </ul>
+                        </div>
+                        <form class="form-mod-membre">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" placeholder="Nom">
+                                <label>Prénom</label>
+                                <input type="text" class="form-control" placeholder="Prénom"/>
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="email@email.com" />
+                                <label>Fonction</label>
+                                <input type="text" class="form-control" placeholder="fonctions" />
+                                <label>Département</label>
+                                <input type="text" class="form-control" placeholder="Département" />
+                                <label>Année(s) d'étude</label>
+                                <input type="number" class="form-control" placeholder="2 ans" />
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgMembre"/>
+                                <label>Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            </div>
+                            <button class="btn btn-nozon" id="btnModifierMembre">Modifier le membre</button>
+                        </form>
                     </div>
-                    <div class="form-group" id="addEquipe">
-                        <h4>Ajouter un membre</h4>
-                        <label>Nom</label>
-                        <input type="text" class="form-control"/>
-                        <label>Prénom</label>
-                        <input type="text" class="form-control"/>
-                        <label>Email</label>
-                        <input type="email" class="form-control"/>
-                        <label>Fonction</label>
-                        <input type="text" class="form-control"/>
-                        <label>Département</label>
-                        <input type="text" class="form-control"/>
-                        <label>Année(s) d'étude</label>
-                        <input type="number" class="form-control"/>
-                        <label>Insérer une image</label>
-                        <input type="file" name="imgMembre"/>
-                        <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
-                        <button class="btn btn-default btnAddMembre">Ajouter</button>
-                    </div>
-                </form>
+                </div>
             </div>
 
 
             <div id="page_equipeSec" class="page">
                 <h3>L'équipe secondaire</h3>
-                <form>
-                    <div id="modEquipeSec">
+                <div class="row">
+                    
+                    <div class="administration" id="creerEquipe">
+                        <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-membre">Créer un membre</button>
+                    </div>
+                    <form class="form-add-membre">
+                    <!--
+                        <select name="nbrMembres" id="nbrMembres" class="form-control">
+                          <option>1</option>
+                          <option>2</option>
+                          <option>3</option>
+                          <option>4</option>
+                          <option>5</option>
+                        </select>
+                    -->
+                        <div class="form-group">
+                            <label>Nom</label>
+                            <input type="text" class="form-control" placeholder="Nom">
+                            <label>Prénom</label>
+                            <input type="text" class="form-control" placeholder="Prénom"/>
+                            <label>Email</label>
+                            <input type="email" class="form-control" placeholder="email@email.com" />
+                            <label>Fonction</label>
+                            <input type="text" class="form-control" placeholder="fonctions" />
+                            <label>Département</label>
+                            <input type="text" class="form-control" placeholder="Département" />
+                            <label>Année(s) d'étude</label>
+                            <input type="number" class="form-control" placeholder="2 ans" />
+                            <label>Insérer une image</label>
+                            <input type="file" name="imgMembre"/>
+                            <label>Description</label>
+                            <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            <button class="btn btn-nozon" id="btnCreer">Ajouter membre</button>
+                        </div>
+                    </form>
+
+                    <div class="administration" id="modEquipe">
                         <h4>Modifier un membre</h4>
+                        <div class="row">
+                            <ul class="liste" id="liste-memmbre">
+                                <li><button type="button" id="year" class="btn btn-default membre">Antoine Lot</button></li>
+                                <li><button type="button" id="year" class="btn btn-default membre">Christophe Baer</button></li>
+                                <li><button type="button" id="year" class="btn btn-default membre">Sami othmane</button></li>
+                                <li><button type="button" id="year" class="btn btn-default membre">Philippe Spat</button></li>
+                            </ul>
+                        </div>
+                        <form class="form-mod-membre">
+                            <div class="form-group">
+                                <label>Nom</label>
+                                <input type="text" class="form-control" placeholder="Nom">
+                                <label>Prénom</label>
+                                <input type="text" class="form-control" placeholder="Prénom"/>
+                                <label>Email</label>
+                                <input type="email" class="form-control" placeholder="email@email.com" />
+                                <label>Fonction</label>
+                                <input type="text" class="form-control" placeholder="fonctions" />
+                                <label>Département</label>
+                                <input type="text" class="form-control" placeholder="Département" />
+                                <label>Année(s) d'étude</label>
+                                <input type="number" class="form-control" placeholder="2 ans" />
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgMembre"/>
+                                <label>Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            </div>
+                            <button class="btn btn-nozon" id="btnModifierMembre">Modifier le membre</button>
+                        </form>
                     </div>
-                    <div class="form-group" id="addEquipeSec">
-                        <h4>Ajouter un membre</h4>
-                        <label>Nom</label>
-                        <input type="text" class="form-control"/>
-                        <label>Prénom</label>
-                        <input type="text" class="form-control"/>
-                        <label>Email</label>
-                        <input type="email" class="form-control"/>
-                        <label>Fonction</label>
-                        <input type="text" class="form-control"/>
-                        <label>Département</label>
-                        <input type="text" class="form-control"/>
-                        <label>Année(s) d'étude</label>
-                        <input type="number" class="form-control"/>
-                        <label>Insérer une image</label>
-                        <input type="file" name="imgMembre"/>
-                        <label>Description</label>
-                        <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
-                        <button class="btn btn-default btnAddMembreSec">Ajouter</button>
-                    </div>
-                </form>
+                </div>
             </div>
 
 
             <div id="page_sponsors" class="page">
                 <h3>Les sponsors</h3>
-                <form>
+                <div class="row">
+                    <div class="administration" id="creerEdition">
+                        <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-sponsor">Ajouter un sponsor</button>
+                        <form class="form-add-sponsor">
+                            <div class="form-group">
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgSponsors"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Categorie</label>
+                                <select class="form-control">
+                                    <option>Principal</option>
+                                    <option>Or</option>
+                                    <option>Argent</option>
+                                    <option>Bronze</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btnd-nozon btnAddSponsors">Ajouter</button>
+                            </div>
+                            <div class="form-group">
+                                <label>Ajouter une catégorie</label>
+                                <input type="text" class="form-control">
+                                <button class="btn btn-nozon btnAddSponsorsCateg">Ajouter</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <div id="modSponsors">
-                        <h4>Modifier les sponsors</h4>
+                        <h4><button type="button" id="year" class="btn btn-default sponsor">Modifier un sponsor</button></h4>
+                        <div id="listeSponsor">
+                            <div class="row">
+                                <div class="grid sponsor-description">
+                                    <h2>Principal</h2>
+                                    <div class="col-md-12">
+                                        <div class="icone-modif-sponsor">
+                                            <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                        </div>
+                                        <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                    </div>
+                                    <h2>Or</h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/sponsor.gif"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                    </div>
+                                    <h2>Argent</h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/sponsor.gif"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                    </div>
+                                    <h2>Bronze</h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/sponsor.gif"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-sponsor" href="#modifierLeSponsor"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="form-mod-sponsor" id="modifierLeSponsor">
+                            <div class="form-group">
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgSponsors"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Categorie</label>
+                                <select class="form-control">
+                                    <option>Principal</option>
+                                    <option>Or</option>
+                                    <option>Argent</option>
+                                    <option>Bronze</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btnd-nozon btnAddSponsors">Ajouter</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group" id="addSponsors">
-                        <h4>Ajouter un sponsors</h4>
-                        <label>Insérer une image</label>
-                        <input type="file" name="imgSponsors"/>
-                        <label>Categorie</label>
-                        <select class="form-control">
-                            <option>Principal</option>
-                            <option>Or</option>
-                            <option>Argent</option>
-                            <option>Bronze</option>
-                        </select>
-                        <button class="btn btn-default btnAddSponsors">Ajouter</button>
-                        <label>Ajouter une catégorie</label>
-                        <input type="text" class="form-control">
-                        <button class="btn btn-default btnAddSponsorsCateg">Ajouter</button>
-                    </div>
-                </form>
+                </div>
             </div>
 
 
             <div id="page_medias" class="page">
                 <h3>Les médias</h3>
-                <form>
-                    <div id="addMedia">
-                        <h4>Ajouter des médias</h4>
-                        <label>Insérer une image</label>
-                        <input type="file" name="imgMedias"/>
-                        <label>Insérer une vidéo</label>
-                        <input type="file" name="vidMedias"/>
-                        <button class="btn btn-default btnAddMedia">Ajouter</button>
+                <div class="row">
+                    <div class="administration" id="creerEdition">
+                        <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-media">Ajouter un médias</button>
+                        <form class="form-add-media">
+                            <div class="form-group" id="media">
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgMedias"/>
+                                <button class="btn btn-default btnAddMediaImg">Ajouter photo</button>
+                            </div>
+                            
+                            <div class="form-group" id="media">
+                                <label>Insérer une vidéo</label>
+                                <input type="file" name="vidMedias"/>
+                                <button class="btn btn-default btnAddMediaVideo">Ajouter vidéo</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
-                <h4>Les photos</h4>
-                <h4>Les vidéos</h4>
+
+                    <div id="modMedia">
+                        <h4><button type="button" id="year" class="btn btn-default media">Modifier un média</button></h4>
+                        <div id="listeMedia">
+                            <div class="row">
+                                <div class="grid sponsor-description">
+                                    <h2>Vidéos</h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-media" href="#modifierLeMedia"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-media" href="#modifierLeMedia"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/sponsor.gif"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-media" href="#modifierLeMedia"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                    </div>
+                                    <h2>Argent</h2>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-media" href="#modifierLeMedia"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-media" href="#modifierLeMedia"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/sponsor.gif"/>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-media" href="#modifierLeMedia"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <form class="form-mod-media" id="modifierLeMedia">
+                            <div class="form-group" id="media">
+                                <label>Insérer un fichier</label>
+                                <input type="file" name="imgMedias"/>
+                                <button class="btn btn-default btnAddMediaImg">Modifier le média</button>
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
             </div>
+
 
 
             <div id="page_news" class="page">
                 <h3>Les news</h3>
-                <form>
-                    <div class="form-group" id="modNews">
-                        <h4>Modifier news</h4>
+                <div class="row">
+                    <div class="administration" id="creerEdition">
+                        <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-news">Ajouter une news</button>
+                        <form class="form-add-news">
+                            <div class="form-group">
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgNews"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Date de la news</label>
+                                <input type="date" class="form-control" name="dateNews"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Date de la news</label>
+                                <input type="date" class="form-control" name="dateNews"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Decription</label>
+                                <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default btnAddNews">Ajouter</button>
+                            </div>
+                        </form>
                     </div>
-                    <div id="addNews">
-                        <h4>Ajouter une news</h4>
-                        <label>Insérer une image</label>
-                        <input type="file" name="imgNews"/>
-                        <label>Date de la news</label>
-                        <input type="date" class="form-control" name="dateNews"/>
-                        <label>Titre de la news</label>
-                        <input type="text" class="form-control"/>
-                        <label>Decription</label>
-                        <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
-                        <button class="btn btn-default btnAddNews">Ajouter</button>
+
+                    <div id="modNews">
+                        <h4><button type="button" id="year" class="btn btn-default news">Modifier une news</button></h4>
+                        <div id="listeNews">
+                            <div class="row">
+                                <div class="grid sponsor-description">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <div class="news-description">
+                                                <h5 id="title-news">Titre</h5>
+                                            </div>
+                                            <div class="img-news">
+                                                <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                            </div>
+                                            <div class="nes-description">
+                                                <p id="date-news" type="date">12.03.2016</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <div class="news-description">
+                                                <h5 id="title-news">Titre</h5>
+                                            </div>
+                                            <div class="img-news">
+                                                <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                            </div>
+                                            <div class="nes-description">
+                                                <p id="date-news" type="date">12.03.2016</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="icone-modif-sponsor">
+                                                <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            </div>
+                                            <div class="news-description">
+                                                <h5 id="title-news">Titre</h5>
+                                            </div>
+                                            <div class="img-news">
+                                                <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
+                                            </div>
+                                            <div class="nes-description">
+                                                <p id="date-news" type="date">12.03.2016</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="form-mod-news" id="modifierLaNews">
+                            <form class="form-add-news">
+                            <div class="form-group">
+                                <label>Insérer une image</label>
+                                <input type="file" name="imgNews"/>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Date de la news</label>
+                                <input type="date" class="form-control" name="dateNews"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Date de la news</label>
+                                <input type="date" class="form-control" name="dateNews"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Decription</label>
+                                <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn-default btnAddNews">Modifier</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
 
 

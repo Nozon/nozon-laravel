@@ -177,14 +177,15 @@ h1, h2, h3, h4, h5 {
 /*----------------------------------------  MAIN-CONTENT -------------------------------------*/
 
 #main-content {
-  position: relative;
+  margin-top: 20%;
 
 }
 
 /*-------------------- SIDENAVE --------------------*/
-.nav-edition {
-  margin-top: 30vh;
-  transform: translateY(-70%);
+#main-sidenav {
+ position: fixed;
+  margin-left: 8%;
+  margin-top: -55%;
 }
 .nav-edition h4 {
   margin-left: -2.5%;
@@ -223,10 +224,12 @@ h1, h2, h3, h4, h5 {
 	0% {border: 4px outset rgb(238, 238, 238);}
 	100% {border: 4px inset rgb(238, 238, 238);}
 }
+/*
 .nav-edition-bar {
 	border-left: 4px solid rgba(238, 238, 238, 0.53);
 	margin-left: -11px;
 }
+*/
 .nav-edition-container-year {
 	padding-top: 30%;
 }
@@ -263,7 +266,7 @@ h1, h2, h3, h4, h5 {
   width: 900px;
 }
 .article {
-  margin-top: 40%;
+  margin-bootm: 5%;
 }
 .team-hydro-titre h1 {
   font-size: 3em;
@@ -290,7 +293,6 @@ h1, h2, h3, h4, h5 {
 
 }
 .team-description {
-  position: absolute;
     /* padding: 5%; */
     /* height: 500px; */
     margin-left: -5%;
@@ -299,7 +301,7 @@ h1, h2, h3, h4, h5 {
 
 }
 #img-membre {
-  width: 50%;
+  width: 80%;
   border-radius: 2%;
   box-shadow: 1px 1px 12px #ddd;
 }
@@ -311,20 +313,21 @@ h1, h2, h3, h4, h5 {
   padding: 1%;
 }
 .membre-description {
-    position: relative;
+   position: relative;
     text-align: left;
     z-index: 6;
-    padding-bottom: 5%;
-    padding-top: 5%;
-    margin-right: 15%;
-    padding-right: 5%;
-    padding-left: 5%;
+    padding: 2%;
+    /* padding-bottom: 5%; */
+    /* padding-top: 5%; */
+    /* margin-right: 15%; */
+    /* padding-right: 3%; */
+    /* padding-left: 5%; */
     padding-left: -5%;
     /* padding-right: 50px; */
-    background-color: rgba(245, 245, 245, 0.91);
-    border-radius: 5%;
-    width: 50%;
-    margin-top: -65%;
+    background-color: rgba(245, 245, 245, 0.71);
+    border-radius: 0 0 5% 5%;
+    width: 80%;
+    margin-top: -58%;
 }
 .membre-description h5 {
   font-size: 1.1em;
@@ -357,7 +360,7 @@ h1, h2, h3, h4, h5 {
   padding: 1%;
 }
 #img-membre-soutien {
-  width: 50%;
+  width: 60%;
   border-radius: 2%;
   box-shadow: 1px 1px 12px #ddd;
 }
@@ -365,16 +368,17 @@ h1, h2, h3, h4, h5 {
     position: relative;
     text-align: left;
     z-index: 6;
-    padding-bottom: 5%;
-    padding-top: 5%;
-    margin-right: 15%;
-    padding-right: 5%;
-    padding-left: 5%;
+    padding: 1%;
+    /* padding-bottom: 5%; */
+    /* padding-top: 5%; */
+    /* margin-right: 15%; */
+    /* padding-right: 5%; */
+    /* padding-left: 5%; */
     padding-left: -5%;
     /* padding-right: 50px; */
     background-color: rgba(245, 245, 245, 0.91);
-    border-radius: 5%;
-    width: 50%;
+    border-radius: 0 0 5% 5%;
+    width: 60%;
     margin-top: -39%;
 }
 
