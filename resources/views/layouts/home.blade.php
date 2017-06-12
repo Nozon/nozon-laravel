@@ -135,23 +135,6 @@
 
         </div>
       </section>
-      <!--
-      <footer>
-        <div class="footer-container">
-          <div class="row">
-            <div class="col-md-4">
-              <h3>salut</h3>
-            </div>
-            <div class="col-md-4">
-              <h3>salut</h3>
-            </div>
-            <div class="col-md-4">
-              <h3>salut</h3>
-            </div>
-          </div>
-        </div>
-      </footer>
-      -->
-
   </body>
+  @include('layouts.partials.footer')
 </html>

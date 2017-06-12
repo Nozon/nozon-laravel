@@ -139,7 +139,7 @@ h1, h2, h3, h4, h5 {
   margin-top: 10px;
 }
 .compteur-titre {
-  margin-top 10px;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 .compteur-jours {
@@ -384,6 +384,8 @@ h1, h2, h3, h4, h5 {
   position: relative;
   background-color: #203c7f;
   text-align: center;
+  padding-right: 30%;
+  padding-left: 30%;
 }
 
 .sponsor-description{
@@ -405,8 +407,14 @@ h1, h2, h3, h4, h5 {
 #tabPresse td:nth-child(2){
     width: 15%;
 }
+#tabPresse p{
+    text-align: justify;
+}
 #tabPrix td:nth-child(1){
     width: 25%;
+}
+#tabPrix td:nth-child(2){
+    text-align: justify;
 }
 #tabPrix td{
     vertical-align: middle;
@@ -419,6 +427,30 @@ h1, h2, h3, h4, h5 {
     width: 150px;
     margin-right: 15px;
 }
+#tabNews td:nth-child(2){
+    text-align: justify;
+}
 #tabNews td:nth-child(1){
     width: 20%;
+}
+.concours-description{
+    text-align: center;
+}
+.concours-description p{
+    text-align: justify;
+}
+.concours-description img{
+    margin: 20px 0px;
+    width: 250px;
+    max-height: 300px;
+}
+.media-description{
+    text-align: center;
+}
+.media-description h2{
+    margin-bottom: 20px;
+}
+.media-description img{
+    width: 15%;
+    margin-bottom: 20px;
 }
