@@ -28,3 +28,5 @@ Route::group(['middleware' => 'MyAuth'], function() {
 });
 
 Route::resource('presse', 'PresseController');
+
+Route::resource('membre', 'MembreController');

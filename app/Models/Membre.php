@@ -14,7 +14,7 @@ class Membre extends Model
     public static $rules = [
         'nom' => ['required', 'string'],
         'prenom' => ['required', 'string'],
-        'email' => ['required', 'email']
+        'email' => ['required', 'email'],
     ];
 
     public static function getValidation(Request $request)
@@ -32,6 +32,7 @@ class Membre extends Model
             if (Membre::exists($inputs['email'])) {
                 $validator->errors()->add('exists', Message::get('membre.exists'));
             }
+
         });
         // Renvoi du validateur
         return $validator;

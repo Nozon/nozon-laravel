@@ -6,6 +6,7 @@ use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Membre;
 use Illuminate\Http\Request;
+use Illuminate\Facades\storage;
 
 class MembreController extends Controller {
 
@@ -36,16 +37,27 @@ class MembreController extends Controller {
      */
     public function store(Request $request) {
         // Récupération du validateur
-        $validate = Membre::getValidation($request);
+        $validateMembre = Membre::getValidation($request);
+
         // En cas d'échec de validation de Membre
-        if ($validate->fails()) {
+        if ($validateMembre->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+            return redirect()->back()->withInput()->withErrors($validateMembre);
         }
+
+        $validateMediaPhoto = Media::getValidationPhoto($request);
+
+
+        if ($validateMediaPhoto->fails()) {
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validateMembre);
+        }
+
+
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
-            Membre::createOne($validate->getData());
+            Membre::createOne($validateMembre->getData());
             // Message de succès, puis redirection vers la liste des membres
             Message::success('presse.saved');
             return redirect('presse');
@@ -96,6 +108,10 @@ class MembreController extends Controller {
      */
     public function destroy($id) {
         //
+    }
+
+    public function membreImageUpload($file) {
+
     }
 
 }

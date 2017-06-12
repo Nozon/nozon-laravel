@@ -11,27 +11,26 @@ use Illuminate\Support\Facades\Validator;
 class Media extends Model
 {
 
-    public static $rules = [
-        'url' => ['required', 'url'],
-        'titre' => ['required', 'string'],
-        'description' => ['required', 'string'],
-        //Comment obliger l'utilisateur à rentrer le bon type
-        'type' => ['required', 'regex:/photo/,/video/']
+    public static $rulesImage = [
+        'image' => 'required | mimes:jpeg,jpg,png | max:1000',
     ];
 
-    public static function getValidation(Request $request)
+    public static function getValidationPhoto(Request $request)
     {
         // Récupération des inputs
-        $inputs = $request->only('url', 'titre', 'description', 'type');
-        echo("Dans la fonction getValidation du Model: ");
-        echo(implode(" | ", $inputs));
-        echo("<br />");
+        $inputs = $request->only('image');
+
         // Création du validateur
-        $validator = Validator::make($inputs, Media::$rules);
-        // Ajout des contraintes supplémentaires
+        $validator = Validator::make($inputs, Media::$rulesImage);
+        // Si l'image n'est pas du bon format ou n'est pas de la bonne taille,
+        //le validator renvoie une erreur
+        if ($validator->fails) {
+          $validator->errors()->add('format','medias.format'));
+        }
+
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence du Media
-            if (MEdia::exists($inputs['url'])) {
+            if (Media::exists($inputs['url'])) {
                 $validator->errors()->add('exists', Message::get('media.exists'));
             }
         });
@@ -70,30 +69,30 @@ class Media extends Model
         return $this->hasMany('App/Models/media_profil');
 
     }
-    
+
     public function equipe_media(){
 
         return $this->hasMany('App/Models/equipe_media');
 
     }
-    
+
     public function concours_media(){
 
         return $this->hasMany('App/Models/concours_media');
 
     }
-    
+
     public function media_publication(){
 
         return $this->hasMany('App/Models/media_publication');
 
     }
-    
+
     public function media_sponsor(){
 
         return $this->hasMany('App/Models/media_sponsor');
 
     }
 
-    
+
 }
