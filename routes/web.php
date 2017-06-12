@@ -11,32 +11,23 @@
 |
 */
 
-
 Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
-
 
 Route::get('/', function () {
     return redirect('2017');
 });
 
-
 Route::get('/login', 'AuthController@login');
 Route::post('/auth/login', 'AuthController@check');
-
-
-Route::post('home', 'HomeController@index');
+Route::post('checkAuth', 'AuthController@check');
 
 Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/auth/logout', 'AuthController@logout');
     Route::get('/secure1', function () {
         return 'Je suis bien logué';
     });
-
-    Route::post('home', 'HomeController@index');
-
-
 });
 
-Route::resource('presse', 'PresseController');
 
+Route::resource('presse', 'PresseController');
 Route::resource('recompense', 'RecompenseController');
