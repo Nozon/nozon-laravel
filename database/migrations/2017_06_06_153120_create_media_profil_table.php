@@ -1,9 +1,7 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
 class CreateMediaProfilTable extends Migration
 {
     /**
@@ -22,7 +20,6 @@ class CreateMediaProfilTable extends Migration
             $table->index(['media_id','profil_id']);
         });
     }
-
     /**
      * Reverse the migrations.
      *

@@ -12,7 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'welcome';
+});
+
+Route::get('/login', 'AuthController@login');
+Route::post('checkAuth', 'AuthController@check');
+
+Route::group(['middleware' => 'MyAuth'], function() {
+    Route::get('/auth/logout', 'AuthController@logout');
+    Route::get('/secure1', function () {
+        return 'Je suis bien logué';
+    });
+
+
 });
 
 Route::resource('presse', 'PresseController');

@@ -1,8 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreatePressesTable extends Migration
+
+class CreateRessourcesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -11,17 +13,13 @@ class CreatePressesTable extends Migration
      */
     public function up()
     {
-        Schema::create('presses', function (Blueprint $table) {
+        Schema::create('ressources', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('url');
-            $table->string('titre');
-            $table->text('description');
-            $table->date('date');
-            $table->integer('edition_annee');
-            $table->foreign('edition_annee')->references('annee')->on('editions');
+            $table->string('nom')->unique();
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -29,6 +27,6 @@ class CreatePressesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('presses');
+        Schema::dropIfExists('ressources');
     }
 }
