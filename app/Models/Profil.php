@@ -20,8 +20,9 @@ class Profil extends Model
 
     public static function getValidation(Request $request)
     {
+
         // Récupération des inputs
-        $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude',
+        $inputs = $request->only('nom', 'prenom', 'email','fonction', 'description', 'departement', 'annee_etude',
                                  'equipe_id','membre_id');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
@@ -30,9 +31,18 @@ class Profil extends Model
         $validator = Validator::make($inputs, Profil::$rules);
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
-            // Vérification de la non-existence du Profil
-            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id'])) {
-                $validator->errors()->add('exists', Message::get('profil.exists'));
+            // Vérification de l'existence de l'equipe'
+            if (!Equipe::exists($inputs['equipe_id']) {
+                $validator->errors()->add('equipes', Message::get('equipes.missing'));
+            }
+            // Vérification de l'existence d'un membre correspondant
+            // SINON creation du mambre dans la BD
+            if (!Membre::exists($inputs['membre_id']) {
+                $validator->errors()->add('membres', Message::get('membres.missing'));
+            }
+            // Vérification de la non existence du profil
+            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id']) {
+                $validator->errors()->add('equipes', Message::get('equipes.exist'));
             }
         });
         // Renvoi du validateur
@@ -55,13 +65,15 @@ class Profil extends Model
         echo("Dans la fonction createOne: ");
         echo(implode(" | ", $values));
         echo("<br />");
-        $new = new Profil();
+        $newProfil = new Profil();
         // Définition des propriétés de Profil
-        $new->fonction = $values['fonction'];
-        $new->description = $values['description'];
-        $new->departement = $values['departement'];
-        $new->anneeEtude = $values['annee_etude'];
+
+        $newProfil->fonction = $values['fonction'];
+        $newProfil->description = $values['description'];
+        $newProfil->departement = $values['departement'];
+        $newProfil->anneeEtude = $values['annee_etude'];
         // Enregistrement de Profil
+        $newProfil->membres()->attach($values[])
         $new->save();
     }
 
@@ -70,13 +82,13 @@ class Profil extends Model
         return $this->belongsTo('App/Models/Membre');
 
     }
-    
+
     public function media_profil(){
 
         return $this->hasMany('App/Models/Media_profil');
 
     }
-    
+
     public function equipe(){
 
         return $this->belongsTo('App/Models/Equipe');

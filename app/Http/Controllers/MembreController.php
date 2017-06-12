@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Membre;
 use Illuminate\Http\Request;
 use Illuminate\Facades\storage;
+use App\Models\Media;
 
 class MembreController extends Controller {
 
@@ -26,7 +27,7 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('membre.create');
+        return view('pages.membre.create');
     }
 
     /**
@@ -45,22 +46,14 @@ class MembreController extends Controller {
             return redirect()->back()->withInput()->withErrors($validateMembre);
         }
 
-        $validateMediaPhoto = Media::getValidationPhoto($request);
-
-
-        if ($validateMediaPhoto->fails()) {
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validateMembre);
-        }
-
 
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
             Membre::createOne($validateMembre->getData());
             // Message de succès, puis redirection vers la liste des membres
-            Message::success('presse.saved');
-            return redirect('presse');
+            Message::success('membre.saved');
+            return redirect('membre');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
@@ -108,10 +101,6 @@ class MembreController extends Controller {
      */
     public function destroy($id) {
         //
-    }
-
-    public function membreImageUpload($file) {
-
     }
 
 }

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Profil;
+use App\Models\Equipe;
+use App\Models\Membre;
 use Illuminate\Http\Request;
 
 class ProfilController extends Controller {
@@ -35,9 +37,9 @@ class ProfilController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Profil
+
         $validate = Profil::getValidation($request);
-        // En cas d'échec de validation
+
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);

@@ -29,5 +29,13 @@ class ACLSeeder extends Seeder
         $moderator = new \App\Models\Groupe();
         $moderator->name = 'moderateur';
         $moderator->save();
+
+        $equipe2017 = new \App\Models\Equipe();
+        $equipe2017->nom = "TEAM HEIG 2017";
+        $equipe2017->edition_annee = '2017';
+        $equipe2017->description ='bléabkiohbeouigheogefh';
+        $equipe2017->type = 'principal';
+        $equipe2017->save();
+
     }
 }
