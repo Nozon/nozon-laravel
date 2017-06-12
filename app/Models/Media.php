@@ -8,30 +8,31 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
-class Presse extends Model
+class Media extends Model
 {
 
     public static $rules = [
-        'url' => ['required', 'string'],
+        'url' => ['required', 'url'],
         'titre' => ['required', 'string'],
         'description' => ['required', 'string'],
-        'date' => ['required', 'date']
+        //Comment obliger l'utilisateur à rentrer le bon type
+        'type' => ['required', 'regex:/photo/,/video/']
     ];
 
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
-        $inputs = $request->only('url', 'titre', 'description', 'date');
+        $inputs = $request->only('url', 'titre', 'description', 'type');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
         echo("<br />");
         // Création du validateur
-        $validator = Validator::make($inputs, Presse::$rules);
+        $validator = Validator::make($inputs, Media::$rules);
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
-            // Vérification de la non-existence du Presse
-            if (Presse::exists($inputs['url'])) {
-                $validator->errors()->add('exists', Message::get('presse.exists'));
+            // Vérification de la non-existence du Media
+            if (MEdia::exists($inputs['url'])) {
+                $validator->errors()->add('exists', Message::get('media.exists'));
             }
         });
         // Renvoi du validateur
@@ -42,8 +43,7 @@ class Presse extends Model
     public static function exists($url)
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour cette url
-        // Faire pareil pour les autres classes en vérifiant les clés primaires
-        return Presse::where('url', $url)->first() !== null;
+        return Media::where('url', $url)->first() !== null;
     }
 
     /**
@@ -51,24 +51,49 @@ class Presse extends Model
      * @param array $values
      */
     public static function createOne(array $values) {
-        // Création d'une nouvelle instance de Presse
+        // Création d'une nouvelle instance de Media
         echo("Dans la fonction createOne: ");
         echo(implode(" | ", $values));
         echo("<br />");
-        $new = new Presse();
-        // Définition des propriétés de Presse
+        $new = new Media();
+        // Définition des propriétés de Media
         $new->url = $values['url'];
         $new->titre = $values['titre'];
         $new->description = $values['description'];
-        $new->date = $values['date'];
-        // Enregistrement de Presse
+        $new->date = $values['type'];
+        // Enregistrement de Media
         $new->save();
     }
 
-     public function edition(){
+    public function media_profil(){
 
-        return $this->belongsTo('App/Models/Edition');
+        return $this->hasMany('App/Models/media_profil');
+
+    }
+    
+    public function equipe_media(){
+
+        return $this->hasMany('App/Models/equipe_media');
+
+    }
+    
+    public function concours_media(){
+
+        return $this->hasMany('App/Models/concours_media');
+
+    }
+    
+    public function media_publication(){
+
+        return $this->hasMany('App/Models/media_publication');
+
+    }
+    
+    public function media_sponsor(){
+
+        return $this->hasMany('App/Models/media_sponsor');
 
     }
 
+    
 }
