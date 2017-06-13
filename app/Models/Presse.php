@@ -15,7 +15,7 @@ class Presse extends Model
         'url' => ['required', 'string'],
         'titre' => ['required', 'string'],
         'description' => ['required', 'string'],
-        'date' => ['required', 'string']
+        'date' => ['required', 'date']
     ];
 
     public static function getValidation(Request $request)
@@ -61,8 +61,6 @@ class Presse extends Model
         $new->titre = $values['titre'];
         $new->description = $values['description'];
         $new->date = $values['date'];
-        // edition_annee : à remplacer une fois que les Model/Controller d'Edition sont faits
-        $new->edition_annee = '2017';
         // Enregistrement de Presse
         $new->save();
     }

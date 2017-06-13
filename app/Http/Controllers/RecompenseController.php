@@ -46,7 +46,7 @@ class RecompenseController extends Controller {
         try {
             // Tentative d'enregistrement de Recompense
             Recompense::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des recompenses
+            //Message de succès, puis redirection vers la liste des recompenses
             Message::success('recompense.saved');
             return redirect('recompense');
         } catch (\Exception $e) {
@@ -54,6 +54,7 @@ class RecompenseController extends Controller {
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
             return redirect()->back()->withInput();
+            return 'c est là!';
         }
     }
 

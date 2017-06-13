@@ -19,7 +19,7 @@ class Recompense extends Model
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
-        $inputs = $request->only('type', 'description');
+        $inputs = $request->only('type', 'description', 'equipe_id');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
         echo("<br />");
@@ -29,7 +29,7 @@ class Recompense extends Model
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence de Recompense
             if (Recompense::exists($inputs['type'], $inputs['description'], 
-                $['equipeID'])) {
+                $inputs['equipe_id'])) {
                 $validator->errors()->add('exists', Message::get('recompense.exists'));
             }
         });
@@ -38,12 +38,12 @@ class Recompense extends Model
     }
 
 
-    public static function exists($type, $description, $equipeID)
+    public static function exists($type, $description, $equipe_id)
     {
-        // Vérifie qu'il n'existe pas de ligne dans la BD pour cette url
+        // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
         // Faire pareil pour les autres classes en vérifiant les clés primaires
         return Recompense::where('type', $type)->where('description', $description)->
-                where('equipeID', $equipeID)->find() !== null;
+               where('equipe_id', $equipe_id)->first() !== null;
     }
 
     /**
@@ -59,7 +59,6 @@ class Recompense extends Model
         // Définition des propriétés de Recompense
         $new->type = $values['type'];
         $new->description = $values['description'];
-        // $new->equipeID = '1';
         // Enregistrement de Recompense
         $new->save();
     }

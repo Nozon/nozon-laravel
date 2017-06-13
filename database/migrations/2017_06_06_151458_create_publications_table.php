@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMembresTable extends Migration
+class CreatePublicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateMembresTable extends Migration
      */
     public function up()
     {
-        Schema::create('membres', function (Blueprint $table) {
+        Schema::create('publications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom');
-            $table->string('prenom');
-            $table->string('email')->unique();
+            $table->string('titre');
+            $table->text('texte');
             $table->timestamps();
+            $table->integer('edition_annee')->unsigned();
+            $table->index('edition_annee');
+            $table->foreign('edition_annee')->references('annee')->on('editions');
         });
     }
 
@@ -29,6 +31,6 @@ class CreateMembresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('membres');
+        Schema::dropIfExists('publications');
     }
 }

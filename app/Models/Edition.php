@@ -15,8 +15,8 @@ class Edition extends Model
         'annee' => ['required', 'integer'],
         'texte_presentation' => ['required', 'string'],
         'lieu' => ['required', 'string'],
-        'dateConcours' => ['required', 'date'],
-        'texteConcours' => ['required', 'string']
+        'date_concours' => ['required', 'date'],
+        'texteC_cncours' => ['required', 'string']
     ];
 
     public static function getValidation(Request $request)
@@ -31,7 +31,7 @@ class Edition extends Model
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence de Edition
-            if (Presse::exists($inputs['annee'])) {
+            if (Edition::exists($inputs['annee'])) {
                 $validator->errors()->add('exists', Message::get('edition.exists'));
             }
         });
@@ -60,8 +60,8 @@ class Edition extends Model
         $new->annee = $values['annee'];
         $new->texte_presentation = $values['texte_presentation'];
         $new->lieu = $values['lieu'];
-        $new->dateConcours = $values['dateConcours'];
-        $new->texteConcours = $values['texteConcours'];
+        $new->date_concours = $values['date_concours'];
+        $new->texte_concours = $values['texte_concours'];
 
         // Enregistrement de Edition
         $new->save();

@@ -18,7 +18,7 @@ class Niveau extends Model
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
-        $inputs = $request->only('valeur');
+        $inputs = $request->only('valeur', 'edition_annee', 'sponsor_nom');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
         echo("<br />");
@@ -27,7 +27,8 @@ class Niveau extends Model
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence du Niveau
-            if (Niveau::exists($inputs['valeur'])) {
+            if (Niveau::exists($inputs['edition_annee'], 
+               $inputs['sponsor_nom'])) {
                 $validator->errors()->add('exists', Message::get('niveau.exists'));
             }
         });
@@ -54,9 +55,6 @@ class Niveau extends Model
         $new = new Niveau();
         // Définition des propriétés de Niveau
         $new->valeur = $values['valeur'];
-        // edition_annee : à remplacer une fois que les Model/Controller d'Edition sont faits
-        $new->edition_annee = '2017';
-        $new->sponsor_nom = 'brüchtleflicken';
         // Enregistrement de Niveau
         $new->save();
     }

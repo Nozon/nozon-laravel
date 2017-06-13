@@ -47,8 +47,8 @@ class MembreController extends Controller {
             // Tentative d'enregistrement de Membre
             Membre::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des membres
-            Message::success('presse.saved');
-            return redirect('presse');
+            Message::success('membre.saved');
+            return redirect('membre');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');

@@ -31,7 +31,7 @@ class Media extends Model
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence du Media
-            if (Presse::exists($inputs['url'])) {
+            if (Media::exists($inputs['url'])) {
                 $validator->errors()->add('exists', Message::get('media.exists'));
             }
         });
@@ -47,7 +47,7 @@ class Media extends Model
     }
 
     /**
-     * Enregistre en base de données un nouveau Presse selon les $values donnés
+     * Enregistre en base de données un nouveau Media selon les $values donnés
      * @param array $values
      */
     public static function createOne(array $values) {

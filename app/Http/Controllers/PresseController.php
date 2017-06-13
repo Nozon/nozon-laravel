@@ -47,12 +47,11 @@ class PresseController extends Controller {
             // Tentative d'enregistrement de Presse
             Presse::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Presses
-            // Message::success('presse.saved');
+            Message::success('presse.saved');
             return redirect('presse');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
-            // Message::error('bd.error');
-            // Redirection vers le formulaire, avec inputs
+            Message::error('bd.error');
             return redirect()->back()->withInput();
         }
     }
@@ -85,7 +84,36 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        
+      //Modifications de la publication
+         $rules = array(
+
+        'url' => 'required', 'string',
+        'titre' => 'required', 'string',
+        'description' => 'required', 'string',
+        'date' => 'required', 'date'
+    );
+        $validator = Validator::make(Input::all(), $rules);
+
+        // process the login
+        if ($validate->fails()) {
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+             }
+        else {
+            // store
+            $presse = Nerd::find($id);
+            $presse->url         = Input::get('url');
+            $presse->titre       = Input::get('titre');
+            $presse->description = Input::get('description');
+            $presse->date        = Input::get('date');
+            $presse->save();
+            
+            //Il faudra ajouter un mesage ici
+            // redirect
+            //Session::flash('message', 'Successfully updated nerd!');
+            //return Redirect::to('nerds');
+        }
     }
 
     /**

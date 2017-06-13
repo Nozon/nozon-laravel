@@ -23,13 +23,8 @@ class Publication extends Model {
         echo("<br />");
         // Création du validateur
         $validator = Validator::make($inputs, Publication::$rules);
-        // Ajout des contraintes supplémentaires
-        $validator->after(function ($validator) use ($inputs) {
-            // Vérification de la non-existence du Presse
-            if (Publication::exists($inputs['titre'], $inputs['texte'], $inputs['edition_annee'])) {
-                $validator->errors()->add('exists', Message::get('publication.exists'));
-            }
-        });
+        // Pas d'ajout de contraintes pour les publications.
+        
         // Renvoi du validateur
         return $validator;
     }
@@ -54,7 +49,6 @@ class Publication extends Model {
         $new->titre = $values['titre'];
         $new->texte = $values['texte'];
         $new->date = $values['date'];
-        $new->edition_annee = '2017';
         // Enregistrement de Publication
         $new->save();
     }

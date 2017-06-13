@@ -40,7 +40,7 @@ class Membre extends Model
 
     public static function exists($email)
     {
-        // Vérifie qu'il n'existe pas de ligne dans la BD pour cette email
+        // Vérifie qu'il n'existe pas de ligne dans la BD pour cet email
         return Membre::where('email', $email)->first() !== null;
     }
 
@@ -49,7 +49,7 @@ class Membre extends Model
      * @param array $values
      */
     public static function createOne(array $values) {
-        // Création d'une nouvelle instance de Presse
+        // Création d'une nouvelle instance de Membre
         echo("Dans la fonction createOne: ");
         echo(implode(" | ", $values));
         echo("<br />");

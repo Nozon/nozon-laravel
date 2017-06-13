@@ -15,13 +15,14 @@ class Profil extends Model
         'fonction' => ['required', 'string'],
         'description' => ['required', 'string'],
         'departement' => ['required', 'string'],
-        'anneeEtude' => ['required', 'integer']
+        'annee_etude' => ['required', 'integer']
     ];
 
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
-        $inputs = $request->only('fonction', 'description', 'departement', 'anneeEtude');
+        $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude',
+                                 'equipe_id','membre_id');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
         echo("<br />");
@@ -30,7 +31,7 @@ class Profil extends Model
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence du Profil
-            if (Profil::exists($inputs['equipeID'], $inputs['membreID'])) {
+            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id'])) {
                 $validator->errors()->add('exists', Message::get('profil.exists'));
             }
         });
@@ -39,10 +40,10 @@ class Profil extends Model
     }
 
 
-    public static function exists($euipqID, $membreID)
+    public static function exists($equipe_id, $membre_id)
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
-        return Profil::where('equipeID', $equipeID)->where('membreID', $membreID)->find() !== null;
+        return Profil::where('equipe_id', $equipe_id)->where('membre_id', $membre_id)->find() !== null;
     }
 
     /**
@@ -59,10 +60,7 @@ class Profil extends Model
         $new->fonction = $values['fonction'];
         $new->description = $values['description'];
         $new->departement = $values['departement'];
-        $new->anneeEtude = $values['anneeEtude'];
-        // Ici on entre les clés étrangères associées à une valeur arbitraire
-        $new->equipeID = '1';
-        $new->membreID = '1';
+        $new->anneeEtude = $values['annee_etude'];
         // Enregistrement de Profil
         $new->save();
     }

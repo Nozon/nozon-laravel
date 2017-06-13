@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNiveauxTable extends Migration
+class CreateEquipesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateNiveauxTable extends Migration
      */
     public function up()
     {
-        Schema::create('niveaux', function (Blueprint $table) {
+        Schema::create('equipes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('edition_annee');
-            $table->integer('sponsor_nom');
-            $table->enum('valeur', ['principal', 'or', 'argent', 'bronze']);
-            $table->timestamps();
+            $table->string('nom');
+            $table->integer('edition_annee')->unsigned();
+            $table->text('description');
+            $table->enum('type', ['principal', 'secondaire']);
+            $table->index('edition_annee');
             $table->foreign('edition_annee')->references('annee')->on('editions');
-            $table->foreign('sponsor_nom')->references('nom')->on('sponsors');
-            $table->index(['edition_annee','sponsor_nom']);
+            $table->timestamps();
         });
     }
 
@@ -32,6 +32,6 @@ class CreateNiveauxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('niveaux');
+        Schema::dropIfExists('equipes');
     }
 }

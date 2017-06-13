@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEditionsTable extends Migration
+class CreateGroupesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateEditionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('editions', function (Blueprint $table) {
+        Schema::create('groupes', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('annee')->unsigned()->unique();
-            $table->text('textePresentation');
-            $table->text('texteConcours');
-            $table->string('lieu');
-            $table->date('dateConcours');
+            $table->string('name')->unique();
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateEditionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('editions');
+        Schema::dropIfExists('groupes');
     }
 }

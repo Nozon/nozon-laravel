@@ -43,7 +43,7 @@ class Equipe extends Model
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ce type et cette 
         // année d'édition
-        return Equipe::where('type', $type)->where('edition_annee', $edition_annee)->find() !== null;
+        return Equipe::where('type', $type)->where('edition_annee', $edition_annee)->first() !== null;
     }
 
     /**
@@ -60,8 +60,7 @@ class Equipe extends Model
         $new->nom = $values['nom'];
         $new->description = $values['description'];
         $new->type = $values['type'];
-        // edition_annee : à remplacer une fois que les Model/Controller d'Edition sont faits
-        $new->edition_annee = '2017';
+        $new->date = $values['date'];
         // Enregistrement de Equipe
         $new->save();
     }
