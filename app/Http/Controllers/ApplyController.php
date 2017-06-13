@@ -33,7 +33,7 @@ public function upload() {
     }
     else {
       // sending back with error message.
-      Message::error('image.exists');
+      Message::error('image.problem');
       return Redirect::to('upload');
     }
   }

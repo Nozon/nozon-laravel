@@ -95,7 +95,14 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $publication = Publication::find($id);
+        $publication->delete();
+
+        // redirect
+        Message::success('publication.delete');
+        return Redirect::to('publication');
+        
     }
 
 }

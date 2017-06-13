@@ -103,20 +103,20 @@ class PresseController extends Controller {
              }
         else {
             // store
-            $presse = Nerd::find($id);
+            $presse = Presse::find($id);
             $presse->url         = Input::get('url');
             $presse->titre       = Input::get('titre');
             $presse->description = Input::get('description');
             $presse->date        = Input::get('date');
             $presse->save();
             
-            Message::success('presse.saved');
+            Message::success('presse.update');
             
             
             //Il faudra ajouter un mesage ici
             // redirect
             //Session::flash('message', 'Successfully updated nerd!');
-            //return Redirect::to('nerds');
+            //return Redirect::to('presse');
         }
     }
 
@@ -127,7 +127,14 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $presse = Presse::find($id);
+        $presse->delete();
+
+        // redirect
+        Message::success('presse.delete');
+        return Redirect::to('presse');
+        
     }
 
 }

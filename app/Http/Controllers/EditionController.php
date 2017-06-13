@@ -95,6 +95,13 @@ class EditionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $edition = Edition::find($id);
+        $edition->delete();
+
+        // redirect
+        Message::success('edition.delete');
+        return Redirect::to('edition');
+        
     }
 }

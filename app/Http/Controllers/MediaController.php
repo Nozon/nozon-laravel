@@ -95,7 +95,14 @@ class MediaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $media = Media::find($id);
+        $media->delete();
+
+        // redirect
+        Message::success('media.delete');
+        return Redirect::to('media');
+        
     }
 
 }
