@@ -20,13 +20,15 @@ Route::post('checkAuth', 'AuthController@check');
 
 Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/auth/logout', 'AuthController@logout');
-    Route::get('/secure1', function () {
-        return 'Je suis bien logué';
+    Route::get('/admin/{annee}', function ($annee) {
+        Session::put('edition_annee', $annee);
     });
+
+
 
 
 });
 
 Route::resource('presse', 'PresseController');
-
+Route::resource('profil', 'ProfilController');
 Route::resource('membre', 'MembreController');

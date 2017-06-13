@@ -61,6 +61,10 @@ class Membre extends Model
         $new->email = $values['email'];
         // Enregistrement de Membre
         $new->save();
+        // Nous recuperons l'id du membre créé a partir de son email
+        $membre = Membre::where('email', $values['email'])->first();
+
+        return ($membre->id);
     }
 
     public function profil(){

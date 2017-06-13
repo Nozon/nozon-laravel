@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 use Illuminate\Database\Seeder;
 
 class ACLSeeder extends Seeder
@@ -23,19 +25,27 @@ class ACLSeeder extends Seeder
         $user1->motDePasse = bcrypt('123456');
         $user1->save();
         //Creation des groupes
-        $admin = new \App\Models\Groupe();
+        $admin = new Groupe();
         $admin->name = 'admin';
         $admin->save();
-        $moderator = new \App\Models\Groupe();
+
+        $moderator = new Groupe();
         $moderator->name = 'moderateur';
         $moderator->save();
 
-        $equipe2017 = new \App\Models\Equipe();
+        $equipe2017 = new Equipe();
         $equipe2017->nom = "TEAM HEIG 2017";
         $equipe2017->edition_annee = '2017';
         $equipe2017->description ='bléabkiohbeouigheogefh';
         $equipe2017->type = 'principal';
         $equipe2017->save();
+
+        $equipe2017c = new Equipe();
+        $equipe2017c->nom = "TEAM HEIG com 2017";
+        $equipe2017c->edition_annee = '2017';
+        $equipe2017c->description ='dedededededeqwdwefewfwefwefheogefh';
+        $equipe2017c->type = 'secondaire';
+        $equipe2017c->save();
 
     }
 }

@@ -98,4 +98,6 @@ class EquipeController extends Controller {
         //
     }
 
+
+
 }

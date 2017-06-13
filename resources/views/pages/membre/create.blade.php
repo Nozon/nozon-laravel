@@ -2,7 +2,7 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Enregistrer presse</title>
+        <title>Enregistrer Membre</title>
     </head>
     <body>
         @if (session('error'))
@@ -10,8 +10,10 @@
         @endif
         <form method="POST" action="{{ url('membre') }}">
             {{ csrf_field() }}
+            <input type="checkbox" name="dejamembre" value="Bike"> Deja membre<br>
+
             <label for="Nom">Nom</label>
-            <input type="text" placeholder="Nom" name="Nom" value="{{ old('nom') }}">
+            <input type="text" placeholder="nom" name="nom" value="{{ old('nom') }}">
 
             <label for="prenom">Prenom</label>
             <input type="text" placeholder="prenom" name="prenom" value="{{ old('prenom') }}">

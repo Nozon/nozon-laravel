@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Membre;
+use App\Models\Profl;
 use Illuminate\Http\Request;
 use Illuminate\Facades\storage;
 use App\Models\Media;
@@ -18,7 +19,7 @@ class MembreController extends Controller {
      */
     public function index() {
         $membre = Membre::all();
-        return view('membre/index')->with('membre', $membre);
+        return view('pages.membre.index')->with('membre', $membre);
     }
 
     /**
@@ -38,28 +39,33 @@ class MembreController extends Controller {
      */
     public function store(Request $request) {
         // Récupération du validateur
-        $validateMembre = Membre::getValidation($request);
-
+        $validate = Membre::getValidation($request);
+        echo "methode store ";
         // En cas d'échec de validation de Membre
-        if ($validateMembre->fails()) {
+        if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validateMembre);
+
+            return redirect()->back()->withInput()->withErrors($validate);
         }
-
-
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
-            Membre::createOne($validateMembre->getData());
+            $membre_id = Membre::createOne($validate->getData());
+            $edition_annee = Session::get('edition_annee');
+            $equipe_id = 
             // Message de succès, puis redirection vers la liste des membres
             Message::success('membre.saved');
-            return redirect('membre');
+
+            ProfilController::store($request, $membre_id, $equipe_id);
+            return $membreid;
+            //return redirect('membre');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
             return redirect()->back()->withInput();
         }
+
     }
 
     /**

@@ -36,7 +36,7 @@ class ProfilController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function store(Request $request, $membre_id, $equipe_i d) {
 
         $validate = Profil::getValidation($request);
 

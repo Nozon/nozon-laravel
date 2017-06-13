@@ -41,7 +41,7 @@ class Equipe extends Model
 
     public static function exists($type, $edition_annee)
     {
-        // Vérifie qu'il n'existe pas de ligne dans la BD pour ce type et cette 
+        // Vérifie qu'il n'existe pas de ligne dans la BD pour ce type et cette
         // année d'édition
         return Equipe::where('type', $type)->where('edition_annee', $edition_annee)->first() !== null;
     }
@@ -65,24 +65,29 @@ class Equipe extends Model
         $new->save();
     }
 
+    public function Getid(){
+
+       return $this->id;
+
+     }
      public function Recompense(){
 
         return $this->hasMany('App/Models/Recompense');
 
     }
-    
+
      public function Profil(){
 
         return $this->hasMany('App/Models/Profil');
 
     }
-    
+
      public function equipe_media(){
 
         return $this->hasMany('App/Models/equipe_media');
 
     }
-    
+
      public function Edition(){
 
         return $this->belongsTo('App/Models/Edition');
