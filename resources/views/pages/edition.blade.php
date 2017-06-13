@@ -23,7 +23,7 @@
               <!-- NEWS -->
               
               <!-- FIN NEWS -->
-              @include('pages.prix.prix')
-              @include('pages.presse.presse')
+              @include('pages.index.prix')
+              @include('pages.index.presse')
             </div>
 @endsection
