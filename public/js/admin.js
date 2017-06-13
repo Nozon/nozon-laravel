@@ -12,6 +12,9 @@ $(function () {
     $(".form-add-news").hide();
     $("#listeNews").hide();
     $(".form-mod-news").hide();
+    $(".form-add-press").hide();
+    $("#listePress").hide();
+    $(".form-mod-press").hide();
     menuHandler();
     $(".container").on("click", "header.online .connection", function () {
         switchPageWithHistory('synch');
@@ -87,6 +90,26 @@ $(function () {
         // afficher form
     $(".modif-news").click(function () {
         $('.form-mod-news').show();
+        var page = $(this).attr('href'); // Page cible
+        var speed = 750; // Durée de l'animation (en ms)
+        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        return false;
+    });
+
+    // ajout press
+     $(".btn-add-press").click(function () {
+        $('.form-add-press').toggle();
+    });
+
+    // modif news
+        // afficher liste
+    $(".press").click(function () {
+        $('#listePress').toggle();
+        $('.form-mod-press').hide();
+    });
+        // afficher form
+    $(".modif-press").click(function () {
+        $('.form-mod-press').show();
         var page = $(this).attr('href'); // Page cible
         var speed = 750; // Durée de l'animation (en ms)
         $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go

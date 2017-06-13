@@ -321,6 +321,9 @@ ul, li {
   background-color: rgba(204, 204, 204, 0.66);
   border-radius: 1px;
 }
+#menu-admin > li > a:focus {
+  background-color: #77839f;
+}
 .link-active {
   color: #337ab7;
   border-radius: 1px;
