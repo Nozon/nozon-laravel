@@ -47,7 +47,7 @@ class SponsorController extends Controller {
             // Tentative d'enregistrement de Sponsor
             Sponsor::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Sponsors
-            Message::success('sponsor.saved');
+            Message::success('sponsor.create');
             return redirect('sponsor');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur

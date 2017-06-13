@@ -47,7 +47,7 @@ class PresseController extends Controller {
             // Tentative d'enregistrement de Presse
             Presse::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Presses
-            Message::success('presse.saved');
+            Message::success('presse.create');
             return redirect('presse');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
@@ -95,8 +95,9 @@ class PresseController extends Controller {
     );
         $validator = Validator::make(Input::all(), $rules);
 
-        // process the login
+        
         if ($validate->fails()) {
+            Message::error('presse.exists');
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
              }
@@ -108,6 +109,9 @@ class PresseController extends Controller {
             $presse->description = Input::get('description');
             $presse->date        = Input::get('date');
             $presse->save();
+            
+            Message::success('presse.saved');
+            
             
             //Il faudra ajouter un mesage ici
             // redirect

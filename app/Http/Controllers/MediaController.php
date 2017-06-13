@@ -47,7 +47,7 @@ class MediaController extends Controller {
             // Tentative d'enregistrement de Media
             Media::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Medias
-            Message::success('media.saved');
+            Message::success('media.create');
             return redirect('media');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur

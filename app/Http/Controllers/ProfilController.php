@@ -47,7 +47,7 @@ class ProfilController extends Controller {
             // Tentative d'enregistrement de Profil
             Profil::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des profils
-            Message::success('profil.saved');
+            Message::success('profil.create');
             return redirect('profil');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur

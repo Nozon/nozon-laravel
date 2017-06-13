@@ -47,7 +47,7 @@ class PublicationController extends Controller {
             // Tentative d'enregistrement de Publication
             Publication::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Publications
-            Message::success('publication.saved');
+            Message::success('publication.create');
             return redirect('publication');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur

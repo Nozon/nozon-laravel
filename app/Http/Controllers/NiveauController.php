@@ -47,7 +47,7 @@ class NiveauController extends Controller {
             // Tentative d'enregistrement de Niveau
             Niveau::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Niveaux
-            Message::success('niveau.saved');
+            Message::success('niveau.create');
             return redirect('niveau');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur

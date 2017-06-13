@@ -96,4 +96,10 @@ return [
       'update' => "Le sponsor a bien été modifié",
       'delete' => "Le sponsor a bien été supprimé",
     ],
+    
+    
+    'Sponsor' => [
+      'problem' => "Oups! Impossible de charger cette image",
+      'saved'  => "L'image a été chargée :)",
+    ],
 ];

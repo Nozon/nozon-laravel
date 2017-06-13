@@ -47,7 +47,7 @@ class EquipeController extends Controller {
             // Tentative d'enregistrement de Equipe
             Equipe::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Equipes
-            Message::success('equipe.saved');
+            Message::success('equipe.create');
             return redirect('equipe');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur

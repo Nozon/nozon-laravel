@@ -47,7 +47,7 @@ class EditionController extends Controller {
             // Tentative d'enregistrement de Edition
             Edition::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des edition
-            Message::success('edition.saved');
+            Message::success('edition.create');
             return redirect('edition');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
