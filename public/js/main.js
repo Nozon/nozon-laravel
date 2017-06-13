@@ -27,6 +27,10 @@ $(function () {
       } else {
             $('#main-sidenav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
+      // Devenir sponsor
+      $("#btn-dev").on('click', function() {
+          $("#devSponsor").toggleClass('hidden');
+      })
    });
     // smooth scroll
     $(".js-scrollTo").on('click', function() { // Au clic sur un élément
