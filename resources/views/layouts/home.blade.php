@@ -121,12 +121,15 @@
     </div>
     <section id="main-content">
 
+      @include('layouts.partials.nav')
+
       <div class="row pattern-overlay">
 
 
           
 
           <div id="content-pages">
+
             <!-- partie a templater -->
 
             @yield('content')
