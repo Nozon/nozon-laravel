@@ -39,6 +39,6 @@
               <!-- SPONSOR -->
               @include('pages.sponsor.index')
               <!-- FIN SPONSOR -->
-              
+
             </div>
 @endsection

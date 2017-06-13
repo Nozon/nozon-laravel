@@ -8,25 +8,20 @@
 
       <table class="table table-hover" id="tabPresse">
           <tbody>
+          
             <!--DEBUT TMPL-->
-            <tr>
-              <td>20 minutes</td>
-              <td>07.06.2016</td>
-              <td>
-                  <p>Voici un article qui tue sa mère, si tu veux le lire en entier clique sur le putin de bouton "Lire l'article" juste en dessous mamen !!! </p>
-                  <a href="http://www.20min.ch/ro/community/stories/story/L-ete-arrive--qu-est-ce-qui-vous-rejouit-le-plus--10470704" target="_blank">Lire l'article</a>
-              </td>
-            </tr>
-
-            <tr>
-              <td>La Région</td>
-              <td>08.06.2016</td>
-              <td>
-                  <p>Voici un article qui tue sa mère, si tu veux le lire en entier clique sur le putin de bouton "Lire l'article" juste en dessous mamen !!! </p>
-                  <a href="https://www.laregion.ch/hotel-dun-nouveau-genre-a-sports-5/" target="_blank">Lire l'article</a>
-              </td>
-            </tr>
+            @foreach($presses as $key => $value)
+                <tr>
+                    <td>{{ $value->titre}}</td>
+                    <td>{{ $value->date}}</td>
+                    <td>
+                        <p>{{ $value->description}}</p>
+                        <a href="{{ $value->url}}" target="_blank">Lire l'article</a>
+                    </td>
+                </tr>
+            @endforeach
             <!--FIN TMPL-->
+            
           </tbody>
         </table>
 

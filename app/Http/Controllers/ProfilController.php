@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Presse;
+use App\Models\Profil;
 use Illuminate\Http\Request;
 
-class PresseController extends Controller {
+class ProfilController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $presse = Presse::all();
-        return view('presse/index')->with('presse', $presse);
+        $profil = Profil::all();
+        return view('profil/index')->with('profil', $profil);
     }
 
     /**
@@ -25,7 +25,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('presse.create');
+        return view('profil.create');
     }
 
     /**
@@ -35,8 +35,8 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Presse
-        $validate = Presse::getValidation($request);
+        // Récupération du validateur de Profil
+        $validate = Profil::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
@@ -44,14 +44,15 @@ class PresseController extends Controller {
         }
         // En cas de succès de la validation
         try {
-            // Tentative d'enregistrement de Presse
-            Presse::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des Presses
-            Message::success('presse.create');
-            return redirect('presse');
+            // Tentative d'enregistrement de Profil
+            Profil::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des profils
+            Message::success('profil.create');
+            return redirect('profil');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
+            // Redirection vers le formulaire, avec inputs
             return redirect()->back()->withInput();
         }
     }
@@ -84,40 +85,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        
-      //Modifications de la publication
-         $rules = array(
-
-        'url' => 'required', 'string',
-        'titre' => 'required', 'string',
-        'description' => 'required', 'string',
-        'date' => 'required', 'date'
-    );
-        $validator = Validator::make(Input::all(), $rules);
-
-        
-        if ($validate->fails()) {
-            Message::error('presse.exists');
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
-             }
-        else {
-            // store
-            $presse = Presse::find($id);
-            $presse->url         = Input::get('url');
-            $presse->titre       = Input::get('titre');
-            $presse->description = Input::get('description');
-            $presse->date        = Input::get('date');
-            $presse->save();
-            
-            Message::success('presse.update');
-            
-            
-            //Il faudra ajouter un mesage ici
-            // redirect
-            //Session::flash('message', 'Successfully updated nerd!');
-            //return Redirect::to('presse');
-        }
+        //
     }
 
     /**
@@ -128,12 +96,12 @@ class PresseController extends Controller {
      */
     public function destroy($id) {
         
-        $presse = Presse::find($id);
-        $presse->delete();
+        $profil = Profil::find($id);
+        $profil->delete();
 
         // redirect
-        Message::success('presse.delete');
-        return Redirect::to('presse');
+        Message::success('profil.delete');
+        return Redirect::to('profil');
         
     }
 

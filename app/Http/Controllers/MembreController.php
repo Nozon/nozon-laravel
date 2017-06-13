@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Presse;
+use App\Models\Membre;
 use Illuminate\Http\Request;
 
-class PresseController extends Controller {
+class MembreController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $presse = Presse::all();
-        return view('presse/index')->with('presse', $presse);
+        $membre = Membre::all();
+        return view('membre/index')->with('membre', $membre);
     }
 
     /**
@@ -25,7 +25,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('presse.create');
+        return view('membre.create');
     }
 
     /**
@@ -35,23 +35,24 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Presse
-        $validate = Presse::getValidation($request);
-        // En cas d'échec de validation
+        // Récupération du validateur
+        $validate = Membre::getValidation($request);
+        // En cas d'échec de validation de Membre
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
         try {
-            // Tentative d'enregistrement de Presse
-            Presse::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des Presses
-            Message::success('presse.create');
-            return redirect('presse');
+            // Tentative d'enregistrement de Membre
+            Membre::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des membres
+            Message::success('membre.create');
+            return redirect('membre');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
+            // Redirection vers le formulaire, avec inputs
             return redirect()->back()->withInput();
         }
     }
@@ -85,32 +86,29 @@ class PresseController extends Controller {
      */
     public function update(Request $request, $id) {
         
-      //Modifications de la publication
+           //Modifications de la publication
          $rules = array(
-
-        'url' => 'required', 'string',
-        'titre' => 'required', 'string',
-        'description' => 'required', 'string',
-        'date' => 'required', 'date'
+        'nom'       => 'required', 'string',
+        'prenom'    => 'required', 'string',
+        'email'     => 'required', 'string'
     );
         $validator = Validator::make(Input::all(), $rules);
 
         
         if ($validate->fails()) {
-            Message::error('presse.exists');
+            Message::error('membre.exists');
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
              }
         else {
             // store
-            $presse = Presse::find($id);
-            $presse->url         = Input::get('url');
-            $presse->titre       = Input::get('titre');
-            $presse->description = Input::get('description');
-            $presse->date        = Input::get('date');
-            $presse->save();
+            $membre = Mebre::find($id);
+            $membre->nom        = Input::get('nom');
+            $membre->prenom     = Input::get('prenom');
+            $membre->email      = Input::get('email');
+            $membre->save();
             
-            Message::success('presse.update');
+            Message::success('membre.update');
             
             
             //Il faudra ajouter un mesage ici
@@ -118,6 +116,7 @@ class PresseController extends Controller {
             //Session::flash('message', 'Successfully updated nerd!');
             //return Redirect::to('presse');
         }
+        
     }
 
     /**
@@ -128,12 +127,12 @@ class PresseController extends Controller {
      */
     public function destroy($id) {
         
-        $presse = Presse::find($id);
-        $presse->delete();
+        $membre = Membre::find($id);
+        $membre->delete();
 
         // redirect
-        Message::success('presse.delete');
-        return Redirect::to('presse');
+        Message::success('membre.delete');
+        return Redirect::to('membre');
         
     }
 

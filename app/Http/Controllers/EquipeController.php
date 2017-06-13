@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Presse;
+use App\Models\Equipe;
 use Illuminate\Http\Request;
 
-class PresseController extends Controller {
+class EquipeController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $presse = Presse::all();
-        return view('presse/index')->with('presse', $presse);
+        $equipe = Equipe::all();
+        return view('equipe/index')->with('equipe', $equipe);
     }
 
     /**
@@ -25,7 +25,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('presse.create');
+        return view('equipe.create');
     }
 
     /**
@@ -35,8 +35,8 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Presse
-        $validate = Presse::getValidation($request);
+        // Récupération du validateur de Equipe
+        $validate = Equipe::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
@@ -44,14 +44,15 @@ class PresseController extends Controller {
         }
         // En cas de succès de la validation
         try {
-            // Tentative d'enregistrement de Presse
-            Presse::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des Presses
-            Message::success('presse.create');
-            return redirect('presse');
+            // Tentative d'enregistrement de Equipe
+            Equipe::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des Equipes
+            Message::success('equipe.create');
+            return redirect('equipe');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
+            // Redirection vers le formulaire, avec inputs
             return redirect()->back()->withInput();
         }
     }
@@ -84,40 +85,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        
-      //Modifications de la publication
-         $rules = array(
-
-        'url' => 'required', 'string',
-        'titre' => 'required', 'string',
-        'description' => 'required', 'string',
-        'date' => 'required', 'date'
-    );
-        $validator = Validator::make(Input::all(), $rules);
-
-        
-        if ($validate->fails()) {
-            Message::error('presse.exists');
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
-             }
-        else {
-            // store
-            $presse = Presse::find($id);
-            $presse->url         = Input::get('url');
-            $presse->titre       = Input::get('titre');
-            $presse->description = Input::get('description');
-            $presse->date        = Input::get('date');
-            $presse->save();
-            
-            Message::success('presse.update');
-            
-            
-            //Il faudra ajouter un mesage ici
-            // redirect
-            //Session::flash('message', 'Successfully updated nerd!');
-            //return Redirect::to('presse');
-        }
+        //
     }
 
     /**
@@ -128,12 +96,12 @@ class PresseController extends Controller {
      */
     public function destroy($id) {
         
-        $presse = Presse::find($id);
-        $presse->delete();
+        $equipe = Equipe::find($id);
+        $equipe->delete();
 
         // redirect
-        Message::success('presse.delete');
-        return Redirect::to('presse');
+        Message::success('equpie.delete');
+        return Redirect::to('equipe');
         
     }
 
