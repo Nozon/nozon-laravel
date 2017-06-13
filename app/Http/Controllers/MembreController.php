@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Recompense;
+use App\Models\Membre;
 use Illuminate\Http\Request;
 
-class RecompenseController extends Controller {
+class MembreController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $recompense = Recompense::all();
-        return view('recompense/index')->with('recompense', $recompense);
+        $membre = Membre::all();
+        return view('membre/index')->with('membre', $membre);
     }
 
     /**
@@ -25,7 +25,7 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('recompense.create');
+        return view('membre.create');
     }
 
     /**
@@ -35,20 +35,20 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Recompense
-        $validate = Recompense::getValidation($request);
-        // En cas d'échec de validation
+        // Récupération du validateur
+        $validate = Membre::getValidation($request);
+        // En cas d'échec de validation de Membre
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
         try {
-            // Tentative d'enregistrement de Recompense
-            Recompense::createOne($validate->getData());
-            //Message de succès, puis redirection vers la liste des recompenses
-            Message::success('recompense.create');
-            return redirect('recompense');
+            // Tentative d'enregistrement de Membre
+            Membre::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des membres
+            Message::success('membre.create');
+            return redirect('membre');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
@@ -97,4 +97,5 @@ class RecompenseController extends Controller {
     public function destroy($id) {
         //
     }
+
 }

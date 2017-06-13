@@ -25,7 +25,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('pages.presse.create');
+        return view('presse.create');
     }
 
     /**
@@ -40,7 +40,6 @@ class PresseController extends Controller {
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            // return "erreur validation";
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
@@ -48,14 +47,12 @@ class PresseController extends Controller {
             // Tentative d'enregistrement de Presse
             Presse::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Presses
-            Message::success('presse.saved');
-            return redirect('#presse');
+            Message::success('presse.create');
+            return redirect('presse');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
-            // Redirection vers le formulaire, avec inputs
-            // return redirect()->back()->withInput();
-            echo("bd.error");
+            return redirect()->back()->withInput();
         }
     }
 
@@ -87,7 +84,40 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        
+      //Modifications de la publication
+         $rules = array(
+
+        'url' => 'required', 'string',
+        'titre' => 'required', 'string',
+        'description' => 'required', 'string',
+        'date' => 'required', 'date'
+    );
+        $validator = Validator::make(Input::all(), $rules);
+
+        
+        if ($validate->fails()) {
+            Message::error('presse.exists');
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+             }
+        else {
+            // store
+            $presse = Nerd::find($id);
+            $presse->url         = Input::get('url');
+            $presse->titre       = Input::get('titre');
+            $presse->description = Input::get('description');
+            $presse->date        = Input::get('date');
+            $presse->save();
+            
+            Message::success('presse.saved');
+            
+            
+            //Il faudra ajouter un mesage ici
+            // redirect
+            //Session::flash('message', 'Successfully updated nerd!');
+            //return Redirect::to('nerds');
+        }
     }
 
     /**

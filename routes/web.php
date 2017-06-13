@@ -28,6 +28,13 @@ Route::group(['middleware' => 'MyAuth'], function() {
     });
 });
 
-
+Route::resource('edition', 'EditionController');
+Route::resource('equipe', 'EquipeController');
+Route::resource('media', 'MediaController');
+Route::resource('membre', 'MembreController');
+Route::resource('niveau', 'NiveauController');
 Route::resource('presse', 'PresseController');
+Route::resource('profil', 'ProfilController');
+Route::resource('publication', 'PublicationController');
 Route::resource('recompense', 'RecompenseController');
+Route::resource('sponsor', 'SponsorController');

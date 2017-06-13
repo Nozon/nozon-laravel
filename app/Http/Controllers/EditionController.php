@@ -2,25 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Recompense;
+use App\Lib\Message;
+use App\Http\Controllers\Controller;
+use App\Models\Edition;
 use Illuminate\Http\Request;
-use App\Models\Presse;
 
-class EditionController extends Controller
-{
+class EditionController extends Controller {
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($annee)
-    {
-        $recompenses = Recompense::all()->where('equipe_id', '1');
-        $presses = Presse::all()->where('edition_annee', $annee);
-
-        return view('pages.edition')
-            ->with('presses', $presses)
-            ->with('recompenses', $recompenses);
+    public function index() {
+        $edition = Edition::all();
+        return view('edition/index')->with('edition', $edition);
     }
 
     /**
@@ -28,9 +24,8 @@ class EditionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create() {
+        return view('edition.create');
     }
 
     /**
@@ -39,9 +34,27 @@ class EditionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        // Récupération du validateur de Edition
+        $validate = Edition::getValidation($request);
+        // En cas d'échec de validation
+        if ($validate->fails()) {
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        }
+        // En cas de succès de la validation
+        try {
+            // Tentative d'enregistrement de Edition
+            Edition::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des edition
+            Message::success('edition.create');
+            return redirect('edition');
+        } catch (\Exception $e) {
+            // En cas d'erreur, envoi d'un message d'erreur
+            Message::error('bd.error');
+            // Redirection vers le formulaire, avec inputs
+            return redirect()->back()->withInput();
+        }
     }
 
     /**
@@ -50,8 +63,7 @@ class EditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         //
     }
 
@@ -61,8 +73,7 @@ class EditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         //
     }
 
@@ -73,8 +84,7 @@ class EditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         //
     }
 
@@ -84,8 +94,7 @@ class EditionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         //
     }
 }

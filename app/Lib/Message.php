@@ -88,10 +88,7 @@ class Message
      */
     public static function get($reference, Array $placeholders = null)
     {
-        if ($placeholders !== null) {
-            return trans('messages.' . $reference, $placeholders);
-        } else {
             return trans('messages.' . $reference);
-        }
+        
     }
 }

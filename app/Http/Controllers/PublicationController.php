@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Recompense;
+use App\Models\Publication;
 use Illuminate\Http\Request;
 
-class RecompenseController extends Controller {
+class PublicationController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $recompense = Recompense::all();
-        return view('recompense/index')->with('recompense', $recompense);
+        $publication = Publication::all();
+        return view('publication/index')->with('publication', $publication);
     }
 
     /**
@@ -25,7 +25,7 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('recompense.create');
+        return view('publication.create');
     }
 
     /**
@@ -35,8 +35,8 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Recompense
-        $validate = Recompense::getValidation($request);
+        // Récupération du validateur de Publication
+        $validate = Publication::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
@@ -44,11 +44,11 @@ class RecompenseController extends Controller {
         }
         // En cas de succès de la validation
         try {
-            // Tentative d'enregistrement de Recompense
-            Recompense::createOne($validate->getData());
-            //Message de succès, puis redirection vers la liste des recompenses
-            Message::success('recompense.create');
-            return redirect('recompense');
+            // Tentative d'enregistrement de Publication
+            Publication::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des Publications
+            Message::success('publication.create');
+            return redirect('publication');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
@@ -97,4 +97,5 @@ class RecompenseController extends Controller {
     public function destroy($id) {
         //
     }
+
 }
