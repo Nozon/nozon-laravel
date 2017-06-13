@@ -22,6 +22,7 @@ Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/auth/logout', 'AuthController@logout');
     Route::get('/admin/{annee}', function ($annee) {
         Session::put('edition_annee', $annee);
+
     });
 
 
@@ -29,6 +30,6 @@ Route::group(['middleware' => 'MyAuth'], function() {
 
 });
 
+Route::resource('membre', 'MembreController');
 Route::resource('presse', 'PresseController');
 Route::resource('profil', 'ProfilController');
-Route::resource('membre', 'MembreController');

@@ -64,7 +64,6 @@ class Membre extends Model
         // Nous recuperons l'id du membre créé a partir de son email
         $membre = Membre::where('email', $values['email'])->first();
 
-        return ($membre->id);
     }
 
     public function profil(){

@@ -1,14 +1,17 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Lib\Message;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controllers;
 use App\Models\Membre;
 use App\Models\Profl;
+use App\Models\Equipe;
+use App\Models\Media;
+
 use Illuminate\Http\Request;
 use Illuminate\Facades\storage;
-use App\Models\Media;
+
+use Session;
 
 class MembreController extends Controller {
 
@@ -44,26 +47,36 @@ class MembreController extends Controller {
         // En cas d'échec de validation de Membre
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-
-            return redirect()->back()->withInput()->withErrors($validate);
+            //return redirect()->back()->withInput()->withErrors($validate);
+            return "validate failed";
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
             $membre_id = Membre::createOne($validate->getData());
-            $edition_annee = Session::get('edition_annee');
-            $equipe_id = 
-            // Message de succès, puis redirection vers la liste des membres
-            Message::success('membre.saved');
 
-            ProfilController::store($request, $membre_id, $equipe_id);
-            return $membreid;
+            $edition_annee = Session::get('edition_annee');
+            //recup type equipe dans les inputs
+            $type = $request->input('type_equipe');
+            //recup de l'id de l'equipe
+            $equipe_id = Equipe::where('edition_annee', $edition_annee)
+                                ->where('type', $type)->first()->id;
+
+            // Message de succès, puis redirection vers la liste des membres
+            //Message::success('membre.saved');
+            echo "J'essaye";
+
+            //ProfilController::store($request, $equipe_id, $membre_id);
+            return redirect()->action('ProfilController@store', ['request' => $request,
+                                                'membre_id' => $membre_id,
+                                              'equipe_id' => $equipe_id]);
             //return redirect('membre');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
+            //return redirect()->back()->withInput();
+            return "bd failed";
         }
 
     }

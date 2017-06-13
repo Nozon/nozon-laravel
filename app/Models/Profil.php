@@ -18,13 +18,11 @@ class Profil extends Model
         'annee_etude' => ['required', 'integer']
     ];
 
-    public static function getValidation(Request $request)
+    public static function getValidation(Request $request, $membre_id, $equipe_id)
     {
-
-
+        return "Get validation profil";
         // Récupération des inputs
-        $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude',
-                                 'equipe_id','membre_id');
+        $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
         echo("<br />");
@@ -33,16 +31,19 @@ class Profil extends Model
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de l'existence de l'equipe'
-            if (!Equipe::exists($inputs['equipe_id']) {
+            if (!Equipe::exists($inputs['equipe_id'])) {
                 $validator->errors()->add('equipe', Message::get('equipes.missing'));
+                echo ("equipe manquante : ".$inputs['equipe_id']);
             }
             // Vérification de l'existence d'un membre correspondant
-            if (!Membre::exists($inputs['membre_id']) {
+            if (!Membre::exists($inputs['membre_id'])) {
                 $validator->errors()->add('membre', Message::get('membres.missing'));
+                echo ("mambre manquant : ".$inputs['membre_id']);
             }
             // Vérification de la non existence du profil
-            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id']) {
+            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id'])) {
                 $validator->errors()->add('equipe', Message::get('equipes.exist'));
+                echo ("Profil existant");
             }
         });
         // Renvoi du validateur
@@ -65,18 +66,19 @@ class Profil extends Model
         echo("Dans la fonction createOne: ");
         echo(implode(" | ", $values));
         echo("<br />");
-        $newProfil = new Profil();
+        $new = new Profil();
         // Définition des propriétés de Profil
 
-        $newProfil->fonction = $values['fonction'];
-        $newProfil->description = $values['description'];
-        $newProfil->departement = $values['departement'];
-        $newProfil->anneeEtude = $values['annee_etude'];
+        $new->membre_id = $values['membre_id'];
+        $new->equipe_id = $values['equipe_id'];
+        $new->fonction = $values['fonction'];
+        $new->departement = $values['departement'];
+        $new->anneeEtude = $values['annee_etude'];
         // Enregistrement de Profil
-        $newProfil->membres()->attach($values[])
+        $new->membres()->attach($values[]);
         $new->save();
 
-        
+
     }
 
     public function membre(){

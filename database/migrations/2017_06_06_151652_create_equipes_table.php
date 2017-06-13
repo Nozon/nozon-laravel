@@ -18,7 +18,7 @@ class CreateEquipesTable extends Migration
             $table->string('nom');
             $table->string('edition_annee');
             $table->text('description');
-            $table->enum('type', ['principal', 'secondaire']);
+            $table->enum('type', ['principale', 'secondaire']);
             $table->foreign('edition_annee')->references('annee')->on('editions');
             $table->timestamps();
         });

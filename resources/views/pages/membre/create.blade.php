@@ -30,6 +30,7 @@
             <label for="annee_etude">Année etude</label>
             <input type="text" placeholder="annee_etude" name="annee_etude" value="{{ old('annee_etude') }}">
 
+            <input type="hidden" name="type_equipe" value="principale">
             <input type="submit" value="Enregistrer">
         </form>
     </body>
