@@ -2,7 +2,6 @@
 var hauteur = 800; // XXX, c'est le nombre de pixels à partir duquel on déclenche le tout
 
 $(function () {
-
 	// activation compteur
 	compte_a_rebours();
 	$("#main-sidenav").hide();
