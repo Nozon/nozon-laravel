@@ -85,7 +85,38 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+        
+           //Modifications de la publication
+         $rules = array(
+        'nom'       => 'required', 'string',
+        'prenom'    => 'required', 'string',
+        'email'     => 'required', 'string'
+    );
+        $validator = Validator::make(Input::all(), $rules);
+
+        
+        if ($validate->fails()) {
+            Message::error('membre.exists');
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+             }
+        else {
+            // store
+            $membre = Mebre::find($id);
+            $membre->nom        = Input::get('nom');
+            $membre->prenom     = Input::get('prenom');
+            $membre->email      = Input::get('email');
+            $membre->save();
+            
+            Message::success('membre.update');
+            
+            
+            //Il faudra ajouter un mesage ici
+            // redirect
+            //Session::flash('message', 'Successfully updated nerd!');
+            //return Redirect::to('presse');
+        }
+        
     }
 
     /**
@@ -95,7 +126,14 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $membre = Membre::find($id);
+        $membre->delete();
+
+        // redirect
+        Message::success('membre.delete');
+        return Redirect::to('membre');
+        
     }
 
 }

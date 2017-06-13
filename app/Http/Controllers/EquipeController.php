@@ -95,7 +95,14 @@ class EquipeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $equipe = Equipe::find($id);
+        $equipe->delete();
+
+        // redirect
+        Message::success('equpie.delete');
+        return Redirect::to('equipe');
+        
     }
 
 }

@@ -95,7 +95,14 @@ class ProfilController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $profil = Profil::find($id);
+        $profil->delete();
+
+        // redirect
+        Message::success('profil.delete');
+        return Redirect::to('profil');
+        
     }
 
 }

@@ -95,7 +95,14 @@ class SponsorController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $sponsor = Sponsor::find($id);
+        $sponsor->delete();
+
+        // redirect
+        Message::success('sponsor.delete');
+        return Redirect::to('sponsor');
+        
     }
 
 }

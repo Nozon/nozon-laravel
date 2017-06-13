@@ -95,6 +95,13 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $recompense = Recompense::find($id);
+        $recompense->delete();
+
+        // redirect
+        Message::success('recompense.delete');
+        return Redirect::to('recpmpense');
+        
     }
 }

@@ -95,7 +95,14 @@ class NiveauController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
+        
+        $niveau = Niveau::find($id);
+        $niveau->delete();
+
+        // redirect
+        Message::success('niveau.delete');
+        return Redirect::to('niveau');
+        
     }
 
 }
