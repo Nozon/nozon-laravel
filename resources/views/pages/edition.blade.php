@@ -6,13 +6,13 @@
 
               <!--TEAM HYDRO-->
 
-              @includeIf('pages.team.hydro')
+              @include('pages.team.hydro')
 
               <!-- FIN TEAM -->
 
               <!-- TEAM SOUTIEN -->
 
-              @includeIf('pages.team.soutien')
+              @include('pages.team.soutien')
               
               <!-- FIN TEAM SOUTIEN -->
 

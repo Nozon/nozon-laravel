@@ -1,9 +1,10 @@
 
-var hauteur = 870; // XXX, c'est le nombre de pixels à partir duquel on déclenche le tout
+var hauteur = 800; // XXX, c'est le nombre de pixels à partir duquel on déclenche le tout
 
 $(function () {
 	// activation compteur
 	compte_a_rebours();
+	$("#main-sidenav").hide();
 
 	// nav cachée puis activ au scroll
 	$('.main-nav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
@@ -16,6 +17,15 @@ $(function () {
             }); // On affiche le 2
       } else {
             $('.main-nav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
+      }
+   	});
+ 	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
+      if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
+            $('#main-sidenav').fadeIn("slow", function() {
+            	$('#main-sidenav').show();
+            }); // On affiche le 2
+      } else {
+            $('#main-sidenav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
    });
     // smooth scroll

@@ -1,5 +1,5 @@
 <!-- PARTIE SPONSOR SAMI-->
-<div class="content-sponsor-hydro">
+<div class="article content-sponsor-hydro">
     <div class="row">
         <div class="team-hydro-titre">
             <h1>SPONSOR</h1>
