@@ -6,38 +6,38 @@
 
               <!--TEAM HYDRO-->
 
-              @include('pages.team.hydro')
+              @include('pages.team.index')
 
               <!-- FIN TEAM -->
 
               <!-- TEAM SOUTIEN -->
 
-              @include('pages.team.soutien')
+              @include('pages.teamsec.index')
               
               <!-- FIN TEAM SOUTIEN -->
 
               <!-- CONCOURS -->
-              @include('pages.concours.concours')
+              @include('pages.concours.index')
               <!-- FIN CONCOURS -->
 
               <!-- NEWS -->
-              @include('pages.news.news')
+              @include('pages.news.index')
               <!-- FIN NEWS -->
               
               <!-- MEDIA -->
-              @include('pages.media.media')
+              @include('pages.media.index')
               <!-- FIN MEDIA -->
               
               <!-- PRESSE -->
-              @include('pages.presse.presse')
+              @include('pages.presse.index')
               <!-- FIN PRESSE -->
               
               <!-- PRIX -->
-              @include('pages.prix.prix')
+              @include('pages.prix.index')
               <!-- FIN PRIX -->
               
               <!-- SPONSOR -->
-              @include('pages.sponsor.sponsor')
+              @include('pages.sponsor.index')
               <!-- FIN SPONSOR -->
               
             </div>

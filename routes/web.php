@@ -15,6 +15,11 @@ Route::get('/', function () {
     return view('pages.edition');
 });
 
+Route::get('/admin', function () {
+    return view('pages.administration');
+});
+
+
 Route::get('/login', 'AuthController@login');
 Route::post('/auth/login', 'AuthController@check');
 
@@ -35,3 +40,18 @@ Route::group(['middleware' => 'MyAuth'], function() {
 Route::resource('presse', 'PresseController');
 
 Route::resource('recompense', 'RecompenseController');
+
+Route::resource('equipe', 'EquipeController');
+
+Route::resource('equipeSecondaire', 'EquipeController');
+
+Route::resource('accueil', 'AccueilController');
+
+Route::resource('user', 'UserController');
+
+Route::resource('sponsor', 'SponsorController');
+
+Route::resource('photo', 'MediaController');
+
+Route::resource('video', 'MediaController');
+
