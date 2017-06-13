@@ -54,7 +54,6 @@ class RecompenseController extends Controller {
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
             return redirect()->back()->withInput();
-            return 'c est là!';
         }
     }
 
@@ -98,5 +97,4 @@ class RecompenseController extends Controller {
     public function destroy($id) {
         //
     }
-
 }

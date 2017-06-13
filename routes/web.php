@@ -11,8 +11,21 @@
 |
 */
 
+Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
+
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('2017');
+});
+
+Route::get('/login', 'AuthController@login');
+Route::post('/auth/login', 'AuthController@check');
+Route::post('checkAuth', 'AuthController@check');
+
+Route::group(['middleware' => 'MyAuth'], function() {
+    Route::get('/auth/logout', 'AuthController@logout');
+    Route::get('/secure1', function () {
+        return 'Je suis bien logué';
+    });
 });
 
 Route::resource('edition', 'EditionController');
@@ -25,4 +38,3 @@ Route::resource('profil', 'ProfilController');
 Route::resource('publication', 'PublicationController');
 Route::resource('recompense', 'RecompenseController');
 Route::resource('sponsor', 'SponsorController');
-

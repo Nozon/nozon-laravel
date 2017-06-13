@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Mathias
- * Date: 03.03.2016
- * Time: 16:40
- */
 
 namespace App\Lib;
 
@@ -94,7 +88,6 @@ class Message
      */
     public static function get($reference, Array $placeholders = null)
     {
-      
             return trans('messages.' . $reference);
         
     }

@@ -97,5 +97,4 @@ class EditionController extends Controller {
     public function destroy($id) {
         //
     }
-
 }

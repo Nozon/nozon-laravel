@@ -29,6 +29,7 @@ class Recompense extends Model
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence de Recompense
             if (Recompense::exists($inputs['type'], $inputs['description'], 
+
                 $inputs['equipe_id'])) {
                 $validator->errors()->add('exists', Message::get('recompense.exists'));
             }
@@ -43,7 +44,7 @@ class Recompense extends Model
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
         // Faire pareil pour les autres classes en vérifiant les clés primaires
         return Recompense::where('type', $type)->where('description', $description)->
-               where('equipe_id', $equipe_id)->first() !== null;
+            where('equipe_id', $equipe_id)->first() !== null;
     }
 
     /**
@@ -51,22 +52,19 @@ class Recompense extends Model
      * @param array $values
      */
     public static function createOne(array $values) {
+
         // Création d'une nouvelle instance de Recompense
-        echo("Dans la fonction createOne: ");
-        echo(implode(" | ", $values));
-        echo("<br />");
         $new = new Recompense();
+      
         // Définition des propriétés de Recompense
         $new->type = $values['type'];
         $new->description = $values['description'];
+
         // Enregistrement de Recompense
         $new->save();
     }
 
     public function equipe(){
-
         return $this->belongsTo('App/Models/Equipe');
-
     }
-
 }
