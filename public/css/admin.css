@@ -187,7 +187,6 @@ h1, h2, h4, h5 {
 }
 .membre-description h5 {
   font-size: 1.1em;
-  font-style: bold;
   font-weight: bold;
   color:#203c7f;
 }
@@ -375,7 +374,6 @@ ul, li {
 }
 .delMod {
   margin-left: 5%;
-    padding-right: %;
     margin: auto;
     height: 40px;
     /* text-align: center; */
