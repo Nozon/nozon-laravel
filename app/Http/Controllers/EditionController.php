@@ -16,7 +16,7 @@ class EditionController extends Controller {
      */
     public function index() {
         $edition = Edition::all();
-        return view('edition/index')->with('edition', $edition);
+        return view('pages.edition.index')->with('edition', $edition);
     }
 
     /**

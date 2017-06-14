@@ -34,7 +34,7 @@ class AuthController extends Controller
       // Auth persistance
       Session::put('user_id', $user->id);
 
-      return redirect('/admin/2017');
+      return redirect('/admin');
   }
 
   public function logout() {

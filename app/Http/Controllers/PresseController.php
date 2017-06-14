@@ -64,7 +64,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        //
+
     }
 
     /**
@@ -74,7 +74,11 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        $presse = Presse::find($id);
+
+        // show the edit form and pass the nerd
+        return view('nerds.edit')
+            ->with('nerd', $presse);
     }
 
     /**
@@ -85,7 +89,35 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
+
+      $rules = array(
+          'url' => ['required', 'string'],
+          'titre' => ['required', 'string'],
+          'description' => ['required', 'string'],
+          'date' => ['required', 'date']
+      );
+      $validator = Validator::make(Input::all(), $rules);
+
+      // process the login
+      if ($validator->fails()) {
+          return Redirect::to('nerds/' . $id . '/edit')
+              ->withErrors($validator)
+              ->withInput();
+      } else {
+        try {
+              // Tentative d'enregistrement de Presse
+              Presse::updateOne($validator->getData());
+              // Message de succès, puis redirection vers la liste des sinistres
+              Message::success('presse.update');
+              return redirect('presse');
+
+          } catch (\Exception $e) {
+              // En cas d'erreur, envoi d'un message d'erreur
+              Message::error('bd.error');
+              // Redirection vers le formulaire, avec inputs
+              return redirect()->back()->withInput();
+          }
+      }
     }
 
     /**

@@ -65,6 +65,23 @@ class Presse extends Model
         $new->save();
     }
 
+    public static function updateOne(array $values) {
+        // Création d'une nouvelle instance de Presse
+        echo("Dans la fonction updateOne: ");
+        echo(implode(" | ", $values));
+        echo("<br />");
+        $new = Presse::find($id);
+        // Définition des propriétés de Presse
+        $new->url = $values['url'];
+        $new->titre = $values['titre'];
+        $new->description = $values['description'];
+        $new->date = $values['date'];
+        // Enregistrement de Presse
+        $new->save();
+    }
+
+
+
      public function edition(){
 
         return $this->belongsTo('App/Models/Edition');
