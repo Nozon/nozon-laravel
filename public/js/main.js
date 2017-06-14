@@ -7,16 +7,16 @@ $(function () {
 	$("#main-sidenav").hide();
 
 	// nav cachée puis activ au scroll
-	$('.main-nav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
+	$('#mainNav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
 	$('.membre-description').hide();
 	$('.membre-soutien-description').hide();
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
       if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
-            $('.main-nav').fadeIn("slow", function() {
-            	$('.main-nav').show();
+            $('#mainNav').fadeIn("slow", function() {
+            	$('#mainNav').show();
             }); // On affiche le 2
       } else {
-            $('.main-nav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
+            $('#mainNav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
    	});
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction

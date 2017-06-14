@@ -123,9 +123,11 @@
         </div>
         <section id="main-content">
 
-            @include('layouts.partials.nav')
-            @include('layouts.partials.contact')
+            
             <div class="row pattern-overlay">
+                @include('layouts.partials.nav')
+                
+                @include('layouts.partials.contact')
 
                 <div id="content-pages">
                     {{-- will be used to show any messages --}}
