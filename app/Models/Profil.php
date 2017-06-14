@@ -15,26 +15,38 @@ class Profil extends Model
         'fonction' => ['required', 'string'],
         'description' => ['required', 'string'],
         'departement' => ['required', 'string'],
-        'annee_etude' => ['required', 'integer']
+        'anneeEtude' => ['required', 'integer']
     ];
 
-    public static function getValidation(Request $request)
+    public static function getValidation($request, $membre_id, $equipe_id)
     {
-        // Récupération des inputs
-        $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude',
-                                 'equipe_id','membre_id');
-        echo("Dans la fonction getValidation du Model: ");
+        $inputs = $request->only('fonction', 'description', 'departement', 'anneeEtude');
+        echo("Dans la fonction getValidation du Model profil : ");
         echo(implode(" | ", $inputs));
+        echo(" | ".$membre_id." | ".$equipe_id);
         echo("<br />");
+
         // Création du validateur
         $validator = Validator::make($inputs, Profil::$rules);
         // Ajout des contraintes supplémentaires
-        $validator->after(function ($validator) use ($inputs) {
-            // Vérification de la non-existence du Profil
-            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id'])) {
-                $validator->errors()->add('exists', Message::get('profil.exists'));
+        $validator->after(function ($validator) use ($equipe_id, $membre_id) {
+            // Vérification de l'existence de l'equipe'
+            if (Equipe::where('equipe_id', $equipe_id) == null) {
+                $validator->errors()->add('equipe', Message::get('equipes.missing'));
+                echo ("equipe manquante : ".$equipe_id);
+            }
+            // Vérification de l'existence d'un membre correspondant
+            if (Membre::where('membre_id', $membre_id) == null) {
+                $validator->errors()->add('membre', Message::get('membres.missing'));
+                echo ("mambre manquant : ".$membre_id);
+            }
+            // Vérification de la non existence du profil
+            if (Profil::exists($equipe_id, $membre_id)) {
+                $validator->errors()->add('equipe', Message::get('equipes.exist'));
+                echo ("Profil déjà existant");
             }
         });
+        echo("on a passé le validateur du profil !");
         // Renvoi du validateur
         return $validator;
     }
@@ -43,26 +55,34 @@ class Profil extends Model
     public static function exists($equipe_id, $membre_id)
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
-        return Profil::where('equipe_id', $equipe_id)->where('membre_id', $membre_id)->find() !== null;
+        return Profil::where('equipe_id', $equipe_id)->where('membre_id', $membre_id)->first() !== null;
     }
 
     /**
      * Enregistre en base de données un nouveau Profil selon les $values donnés
      * @param array $values
      */
-    public static function createOne(array $values) {
+    public static function createOne(array $values, $membre_id, $equipe_id) {
         // Création d'une nouvelle instance de Profil
-        echo("Dans la fonction createOne: ");
+        echo("Dans la fonction createOne du profil : ");
         echo(implode(" | ", $values));
+        echo(" | ".$membre_id." | ".$equipe_id);
         echo("<br />");
         $new = new Profil();
         // Définition des propriétés de Profil
+
+        $new->membre_id = $membre_id;
+        $new->equipe_id = $equipe_id;
+
         $new->fonction = $values['fonction'];
-        $new->description = $values['description'];
         $new->departement = $values['departement'];
-        $new->anneeEtude = $values['annee_etude'];
-        // Enregistrement de Profil
+        $new->description = $values['description'];
+        $new->anneeEtude = $values['anneeEtude'];
+
+
         $new->save();
+
+        return $new;
     }
 
     public function membre(){
@@ -71,12 +91,12 @@ class Profil extends Model
 
     }
     
-    public function media_profil(){
+    public function medias(){
 
-        return $this->hasMany('App/Models/Media_profil');
+        return $this->belongsToMany('App/Models/Media');
 
     }
-    
+
     public function equipe(){
 
         return $this->belongsTo('App/Models/Equipe');

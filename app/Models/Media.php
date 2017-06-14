@@ -15,8 +15,7 @@ class Media extends Model
         'url' => ['required', 'url'],
         'titre' => ['required', 'string'],
         'description' => ['required', 'string'],
-        //Comment obliger l'utilisateur à rentrer le bon type
-        'type' => ['required', 'regex:/photo/,/video/']
+        'type' => ['required', 'enum:[photo],[video]']
     ];
 
     public static function getValidation(Request $request)
@@ -65,33 +64,33 @@ class Media extends Model
         $new->save();
     }
 
-    public function media_profil(){
+    public function profil(){
 
-        return $this->hasMany('App/Models/media_profil');
-
-    }
-    
-    public function equipe_media(){
-
-        return $this->hasMany('App/Models/equipe_media');
+        return $this->belongsToMany('App/Models/Profil');
 
     }
     
-    public function concours_media(){
+    public function equipes(){
 
-        return $this->hasMany('App/Models/concours_media');
-
-    }
-    
-    public function media_publication(){
-
-        return $this->hasMany('App/Models/media_publication');
+        return $this->belongsToMany('App/Models/Equipe');
 
     }
     
-    public function media_sponsor(){
+    public function concours(){
 
-        return $this->hasMany('App/Models/media_sponsor');
+        return $this->belongsToMany('App/Models/Concours');
+
+    }
+    
+    public function publications(){
+
+        return $this->belongsToMany('App/Models/Publication');
+
+    }
+    
+    public function sponsors(){
+
+        return $this->belongsToMany('App/Models/Sponsor');
 
     }
 

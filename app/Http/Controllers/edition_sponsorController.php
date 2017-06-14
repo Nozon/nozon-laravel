@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
-use App\Models\Niveau;
+use App\Models\edition_sponsor;
 use Illuminate\Http\Request;
 
-class NiveauController extends Controller {
+class edition_sponsorController extends Controller {
 
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class NiveauController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $niveau = Niveau::all();
-        return view('niveau/index')->with('niveau', $niveau);
+        $edition_sponsor = Edition_Sponsor::all();
+        return view('edition_sponsor/index')->with('edition_sponsor', $edition_sponsor);
     }
 
     /**
@@ -25,7 +25,7 @@ class NiveauController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('niveau.create');
+        return view('edition_sponsor.create');
     }
 
     /**
@@ -35,8 +35,8 @@ class NiveauController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Niveau
-        $validate = Niveau::getValidation($request);
+        // Récupération du validateur de Edition_Sponsor
+        $validate = Edition_Sponsor::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
@@ -44,11 +44,11 @@ class NiveauController extends Controller {
         }
         // En cas de succès de la validation
         try {
-            // Tentative d'enregistrement de Niveau
-            Niveau::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des Niveaux
-            Message::success('niveau.create');
-            return redirect('niveau');
+            // Tentative d'enregistrement de Edition_Sponsor
+            Edition_Sponsor::createOne($validate->getData());
+            // Message de succès, puis redirection vers la liste des Edition_sponsor
+            Message::success('edition_sponsor.create');
+            return redirect('edition_sponsor');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
@@ -96,12 +96,12 @@ class NiveauController extends Controller {
      */
     public function destroy($id) {
         
-        $niveau = Niveau::find($id);
-        $niveau->delete();
+        $edition_sponsor = Edition_sponsor::find($id);
+        $edition_sponsor->delete();
 
         // redirect
-        Message::success('niveau.delete');
-        return Redirect::to('niveau');
+        Message::success('edition_sponsor.delete');
+        return Redirect::to('edition_sponsor');
         
     }
 
