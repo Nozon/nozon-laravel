@@ -3,12 +3,13 @@
                     <div class="administration" id="creerEdition">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg">Créer une nouvelle édition</button>
                         <form class="form-create">
+                            {{csrf_field()}}
                             <div class="form-group">
-                                <label>Année</label>
-                                <input type="number" class="form-control" placeholder="Année">
+                                <label for="annee">Année</label>
+                                <input type="number" name="annee" class="form-control" placeholder="Année">
                             </div>
                             <div class="form-group">
-                                <label>Insérer une image du concours</label>
+                                <label for="">Insérer une image du concours</label>
                                 <input type="file" name="imgConcours"/>
                             </div>
                             <div class="form-group">

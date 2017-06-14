@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -29,6 +30,7 @@
 
 
     </head>
+
     <body>
 
         <!-- VIDEO CONTAINER -->
@@ -36,16 +38,16 @@
         <section class="content-section video-section" id="intro-content">
 
             <header>
-                <nav class="navbar navbar-fixed-top">
+                <nav id="mainNav" class="navbar navbar-fixed-top">
                     <div class="container">
                         <ul class="main-nav">
-                            <li class="main-nav-link"><a href="#team">team</a></li>
-                            <li class="main-nav-link"><a href="#concours">concours</a></li>
-                            <li class="main-nav-link"><a href="#news">news</a></li>
-                            <li class="main-nav-link"><a href="#médias">médias</a></li>
-                            <li class="main-nav-link"><a href="#presse">presse</a></li>
-                            <li class="main-nav-link"><a href="#prix">récompenses</a></li>
-                            <li class="main-nav-link"><a href="#sponsors">sponsors</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#team">team</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#concours">concours</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#news">news</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#médias">médias</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#presse">presse</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#prix">récompenses</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#sponsors">sponsors</a></li>
 
                         </ul>
                     </div>
@@ -58,6 +60,7 @@
                     <source src="videos/home.webm" type="video/webm" />
                     <source src="videos/home.ogv" type="video/ogg" />
                 </video>
+
             </div>
 
             <div class="logo-home">

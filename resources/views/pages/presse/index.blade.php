@@ -1,5 +1,5 @@
 <!-- PRESSE -->              
-<div class="content-presse-hydro">
+<div class="content-presse-hydro" id="presse">
 <div class="row">
   <div class="team-hydro-titre">
     <h1>La presse</h1>

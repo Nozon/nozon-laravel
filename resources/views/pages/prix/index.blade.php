@@ -1,5 +1,5 @@
 <!-- PRIX -->              
-<div class="content-prix-hydro">
+<div class="content-prix-hydro" id="prix">
 <div class="row">
   <div class="team-hydro-titre">
     <h1>Les prix/récompenses</h1>
@@ -16,7 +16,7 @@
 
             <!--FIN TMPL-->
           </tbody>
-        </table>
+      </table>
 
   </div>
 </div>

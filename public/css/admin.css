@@ -10,6 +10,7 @@ h1, h2, h4, h5 {
 
 
 /*------------------------- HEADER -----------------------------------------*/
+
 .main-nav {
   margin: 1%;
   text-align: center;
@@ -39,6 +40,7 @@ h1, h2, h4, h5 {
 
   color: rgba(255, 255, 255, 0.7);
 }
+
 
 /*--------------------------  LOGO & Contact -----------------------------------*/
 
@@ -185,7 +187,6 @@ h1, h2, h4, h5 {
 }
 .membre-description h5 {
   font-size: 1.1em;
-  font-style: bold;
   font-weight: bold;
   color:#203c7f;
 }
@@ -371,6 +372,27 @@ ul, li {
   background-color: #999;
   
 }
+.delMod {
+  margin-left: 5%;
+    margin: auto;
+    height: 40px;
+    /* text-align: center; */
+    width: 100px;
+    margin-left: 40%;
+}
+.delMod div.icone-modif-sponsor {
+  position: absolute;
+}
+
+.delMod span {
+  font-size: 1.5em;
+}
+.glyphicon-pencil {
+  color: #333;
+}
+.glyphicon-remove-sign {
+  color: #ec110d;
+}
 /*----------------- Edition ------------*/
 .form-create {
   margin-top: 5%;
@@ -455,10 +477,6 @@ ul, li {
 .img-liste-sponsor {
   width: 10%;
 }
-.modif-sponsor {
-  font-size: 2em;
-  color:#333;
-}
 
 /* ----------------- Médias ------------------------*/
 #media {
@@ -469,6 +487,14 @@ ul, li {
     /* padding-left: 30%; */
     /* padding-right: 30%; */
 }
+
+/*-------------------- Prix -------------------------*/
+#tabPrix {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 
 
 
