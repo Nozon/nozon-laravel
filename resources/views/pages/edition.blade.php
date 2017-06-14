@@ -37,7 +37,7 @@
               <!-- FIN PRIX -->
               
               <!-- SPONSOR -->
-              @include('pages.sponsor.sponsor')
+              @include('pages.sponsor.index')
               <!-- FIN SPONSOR -->
               
             </div>
