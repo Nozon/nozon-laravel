@@ -90,10 +90,10 @@ class Profil extends Model
         return $this->belongsTo('App/Models/Membre');
 
     }
+    
+    public function medias(){
 
-    public function media_profil(){
-
-        return $this->hasMany('App/Models/Media_profil');
+        return $this->belongsToMany('App/Models/Media');
 
     }
 

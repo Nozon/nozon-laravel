@@ -53,9 +53,9 @@ class Publication extends Model {
         $new->save();
     }
 
-    public function media_publication() {
+    public function medias() {
 
-        return $this->hasMany('App/Models/media_publication');
+        return $this->belongsToMany('App/Models/Media');
     }
 
     public function edition() {
