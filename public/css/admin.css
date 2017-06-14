@@ -4,10 +4,10 @@ body {
   background-attachment: absolute;
   background-size: cover;
 }
+
 h1, h2, h4, h5 {
   color: rgb(153, 153, 153);
 }
-
 
 /*------------------------- HEADER -----------------------------------------*/
 .main-nav {
@@ -234,6 +234,7 @@ h1, h2, h4, h5 {
     width: 50%;
     margin-top: -39%;
 }
+
 .sponsor-description{
    text-align: center;
 }
@@ -483,4 +484,3 @@ ul, li {
   padding-right: 30%;
   padding-left: 30%;
 }
-
