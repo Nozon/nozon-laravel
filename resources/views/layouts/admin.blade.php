@@ -37,8 +37,7 @@
                 <a href="http://127.0.0.1:8000/"><img src="../img/logoteamheig.png" id="img-index" class="img-responsive" alt="Image team HEIG-VD"></a>
                 <div class="menu-persistant-container">
                     <ul class="menu-persistant">
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#"><img class="img-responsive socials-icone" src="../img/mail.png"></a></li>
+                        <li><a href="#">Sociaux</a></li>
                         <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/"><img class="img-responsive socials-icone" src="../img/facebooklogo.png"></a></li>
                         <li><a href="https://www.instagram.com/hydrocontest_heig_vd/"><img class="img-responsive socials-icone" src="../img/instagramlogo.png"></a></li>
                         <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g"><img class="img-responsive socials-icone" src="../img/youtubelogo.png"></a></li>

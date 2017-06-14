@@ -7,7 +7,7 @@
                 <div class="col-md-4">
                     <div class="delMod">
                         <div class="icone-modif-sponsor">
-                            <a class="modif-press" href="#modifierLaPress"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                            <a class="modif-press" href=""><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                             </div>
                         <div class="icone-sup-sponsor">
                             <a class="sup-press" href="#supprimerLePress"><span class="glyphicon glyphicon-remove-sign"></span></a>

@@ -31,6 +31,13 @@ $(function () {
             $('#main-sidenav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
    });
+ 	// click side nav
+ 	$(".nav-edition-year").on("click", function() {
+ 		$(this).parents().eq(2).toggleClass("circle-active");
+ 		$(this).toggleClass("year-active");
+ 		$('.nav-edition-circle').removeClass('circle-active');
+    	$('.nav-edition-year').removeClass("year-active");
+ 	});
     // smooth scroll
     $(".js-scrollTo").on('click', function() { // Au clic sur un élément
 		var page = $(this).attr('href'); // Page cible
@@ -108,3 +115,4 @@ function compte_a_rebours() {
 	}
 	var actualisation = setTimeout("compte_a_rebours();", 1000);
 }
+
