@@ -97,7 +97,7 @@
 
             </div>
             
-            <button class="btn btn-primary btn-lg btnDevSponsor">Contactez-nous !</button>
+            <button class="btn btn-primary btn-lg btnDevSponsor" href="#" data-toggle="modal" data-target="#contact-modal">Contactez-nous !</button>
             
         </div>
         <div class="grid sponsor-description">
