@@ -1,6 +1,6 @@
 <!-- PARTIE MEDIA-->
 
-<div class="content-media-hydro gallery-container">
+<div class="content-media-hydro gallery-container" id="médias">
         <div class="team-hydro-titre">
             <h1>Les médias</h1>
         </div>
