@@ -320,7 +320,7 @@ nav.navbar {
   display: block;
   width: 80%;
   height: auto;
-  box-shadow: 1px 1px 12px #ddd;
+  box-shadow: 1px 1px 5px #ddd;
 }
 .membre-description {
   position: absolute;
@@ -426,9 +426,10 @@ nav.navbar {
 }
 .news-descr {
   border-left: 40px solid whitesmoke;
+  border-bottom: 40px solid whitesmoke;
 }
 .news-titre {
-  border-left: 50px solid whitesmoke;
+  border-left: 100px solid whitesmoke;
   padding-left: 1%;
 }
 .news-text {

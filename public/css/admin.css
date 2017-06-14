@@ -496,6 +496,17 @@ ul, li {
   text-align: center;
 }
 
+/*------------------------ Devenir sponsor ----------------*/
+.modCategorieSponsorTableau {
+  display: inline-block;
+}
+#titreTab tr {
+  display: inline-grid;
+}
+#titreTab tr > th {
+  border: 2px solid whitesmoke;
+}
+
 
 
 

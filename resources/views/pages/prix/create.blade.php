@@ -19,4 +19,5 @@
                     </div>
                     <div id="modPrix">
                         @include('pages.prix.edit')
+                    </div>
                 </div>
