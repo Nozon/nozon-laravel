@@ -371,6 +371,22 @@ ul, li {
   background-color: #999;
   
 }
+.delMod {
+  margin-left: 5%;
+    padding-right: %;
+    margin: auto;
+    height: 40px;
+    /* text-align: center; */
+    width: 100px;
+    margin-left: 40%;
+}
+.delMod div.icone-modif-sponsor {
+  position: absolute;
+}
+
+.delMod span {
+  font-size: 1.5em;
+}
 /*----------------- Edition ------------*/
 .form-create {
   margin-top: 5%;
@@ -455,10 +471,6 @@ ul, li {
 .img-liste-sponsor {
   width: 10%;
 }
-.modif-sponsor {
-  font-size: 2em;
-  color:#333;
-}
 
 /* ----------------- Médias ------------------------*/
 #media {
@@ -469,6 +481,7 @@ ul, li {
     /* padding-left: 30%; */
     /* padding-right: 30%; */
 }
+
 
 
 

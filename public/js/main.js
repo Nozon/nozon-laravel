@@ -10,6 +10,7 @@ $(function () {
 	$('.main-nav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
 	$('.membre-description').hide();
 	$('.membre-soutien-description').hide();
+	
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
       if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
             $('.main-nav').fadeIn("slow", function() {

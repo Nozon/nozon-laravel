@@ -1,5 +1,5 @@
 <!-- PARTIE NEWS -->
-<div class="article content-news-hydro">
+<div class="article content-news-hydro" id="news">
     <div class="row">
         <div class="team-hydro-titre">
             <h1>Les news</h1>

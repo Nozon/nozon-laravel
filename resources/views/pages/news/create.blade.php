@@ -33,36 +33,13 @@
                                 <div class="grid sponsor-description">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <div class="icone-modif-sponsor">
-                                                <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                            </div>
-                                            <div class="news-description">
-                                                <h5 id="title-news">Titre</h5>
-                                            </div>
-                                            <div class="img-news">
-                                                <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
-                                            </div>
-                                            <div class="nes-description">
-                                                <p id="date-news" type="date">12.03.2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="icone-modif-sponsor">
-                                                <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                                            </div>
-                                            <div class="news-description">
-                                                <h5 id="title-news">Titre</h5>
-                                            </div>
-                                            <div class="img-news">
-                                                <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
-                                            </div>
-                                            <div class="nes-description">
-                                                <p id="date-news" type="date">12.03.2016</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="icone-modif-sponsor">
-                                                <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                            <div class="delMod">
+                                                <div class="icone-modif-sponsor">
+                                                    <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                                                    </div>
+                                                <div class="icone-sup-sponsor">
+                                                    <a class="sup-news" href="#supprimerLaNews"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                                                </div>
                                             </div>
                                             <div class="news-description">
                                                 <h5 id="title-news">Titre</h5>
