@@ -12,10 +12,10 @@ class Profil extends Model
 {
 
     public static $rules = [
-        'fonction' => ['required', 'string'],
-        'description' => ['required', 'string'],
-        'departement' => ['required', 'string'],
-        'anneeEtude' => ['required', 'integer']
+        'fonction'      => ['required', 'string'],
+        'description'   => ['required', 'string'],
+        'departement'   => ['required', 'string'],
+        'anneeEtude'    => ['required', 'integer']
     ];
 
     public static function getValidation($request, $membre_id, $equipe_id)

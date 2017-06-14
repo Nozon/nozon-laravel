@@ -123,8 +123,27 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('nom', 'prenom', 'email');
+
+        $validate = Validator::make($inputs, Membre::$rules);
+
+        if ($validate->fails()) {
+            Message::error('membre.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $membre = Membre::find($id);
+            $membre->nom      = $inputs['nom'];
+            $membre->prenom   = $inputs['prenom'];
+            $membre->email    = $inputs['email'];
+            $membre->save();
+
+            Message::success('membre.update');
+
+            return Redirect::to('admin/membre');
+        }
+}
     /**
      * Remove the specified resource from storage.
      *

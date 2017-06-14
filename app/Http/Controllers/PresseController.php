@@ -91,42 +91,27 @@ class PresseController extends Controller {
      */
     public function update(Request $request, $id) {
 
-      //Modifications de la publication
-         $rules = array(
+        $inputs = $request->only('url', 'titre', 'description', 'date');
 
-        'url' => 'required', 'string',
-        'titre' => 'required', 'string',
-        'description' => 'required', 'string',
-        'date' => 'required', 'date'
-    );
-        $validate = Validator::make(Input::all(), $rules);
-
+        $validate = Validator::make($inputs, Presse::$rules);
 
         if ($validate->fails()) {
-   
-            Message::error('presse.exists');
+            Message::error('presse.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
-             }
-        else {
-            
-            // store
+        } else {
             $presse = Presse::find($id);
-            $presse->url         = Input::get('url');
-            $presse->titre       = Input::get('titre');
-            $presse->description = Input::get('description');
-            $presse->date        = Input::get('date');
+            $presse->url           = $inputs['url'];
+            $presse->titre         = $inputs['titre'];
+            $presse->description   = $inputs['email'];
+            $presse->date          = $inputs['date'];
             $presse->save();
-            
+
             Message::success('presse.update');
-            
-            
-            //Il faudra ajouter un mesage ici
-            // redirect
-            //Session::flash('message', 'Successfully updated nerd!');
-            //return Redirect::to('presse');
+
+            return Redirect::to('admin/presse');
         }
-    }
+}
 
     /**
      * Remove the specified resource from storage.
