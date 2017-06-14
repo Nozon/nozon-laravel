@@ -1,24 +1,31 @@
 <?php
+
 namespace App\Models;
+
 use App\Lib\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+
+
 class Profil extends Model
 {
+
     public static $rules = [
         'fonction' => ['required', 'string'],
         'description' => ['required', 'string'],
         'departement' => ['required', 'string'],
-        'annee_etude' => ['required', 'integer']
+        'anneeEtude' => ['required', 'integer']
     ];
+
     public static function getValidation($request, $membre_id, $equipe_id)
     {
-        $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude');
+        $inputs = $request->only('fonction', 'description', 'departement', 'anneeEtude');
         echo("Dans la fonction getValidation du Model profil : ");
         echo(implode(" | ", $inputs));
         echo(" | ".$membre_id." | ".$equipe_id);
         echo("<br />");
+
         // Création du validateur
         $validator = Validator::make($inputs, Profil::$rules);
         // Ajout des contraintes supplémentaires
@@ -43,11 +50,14 @@ class Profil extends Model
         // Renvoi du validateur
         return $validator;
     }
+
+
     public static function exists($equipe_id, $membre_id)
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
         return Profil::where('equipe_id', $equipe_id)->where('membre_id', $membre_id)->first() !== null;
     }
+
     /**
      * Enregistre en base de données un nouveau Profil selon les $values donnés
      * @param array $values
@@ -60,22 +70,37 @@ class Profil extends Model
         echo("<br />");
         $new = new Profil();
         // Définition des propriétés de Profil
+
         $new->membre_id = $membre_id;
         $new->equipe_id = $equipe_id;
+
         $new->fonction = $values['fonction'];
         $new->departement = $values['departement'];
         $new->description = $values['description'];
-        $new->anneeEtude = $values['annee_etude'];
+        $new->anneeEtude = $values['anneeEtude'];
+
+
         $new->save();
+
         return $new;
     }
+
     public function membre(){
+
         return $this->belongsTo('App/Models/Membre');
+
     }
+
     public function media_profil(){
+
         return $this->hasMany('App/Models/Media_profil');
+
     }
+
     public function equipe(){
+
         return $this->belongsTo('App/Models/Equipe');
+
     }
+
 }

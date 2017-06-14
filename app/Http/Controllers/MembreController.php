@@ -1,6 +1,7 @@
-
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Lib\Message;
 use App\Http\Controllers\Controllers;
 use App\Models\Membre;
@@ -10,6 +11,7 @@ use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Facades\storage;
 use Session;
+
 class MembreController extends Controller {
     /**
      * Display a listing of the resource.
@@ -42,13 +44,14 @@ class MembreController extends Controller {
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
             //return redirect()->back()->withInput()->withErrors($validate);
-            echo "validate failed";
+            echo "validate failed <br />";
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
             $membre_id = Membre::createOne($validate->getData())->id;
             $edition_annee = Session::get('edition_annee');
+            echo $edition_annee;
             //recup type equipe dans les inputs
             $type = $request->input('type_equipe');
             //recup de l'id de l'equipe
@@ -67,8 +70,8 @@ class MembreController extends Controller {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
-            // return "bd failed";
+            // return redirect()->back()->withInput();
+            return "bd failed";
         }
     }
     public function createProfil($request, $membre_id, $equipe_id) {

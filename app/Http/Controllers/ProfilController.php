@@ -1,11 +1,14 @@
 <?php
+
 namespace App\Http\Controllers;
+
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Profil;
 use App\Models\Equipe;
 use App\Models\Membre;
 use Illuminate\Http\Request;
+
 class ProfilController extends Controller {
     /**
      * Display a listing of the resource.
