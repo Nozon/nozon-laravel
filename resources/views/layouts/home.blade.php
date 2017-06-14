@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
     <link href="{{asset('css/fluid-gallery.css')}}" rel="stylesheet">
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
-   
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/bootstrap.js')}}"></script>
@@ -27,11 +26,10 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <title>Team HEIG-VD | HydroContest</title>
-    
+
 
   </head>
   <body>
-    
     <!-- VIDEO CONTAINER -->
 
     <section class="content-section video-section" id="intro-content">
@@ -47,7 +45,7 @@
               <li class="main-nav-link"><a href="#presse" class="js-scrollTo">presse</a></li>
               <li class="main-nav-link"><a href="#prix" class="js-scrollTo">récompenses</a></li>
               <li class="main-nav-link"><a href="#sponsors" class="js-scrollTo">sponsors</a></li>
-              
+
             </ul>
           </div>
         </nav>
@@ -80,13 +78,13 @@
             <h4 id="compteAReboursTitre"></h4>
           </div>
           <div class="row compteur">
-            
+
             <div class="col-md-2 compteur-jours">
               <div class="cadran">
                 <p><span id="jours"></span></p>
               </div>
               <p>J</p>
-=======
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
