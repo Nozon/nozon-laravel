@@ -29,92 +29,7 @@
 
 
   </head>
-  <body>
-    <!-- VIDEO CONTAINER -->
-
-    <section class="content-section video-section" id="intro-content">
-
-      <header>
-        <nav class="navbar navbar-fixed-top">
-          <div class="container">
-            <ul class="main-nav">
-              <li class="main-nav-link"><a href="#team" class="js-scrollTo">team</a></li>
-              <li class="main-nav-link"><a href="#concours" class="js-scrollTo">concours</a></li>
-              <li class="main-nav-link"><a href="#news" class="js-scrollTo">news</a></li>
-              <li class="main-nav-link"><a href="#médias" class="js-scrollTo">médias</a></li>
-              <li class="main-nav-link"><a href="#presse" class="js-scrollTo">presse</a></li>
-              <li class="main-nav-link"><a href="#prix" class="js-scrollTo">récompenses</a></li>
-              <li class="main-nav-link"><a href="#sponsors" class="js-scrollTo">sponsors</a></li>
-
-            </ul>
-          </div>
-        </nav>
-      </header>
-
-      <div class="video-background-container">
-          <video preload="auto" autoplay loop muted class="video-background">
-              <source src="videos/home.mp4" type="video/mp4" />
-              <source src="videos/home.webm" type="video/webm" />
-              <source src="videos/home.ogv" type="video/ogg" />
-          </video>
-      </div>
-
-      <div class="logo-home">
-          <img src="img/logoteamheig.png" id="img-index" class="img-responsive" alt="Image team HEIG-VD">
-          <div class="menu-persistant-container">
-            <ul class="menu-persistant">
-              <li><a href="#">Contact</a></li>
-              <li><a href="#"><img class="img-responsive socials-icone" src="img/mail.png"></a></li>
-              <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/"><img class="img-responsive socials-icone" src="img/facebooklogo.png"></a></li>
-              <li><a href="https://www.instagram.com/hydrocontest_heig_vd/"><img class="img-responsive socials-icone" src="img/instagramlogo.png"></a></li>
-              <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g"><img class="img-responsive socials-icone" src="img/youtubelogo.png"></a></li>
-            </ul>
-          </div>
-      </div>
-
-      <div class="container-compteur">
-        <div class="row leCompteur">
-          <div class="compteur-titre"> 
-            <h4 id="compteAReboursTitre"></h4>
-          </div>
-          <div class="row compteur">
-
-            <div class="col-md-2 compteur-jours">
-              <div class="cadran">
-                <p><span id="jours"></span></p>
-              </div>
-              <p>J</p>
-
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Links -->
-        <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-        <link href="{{asset('css/fluid-gallery.css')}}" rel="stylesheet">
-        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/main.css')}}" rel="stylesheet">
-
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="{{asset('js/jquery.js')}}"></script>
-        <script src="{{asset('js/bootstrap.js')}}"></script>
-        <script src="{{asset('js/main.js')}}"></script>
-        <script src="{{asset('js/baguetteBox.min.js')}}"></script>
-        <script>baguetteBox.run('.tz-gallery');</script>
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-        <title>Team HEIG-VD | HydroContest</title>
-
-
-    </head>
+  
     <body>
 
         <!-- VIDEO CONTAINER -->
@@ -122,16 +37,16 @@
         <section class="content-section video-section" id="intro-content">
 
             <header>
-                <nav class="navbar navbar-fixed-top">
+                <nav id="mainNav" class="navbar navbar-fixed-top">
                     <div class="container">
                         <ul class="main-nav">
-                            <li class="main-nav-link"><a href="#team">team</a></li>
-                            <li class="main-nav-link"><a href="#concours">concours</a></li>
-                            <li class="main-nav-link"><a href="#news">news</a></li>
-                            <li class="main-nav-link"><a href="#médias">médias</a></li>
-                            <li class="main-nav-link"><a href="#presse">presse</a></li>
-                            <li class="main-nav-link"><a href="#prix">récompenses</a></li>
-                            <li class="main-nav-link"><a href="#sponsors">sponsors</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#team">team</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#concours">concours</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#news">news</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#médias">médias</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#presse">presse</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#prix">récompenses</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#sponsors">sponsors</a></li>
 
                         </ul>
                     </div>

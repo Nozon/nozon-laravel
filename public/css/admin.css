@@ -10,6 +10,7 @@ h1, h2, h4, h5 {
 
 
 /*------------------------- HEADER -----------------------------------------*/
+
 .main-nav {
   margin: 1%;
   text-align: center;
@@ -39,6 +40,7 @@ h1, h2, h4, h5 {
 
   color: rgba(255, 255, 255, 0.7);
 }
+
 
 /*--------------------------  LOGO & Contact -----------------------------------*/
 
@@ -387,6 +389,12 @@ ul, li {
 .delMod span {
   font-size: 1.5em;
 }
+.glyphicon-pencil {
+  color: #333;
+}
+.glyphicon-remove-sign {
+  color: #ec110d;
+}
 /*----------------- Edition ------------*/
 .form-create {
   margin-top: 5%;
@@ -480,6 +488,13 @@ ul, li {
     display: inline-block;
     /* padding-left: 30%; */
     /* padding-right: 30%; */
+}
+
+/*-------------------- Prix -------------------------*/
+#tabPrix {
+  width: 75%;
+  margin: 0 auto;
+  text-align: center;
 }
 
 

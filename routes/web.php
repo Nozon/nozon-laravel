@@ -55,3 +55,5 @@ Route::resource('photo', 'MediaController');
 
 Route::resource('video', 'MediaController');
 
+Route::resource('prix', 'PrixController');
+

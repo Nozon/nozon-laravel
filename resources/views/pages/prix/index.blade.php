@@ -16,7 +16,7 @@
 
             <!--FIN TMPL-->
           </tbody>
-        </table>
+      </table>
 
   </div>
 </div>
