@@ -2,7 +2,7 @@
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="loginmodal-container">
-                <form>
+                <form method="POST">
                     <input type="email" name="email" placeholder="E-mail">
                     <input type="password" name="pass" placeholder="Mot de passe">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">

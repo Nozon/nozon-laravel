@@ -24,6 +24,10 @@
                                 <input type="text" class="form-control">
                                 <button class="btn btn-nozon btnAddSponsorsCateg">Ajouter</button>
                             </div>
+                            <div class="form-group">
+                                <label>Ajouter le site web du sponsor</label>
+                                <input type="text" class="form-control">
+                            </div> 
                         </form>
                     </div>
 

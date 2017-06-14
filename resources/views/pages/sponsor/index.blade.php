@@ -103,26 +103,26 @@
         <div class="grid sponsor-description">
             <h2>Principal</h2>
             <div class="col">
-                <img src="img/facebooklogo.png"/>
+                <a href="#"><img src="img/facebooklogo.png"/></a>
             </div>
             <h2>Or</h2>
             <div class="col">
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
             </div>
             <h2>Argent</h2>
             <div class="col">
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
             </div>
             <h2>Bronze</h2>
             <div class="col">
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
+                <a href="#"><img src="img/sponsor.gif"/></a>
             </div>
         </div>
     </div>
