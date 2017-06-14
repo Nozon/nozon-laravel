@@ -11,7 +11,6 @@
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
         <link href="{{asset('css/lightbox.css')}}" rel="stylesheet">
-        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
         <link href="{{asset('css/main.css')}}" rel="stylesheet">
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->

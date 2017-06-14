@@ -39,15 +39,6 @@
                 </a>
             </div>
         </div>
-        <h2>Galerie vidéos</h2>
-        <div class="row gallery-videos">
-            <div class="col-md-6">
-                <iframe src="https://www.youtube.com/embed/_E_db1UMQME" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="col-md-6">
-                <iframe src="https://www.youtube.com/embed/LG4j2ecs7gg" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
     </div>
 </div>
 <!-- FIN PARTIE MEDIA--> 

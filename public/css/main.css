@@ -678,7 +678,7 @@ nav.navbar {
     text-align: justify;
 }
 #tabPrix td:nth-child(1){
-    width: 25%;
+    width: 30%;
 }
 #tabPrix td:nth-child(2){
     text-align: justify;
@@ -722,17 +722,10 @@ table.table-hover tbody tr:nth-child(1) td{
 .gallery-img img:hover {
 
 }
-.gallery-img,.gallery-videos{
+.gallery-img{
     background-color: whitesmoke;
 }
 .gallery-img .col-md-3{
-    padding: 8px;
-}
-.gallery-videos iframe{
-    width: 100%;
-    height: 240px;
-}
-.gallery-videos .col-md-6{
     padding: 8px;
 }
 .media-description{
