@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
             Schema::disableForeignKeyConstraints();
-                       
         
             DB::table('utilisateurs')->truncate();
             DB::table('groupes')->truncate();
@@ -203,7 +202,5 @@ class DatabaseSeeder extends Seeder
             
             
             Schema::enableForeignKeyConstraints();
-            
-            
     }
 }

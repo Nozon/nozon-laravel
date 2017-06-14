@@ -35,24 +35,28 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        echo("Dans la fonction store <br />");
         // Récupération du validateur de Presse
         $validate = Presse::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
+            // echo("Erreur validation");
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
         try {
+            echo("On entre dans le try <br />");
             // Tentative d'enregistrement de Presse
             Presse::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Presses
             Message::success('presse.create');
             return redirect('presse');
         } catch (\Exception $e) {
+            echo("Erreur bd");
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
-            return redirect()->back()->withInput();
+            // return redirect()->back()->withInput();
         }
     }
 

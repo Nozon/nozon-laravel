@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Lib\Message;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controllers;
 use App\Models\Membre;
+use App\Models\Profil;
+use App\Models\Equipe;
+use App\Models\Media;
 use Illuminate\Http\Request;
+use Illuminate\Facades\storage;
+use Session;
 
 class MembreController extends Controller {
-
     /**
      * Display a listing of the resource.
      *
@@ -16,18 +20,16 @@ class MembreController extends Controller {
      */
     public function index() {
         $membre = Membre::all();
-        return view('membre/index')->with('membre', $membre);
+        return view('pages.membre.index')->with('membre', $membre);
     }
-
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('membre.create');
+        return view('pages.membre.create');
     }
-
     /**
      * Store a newly created resource in storage.
      *
@@ -37,26 +39,64 @@ class MembreController extends Controller {
     public function store(Request $request) {
         // Récupération du validateur
         $validate = Membre::getValidation($request);
+        echo "methode store Membre : ";
         // En cas d'échec de validation de Membre
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+            //return redirect()->back()->withInput()->withErrors($validate);
+            echo "validate failed <br />";
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
-            Membre::createOne($validate->getData());
+            $membre_id = Membre::createOne($validate->getData())->id;
+            $edition_annee = Session::get('edition_annee');
+            echo $edition_annee;
+            //recup type equipe dans les inputs
+            $type = $request->input('type_equipe');
+            //recup de l'id de l'equipe
+            $equipe_id = Equipe::where('edition_annee', $edition_annee)
+                ->where('type', $type)->first()->id;
             // Message de succès, puis redirection vers la liste des membres
-            Message::success('membre.create');
-            return redirect('membre');
+            //Message::success('membre.saved');
+            // return "request: ".$request." membre id : ".$membre->id." Equipe ID :".$equipe_id;
+            // return redirect()->action('ProfilController@store',
+            //                             ['request' => $request,
+            //                             'membre_id' => $membre->id,
+            //                             'equipe_id' => $equipe_id]);
+            $profilcree = Self::createProfil($request, $membre_id, $equipe_id);
+            echo ('profil créé');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
+            // return redirect()->back()->withInput();
+            return "bd failed";
         }
     }
-
+    public function createProfil($request, $membre_id, $equipe_id) {
+        $validate = Profil::getValidation($request, $membre_id, $equipe_id);
+        if ($validate->fails()) {
+            // Redirection vers le formulaire, avec inputs et erreurs
+            echo ("validate failed");
+            return redirect()->back()->withInput()->withErrors($validate);
+        }
+        // En cas de succès de la validation
+        try {
+            // Tentative d'enregistrement de Profil
+            echo ("j'essaye de créer le profil : ".implode(" | ",$validate->getData()));
+            return Profil::createOne($validate->getData(), $membre_id, $equipe_id);
+            // Message de succès, puis redirection vers la liste des profils
+            Message::success('profil.saved');
+            //return redirect('profil');
+        } catch (\Exception $e) {
+            // En cas d'erreur, envoi d'un message d'erreur
+            //Message::error('bd.error');
+            // Redirection vers le formulaire, avec inputs
+            return redirect()->back()->withInput();
+            return "lol";
+        }
+    }
     /**
      * Display the specified resource.
      *
@@ -66,7 +106,6 @@ class MembreController extends Controller {
     public function show($id) {
         //
     }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -76,7 +115,6 @@ class MembreController extends Controller {
     public function edit($id) {
         //
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -85,40 +123,8 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        
-           //Modifications de la publication
-         $rules = array(
-        'nom'       => 'required', 'string',
-        'prenom'    => 'required', 'string',
-        'email'     => 'required', 'string'
-    );
-        $validator = Validator::make(Input::all(), $rules);
-
-        
-        if ($validate->fails()) {
-            Message::error('membre.exists');
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
-             }
-        else {
-            // store
-            $membre = Mebre::find($id);
-            $membre->nom        = Input::get('nom');
-            $membre->prenom     = Input::get('prenom');
-            $membre->email      = Input::get('email');
-            $membre->save();
-            
-            Message::success('membre.update');
-            
-            
-            //Il faudra ajouter un mesage ici
-            // redirect
-            //Session::flash('message', 'Successfully updated nerd!');
-            //return Redirect::to('presse');
-        }
-        
+        //
     }
-
     /**
      * Remove the specified resource from storage.
      *
@@ -126,14 +132,6 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
-        $membre = Membre::find($id);
-        $membre->delete();
-
-        // redirect
-        Message::success('membre.delete');
-        return Redirect::to('membre');
-        
+        //
     }
-
 }
