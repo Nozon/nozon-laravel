@@ -17,11 +17,14 @@ class MyAuth
      */
     public function handle($request, Closure $next)
     {
-      if (!Auth::check()) {
-          Session::put('oldUrl', $request->fullUrl());
-          echo "passé par MyAuth !";
-          return redirect()->action('AuthController@login');
-      }
-      return $next($request);
+      $userId = Session::get('user_id');
+
+      	// Si la variable n’est pas set, alors l’accès est refusé
+            if (!isset($userId)) {
+            	return response('Unauthorised', 403);
+            }
+      	// Sinon on laisse passer
+      	return $next($request);
+
     }
 }
