@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Lib\Message;
+
 use App\Http\Controllers\Controller;
+
 use App\Models\Edition;
+use App\Models\Presse;
+use App\Models\Recompense;
+
 use Illuminate\Http\Request;
 
 class EditionController extends Controller {
@@ -14,9 +19,13 @@ class EditionController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $edition = Edition::all();
-        return view('edition/index')->with('edition', $edition);
+    public function index($annee)
+    {
+        $recompenses = Recompense::all()->where('equipe_id', '1');
+        $presses = Presse::all()->where('edition_annee', $annee);
+        return view('pages.edition')
+            ->with('presses', $presses)
+            ->with('recompenses', $recompenses);
     }
 
     /**

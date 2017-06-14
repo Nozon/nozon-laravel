@@ -31,6 +31,10 @@ Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/secure1', function () {
         return 'Je suis bien logué';
     });
+    Route::get('/admin/{annee}', function ($annee) {
+        Session::put('edition_annee', $annee);
+        return ("Console d'administration pour l'annee ".$annee);
+    });
 });
 
 Route::resource('accueil', 'AccueilController');

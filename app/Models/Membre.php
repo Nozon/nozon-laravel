@@ -14,14 +14,14 @@ class Membre extends Model
     public static $rules = [
         'nom' => ['required', 'string'],
         'prenom' => ['required', 'string'],
-        'email' => ['required', 'email']
+        'email' => ['required', 'email'],
     ];
 
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
         $inputs = $request->only('nom', 'prenom', 'email');
-        echo("Dans la fonction getValidation du Model: ");
+        echo("Dans la fonction getValidation du modele Membre : ");
         echo(implode(" | ", $inputs));
         echo("<br />");
         // Création du validateur
@@ -32,6 +32,7 @@ class Membre extends Model
             if (Membre::exists($inputs['email'])) {
                 $validator->errors()->add('exists', Message::get('membre.exists'));
             }
+
         });
         // Renvoi du validateur
         return $validator;
@@ -50,7 +51,7 @@ class Membre extends Model
      */
     public static function createOne(array $values) {
         // Création d'une nouvelle instance de Membre
-        echo("Dans la fonction createOne: ");
+        echo("Dans la fonction createOne du Membre : <br />");
         echo(implode(" | ", $values));
         echo("<br />");
         $new = new Membre();
@@ -58,11 +59,20 @@ class Membre extends Model
         $new->nom = $values['nom'];
         $new->prenom = $values['prenom'];
         $new->email = $values['email'];
+
+
+        echo("Membre avant sauvegarde :<br />");
+        echo($new->nom. " " . $new->prenom. " " . $new->email);
+
         // Enregistrement de Membre
         $new->save();
+        // Nous recuperons l'id du membre créé a partir de son email
+        return $new;
+        // return $membre = Membre::where('email', $values['email'])->first();
+
     }
 
-    public function profil(){
+    public function profils(){
 
         return $this->hasMany('App/Models/Profil');
 
