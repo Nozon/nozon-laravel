@@ -8,6 +8,8 @@
 
       <table class="table table-hover" id="tabPresse">
           <tbody>
+          
+            <!--DEBUT TMPL-->
             @foreach($presses as $key => $value)
                 <tr>
                     <td>{{ $value->titre}}</td>
@@ -18,6 +20,8 @@
                     </td>
                 </tr>
             @endforeach
+            <!--FIN TMPL-->
+            
           </tbody>
         </table>
 

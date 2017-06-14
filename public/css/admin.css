@@ -4,7 +4,8 @@ body {
   background-attachment: absolute;
   background-size: cover;
 }
-h1, h2, h3, h4, h5 {
+
+h1, h2, h4, h5 {
   color: rgb(153, 153, 153);
 }
 
@@ -234,16 +235,6 @@ h1, h2, h3, h4, h5 {
     margin-top: -39%;
 }
 
-
-/*------------------------------- FOOTER ---------------------------------*/
-.footer-container {
-  position: relative;
-  background-color: #203c7f;
-  text-align: center;
-  padding-right: 30%;
-  padding-left: 30%;
-}
-
 .sponsor-description{
    text-align: center;
 }
@@ -309,4 +300,187 @@ h1, h2, h3, h4, h5 {
 .media-description img{
     width: 15%;
     margin-bottom: 20px;
+}
+
+/*------------------------------- ADMIN -----------------------------------*/
+ul, li {
+  list-style: none;
+  text-decoration: none;
+  display: inline-block;
+}
+.navbar-admin {
+  background-color: #203c7f;
+    border-color: #eee;
+}
+#menu-admin > li > a {
+  color: white;
+  display: inline-block;
+  list-style: none;
+  text-decoration: none;
+}
+#menu-admin > li > a:hover {
+  background-color: rgba(204, 204, 204, 0.66);
+  border-radius: 1px;
+}
+#menu-admin > li > a:focus {
+  background-color: #77839f;
+}
+.link-active {
+  color: #337ab7;
+  border-radius: 1px;
+}
+#home {
+  color: white;
+}
+#home:hover {
+  color: #337ab7;
+}
+.page {
+  border:5px solid #203c7f;
+  margin-bottom: 10%;
+}
+.page h3 {
+  font-size: 3em;
+  padding: 1%;
+    text-align: center;
+    font-weight: 500;
+    border-bottom: 1px solid #e5e5e5;
+}
+.page h4 {
+  color: #999;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+.administration {
+  margin: 1%;
+  text-align: center;
+  margin-bottom: 5%
+}
+.administration h4 {
+  color: #999;
+    font-size: 1.5em;
+    font-weight: 600;
+    text-align: center;
+}
+.btn-nozon {
+  color: #333;
+    background-color: #999;
+    border-color: #ccc;
+}
+.btn-nozon:hover {
+  background-color: #999;
+  
+}
+/*----------------- Edition ------------*/
+.form-create {
+  margin-top: 5%;
+  
+}
+.form-group {
+  text-align: left;
+    padding: 2%;
+    text-align: center;
+    padding-left: 30%;
+    padding-right: 30%;
+}
+.form-group label {
+  font-weight: 300;
+    margin: 2%;
+    margin-bottom: 5%;
+    font-style: italic;
+    font-size: 1.2em;
+    color: #203c7f;
+}
+.form-group input {
+  width: 100%;
+      margin: 0 auto;
+}
+.form-group textarea {
+  width: 100%;
+      margin: 0 auto;
+}
+.form-group button {
+  margin-top: 5%;
+  background-color: #ccc
+}
+.form-group button:hover {
+   background-color: #999;
+}
+#year {
+  border:none;
+  font-size: 1.5em;
+  background-color: #ddd;
+  color:#777;
+}
+#year:hover {
+  background-color: #999;
+}
+#btn-show-form {
+  background-color: #1f3c7e;
+    color: white;
+    border-color: #e5e5e5;
+}
+#btn-show-form:hover {
+  background-color: #337ab7;
+    color: white;
+    border-color: #e5e5e5;
+}
+#btnCreer, #btnModifier {
+  background-color: #ccc;
+
+}
+#btnCreer:hover, #btnModifier:hover {
+  background-color: #999;
+  
+}
+
+/*-------------------------- Accueil -----------------*/
+#page_accueil {
+  text-align: center;
+}
+.form-inline {
+  background-color: rgba(238, 238, 238, 0.63);
+  margin-bottom: 1%;
+}
+
+/*------------------------Equipe --------------------*/
+#modEquipe select {
+  width: 20%;
+    /* text-align: center; */
+    margin: 0 auto;
+}
+
+/*---------------------- Sponsors ------------------*/
+
+.img-liste-sponsor {
+  width: 10%;
+}
+.modif-sponsor {
+  font-size: 2em;
+  color:#333;
+}
+
+/* ----------------- Médias ------------------------*/
+#media {
+  text-align: left;
+    padding: 5%;
+    text-align: center;
+    display: inline-block;
+    /* padding-left: 30%; */
+    /* padding-right: 30%; */
+}
+
+
+
+
+
+
+/*------------------------------- FOOTER ---------------------------------*/
+.footer-container {
+  position: relative;
+  background-color: #203c7f;
+  text-align: center;
+  padding-right: 30%;
+  padding-left: 30%;
 }

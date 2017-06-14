@@ -7,7 +7,7 @@
                   </div>
                   <div class="team-description">
                     <div class="row team">
-
+                      
                       <div class="col-md-4 template-membre team-member">
                         <img src="img/johnaesch.jpg" class="img-responsive" id="img-membre">
                         <div class="membre-description">

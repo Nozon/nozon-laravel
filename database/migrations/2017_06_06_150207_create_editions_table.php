@@ -14,6 +14,7 @@ class CreateEditionsTable extends Migration
     public function up()
     {
         Schema::create('editions', function (Blueprint $table) {
+            // On enlève l'id pour voir si ça règle le problème de fk quand on migre sur pingouin
             $table->increments('id');
             $table->integer('annee')->unsigned()->unique();
             $table->text('textePresentation');
@@ -21,6 +22,8 @@ class CreateEditionsTable extends Migration
             $table->string('lieu');
             $table->date('dateConcours');
             $table->timestamps();
+            // On ajoute la clé primaire sur l'année pour voir si ça règle le problème de fk quand on migre sur pingouin
+            //$table->primary('annee');
         });
     }
 

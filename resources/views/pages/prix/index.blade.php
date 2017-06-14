@@ -7,13 +7,17 @@
   <div class="grid presse-description">
 
       <table class="table table-hover" id="tabPrix">
-          <tbody>
+          <tbody
+          
+            <!--DEBUT TMPL-->
             @foreach($recompenses as $key => $value)
                 <tr>
                     <td><i class="fa fa-trophy fa-2x" aria-hidden="true"></i>{{ $value->type}}</td>
                     <td>{{ $value->description}}</td>
                 </tr>
             @endforeach
+            <!--FIN TMPL-->
+            
           </tbody>
         </table>
 

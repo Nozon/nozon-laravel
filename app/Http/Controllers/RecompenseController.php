@@ -46,15 +46,14 @@ class RecompenseController extends Controller {
         try {
             // Tentative d'enregistrement de Recompense
             Recompense::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des recompenses
-            //Message::success('recompense.saved');
-            // return redirect('recompense');
+            //Message de succès, puis redirection vers la liste des recompenses
+            Message::success('recompense.create');
+            return redirect('recompense');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
-            //Message::error('bd.error');
+            Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            //return redirect()->back()->withInput();
-            return 'Redirection vers le formulaire, avec inputs';
+            return redirect()->back()->withInput();
         }
     }
 
@@ -96,7 +95,13 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        //
-    }
+        
+        $recompense = Recompense::find($id);
+        $recompense->delete();
 
+        // redirect
+        Message::success('recompense.delete');
+        return Redirect::to('recpmpense');
+        
+    }
 }
