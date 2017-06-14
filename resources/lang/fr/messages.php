@@ -2,6 +2,8 @@
 
 
 return [
+    
+    
     'bd' => [
            //permet d gérer des msg dynamiques
         'error' => 'Erreur technique : :error',
@@ -58,7 +60,7 @@ return [
     ],
     
     
-      'Presse' => [
+    'Presse' => [
       'exists' => "Cet article existe déjà !",
       'create' => "Un article a été créé :)",
       'update' => "Le article a bien été modifié",
@@ -66,7 +68,7 @@ return [
     ],
     
     
-      'Profil' => [
+    'Profil' => [
       'exists' => "Ce profil existe déjà !",
       'create' => "Un profil a été créé :)",
       'update' => "Le profil a bien été modifié",
@@ -74,7 +76,7 @@ return [
     ],
     
     
-      'Publication' => [
+    'Publication' => [
       'exists' => "Cette publication existe déjà !",
       'create' => "Une publication a été créée :)",
       'update' => "La publication a bien été modifiée",
@@ -100,6 +102,13 @@ return [
     
     'Sponsor' => [
       'problem' => "Oups! Impossible de charger cette image",
+      'saved'  => "L'image a été chargée :)",
+    ],
+        
+        
+        
+    'edition_sponsor' => [
+      'exists' => "Il existe déjà un sponsor principal pour cette édition",
       'saved'  => "L'image a été chargée :)",
     ],
 ];

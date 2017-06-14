@@ -8,11 +8,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 
-class Niveau extends Model
+class edition_sponsor extends Model
 {
+    
 
     public static $rules = [
-        'valeur' => ['required', 'regex:/principal/,/or/,/argent/,/bronze/']
+        'valeur' => ['required', 'enum:[principale],[or], [argent], [bronze]']
     ];
 
     public static function getValidation(Request $request)
@@ -23,13 +24,13 @@ class Niveau extends Model
         echo(implode(" | ", $inputs));
         echo("<br />");
         // Création du validateur
-        $validator = Validator::make($inputs, Niveau::$rules);
+        $validator = Validator::make($inputs, Edition_sponsor::$rules);
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence du Niveau
-            if (Niveau::exists($inputs['edition_annee'], 
+            if (Edition_sponsor::exists($inputs['edition_annee'], 
                $inputs['sponsor_nom'])) {
-                $validator->errors()->add('exists', Message::get('niveau.exists'));
+                $validator->errors()->add('exists', Message::get('edition_sponsor.exists'));
             }
         });
         // Renvoi du validateur
@@ -40,34 +41,34 @@ class Niveau extends Model
     public static function exists($edition_annee, $sponsor_nom)
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
-        return Niveau::where('edition_annee', $edition_annee)->where('sponsor_nom', $sponsor_nom)->find() !== null;
+        return Edition_sponsor::where('edition_annee', $edition_annee)->where('sponsor_nom', $sponsor_nom)->find() !== null;
     }
 
     /**
-     * Enregistre en base de données un nouveau Presse selon les $values donnés
+     * Enregistre en base de données un nouveau Edition_sponsor selon les $values donnés
      * @param array $values
      */
     public static function createOne(array $values) {
-        // Création d'une nouvelle instance de Niveau
+        // Création d'une nouvelle instance de Edition_sponsor
         echo("Dans la fonction createOne: ");
         echo(implode(" | ", $values));
         echo("<br />");
-        $new = new Niveau();
-        // Définition des propriétés de Niveau
+        $new = new Edition_sponsor();
+        // Définition des propriétés de Edition_sponsor
         $new->valeur = $values['valeur'];
-        // Enregistrement de Niveau
+        // Enregistrement de Edition_sponsor
         $new->save();
     }
 
     public function edition(){
 
-        return $this->belongsTo('App/Models/Edition');
+        return $this->belongsTo('App/Models/Edition')->withpivot('edition_annee');
 
     }
     
-    public function Sponsor(){
+    public function sponsor(){
 
-        return $this->belongsTo('App/Models/Sponsor');
+        return $this->belongsTo('App/Models/Sponsor')->withpivot('sponsor_nom');
 
     }
 

@@ -16,7 +16,7 @@ class Edition extends Model
         'texte_presentation' => ['required', 'string'],
         'lieu' => ['required', 'string'],
         'date_concours' => ['required', 'date'],
-        'texteC_cncours' => ['required', 'string']
+        'texte_concours' => ['required', 'string']
     ];
 
     public static function getValidation(Request $request)
@@ -67,33 +67,32 @@ class Edition extends Model
         $new->save();
     }
 
-    public function Presse(){
+    public function presses(){
 
         return $this->hasMany('App/Models/Presse');
 
     }
     
-    public function Niveau(){
+    public function niveaux(){
 
         return $this->hasMany('App/Models/Niveau');
 
     }
     
-    public function Publication(){
+    public function publications(){
 
         return $this->hasMany('App/Models/Publication');
 
     }
     
-    public function edition_media(){
+    public function medias(){
 
-        return $this->hasMany('App/Models/Edition_media');
+        return $this->belongsMany('App/Models/Edition_media');
 
     }
     
   
-    
-    public function Equipe(){
+    public function equipes(){
 
         return $this->hasMany('App/Models/Equipe');
 

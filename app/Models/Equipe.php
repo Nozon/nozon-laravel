@@ -14,8 +14,7 @@ class Equipe extends Model
     public static $rules = [
         'nom' => ['required', 'string'],
         'description' => ['required', 'string'],
-        'type' => ['required', 'regex:/principal/,/secondaire/'],
-        'date' => ['required', 'string']
+        'type' => ['required', 'enum:[principal],[secondaire]'],
     ];
 
     public static function getValidation(Request $request)
@@ -65,21 +64,21 @@ class Equipe extends Model
         $new->save();
     }
 
-     public function Recompense(){
+     public function recompenses(){
 
         return $this->hasMany('App/Models/Recompense');
 
     }
     
-     public function Profil(){
+     public function profils(){
 
         return $this->hasMany('App/Models/Profil');
 
     }
     
-     public function equipe_media(){
+     public function medias(){
 
-        return $this->hasMany('App/Models/equipe_media');
+        return $this->hasMany('App/Models/Media');
 
     }
     

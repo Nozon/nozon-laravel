@@ -12,7 +12,8 @@ class Sponsor extends Model
 {
 
     public static $rules = [
-        'nom' => ['required', 'string']
+        'nom' => ['required', 'string'],
+        'url' => ['required', 'string']
     ];
 
     public static function getValidation(Request $request)
@@ -59,15 +60,15 @@ class Sponsor extends Model
         $new->save();
     }
 
-    public function media_sponsor(){
+    public function medias(){
 
-        return $this->hasMany('App/Models/Media_sponsor');
+        return $this->belongsToMany('App/Models/Media');
 
     }
     
-     public function niveau(){
+     public function niveaus(){
 
-        return $this->hasMany('App/Models/Niveau');
+        return $this->belongsToMany('App/Models/Niveau');
 
     }
 
