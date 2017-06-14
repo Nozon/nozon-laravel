@@ -7,19 +7,16 @@ $(function () {
 	$("#main-sidenav").hide();
 
 	// nav cachée puis activ au scroll
-	$('#mainNav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
+	$('.main-nav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
 	$('.membre-description').hide();
 	$('.membre-soutien-description').hide();
-	
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
       if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
-            $('#mainNav').fadeIn("slow", function() {
-            	$('#mainNav').show();
+            $('.main-nav').fadeIn("slow", function() {
+            	$('.main-nav').show();
             }); // On affiche le 2
       } else {
-            $('#mainNav').fadeOut("swing", function() {
-            	$('#mainNav').hide();
-            }); // "et vice et versa" (© Les inconnus, 1990 ^^)
+            $('.main-nav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
    	});
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
@@ -31,13 +28,15 @@ $(function () {
             $('#main-sidenav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
    });
- 	// click side nav
- 	$(".nav-edition-year").on("click", function() {
- 		$(this).parents().eq(2).toggleClass("circle-active");
- 		$(this).toggleClass("year-active");
- 		$('.nav-edition-circle').removeClass('circle-active');
-    	$('.nav-edition-year').removeClass("year-active");
- 	});
+
+    // connexion/déconnexion
+    
+    // Devenir sponsor
+      $("#btn-dev").on('click', function() {
+          console.log("Yeah");
+          $("#devSponsor").toggleClass('hidden');
+      });
+
     // smooth scroll
     $(".js-scrollTo").on('click', function() { // Au clic sur un élément
 		var page = $(this).attr('href'); // Page cible
@@ -78,11 +77,6 @@ $(function () {
 	.mouseout(function() {
 		$(this).children('div.membre-soutien-description').hide();
 	});
-
-	// Devenir sponsor
-      $("#btn-dev").on('click', function() {
-          $("#devSponsor").toggleClass('hidden');
-    });
 
 });
 
