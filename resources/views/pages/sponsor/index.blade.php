@@ -100,8 +100,6 @@
             <button class="btn btn-primary btn-lg btnDevSponsor">Contactez-nous !</button>
             
         </div>
-
-
         <div class="grid sponsor-description">
             <h2>Principal</h2>
             <div class="col">
