@@ -6,6 +6,8 @@ use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Presse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 
 class PresseController extends Controller {
 
@@ -88,7 +90,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        
+
       //Modifications de la publication
          $rules = array(
 
@@ -97,15 +99,17 @@ class PresseController extends Controller {
         'description' => 'required', 'string',
         'date' => 'required', 'date'
     );
-        $validator = Validator::make(Input::all(), $rules);
+        $validate = Validator::make(Input::all(), $rules);
 
-        
+
         if ($validate->fails()) {
+   
             Message::error('presse.exists');
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
              }
         else {
+            
             // store
             $presse = Presse::find($id);
             $presse->url         = Input::get('url');
