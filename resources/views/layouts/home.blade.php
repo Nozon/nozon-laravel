@@ -43,7 +43,7 @@
                             <li class="main-nav-link"><a class="js-scrollTo" href="#team">team</a></li>
                             <li class="main-nav-link"><a class="js-scrollTo" href="#concours">concours</a></li>
                             <li class="main-nav-link"><a class="js-scrollTo" href="#news">news</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#médias">médias</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#medias">médias</a></li>
                             <li class="main-nav-link"><a class="js-scrollTo" href="#presse">presse</a></li>
                             <li class="main-nav-link"><a class="js-scrollTo" href="#prix">récompenses</a></li>
                             <li class="main-nav-link"><a class="js-scrollTo" href="#sponsors">sponsors</a></li>

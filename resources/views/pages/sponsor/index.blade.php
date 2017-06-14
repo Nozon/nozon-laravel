@@ -3,7 +3,7 @@
     <div class="row">
         <div class="team-hydro-titre" id="titre-sponsor">
             <h1>Sponsor</h1>
-            <h2 id="btn-dev">Devenez sponsor <i class="fa fa-angle-down"></i></h2>
+            <h5 id="btn-dev" class="futursponsor">Devenez sponsor <i class="fa fa-angle-down"></i></h5>
         </div>
         <div class="container hidden" id="devSponsor">
             <table class="table table-hover" id="tabSponsor">

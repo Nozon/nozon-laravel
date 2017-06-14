@@ -10,7 +10,7 @@
                       </div>
                     </li>
 
-                    <li class="nav-edition-circle circle-activ" id="cercle">
+                    <li class="nav-edition-circle" id="cercle">
                       <div class="nav-edition-container-year">
                         <a href="/" class="nav-edition-year">2016</a>
                       </div>
