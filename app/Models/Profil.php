@@ -71,9 +71,9 @@ class Profil extends Model
 
     }
     
-    public function media_profil(){
+    public function medias(){
 
-        return $this->hasMany('App/Models/Media_profil');
+        return $this->belongsToMany('App/Models/Media');
 
     }
     

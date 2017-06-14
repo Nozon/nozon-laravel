@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNiveauxTable extends Migration
+class CreateEditionSponsorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateNiveauxTable extends Migration
      */
     public function up()
     {
-        Schema::create('niveaux', function (Blueprint $table) {
+        Schema::create('edition_sponsor', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('edition_annee')->unsigned();
             $table->string('sponsor_nom');
@@ -32,6 +32,6 @@ class CreateNiveauxTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('niveaux');
+        Schema::dropIfExists('edition_sponsor');
     }
 }

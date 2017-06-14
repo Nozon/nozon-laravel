@@ -62,7 +62,7 @@ class Membre extends Model
         $new->save();
     }
 
-    public function profil(){
+    public function profils(){
 
         return $this->hasMany('App/Models/Profil');
 

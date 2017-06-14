@@ -18,6 +18,7 @@ class CreateProfilsTable extends Migration
             $table->integer('membre_id')->unsigned();
             $table->integer('equipe_id')->unsigned();
             $table->string('fonction');
+            $table->string('description');
             $table->string('departement');
             $table->integer('anneeEtude');
             $table->timestamps();
