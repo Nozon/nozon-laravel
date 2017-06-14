@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Lib\Message;
 use App\Http\Controllers\Controllers;
 use App\Models\Membre;
-use App\Models\Profl;
+use App\Models\Profil;
 use App\Models\Equipe;
 use App\Models\Media;
 
@@ -43,17 +43,17 @@ class MembreController extends Controller {
     public function store(Request $request) {
         // Récupération du validateur
         $validate = Membre::getValidation($request);
-        echo "methode store ";
+        echo "methode store Membre : ";
         // En cas d'échec de validation de Membre
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
             //return redirect()->back()->withInput()->withErrors($validate);
-            return "validate failed";
+            echo "validate failed";
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
-            $membre_id = Membre::createOne($validate->getData());
+            $membre_id = Membre::createOne($validate->getData())->id;
 
             $edition_annee = Session::get('edition_annee');
             //recup type equipe dans les inputs
@@ -61,26 +61,49 @@ class MembreController extends Controller {
             //recup de l'id de l'equipe
             $equipe_id = Equipe::where('edition_annee', $edition_annee)
                                 ->where('type', $type)->first()->id;
-
             // Message de succès, puis redirection vers la liste des membres
             //Message::success('membre.saved');
-            echo "J'essaye";
+            // return "request: ".$request." membre id : ".$membre->id." Equipe ID :".$equipe_id;
 
-            //ProfilController::store($request, $equipe_id, $membre_id);
-            return redirect()->action('ProfilController@store', ['request' => $request,
-                                                'membre_id' => $membre_id,
-                                              'equipe_id' => $equipe_id]);
-            //return redirect('membre');
-        } catch (\Exception $e) {
-            // En cas d'erreur, envoi d'un message d'erreur
-            Message::error('bd.error');
-            // Redirection vers le formulaire, avec inputs
-            //return redirect()->back()->withInput();
-            return "bd failed";
-        }
+            // return redirect()->action('ProfilController@store',
+            //                             ['request' => $request,
+            //                             'membre_id' => $membre->id,
+            //                             'equipe_id' => $equipe_id]);
+            $profilcree = Self::createProfil($request, $membre_id, $equipe_id);
+            echo ('profil créé');
 
+            } catch (\Exception $e) {
+                // En cas d'erreur, envoi d'un message d'erreur
+                Message::error('bd.error');
+                // Redirection vers le formulaire, avec inputs
+                return redirect()->back()->withInput();
+                // return "bd failed";
+            }
     }
 
+    public function createProfil($request, $membre_id, $equipe_id) {
+      $validate = Profil::getValidation($request, $membre_id, $equipe_id);
+      if ($validate->fails()) {
+          // Redirection vers le formulaire, avec inputs et erreurs
+          echo ("validate failed");
+          return redirect()->back()->withInput()->withErrors($validate);
+      }
+      // En cas de succès de la validation
+      try {
+          // Tentative d'enregistrement de Profil
+          echo ("j'essaye de créer le profil : ".implode(" | ",$validate->getData()));
+          return Profil::createOne($validate->getData(), $membre_id, $equipe_id);
+          // Message de succès, puis redirection vers la liste des profils
+          Message::success('profil.saved');
+          //return redirect('profil');
+      } catch (\Exception $e) {
+          // En cas d'erreur, envoi d'un message d'erreur
+          //Message::error('bd.error');
+          // Redirection vers le formulaire, avec inputs
+          return redirect()->back()->withInput();
+          return "lol";
+      }
+    }
     /**
      * Display the specified resource.
      *

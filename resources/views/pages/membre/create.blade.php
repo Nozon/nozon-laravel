@@ -27,6 +27,9 @@
             <label for="departement">Departement</label>
             <input type="text" placeholder="departement" name="departement" value="{{ old('departement') }}">
 
+            <label for="description">Description</label>
+            <input type="text" placeholder="description" name="description" value="{{ old('description') }}">
+
             <label for="annee_etude">Année etude</label>
             <input type="text" placeholder="annee_etude" name="annee_etude" value="{{ old('annee_etude') }}">
 

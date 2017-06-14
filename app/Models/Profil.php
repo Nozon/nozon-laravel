@@ -18,34 +18,35 @@ class Profil extends Model
         'annee_etude' => ['required', 'integer']
     ];
 
-    public static function getValidation(Request $request, $membre_id, $equipe_id)
+    public static function getValidation($request, $membre_id, $equipe_id)
     {
-        return "Get validation profil";
-        // Récupération des inputs
         $inputs = $request->only('fonction', 'description', 'departement', 'annee_etude');
-        echo("Dans la fonction getValidation du Model: ");
+        echo("Dans la fonction getValidation du Model profil : ");
         echo(implode(" | ", $inputs));
+        echo(" | ".$membre_id." | ".$equipe_id);
         echo("<br />");
+
         // Création du validateur
         $validator = Validator::make($inputs, Profil::$rules);
         // Ajout des contraintes supplémentaires
-        $validator->after(function ($validator) use ($inputs) {
+        $validator->after(function ($validator) use ($equipe_id, $membre_id) {
             // Vérification de l'existence de l'equipe'
-            if (!Equipe::exists($inputs['equipe_id'])) {
+            if (Equipe::where('equipe_id', $equipe_id) == null) {
                 $validator->errors()->add('equipe', Message::get('equipes.missing'));
-                echo ("equipe manquante : ".$inputs['equipe_id']);
+                echo ("equipe manquante : ".$equipe_id);
             }
             // Vérification de l'existence d'un membre correspondant
-            if (!Membre::exists($inputs['membre_id'])) {
+            if (Membre::where('membre_id', $membre_id) == null) {
                 $validator->errors()->add('membre', Message::get('membres.missing'));
-                echo ("mambre manquant : ".$inputs['membre_id']);
+                echo ("mambre manquant : ".$membre_id);
             }
             // Vérification de la non existence du profil
-            if (Profil::exists($inputs['equipe_id'], $inputs['membre_id'])) {
+            if (Profil::exists($equipe_id, $membre_id)) {
                 $validator->errors()->add('equipe', Message::get('equipes.exist'));
-                echo ("Profil existant");
+                echo ("Profil déjà existant");
             }
         });
+        echo("on a passé le validateur du profil !");
         // Renvoi du validateur
         return $validator;
     }
@@ -54,31 +55,34 @@ class Profil extends Model
     public static function exists($equipe_id, $membre_id)
     {
         // Vérifie qu'il n'existe pas de ligne dans la BD pour ces attributs
-        return Profil::where('equipe_id', $equipe_id)->where('membre_id', $membre_id)->find() !== null;
+        return Profil::where('equipe_id', $equipe_id)->where('membre_id', $membre_id)->first() !== null;
     }
 
     /**
      * Enregistre en base de données un nouveau Profil selon les $values donnés
      * @param array $values
      */
-    public static function createOne(array $values) {
+    public static function createOne(array $values, $membre_id, $equipe_id) {
         // Création d'une nouvelle instance de Profil
-        echo("Dans la fonction createOne: ");
+        echo("Dans la fonction createOne du profil : ");
         echo(implode(" | ", $values));
+        echo(" | ".$membre_id." | ".$equipe_id);
         echo("<br />");
         $new = new Profil();
         // Définition des propriétés de Profil
 
-        $new->membre_id = $values['membre_id'];
-        $new->equipe_id = $values['equipe_id'];
+        $new->membre_id = $membre_id;
+        $new->equipe_id = $equipe_id;
+
         $new->fonction = $values['fonction'];
         $new->departement = $values['departement'];
+        $new->description = $values['description'];
         $new->anneeEtude = $values['annee_etude'];
-        // Enregistrement de Profil
-        $new->membres()->attach($values[]);
+
+
         $new->save();
 
-
+        return $new;
     }
 
     public function membre(){

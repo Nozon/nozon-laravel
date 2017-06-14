@@ -21,7 +21,7 @@ class Membre extends Model
     {
         // Récupération des inputs
         $inputs = $request->only('nom', 'prenom', 'email');
-        echo("Dans la fonction getValidation du Model: ");
+        echo("Dans la fonction getValidation du modele Membre : ");
         echo(implode(" | ", $inputs));
         echo("<br />");
         // Création du validateur
@@ -51,7 +51,7 @@ class Membre extends Model
      */
     public static function createOne(array $values) {
         // Création d'une nouvelle instance de Membre
-        echo("Dans la fonction createOne: ");
+        echo("Dans la fonction createOne du Membre : ");
         echo(implode(" | ", $values));
         echo("<br />");
         $new = new Membre();
@@ -62,11 +62,12 @@ class Membre extends Model
         // Enregistrement de Membre
         $new->save();
         // Nous recuperons l'id du membre créé a partir de son email
-        $membre = Membre::where('email', $values['email'])->first();
+        return $new;
+        // return $membre = Membre::where('email', $values['email'])->first();
 
     }
 
-    public function profil(){
+    public function profils(){
 
         return $this->hasMany('App/Models/Profil');
 
