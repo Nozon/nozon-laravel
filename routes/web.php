@@ -52,3 +52,6 @@ Route::resource('user', 'UserController');
 Route::resource('sponsor', 'SponsorController');
 Route::resource('photo', 'MediaController');
 Route::resource('video', 'MediaController');
+
+
+Route::get('presse/edit/{id}', 'PresseController@edit');
