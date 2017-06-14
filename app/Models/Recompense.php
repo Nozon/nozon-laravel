@@ -28,7 +28,8 @@ class Recompense extends Model
         // Ajout des contraintes supplémentaires
         $validator->after(function ($validator) use ($inputs) {
             // Vérification de la non-existence de Recompense
-            if (Recompense::exists($inputs['type'], $inputs['description'],
+            if (Recompense::exists($inputs['type'], $inputs['description'], 
+
                 $inputs['equipe_id'])) {
                 $validator->errors()->add('exists', Message::get('recompense.exists'));
             }
@@ -54,20 +55,16 @@ class Recompense extends Model
 
         // Création d'une nouvelle instance de Recompense
         $new = new Recompense();
-
+      
         // Définition des propriétés de Recompense
         $new->type = $values['type'];
         $new->description = $values['description'];
-        $new->equipe_id = $values['equipe_id'];
 
         // Enregistrement de Recompense
         $new->save();
     }
 
     public function equipe(){
-
         return $this->belongsTo('App/Models/Equipe');
-
     }
-
 }
