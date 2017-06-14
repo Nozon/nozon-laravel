@@ -6,7 +6,13 @@
 
                     <li class="nav-edition-circle circle-activ" id="cercle">
                       <div class="nav-edition-container-year">
-                        <a href="edition-2017" class="nav-edition-year year-activ">2017</a>
+                        <a href="/" class="nav-edition-year year-activ">2017</a>
+                      </div>
+                    </li>
+
+                    <li class="nav-edition-circle circle-activ" id="cercle">
+                      <div class="nav-edition-container-year">
+                        <a href="/" class="nav-edition-year">2016</a>
                       </div>
                     </li>
 
