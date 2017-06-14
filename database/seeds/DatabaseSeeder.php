@@ -190,12 +190,14 @@ class DatabaseSeeder extends Seeder
             
             DB::table('sponsors')->insert([
                 'nom' => 'BCV',
+                'url' => 'www.bcv.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
             
             DB::table('sponsors')->insert([
                 'nom' => 'UBS',
+                'url' => 'www.ubs.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);

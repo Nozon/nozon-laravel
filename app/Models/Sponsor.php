@@ -12,7 +12,8 @@ class Sponsor extends Model
 {
 
     public static $rules = [
-        'nom' => ['required', 'string']
+        'nom' => ['required', 'string'],
+        'url' => ['required', 'string']
     ];
 
     public static function getValidation(Request $request)
