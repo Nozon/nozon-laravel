@@ -52,3 +52,8 @@ Route::resource('user', 'UserController');
 Route::resource('sponsor', 'SponsorController');
 Route::resource('photo', 'MediaController');
 Route::resource('video', 'MediaController');
+
+
+Route::resource('prix', 'PrixController');
+
+
