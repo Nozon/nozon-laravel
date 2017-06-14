@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
             Schema::disableForeignKeyConstraints();
-        
+
             DB::table('utilisateurs')->truncate();
             DB::table('groupes')->truncate();
             DB::table('groupe_utilisateur')->truncate();
@@ -30,7 +30,9 @@ class DatabaseSeeder extends Seeder
             DB::table('recompenses')->truncate();
             DB::table('sponsors')->truncate();
             DB::table('edition_sponsor')->truncate();
-        
+
+            $this->call(ACLSeeder::class);
+
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => 'Bienvenue à tous, 2016 c bien',
@@ -50,8 +52,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('equipes')->insert([
                 'nom' => 'Schlaguitude',
                 'description' => 'On aime autant les bateaux que Kostic les enfants',
@@ -60,7 +62,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('equipes')->insert([
                 'nom' => 'Geekissime',
                 'description' => 'Sens-nous et tu sauras',
@@ -69,8 +71,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('medias')->insert([
                 'url' => 'http://www.rts.ch',
                 'titre' => 'unePhoto',
@@ -79,7 +81,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('medias')->insert([
                 'url' => 'http://www.google.ch',
                 'titre' => 'site',
@@ -88,8 +90,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('membres')->insert([
                 'nom' => 'Jean',
                 'prenom' => 'Jean',
@@ -97,7 +99,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Jeanne',
                 'prenom' => 'Jeanne',
@@ -105,10 +107,10 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
-                
-                
-                
+
+
+
+
             DB::table('presses')->insert([
                 'url' => 'http://www.google.ch',
                 'titre' => 'Titre du site',
@@ -118,7 +120,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
+
             DB::table('presses')->insert([
                 'url' => 'http://www.eurosport.fr',
                 'titre' => 'Titre du site',
@@ -128,8 +130,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
-                 
+
+
             DB::table('profils')->insert([
                 'fonction' => 'Enjailleur',
                 'description' => 'Mon devoir est de raconter un minimum de 3 blagues moyennes par tranche de 5 heures',
@@ -139,21 +141,21 @@ class DatabaseSeeder extends Seeder
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                
+
                 ]);
-                
+
             DB::table('profils')->insert([
                 'fonction' => 'Gars casse couille',
                 'description' => 'Mon devoir est de rappeler aux gens leur manque dengagement' ,
                 'departement' => 'Cirque',
-                'anneeEtude' => '798', 
+                'anneeEtude' => '798',
                 'membre_id' => '2',
                 'equipe_id' => '2',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
-            
+
+
             DB::table('publications')->insert([
                 'titre' => 'UnTitre',
                 'texte' => 'DuTexte',
@@ -161,7 +163,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => 'unTitre',
                 'texte' => 'unTexte',
@@ -169,16 +171,16 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
-            
+
+
             DB::table('recompenses')->insert([
                 'type' => 'Un Câlin',
                 'description' => 'Gros hug, bro',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                 ]);  
-            
+                 ]);
+
             DB::table('recompenses')->insert([
                 'type' => 'Un cadeau',
                 'description' => 'C est une surprise, on peut pas dire, ça va de soit, soit pas débile, fais un effort, na na na na, na na na na, ...',
@@ -187,20 +189,20 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'BCV',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'UBS',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             Schema::enableForeignKeyConstraints();
     }
 }

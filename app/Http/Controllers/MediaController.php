@@ -35,26 +35,29 @@ class MediaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur de Media
-        $validate = Media::getValidation($request);
-        // En cas d'échec de validation
-        if ($validate->fails()) {
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
-        }
-        // En cas de succès de la validation
-        try {
-            // Tentative d'enregistrement de Media
-            Media::createOne($validate->getData());
-            // Message de succès, puis redirection vers la liste des Medias
-            Message::success('media.create');
-            return redirect('media');
-        } catch (\Exception $e) {
-            // En cas d'erreur, envoi d'un message d'erreur
-            Message::error('bd.error');
-            // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
-        }
+        //essai d'upload de la photo
+        Media::upload($request);
+
+        // // Récupération du validateur de Media
+        // $validate = Media::getValidation($request);
+        // // En cas d'échec de validation
+        // if ($validate->fails()) {
+        //     // Redirection vers le formulaire, avec inputs et erreurs
+        //     return redirect()->back()->withInput()->withErrors($validate);
+        // }
+        // // En cas de succès de la validation
+        // try {
+        //     // Tentative d'enregistrement de Media
+        //     Media::createOne($validate->getData());
+        //     // Message de succès, puis redirection vers la liste des Medias
+        //     Message::success('media.create');
+        //     return redirect('media');
+        // } catch (\Exception $e) {
+        //     // En cas d'erreur, envoi d'un message d'erreur
+        //     Message::error('bd.error');
+        //     // Redirection vers le formulaire, avec inputs
+        //     return redirect()->back()->withInput();
+        // }
     }
 
     /**
@@ -86,6 +89,7 @@ class MediaController extends Controller {
      */
     public function update(Request $request, $id) {
         //
+
     }
 
     /**
@@ -95,14 +99,13 @@ class MediaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $media = Media::find($id);
         $media->delete();
 
         // redirect
         Message::success('media.delete');
         return Redirect::to('media');
-        
     }
 
 }

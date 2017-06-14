@@ -2,13 +2,13 @@
                 <div class="row">
                     <div class="administration" id="creerEdition">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-media">Ajouter un médias</button>
-                        <form class="form-add-media">
+                        <form class="form-add-media" method="POST" action="{{ url('media') }}">
                             <div class="form-group" id="media">
                                 <label>Insérer une image</label>
-                                <input type="file" name="imgMedias"/>
+                                <input type="file" name="nomImage "/>
                                 <button class="btn btn-default btnAddMediaImg">Ajouter photo</button>
                             </div>
-                            
+
                             <div class="form-group" id="media">
                                 <label>Insérer une vidéo</label>
                                 <input type="file" name="vidMedias"/>
@@ -64,7 +64,7 @@
                                             <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                                 <input type="file" name="imgMedias"/>
                                 <button class="btn btn-default btnAddMediaImg">Modifier le média</button>
                             </div>
-                            
+
                         </form>
                     </div>
                 </div>

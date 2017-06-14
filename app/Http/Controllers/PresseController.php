@@ -37,7 +37,6 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        dd($request);
         echo("Dans la fonction store <br />");
         // Récupération du validateur de Presse
         $validate = Presse::getValidation($request);
