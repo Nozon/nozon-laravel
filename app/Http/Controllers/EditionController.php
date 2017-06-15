@@ -53,9 +53,19 @@ class EditionController extends Controller {
 
         // Récupération des presses
         $presses = Presse::all()->where('edition_annee', $annee);
-        return  view('pages.edition')
-                ->with('presses', $presses)
-                ->with('recompenses', $recompenses);
+        echo "Listes des presses : ";
+        foreach($presses as $presse) {
+            echo $presse->titre . " ";
+        }
+        echo "<br />";
+
+        /*
+                return view('pages.edition')
+                    ->with('editions', $editions)
+                    ->with('equipePrincipale', $equipePrincipale)
+                    ->with('presses', $presses)
+                    ->with('recompenses', $recompenses);
+        */
     }
 
     /**
@@ -146,7 +156,7 @@ class EditionController extends Controller {
 
             return Redirect::to('admin/edition');
         }
-}
+    }
 
     /**
      * Remove the specified resource from storage.
