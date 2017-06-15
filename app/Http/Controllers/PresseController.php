@@ -6,6 +6,7 @@ use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Presse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 
@@ -18,7 +19,7 @@ class PresseController extends Controller {
      */
     public function index() {
         $presse = Presse::all();
-        return view('presse/index')->with('presse', $presse);
+        return view('pages.presse.index')->with('presse', $presse);
     }
 
     /**
@@ -90,38 +91,31 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        echo ('je suis une train de mettre a jour la presse avec ID: '. $id);
 
-      //Modifications de la publication
-
-          $inputs = $request->only('url', 'titre', 'description', 'date');
-
-          echo (implode(" | ", $inputs));
+        $inputs = $request->only('url', 'titre', 'description', 'date');
 
         $validate = Validator::make($inputs, Presse::$rules);
 
         if ($validate->fails()) {
-            Message::error('presse.exists');
-            echo ('validation ratée: '.$id);
+            Message::error('presse.exists'); // "Presse n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+w
             // Redirection vers le formulaire, avec inputs et erreurs
-            // return redirect()->back()->withInput()->withErrors($validate);
-             } else {
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
             $presse = Presse::find($id);
-            $presse->url         = $inputs['url'];
-            $presse->titre       = $inputs['titre'];
-            $presse->description = $inputs['description'];
-            $presse->date        = $inputs['date'];
+          
+            $presse->url           = $inputs['url'];
+            $presse->titre         = $inputs['titre'];
+            $presse->description   = $inputs['email'];
+            $presse->date          = $inputs['date'];
+
             $presse->save();
 
             Message::success('presse.update');
-            return ('La presse a bien été mise à jour');
-
-            //Il faudra ajouter un mesage ici
-            // redirect
-            //Session::flash('message', 'Successfully updated nerd!');
-            return Redirect::to('presse');
+            return Redirect::to('admin/presse');
         }
 }
+
     /**
      * Remove the specified resource from storage.
      *

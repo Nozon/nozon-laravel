@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Links -->
         <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+        <link rel="SHORTCUT ICON" href="favicon.ico" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
-        <link href="{{asset('css/fluid-gallery.css')}}" rel="stylesheet">
-        <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+        <link href="{{asset('css/lightbox.css')}}" rel="stylesheet">
         <link href="{{asset('css/main.css')}}" rel="stylesheet">
 
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{{asset('js/jquery.js')}}"></script>
         <script src="{{asset('js/bootstrap.js')}}"></script>
         <script src="{{asset('js/main.js')}}"></script>
-        <script src="{{asset('js/baguetteBox.min.js')}}"></script>
-        <script>baguetteBox.run('.tz-gallery');</script>
+        <script src="{{asset('js/lightbox.js')}}"></script>
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -30,6 +30,7 @@
 
 
     </head>
+
     <body>
 
         <!-- VIDEO CONTAINER -->
@@ -37,16 +38,16 @@
         <section class="content-section video-section" id="intro-content">
 
             <header>
-                <nav class="navbar navbar-fixed-top">
+                <nav id="mainNav" class="navbar navbar-fixed-top">
                     <div class="container">
                         <ul class="main-nav">
-                            <li class="main-nav-link"><a href="#team">team</a></li>
-                            <li class="main-nav-link"><a href="#concours">concours</a></li>
-                            <li class="main-nav-link"><a href="#news">news</a></li>
-                            <li class="main-nav-link"><a href="#médias">médias</a></li>
-                            <li class="main-nav-link"><a href="#presse">presse</a></li>
-                            <li class="main-nav-link"><a href="#prix">récompenses</a></li>
-                            <li class="main-nav-link"><a href="#sponsors">sponsors</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#team">team</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#concours">concours</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#news">news</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#medias">médias</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#presse">presse</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#prix">récompenses</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#sponsors">sponsors</a></li>
 
                         </ul>
                     </div>
@@ -55,10 +56,10 @@
 
             <div class="video-background-container">
                 <video preload="auto" autoplay loop muted class="video-background">
-                    <source src="videos/home.mp4" type="video/mp4" />
-                    <source src="videos/home.webm" type="video/webm" />
-                    <source src="videos/home.ogv" type="video/ogg" />
+                    <source src="videos/hydro.mp4" type="video/mp4" />
+                    <source src="videos/hydro.webm" type="video/webm" />
                 </video>
+
             </div>
 
             <div class="logo-home">
@@ -78,6 +79,7 @@
                 <div class="row leCompteur">
                     <div class="compteur-titre"> 
                         <h4 id="compteAReboursTitre"></h4>
+                        <input type="hidden" name="dateDuConcours" id="dateDuConcours" value="{{$edition->dateConcours}}">
                     </div>
                     <div class="row compteur">
 
@@ -121,9 +123,11 @@
         </div>
         <section id="main-content">
 
-            @include('layouts.partials.nav')
-            @include('layouts.partials.contact')
+            
             <div class="row pattern-overlay">
+                @include('layouts.partials.nav')
+                
+                @include('layouts.partials.contact')
 
                 <div id="content-pages">
                     {{-- will be used to show any messages --}}
@@ -149,6 +153,7 @@
                         </ul>
                     </div>
                     @endif
+
                     <!-- partie a templater -->
 
                     @yield('content')

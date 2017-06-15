@@ -29,6 +29,10 @@ h1, h2, h3, h4, h5 {
 }
 
 /*------------------------- HEADER -----------------------------------------*/
+nav.navbar {
+  background-color: whitesmoke;
+  height: 10px;
+}
 .main-nav {
   margin: 1%;
   text-align: center;
@@ -36,10 +40,10 @@ h1, h2, h3, h4, h5 {
 }
 .main-nav li{
   display: inline-block;
-  margin: 1%;
+  margin-right: 2%;
 }
 .main-nav li > a {
-  margin: 5%;
+    margin: 5%;
     font-size: 1.2em;
     font-weight: 500;
     color: rgba(153, 153, 153, 0.84);
@@ -49,15 +53,11 @@ h1, h2, h3, h4, h5 {
     padding-right: 10%;
     margin-right: 1%;
     margin-left: 1%;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 3px solid rgba(204, 204, 204, 0.05);
-    border-radius: 10px;
 }
 .main-nav-link a:hover {
-  background-color: rgba(153, 153, 153, 0.4);
-
-  color: rgba(255, 255, 255, 0.7);
+  color: #555;
 }
+
 
 /*--------------------------  LOGO & Contact -----------------------------------*/
 
@@ -187,18 +187,21 @@ h1, h2, h3, h4, h5 {
 /*-------------------- SIDENAVE --------------------*/
 #main-sidenav {
  position: fixed;
-  margin-left: 8%;
-  margin-top: -55%;
+    margin-left: 4%;
+    margin-top: -55%;
+    width: 100px;
 }
 .nav-edition h4 {
-  margin-left: -2.5%;
-  font-size: 1em;
-  color: rgba(153, 153, 153, 0.5)
+  font-size: 1.2em;
+  color: rgba(153, 153, 153, 0.5);
+  padding-left: 10%;
+  margin-bottom: 15%;
+  border-bottom: 50px solid whitesmoke;
 
 }
 .nav-edition-liste {
 	list-style: none;
-	margin-left: -5.9%;
+  padding-left: 0;
 
 }
 .nav-edition-liste a {
@@ -210,17 +213,15 @@ h1, h2, h3, h4, h5 {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    margin-bottom: 3%;
-   
+    margin-bottom: 30%;
 }
 .circle-activ {
 	background: #f5f5f5;
     border-radius: 50%;
     width: 70px;
     height: 70px;
-    margin-bottom: 3%;
     margin-left: -0.85%;
-    animation: loady 5s linear infinite;
+    animation: loady 3s linear infinite;
    
 }
 @keyframes loady {
@@ -275,13 +276,13 @@ h1, h2, h3, h4, h5 {
   font-size: 3em;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 0.5px solid #ddd;
-  color: #999
+  color: #999;
 }
 .hydrocontest-text {
   font-family: 'Roboto Mono', monospace;
   font-weight: 200;
   font-style: italic;
+  color: #ccc;
 }
 .heigvd-text {
   color:rgba(255, 5, 0, 0.57);
@@ -295,6 +296,9 @@ h1, h2, h3, h4, h5 {
   padding-right: 5%;
 
 }
+.team-hydro-titre h5.futursponsor {
+  text-align: right;
+}
 .team-description {
     /* padding: 5%; */
     /* height: 500px; */
@@ -303,43 +307,60 @@ h1, h2, h3, h4, h5 {
     max-width: 1300px;
 
 }
-#img-membre {
-  width: 80%;
-  border-radius: 2%;
-  box-shadow: 1px 1px 12px #ddd;
-}
+
 .team {
   margin-right: 10%;
   margin-left: 5%;
 }
 .team-member {
-  padding: 1%;
+  position: relative;
+  width: 50%;
+}
+.image-membre {
+  display: block;
+  width: 80%;
+  height: auto;
+  box-shadow: 1px 1px 5px #ddd;
 }
 .membre-description {
-   position: relative;
-    text-align: left;
-    z-index: 6;
-    padding: 2%;
-    /* padding-bottom: 5%; */
-    /* padding-top: 5%; */
-    /* margin-right: 15%; */
-    /* padding-right: 3%; */
-    /* padding-left: 5%; */
-    padding-left: -5%;
-    /* padding-right: 50px; */
-    background-color: rgba(245, 245, 245, 0.71);
-    border-radius: 0 0 5% 5%;
-    width: 80%;
-    margin-top: -58%;
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 75%;
+    opacity: 0;
+    margin-left: 3%;
+    background-color: rgba(32, 60, 127, 0.64);
+}
+
+.team-member:hover .membre-description {
+  opacity: 1;
+  transition-timing-fonction: ease;
+    transition: 1s;
+}
+.text {
+  color: white;
+  margin-top: 35%;
+  padding: 10%;
 }
 .membre-description h5 {
+  color: white;
   font-size: 1.1em;
   font-style: bold;
   font-weight: bold;
-  color:#203c7f;
+  color:white;
+  padding-left: 2%;
+  border-left: 30px solid white;
 }
+#fonction {
+  padding-left: 2%;
+  border-left: 60px solid white;
+}
+
 #description {
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-style: italic;
   font-weight: 100;
 }
@@ -347,7 +368,7 @@ h1, h2, h3, h4, h5 {
   margin-top: 5%;
   text-align: center;
   margin-right: 20px;
-  background-color: rgba(238, 238, 238, 0.09);
+  background-color: white;
   padding-left: 10%;
   padding-right: 5%;
 
@@ -356,43 +377,95 @@ h1, h2, h3, h4, h5 {
   font-size: 2em;
   font-weight: 600;
   padding-bottom: 10px;
-  border-bottom: 0.5px solid #ddd;
-  color: #999
+  color: #ccc;
 }
 .team-soutien-member {
-  padding: 1%;
+  position: relative;
+  width: 50%;
 }
 #img-membre-soutien {
-  width: 60%;
-  border-radius: 2%;
+  display: block;
+  width: 50%;
+  height: auto;
+  box-shadow: 1px 1px 12px #ddd;
   box-shadow: 1px 1px 12px #ddd;
 }
 .membre-soutien-description {
-    position: relative;
-    text-align: left;
-    z-index: 6;
-    padding: 1%;
-    /* padding-bottom: 5%; */
-    /* padding-top: 5%; */
-    /* margin-right: 15%; */
-    /* padding-right: 5%; */
-    /* padding-left: 5%; */
-    padding-left: -5%;
-    /* padding-right: 50px; */
-    background-color: rgba(245, 245, 245, 0.91);
-    border-radius: 0 0 5% 5%;
-    width: 60%;
-    margin-top: -39%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 48%;
+    opacity: 0;
+    margin-left: 3%;
+    background-color: rgba(32, 60, 127, 0.64);
+}
+.team-soutien-member:hover .membre-soutien-description {
+  opacity: 1;
+  transition-timing-fonction: ease;
+    transition: 1s;
+}
+.text-soutien, .text-soutien h5 {
+  color: white;
+  padding-left: 2%;
+  border-left: 15px solid white;
+}
+.text-soutien p#fonction {
+  border-left: none;
+}
+#tabNews td {
+  border-top: none;
+}
+.news-article {
+
+}
+#tabNews td.news-img {
+  border-top: 40px solid whitesmoke;
+}
+.news-descr {
+  border-left: 40px solid whitesmoke;
+}
+.news-titre {
+  border-left: 50px solid whitesmoke;
+  border-bottom: 40px solid whitesmoke;
+}
+  padding-left: 1%;
+}
+.news-text {
+  
+}
+.news-more {
+  
 }
 
 
 /*------------------------------- FOOTER ---------------------------------*/
 .footer-container {
-  position: relative;
+  position: absolute;
   background-color: #203c7f;
   text-align: center;
-  padding-right: 35%;
-  padding-left: 35%;
+  padding-right: 30%;
+  padding-left: 30%;
+  height: 100px;
+  padding-top: 40px;
+  margin-top: 50px;
+  width: 100%;
+}
+.footer-container p{
+   color: white;
+   vertical-align: middle;
+}
+.footer-container a{
+    text-decoration: none;
+    color: white;
+}
+.footer-container a:hover{
+    color: #cecece;
+}
+.footer-container a:active{
+    color: grey;
 }
 
 /*------------------------------- CONNEXION + MODAL/FADE ---------------------------------*/
@@ -576,7 +649,23 @@ h1, h2, h3, h4, h5 {
     margin-top: 25px;
     margin-bottom: 50px;
 }
-.col-md-4 img{
+.btnDevSponsor{
+  border: 1px solid #3079ed; 
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #203c7f;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#2a4891), to(#203c7f)); 
+}
+.btnDevSponsor:hover{
+  border: 1px solid #3079ed; 
+  border: 0px;
+  color: #fff;
+  text-shadow: 0 1px rgba(0,0,0,0.1); 
+  background-color: #203c7f;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%,   from(#203c7f), to(#2a4891)); 
+}
+#imgExemple img{
     width: 80%;
     height: 80%;
 }
@@ -599,6 +688,7 @@ h1, h2, h3, h4, h5 {
     margin-bottom: 20px;
 }
 .presse-description{
+    padding-left: 12%;
     padding-right: 10%;
 }
 #tabPresse td:nth-child(1){
@@ -611,7 +701,7 @@ h1, h2, h3, h4, h5 {
     text-align: justify;
 }
 #tabPrix td:nth-child(1){
-    width: 25%;
+    width: 30%;
 }
 #tabPrix td:nth-child(2){
     text-align: justify;
@@ -625,7 +715,6 @@ h1, h2, h3, h4, h5 {
 }
 #tabNews img{
     width: 150px;
-    margin-right: 15px;
 }
 #tabNews td:nth-child(2){
     text-align: justify;
@@ -644,13 +733,27 @@ h1, h2, h3, h4, h5 {
     width: 250px;
     max-height: 300px;
 }
+table.table-hover tbody tr:nth-child(1) td{
+    border-top-width: 0;
+}
+
+/*************GALLERIE**************/
+.gallery-img img{
+    width: 100%;
+}
+.gallery-img img:hover {
+
+}
+.gallery-img{
+    background-color: whitesmoke;
+}
+.gallery-img .col-md-3{
+    padding: 8px;
+}
 .media-description{
     text-align: center;
 }
 .media-description h2{
     margin-bottom: 20px;
 }
-.media-description img{
-    width: 15%;
-    margin-bottom: 20px;
-}
+/**********************************/

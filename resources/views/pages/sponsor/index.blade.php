@@ -1,9 +1,9 @@
 <!-- PARTIE SPONSOR SAMI-->
-<div class="article content-sponsor-hydro">
+<div class="article content-sponsor-hydro" id="sponsors">
     <div class="row">
         <div class="team-hydro-titre" id="titre-sponsor">
             <h1>Sponsor</h1>
-            <h2 id="btn-dev">Devenez sponsor <i class="fa fa-angle-down"></i></h2>
+            <h5 id="btn-dev" class="futursponsor">Devenez sponsor <i class="fa fa-angle-down"></i></h5>
         </div>
         <div class="container hidden" id="devSponsor">
             <table class="table table-hover" id="tabSponsor">
@@ -97,32 +97,31 @@
 
             </div>
             
-            <button class="btn btn-primary btn-lg btnDevSponsor">Contactez-nous !</button>
+            <button class="btn btn-primary btn-lg btnDevSponsor" href="#" data-toggle="modal" data-target="#contact-modal">Contactez-nous !</button>
             
         </div>
         <div class="grid sponsor-description">
             <h2>Principal</h2>
             <div class="col">
-                <img src="img/facebooklogo.png"/>
+                <a href="#"><img src="{{$sponsorMain->URL}}"/></a>
             </div>
             <h2>Or</h2>
             <div class="col">
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
+                @foreach($sponsorsOr as $sponsorOr)
+                    <a href="{{$sponsorOr->webURL}}"><img src="{{$sponsorOr->URL}}"/></a>
+                @endforeach
             </div>
             <h2>Argent</h2>
             <div class="col">
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
+                @foreach($sponsorsArgent as $sponsorArgent)
+                    <a href="{{$sponsorArgent->webURL}}"><img src="{{$sponsorArgent->URL}}"/></a>
+                @endforeach
             </div>
             <h2>Bronze</h2>
             <div class="col">
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
-                <img src="img/sponsor.gif"/>
+                @foreach($sponsorsBronz as $sponsorBronz)
+                    <a href="{{$sponsorBronz->webURL}}"><img src="{{$sponsorBronz->URL}}"/></a>
+                @endforeach
             </div>
         </div>
     </div>

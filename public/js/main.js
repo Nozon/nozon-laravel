@@ -2,21 +2,22 @@
 var hauteur = 800; // XXX, c'est le nombre de pixels à partir duquel on déclenche le tout
 
 $(function () {
+	var dateConcours = $("#dateDuConcours").attr("value").val();
 	// activation compteur
-	compte_a_rebours();
+	compte_a_rebours(dateConcours);
 	$("#main-sidenav").hide();
 
 	// nav cachée puis activ au scroll
-	$('.main-nav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
+	$('#mainNav').hide();  // d'abord, on masque le deuxième menu de navigation, qui porte la classe "navigation2"
 	$('.membre-description').hide();
 	$('.membre-soutien-description').hide();
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
       if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
-            $('.main-nav').fadeIn("slow", function() {
-            	$('.main-nav').show();
+            $('#mainNav').fadeIn("slow", function() {
+            	$('#mainNav').show();
             }); // On affiche le 2
       } else {
-            $('.main-nav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
+            $('#mainNav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
    	});
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
@@ -27,11 +28,16 @@ $(function () {
       } else {
             $('#main-sidenav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
       }
-      // Devenir sponsor
-      $("#btn-dev").on('click', function() {
-          $("#devSponsor").toggleClass('hidden');
-      })
    });
+
+    // connexion/déconnexion
+    
+    // Devenir sponsor
+      $("#btn-dev").on('click', function() {
+          console.log("Yeah");
+          $("#devSponsor").toggleClass('hidden');
+      });
+
     // smooth scroll
     $(".js-scrollTo").on('click', function() { // Au clic sur un élément
 		var page = $(this).attr('href'); // Page cible
@@ -75,32 +81,36 @@ $(function () {
 
 });
 
-function compte_a_rebours() {
-	var titre = $("#compteAReboursTitre").text("Début du concours dans :");
-		  
-	var date_actuelle = new Date();
-	var date_evenement = new Date("Sep 4 00:00:00 2017");
-	var total_secondes = (date_evenement - date_actuelle) / 1000;
-		 
-	if (total_secondes < 0) {
-		titre = $("#compteAReboursTitre").text("Concours terminé depuis :"); // On modifie le préfixe si la différence est négatif
-		total_secondes = Math.abs(total_secondes); // On ne garde que la valeur absolue
-	}
+function compte_a_rebours(date) {
+	// récup date via requête ajax
 
-	if (total_secondes > 0) {
-		// transfo durée
-		var jours = Math.floor(total_secondes / (60 * 60 * 24));
-		var heures = Math.floor((total_secondes - (jours * 60 * 60 * 24)) / (60 * 60));
-		var minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
-		var secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
-		// assignation aux champs
-		$("#jours").text(jours);
-		$("#heures").text(heures);
-		$("#minutes").text(minutes);
-		$("#secondes").text(secondes);
-	}
-	else {
-		compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
-	}
-	var actualisation = setTimeout("compte_a_rebours();", 1000);
+		var titre = $("#compteAReboursTitre").text("Début du concours dans :");
+		var date_evenement = $(date).val();
+		var date_actuelle = new Date();
+		var total_secondes = (date_evenement - date_actuelle) / 1000;
+			 
+		if (total_secondes < 0) {
+			titre = $("#compteAReboursTitre").text("Concours terminé depuis :"); // On modifie le préfixe si la différence est négatif
+			total_secondes = Math.abs(total_secondes); // On ne garde que la valeur absolue
+		}
+
+		if (total_secondes > 0) {
+			// transfo durée
+			var jours = Math.floor(total_secondes / (60 * 60 * 24));
+			var heures = Math.floor((total_secondes - (jours * 60 * 60 * 24)) / (60 * 60));
+			var minutes = Math.floor((total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60))) / 60);
+			var secondes = Math.floor(total_secondes - ((jours * 60 * 60 * 24 + heures * 60 * 60 + minutes * 60)));
+			// assignation aux champs
+			$("#jours").text(jours);
+			$("#heures").text(heures);
+			$("#minutes").text(minutes);
+			$("#secondes").text(secondes);
+		}
+		else {
+			compte_a_rebours.innerHTML = 'Compte à rebours terminé.';
+		}
+		var actualisation = setTimeout("compte_a_rebours();", 1000);
+
+	
 }
+

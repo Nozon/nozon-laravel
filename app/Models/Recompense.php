@@ -12,8 +12,8 @@ class Recompense extends Model
 {
 
     public static $rules = [
-        'type' => ['required', 'string'],
-        'description' => ['required', 'string']
+        'type'          => ['required', 'string'],
+        'description'   => ['required', 'string']
     ];
 
     public static function getValidation(Request $request)
