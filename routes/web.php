@@ -24,6 +24,8 @@ Route::get('/admin', function () {
 });
 
 
+
+
 Route::get('/login', 'AuthController@login');
 Route::post('/auth/login', 'AuthController@check');
 Route::post('checkAuth', 'AuthController@check');
@@ -34,10 +36,10 @@ Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/secure1', function () {
         return 'Je suis bien logué';
     });
-  
+
     Route::get('/admin', function () {
         $annee = Session::get('edition_annee');
-        return redirect('admin/' . $annee);
+        return redirect('admin/'.$annee);
     });
 
     Route::get('/admin/{annee}', function ($annee) {
@@ -63,8 +65,4 @@ Route::resource('user', 'UserController');
 Route::resource('sponsor', 'SponsorController');
 Route::resource('photo', 'MediaController');
 Route::resource('video', 'MediaController');
-
-
 Route::resource('prix', 'PrixController');
-
-

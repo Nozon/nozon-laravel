@@ -85,8 +85,28 @@ class MediaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('nom', 'description', 'type');
+
+        $validate = Validator::make($inputs, Media::$rules);
+
+        if ($validate->fails()) {
+            Message::error('media.exists'); // "Media n'existe pas" (à voir la formulation) plutot que "media.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $media = Media::find($id);
+            $media->nom           = $inputs['nom'];
+            $media->description   = $inputs['description'];
+            $media->type          = $inputs['type'];
+            $media->save();
+
+            Message::success('media.update');
+
+            return Redirect::to('admin/media');
+        }
+}
+
 
     /**
      * Remove the specified resource from storage.

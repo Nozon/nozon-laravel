@@ -105,8 +105,28 @@ class ProfilController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('fonction', 'description', 'departement', 'anneeEtude');
+
+        $validate = Validator::make($inputs, Profil::$rules);
+
+        if ($validate->fails()) {
+            Message::error('profil.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $profil = Profil::find($id);
+            $profil->fonction           = $inputs['fonction'];
+            $profil->description        = $inputs['textePresentation'];
+            $profil->departement        = $inputs['departement'];
+            $profil->anneeEtude         = $inputs['anneeEtude'];
+            $edition->save();
+
+            Message::success('profil.update');
+
+            return Redirect::to('admin/profil');
+        }
+}
     /**
      * Remove the specified resource from storage.
      *

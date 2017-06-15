@@ -12,9 +12,9 @@ class Membre extends Model
 {
 
     public static $rules = [
-        'nom' => ['required', 'string'],
-        'prenom' => ['required', 'string'],
-        'email' => ['required', 'email'],
+        'nom'       => ['required', 'string'],
+        'prenom'    => ['required', 'string'],
+        'email'     => ['required', 'email'],
     ];
 
     public static function getValidation(Request $request)

@@ -85,8 +85,25 @@ class edition_sponsorController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('valeur');
+
+        $validate = Validator::make($inputs, Edition_sponsor::$rules);
+
+        if ($validate->fails()) {
+            Message::error('edition_sponsor.exists'); // "Edition_sponsor n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $edition_sponsor = Edition_sponsor::find($id);
+            $edition_sponsor->valeur        = $inputs['valeur'];
+            $edition_sponsor->save();
+
+            Message::success('edition_sponsor.update');
+
+            return Redirect::to('admin/edition_sponsor');
+        }
+}
 
     /**
      * Remove the specified resource from storage.

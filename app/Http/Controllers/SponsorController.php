@@ -85,8 +85,25 @@ class SponsorController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('nom');
+
+        $validate = Validator::make($inputs, Sponsor::$rules);
+
+        if ($validate->fails()) {
+            Message::error('sponsor.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $sponsor = Sponsor::find($id);
+            $sponsor->nom        = $inputs['nom'];
+            $sponsor->save();
+
+            Message::success('sponsor.update');
+
+            return Redirect::to('admin/sponsor');
+        }
+}
 
     /**
      * Remove the specified resource from storage.
