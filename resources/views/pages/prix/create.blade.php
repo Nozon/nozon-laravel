@@ -1,3 +1,4 @@
+
                 <h3>Les prix/récompenses</h3>
                 <div class="row">
                     <div class="administration" id="creerPrix">
@@ -21,3 +22,4 @@
                         @include('pages.prix.edit')
                     </div>
                 </div>
+
