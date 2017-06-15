@@ -18,6 +18,11 @@ $(function () {
     $(".form-add-prix").hide();
     $("#listePrix").hide();
     $(".form-mod-prix").hide();
+    $(".form-add-devenirSponsor").hide();
+    $(".form-mod-devenirSponsor").hide();
+    $(".form-add-compte").hide();
+
+
     menuHandler();
     $(".container").on("click", "header.online .connection", function () {
         switchPageWithHistory('synch');
@@ -132,6 +137,21 @@ $(function () {
         var speed = 750; // Durée de l'animation (en ms)
         $('html, body').animate( { scrollTop: $("#modifierLePrix").offset().top }, speed ); // Go
         return false;
+    });
+
+    // ajout compte
+    $(".btn-add-compte").click(function () {
+        $('.form-add-compte').toggle();
+    });
+
+    // modif devenir sponsor
+    
+        // afficher form
+    $(".btn-add-devenirSponsor").click(function () {
+        $('.form-add-devenirSponsor').toggle();
+    });
+    $(".devSponsor").click(function () {
+        $('.form-mod-devenirSponsor').toggle();
     });
 
 

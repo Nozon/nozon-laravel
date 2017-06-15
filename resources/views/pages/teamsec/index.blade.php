@@ -6,16 +6,19 @@
       </div>
       <div class="team-description">
         <div class="row team">
+          @foreach($membresSecondaires as $membreSecondaire)
 
-          <div class="col-md-3 template-membre-soutien team-soutien-member">
-            <img src="img/johnaesch.jpg" class="img-responsive" id="img-membre-soutien">
-            <div class="membre-soutien-description">
-              <div class="text-soutien">
-                <h5 id="name">name</h5>
-                <p id="fonction">fonction</p>
+            <div class="col-md-3 template-membre-soutien team-soutien-member">
+              <img src="{{$membreSecondaire->URL}}" class="img-responsive" id="img-membre-soutien">
+              <div class="membre-soutien-description">
+                <div class="text-soutien">
+                  <h5 id="name">{{$membreSecondaire->nom}}</h5>
+                  <p id="fonction">{{$membreSecondaire->fonction}}</p>
+                </div>
               </div>
             </div>
-          </div>
+
+          @endforeach
         </div>
       </div>
     </div>
