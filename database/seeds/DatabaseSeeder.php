@@ -71,7 +71,16 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
+            DB::table('equipes')->insert([
+                'nom' => 'TEAM HEIG-VD Communication',
+                'description' => 'En bateau, Toto',
+                'type' => 'secondaire',
+                'edition_annee' => '2016',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
             
             DB::table('medias')->insert([
                 'url' => 'https://www.google.ch/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwibr5u8-L3UAhXHVxoKHZHXA3EQjRwIBw&url=http%3A%2F%2Fwww.casafun.com%2Fimages_droles%2Fbateau_resto.htm&psig=AFQjCNHevUxKdBHb-2LB8eMCbFY95-cJ0g&ust=1497550492997746',
