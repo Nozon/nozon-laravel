@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 class Media extends Model
 {
     protected $table = "medias";
+
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
@@ -37,7 +38,7 @@ class Media extends Model
      * Enregistre en base de données un nouveau Media selon les $values donnés
      * @param array $values
      */
-    public static function createOne($nom) {
+    public static function createOne($nom, $publication) {
         // Création d'une nouvelle instance de Media
         echo("Dans la fonction createOne du Media: ");
         echo($nom);
@@ -47,11 +48,13 @@ class Media extends Model
 
         $new->save();
 
-        return $new;
-        // $new->publications()->attach($objectLie->id);
+        $new->publications()->attach($publication->id);
     }
 
     public static function upload($image, $type) {
+      $CarbonNow = Carbon::now();
+      $StrinsTimestamp = $CarbonNow->toDateString();
+
       $nomImage = md5($type.time());
       // $nomImage = "HydroNozonUpload".$StrinsTimestamp.$type;
 
@@ -60,7 +63,7 @@ class Media extends Model
 
       return $image;
     }
-
+  
     // //recuperation de l'image depuis la requete
     // $image = $request->file('image');
     // //création d'un nom basé sur l'heure actuelle

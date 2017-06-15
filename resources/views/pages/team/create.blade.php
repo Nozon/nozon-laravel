@@ -11,7 +11,9 @@
                     @if (session('error'))
                         <div> Erreur </div>
                     @endif
+
                     <form method="POST" action="{{ url('membre')}}" class="form-add-membre" enctype="multipart/form-data">
+
 
                         <div class="form-group">
                             {{ csrf_field() }}

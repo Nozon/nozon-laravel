@@ -1,4 +1,5 @@
 $(function () {
+
     $(".form-create").hide();
     $(".form-mod").hide();
     
@@ -27,10 +28,14 @@ $(function () {
     $(".form-add-compte").hide();
 
 
+    // En commentaire chez Nicolas, récupéré de chez Guido, à vérifier si ça marche
     // menuHandler();
     // $(".container").on("click", "header.online .connection", function () {
     //     switchPageWithHistory('synch');
     // });
+    $(".container").on("click", "header.online .connection", function () {
+        switchPageWithHistory('synch');
+    });
 
     // show le formulaire 
     // créer édition
@@ -51,8 +56,28 @@ $(function () {
         $('.form-add-equipe').toggle();
     });
     // modif membre
-    $(".membre").click(function () {
+    $(".sup-membre").click(function () {
+        // récup l'id
+        var url = $(this).val();
+        // récup le titre
+        
+        // récup lien image
+        /*
+        var lienWeb = (this).parents(".delMod").siblings().eq(2).children().val();
+        // récup la date
+        var date = $(this).parents(".delMod").siblings().eq(3).children().val();
+        // récup la descr
+        var descr = $(this).parents(".delMod").siblings().eq(4).children().attr('value').val();
+
+        // insertion action formulaire
+        $("#modifierLaPress").attr('action').val(url);
+        // insertion dans le form
+        $("#pressName").val(titre);
+        $("#pressDate").val(lienWeb);
+        $("#pressArticleLink").val(date);
+        $("#pressTetx").val(descr);
         $('.form-mod-membre').show();
+        */
     });
     // ajouter membre
     $(".btn-add-membre").click(function () {
@@ -126,26 +151,6 @@ $(function () {
     });
         // action click modif
     $(".modif-press").click(function () {
-        // récup l'id
-        var url = $(this).attr('href').val();
-        // récup le titre
-        var titre = $(this).parents(".delMod").siblings().eq(1).children().val();
-        // récup lien image
-        var lienWeb = (this).parents(".delMod").siblings().eq(2).children().val();
-        // récup la date
-        var date = $(this).parents(".delMod").siblings().eq(3).children().val();
-        // récup la descr
-        var descr = $(this).parents(".delMod").siblings().eq(4).children().attr('value').val();
-
-        // insertion action formulaire
-        $("#modifierLaPress").attr('action').val(url);
-        // insertion dans le form
-        $("#pressName").val(titre);
-        $("#pressDate").val(lienWeb);
-        $("#pressArticleLink").val(date);
-        $("#pressTetx").val(descr);
-
-
         $('.form-mod-press').show();
         var speed = 750; // Durée de l'animation (en ms)
         $('html, body').animate( { scrollTop: $("#modifierLaPress").offset().top }, speed ); // Go
@@ -207,28 +212,31 @@ $(function () {
     
 });
 
-// function menuHandler() {
-//     // History manipulation
-//     $(window).on("popstate", function (e) {   // event popstate -> changement d'url
-//         var idPage = location.hash;  //tout se qu'il y a après le #
-//         idPage = idPage.substring(1);     // on supprime le #
-//         if ($("#page_" + idPage).length == 0) { // si l id de page existe on redirige sinon -> intro
-//             idPage = "accueil";
-//             window.location = "#" + idPage;
-//         }
-//         switchPage(idPage);
-//     });
-//     $(window).trigger('popstate');
-// }
-//
-// function switchPage(pageId) {
-//     $(".page").hide();
-//     $("#page_" + pageId).show();
-// }
-//
-// function switchPageWithHistory(pageId) {
-//     history.pushState(null, null, '#' + pageId);
-//     $(window).trigger('popstate');
-// }
-//
-//
+/*
+function menuHandler() {
+    // History manipulation
+    $(window).on("popstate", function (e) {   // event popstate -> changement d'url
+        var idPage = $(location).attr('href');  //tout se qu'il y a après le #
+        idPage = idPage.substring(1);     // on supprime le #
+        if ($("#page_" + idPage).length == 0) { // si l id de page existe on redirige sinon -> intro
+            idPage = "accueil";
+            window.location = "#" + idPage;
+        }
+        switchPageWithHistory(idPage);
+    });
+    $(window).trigger('popstate');
+}
+
+function switchPage(pageId) {
+    $(".page").hide();
+    $("#page_" + pageId).show();
+}
+
+
+
+function switchPageWithHistory(pageId) {
+    history.pushState(null, null, '#' + pageId);
+    $(window).trigger('popstate');
+}
+
+*/

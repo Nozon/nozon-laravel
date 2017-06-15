@@ -53,9 +53,8 @@ class PublicationController extends Controller {
         $validate = Publication::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
-            // Redirection vers le formulaire, avec inputs et erreurs
-            // return redirect()->back()->withInput()->withErrors($validate);
-            return "valisation fail ! ";
+            return redirect()->back()->withInput()->with('error', 'Les paramètres entrés sont incorrects');
+
         }
         // En cas de succès de la validation
         try {
@@ -67,8 +66,13 @@ class PublicationController extends Controller {
             // liaison avec les publications
             $mediaALier->publications()->attach($publication->id);
 
+            // Conflits entre branche d'Antoine/Nicolas et branche dev
+            /* Trucs d'Antoine commenté, trucs de dev suit (ligne avec le return) :
             Message::success('publication.create');
             return redirect('admin/');
+            */
+            return redirect()->back()->withInput()->with('info', 'Votre publication a bien été ajoutée');
+
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
@@ -111,9 +115,8 @@ class PublicationController extends Controller {
         $validate = Validator::make($inputs, Publication::$rules);
 
         if ($validate->fails()) {
-            Message::error('publication.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+             return redirect()->back()->withInput()->with('error', 'Les paramètres entrés sont incorrects');
+
         } else {
             $publication = Publication::find($id);
             $publication->titre     = $inputs['titre'];
@@ -121,7 +124,7 @@ class PublicationController extends Controller {
             $publication->date      = $inputs['date'];
             $publication->save();
 
-            Message::success('publication.update');
+            return redirect()->back()->withInput()->with('info', 'Votre publication a bien été modifiée');
 
             return Redirect::to('admin/publication');
         }

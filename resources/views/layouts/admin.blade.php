@@ -74,17 +74,17 @@
         <div id="container" class="content-pages">
             
             {{-- will be used to show any messages --}}
-                    @if ( session()->has('success'))
-                    <div class="card card-inverse card-success mb-3">{{ session('success') }}</div>
+                    @if ( Session::has('message'))
+                    <div class="alert alert-info">{{ Session::get('message') }}</div>
                     @endif
-                    @if ( session()->has('info'))
-                    <div class="card card-inverse card-info mb-3">{{ session('info') }}</div>
+                    @if ( Session::has('message'))
+                    <div class="alert alert-warning">{{ Session::get('message') }}</div>
                     @endif
-                    @if ( session()->has('warning'))
-                    <div class="card card-inverse card-warning mb-3">{{ session('warning') }}</div>
+                    @if ( Session::has('alert'))
+                    <div class="alert alert-danger">{{ Session::get('alert') }}</div>
                     @endif
-                    @if ( session()->has('error'))
-                    <div class="card card-inverse card-error mb-3">{{ session('error') }}</div>
+                    @if ( Session::has('message'))
+                    <div class="alert alert-success">{{ Session::get('message') }}</div>
                     @endif
 
                     @if (count($errors) > 0)

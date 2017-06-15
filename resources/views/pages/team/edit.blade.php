@@ -15,7 +15,6 @@
 
             </li>
         @endforeach
-
     </ul>
 </div>
 <form method="POST" action="{{ url('equipe')}}" class="form-mod-membre">
