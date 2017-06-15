@@ -37,7 +37,7 @@ class Media extends Model
      * Enregistre en base de données un nouveau Media selon les $values donnés
      * @param array $values
      */
-    public static function createOne($nom, $publication) {
+    public static function createOne($nom) {
         // Création d'une nouvelle instance de Media
         echo("Dans la fonction createOne du Media: ");
         echo($nom);
@@ -47,13 +47,11 @@ class Media extends Model
 
         $new->save();
 
-        $new->publications()->attach($publication->id);
+        return $new;
+        // $new->publications()->attach($objectLie->id);
     }
 
     public static function upload($image, $type) {
-      $CarbonNow = Carbon::now();
-      $StrinsTimestamp = $CarbonNow->toDateString();
-
       $nomImage = md5($type.time());
       // $nomImage = "HydroNozonUpload".$StrinsTimestamp.$type;
 
