@@ -279,7 +279,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
+            $this->call(ACLSeeder::class);
             
             Schema::enableForeignKeyConstraints();
     }
