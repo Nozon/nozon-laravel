@@ -6,8 +6,9 @@ use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Presse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
 
 class PresseController extends Controller {
 
@@ -18,7 +19,7 @@ class PresseController extends Controller {
      */
     public function index() {
         $presse = Presse::all();
-        return view('presse/index')->with('presse', $presse);
+        return view('pages.presse.index')->with('presse', $presse);
     }
 
     /**
@@ -37,6 +38,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        dd($request);
         echo("Dans la fonction store <br />");
         // Récupération du validateur de Presse
         $validate = Presse::getValidation($request);
@@ -79,7 +81,7 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        //
+        return view('pages.presse.edit')->with('id', $id);
     }
 
     /**
@@ -96,19 +98,21 @@ class PresseController extends Controller {
         $validate = Validator::make($inputs, Presse::$rules);
 
         if ($validate->fails()) {
-            Message::error('presse.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            Message::error('presse.exists'); // "Presse n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+w
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
         } else {
             $presse = Presse::find($id);
+          
             $presse->url           = $inputs['url'];
             $presse->titre         = $inputs['titre'];
             $presse->description   = $inputs['email'];
             $presse->date          = $inputs['date'];
+
             $presse->save();
 
             Message::success('presse.update');
-
             return Redirect::to('admin/presse');
         }
 }
@@ -120,14 +124,14 @@ class PresseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $presse = Presse::find($id);
         $presse->delete();
 
         // redirect
         Message::success('presse.delete');
         return Redirect::to('presse');
-        
+
     }
 
 }

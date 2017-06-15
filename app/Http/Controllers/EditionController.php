@@ -6,7 +6,11 @@ use App\Lib\Message;
 
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\DB;
+
 use App\Models\Edition;
+use App\Models\Equipe;
+use App\Models\Membre;
 use App\Models\Presse;
 use App\Models\Recompense;
 
@@ -21,9 +25,35 @@ class EditionController extends Controller {
      */
     public function index($annee)
     {
-        $recompenses = Recompense::all()->where('equipe_id', '1');
+        // Liste de toutes les éditions pour création dynamique du menu
+        $editions = DB::table('editions')->orderBy('annee','desc')->get();
+
+        echo "Listes des éditions : ";
+        foreach($editions as $edition) {
+            echo $edition->annee . " ";
+        }
+        echo "<br />";
+
+        // Récupération de l'id de l'équipe principale de l'édition concernée
+        $equipePrincipale = Equipe::where('edition_annee', $annee)->where('type', 'principal')->first();
+        echo("Equipe principale : " . $equipePrincipale->id. "<br />");
+
+        // Récupération des membres
+        // $membresEqPrinc = Equipe::where('id', $equipePrincipale->id)->profils()->all
+
+
+
+        // Récupération des récompenses
+        $recompenses = Recompense::all()->where('equipe_id', $equipePrincipale->id);
+        echo "Listes des récompenses : ";
+        foreach($recompenses as $recompense) {
+            echo $recompense->type . " ";
+        }
+        echo "<br />";
+
+        // Récupération des presses
         $presses = Presse::all()->where('edition_annee', $annee);
-        return    mview('pages.edition')
+        return  view('pages.edition')
                 ->with('presses', $presses)
                 ->with('recompenses', $recompenses);
     }
@@ -125,13 +155,13 @@ class EditionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $edition = Edition::find($id);
         $edition->delete();
 
         // redirect
         Message::success('edition.delete');
         return Redirect::to('edition');
-        
+
     }
 }

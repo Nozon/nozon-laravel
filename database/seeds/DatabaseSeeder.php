@@ -461,7 +461,8 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
+            $this->call(ACLSeeder::class);
             
             Schema::enableForeignKeyConstraints();
     }
