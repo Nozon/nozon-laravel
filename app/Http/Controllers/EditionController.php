@@ -28,44 +28,54 @@ class EditionController extends Controller {
         // Liste de toutes les éditions pour création dynamique du menu
         $editions = DB::table('editions')->orderBy('annee','desc')->get();
 
-        echo "Listes des éditions : ";
-        foreach($editions as $edition) {
-            echo $edition->annee . " ";
-        }
-        echo "<br />";
+//        echo "Listes des éditions : ";
+//        foreach($editions as $edition) {
+//            echo $edition->annee . " ";
+//        }
+//        echo "<br />";
 
         // Récupération de l'id de l'équipe principale de l'édition concernée
         $equipePrincipale = Equipe::where('edition_annee', $annee)->where('type', 'principal')->first();
-        echo("Equipe principale : " . $equipePrincipale->id. "<br />");
+
+//        echo("Equipe principale : " . $equipePrincipale->id. "<br />");
+
+        // Récupération de l'id de l'équipe secondaire de l'édition concernée
+        $equipeSecondaire = Equipe::where('edition_annee', $annee)->where('type', 'secondaire')->first();
+
+//        echo("Equipe secondaire : " . $equipeSecondaire->id. "<br />");
 
         // Récupération des membres
-        // $membresEqPrinc = Equipe::where('id', $equipePrincipale->id)->profils()->all
+        $membresEqPrinc = Equipe::where('id', $equipePrincipale->id)->first();
 
-
+//        echo "Listes des membres : ";
+//        foreach($membresEqPrinc as $membreEqPrinc) {
+//            echo $membreEqPrinc->fonction . " ";
+//        }
+//        echo "<br />";
 
         // Récupération des récompenses
         $recompenses = Recompense::all()->where('equipe_id', $equipePrincipale->id);
-        echo "Listes des récompenses : ";
-        foreach($recompenses as $recompense) {
-            echo $recompense->type . " ";
-        }
-        echo "<br />";
+
+//        echo "Listes des récompenses : ";
+//        foreach($recompenses as $recompense) {
+//            echo $recompense->type . " ";
+//        }
+//        echo "<br />";
 
         // Récupération des presses
         $presses = Presse::all()->where('edition_annee', $annee);
-        echo "Listes des presses : ";
-        foreach($presses as $presse) {
-            echo $presse->titre . " ";
-        }
-        echo "<br />";
 
-        /*
-                return view('pages.edition')
-                    ->with('editions', $editions)
-                    ->with('equipePrincipale', $equipePrincipale)
-                    ->with('presses', $presses)
-                    ->with('recompenses', $recompenses);
-        */
+//        echo "Listes des presses : ";
+//        foreach($presses as $presse) {
+//            echo $presse->titre . " ";
+//        }
+//        echo "<br />";
+
+        return view('pages.edition')
+            ->with('editions', $editions)
+            ->with('equipePrincipale', $equipePrincipale)
+            ->with('presses', $presses)
+            ->with('recompenses', $recompenses);
     }
 
     /**

@@ -29,10 +29,9 @@
 <form class="form-mod-news" id="modifierLaNews">
     <form class="form-add-news">
     <div class="form-group">
-        <label>Insérer une image</label>
-        <input type="file" name="imgNews"/>
+        <label for="titre">Titre de la news</label>
+        <input type="text" name="titre" class="form-control" placeholder="Une année incroyable"/>
     </div>
-    
     <div class="form-group">
         <label>Date de la news</label>
         <input type="date" class="form-control" name="dateNews"/>
@@ -44,6 +43,10 @@
     <div class="form-group">
         <label>Decription</label>
         <textarea class="form-control" rows="3" placeholder="Ecrire ici..."></textarea>
+    </div>
+    <div class="form-group">
+        <label>Insérer une image</label>
+        <input type="file" name="imgNews"/>
     </div>
     <div class="form-group">
         <button class="btn btn-default btnAddNews">Modifier</button>

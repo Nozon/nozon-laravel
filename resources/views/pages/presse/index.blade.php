@@ -10,13 +10,13 @@
           <tbody>
           
             <!--DEBUT TMPL-->
-            @foreach($presses as $key => $value)
+            @foreach($presses as $press)
                 <tr>
-                    <td>{{ $value->titre}}</td>
-                    <td>{{ $value->date}}</td>
+                    <td>{{ $press->titre}}</td>
+                    <td>{{ $presse->date}}</td>
                     <td>
-                        <p>{{ $value->description}}</p>
-                        <a href="{{ $value->url}}" target="_blank">Lire l'article</a>
+                        <p>{{ $press->description}}</p>
+                        <a href="{{ $press->url}}" target="_blank">Lire l'article</a>
                     </td>
                 </tr>
             @endforeach

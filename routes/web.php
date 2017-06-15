@@ -1,15 +1,17 @@
 <?php
 
 /*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+  |--------------------------------------------------------------------------
+  | Web Routes
+  |--------------------------------------------------------------------------
+  |
+  | Here is where you can register web routes for your application. These
+  | routes are loaded by the RouteServiceProvider within a group which
+  | contains the "web" middleware group. Now create something great!
+  |
+ */
+
+Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
 
 Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
 
@@ -63,8 +65,4 @@ Route::resource('user', 'UserController');
 Route::resource('sponsor', 'SponsorController');
 Route::resource('photo', 'MediaController');
 Route::resource('video', 'MediaController');
-
-
 Route::resource('prix', 'PrixController');
-
-

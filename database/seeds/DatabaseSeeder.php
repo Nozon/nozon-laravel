@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
             Schema::disableForeignKeyConstraints();
-        
+
             DB::table('utilisateurs')->truncate();
             DB::table('groupes')->truncate();
             DB::table('groupe_utilisateur')->truncate();
@@ -30,9 +30,10 @@ class DatabaseSeeder extends Seeder
             DB::table('recompenses')->truncate();
             DB::table('sponsors')->truncate();
             DB::table('edition_sponsor')->truncate();
-        
-           
-            
+
+            $this->call(ACLSeeder::class);
+
+
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => "Pour cette édition 2016, la team hydrocontest de la HEIG-VD a le plaisir d'acueillir au sein de son équipe deux seins."
@@ -72,8 +73,8 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('equipes')->insert([
                 'nom' => 'TEAM HEIG-VD',
                 'description' => 'On aime autant les bateaux que Kostic aime les enfants',
@@ -82,7 +83,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('equipes')->insert([
                 'nom' => 'TEAM HEIG-VD',
                 'description' => 'La team HEIG est fière de représenter le nord vaudois dans cette édition 2015.'
@@ -92,9 +93,16 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
-            
+
+            DB::table('medias')->insert([
+                'url' => '',
+                'titre' => '',
+                'description' => '',
+                'type' => 'photo',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+
             DB::table('medias')->insert([
                 'url' => '',
                 'titre' => '',
@@ -157,30 +165,19 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
-            
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Aeschimann ',
                 'prenom' => 'Jonathan',
-                'email' => 'jeanjean@hotmail.com',
+                'email' => 'jonathan_a@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Favre',
                 'prenom' => 'Mathias',
-                'email' => 'yvesyves@hotmail.com',
+                'email' => 'mathias@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -188,7 +185,8 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Coelho',
                 'prenom' => 'Jonathan',
-                'email' => 'PierrePaulJacques@yahoo.com',
+                'email' => 'jonathan_c@hotmail.com',
+
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -196,7 +194,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Gerber',
                 'prenom' => 'Julien',
-                'email' => 'jeannejeanne@hotmail.ch',
+                'email' => 'julien@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -204,7 +202,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
-                'email' => 'jeannejeanne@hotmail.ch',
+                'email' => 'david@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -212,7 +210,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Duarte',
                 'prenom' => 'Dani',
-                'email' => 'jeannejeanne@yahoo.com',
+                'email' => 'dani@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -220,7 +218,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Fernandes',
                 'prenom' => 'Dylan',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'dylan@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -228,7 +226,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
-                'email' => 'jeannejeanne@outlook.com',
+                'email' => 'david_bolomey@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -236,7 +234,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Enzen Villegas',
                 'prenom' => 'Carla',
-                'email' => 'jeannejeanne@hotmail.fr',
+                'email' => 'carla@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -244,7 +242,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             DB::table('membres')->insert([
                 'nom' => 'Lot',
                 'prenom' => 'Antoine',
-                'email' => 'jeannejeanne@hotmail.ch',
+                'email' => 'antoine@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -256,9 +254,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
-                
-                
+
             DB::table('presses')->insert([
                 'url' => 'http://www.letelegramme.fr/finistere/hydrocontest-2016-l-ensta-bretagne-remporte-la-3e-edition-01-08-2016-11166928.php',
                 'titre' => 'Le Télégramme',
@@ -277,6 +273,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
+
             DB::table('presses')->insert([
                 'url' => 'http://www.presseocean.fr/actualite/nantes-lecole-centrale-remporte-lhydrocontest-31-07-2016-199732',
                 'titre' => 'lémanbleu',
@@ -313,7 +310,6 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
-                
                  
             DB::table('profils')->insert([
                 'fonction' => 'Enjailleur',
@@ -325,7 +321,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
+
             DB::table('profils')->insert([
                 'fonction' => 'Gars casse couille',
                 'description' => "Rappeler périodiquement à mes camarades leur manque d'engagement" ,
@@ -407,7 +403,6 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
             
             DB::table('recompenses')->insert([
                 'type' => 'Trophée "Best Comunication"',
@@ -433,14 +428,29 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
 
-            
+            DB::table('recompenses')->insert([
+                'type' => "Prix de l'innovation 'Transport de masse'",
+                'description' => "Durant cette édition 2016, nous avons remporté le prix de l'innovation dans la catégorie 'Transports de masse'.",
+                'equipe_id' => '1',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                 ]);
+      
+            DB::table('recompenses')->insert([
+                'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
+                'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",
+                'equipe_id' => '1',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                 ]);
+
             DB::table('sponsors')->insert([
                 'nom' => 'la Loterie Romande',
                 'url' => 'www.loro.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'Canton de vaud',
                 'url' => 'www.catering-services-migros.ch',
@@ -454,7 +464,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'SIL Citycable.',
                 'url' => 'www.citycable.ch',

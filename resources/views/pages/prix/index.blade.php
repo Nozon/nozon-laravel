@@ -11,10 +11,10 @@
           
             <!--DEBUT TMPL-->
 
-            @foreach($recompenses as $key => $value)
+            @foreach($recompenses as $recompense)
                 <tr>
-                    <td><i class="fa fa-trophy fa-2x" aria-hidden="true"></i>{{ $value->type}}</td>
-                    <td>{{ $value->description}}</td>
+                    <td><i class="fa fa-trophy fa-2x" aria-hidden="true"></i>{{ $recompense->type}}</td>
+                    <td>{{ $recompense->description}}</td>
                 </tr>
             @endforeach
 

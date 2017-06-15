@@ -11,6 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+      $this->call(ACLSeeder::class);
+      $this->call(PostsTableSeeder::class);
+      $this->call(CommentsTableSeeder::class);
     }
 }

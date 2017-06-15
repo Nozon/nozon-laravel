@@ -12,10 +12,10 @@ class Media extends Model
 {
 
     public static $rules = [
-        'url'           => ['required', 'url'],
-        'titre'         => ['required', 'string'],
-        'description'   => ['required', 'string'],
-        'type'          => ['required', 'enum:[photo],[video]']
+        'url' => ['required', 'url'],
+        'titre' => ['required', 'string'],
+        'description' => ['required', 'string'],
+        'type' => ['required', 'enum:[photo],[video]']
     ];
 
     public static function getValidation(Request $request)
@@ -64,35 +64,48 @@ class Media extends Model
         $new->save();
     }
 
+    public static function upload($request) {
+      $path= public_path('img/test.jpg');
+      $img->save($path);
+    }
+
+    // //recuperation de l'image depuis la requete
+    // $image = $request->file('image');
+    // //création d'un nom basé sur l'heure actuelle
+    // $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+    // $destinationPath = public_path('/images');
+    // $image->move($destinationPath, $input['imagename']);
+    // $this->postImage->add($input);
+
     public function profil(){
 
         return $this->belongsToMany('App/Models/Profil');
 
     }
-    
+
     public function equipes(){
 
         return $this->belongsToMany('App/Models/Equipe');
 
     }
-    
+
     public function concours(){
 
         return $this->belongsToMany('App/Models/Concours');
 
     }
-    
+
     public function publications(){
 
         return $this->belongsToMany('App/Models/Publication');
 
     }
-    
+
     public function sponsors(){
 
         return $this->belongsToMany('App/Models/Sponsor');
 
     }
 
-    
+
 }
