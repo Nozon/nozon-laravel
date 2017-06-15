@@ -18,6 +18,8 @@ class Media extends Model
         'type'          => ['required', 'enum:[photo],[video]']
     ];
 
+    protected $table = "medias";
+
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
