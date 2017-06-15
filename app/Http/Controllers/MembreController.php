@@ -37,16 +37,8 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        // Récupération du validateur
-        $validate = Membre::getValidation($request);
-        echo "methode store Membre : ";
-        // En cas d'échec de validation de Membre
-        if ($validate->fails()) {
-            // Redirection vers le formulaire, avec inputs et erreurs
-            //return redirect()->back()->withInput()->withErrors($validate);
-            echo "validate failed <br />";
+
         }
-        // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Membre
             $membre_id = Membre::createOne($validate->getData())->id;
@@ -74,6 +66,7 @@ class MembreController extends Controller {
             return "bd failed";
         }
     }
+}
     public function createProfil($request, $membre_id, $equipe_id) {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {
