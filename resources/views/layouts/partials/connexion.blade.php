@@ -2,9 +2,10 @@
     <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="loginmodal-container">
-                <form method="POST">
+                <form method="POST" action="{{ action('AuthController@check') }}">
+                    {{ csrf_field() }}
                     <input type="email" name="email" placeholder="E-mail">
-                    <input type="password" name="pass" placeholder="Mot de passe">
+                    <input type="password" name="motDePasse" placeholder="Mot de passe">
                     <input type="submit" name="login" class="login loginmodal-submit" value="Login">
                 </form>
 
