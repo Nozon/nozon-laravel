@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
+
 use App\Models\Publication;
+use App\Models\Media;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PublicationController extends Controller {
 
@@ -35,25 +41,35 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        if ($request->hasFile('imgNews')) {
+          try {
+            $recupImage = Image::make(Input::file('imgNews'));
+            $imageUploadee = Media::upload($recupImage, "news");
+          } catch (Exception $e) {
+            Message::error('bd.error');
+          }
+        }
         // Récupération du validateur de Publication
         $validate = Publication::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+            // return redirect()->back()->withInput()->withErrors($validate);
+            return "valisation fail ! ";
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Publication
-            Publication::createOne($validate->getData());
+            $publication = Publication::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Publications
+            Media::createOne($imageUploadee->basename, $publication);
             Message::success('publication.create');
             return redirect('publication');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
+            // return redirect()->back()->withInput();
         }
     }
 
@@ -114,14 +130,14 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $publication = Publication::find($id);
         $publication->delete();
 
         // redirect
         Message::success('publication.delete');
         return Redirect::to('publication');
-        
+
     }
 
 }
