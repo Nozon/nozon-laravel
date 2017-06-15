@@ -1,6 +1,6 @@
                 <h3>Les news</h3>
                 <div class="row">
-                    <div class="administration" id="creerEdition">
+                    <div class="administration" id="creerNews">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-news">Ajouter une news</button>
                         <form class="form-add-news" method="POST" action="{{ url('publication') }}" enctype="multipart/form-data">
                             <div class="form-group">

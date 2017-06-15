@@ -10,7 +10,11 @@ use App\Models\Equipe;
 use App\Models\Media;
 use Illuminate\Http\Request;
 use Illuminate\Facades\storage;
+use Illuminate\Support\Facades\Input;
+
 use Session;
+
+use Intervention\Image\ImageManagerStatic as Image;
 
 class MembreController extends Controller {
     /**
@@ -37,36 +41,53 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-
-        }
+      if ($request->hasFile('imgMembre')) {
         try {
-            // Tentative d'enregistrement de Membre
-            $membre_id = Membre::createOne($validate->getData())->id;
-            $edition_annee = Session::get('edition_annee');
-            echo $edition_annee;
-            //recup type equipe dans les inputs
-            $type = $request->input('type_equipe');
-            //recup de l'id de l'equipe
-            $equipe_id = Equipe::where('edition_annee', $edition_annee)
-                ->where('type', $type)->first()->id;
-            // Message de succès, puis redirection vers la liste des membres
-            //Message::success('membre.saved');
-            // return "request: ".$request." membre id : ".$membre->id." Equipe ID :".$equipe_id;
-            // return redirect()->action('ProfilController@store',
-            //                             ['request' => $request,
-            //                             'membre_id' => $membre->id,
-            //                             'equipe_id' => $equipe_id]);
-            $profilcree = Self::createProfil($request, $membre_id, $equipe_id);
-            echo ('profil créé');
-        } catch (\Exception $e) {
-            // En cas d'erreur, envoi d'un message d'erreur
-            Message::error('bd.error');
-            // Redirection vers le formulaire, avec inputs
-            // return redirect()->back()->withInput();
-            return "bd failed";
+          $recupImage = Image::make(Input::file('imgMembre'));
+          $imageUploadee = Media::upload($recupImage, "profils");
+          return "Upload fini !";
         }
+        catch (Exception $e) {
+          return "echec de l'upload";
+        }
+      }
+
+      $validate = Membre::getValidation($request);
+
+      if ($validate->fails()) {
+          // Redirection vers le formulaire, avec inputs et erreurs
+          // return redirect()->back()->withInput()->withErrors($validate);
+          return "valisation fail ! ";
+      }
+
+      try {
+          // Tentative d'enregistrement de Membre
+          $membre_id = Membre::createOne($validate->getData())->id;
+          $edition_annee = Session::get('edition_annee');
+          //recup type equipe dans les inputs
+          dd($request);
+          $type = $request->input('type_equipe');
+          //recup de l'id de l'equipe
+          $equipe_id = Equipe::where('edition_annee', $edition_annee)
+              ->where('type', $type)->first()->id;
+          // Message de succès, puis redirection vers la liste des membres
+          //Message::success('membre.saved');
+          // return "request: ".$request." membre id : ".$membre->id." Equipe ID :".$equipe_id;
+          // return redirect()->action('ProfilController@store',
+          //                             ['request' => $request,
+          //                             'membre_id' => $membre->id,
+          //                             'equipe_id' => $equipe_id]);
+
+
+          $profilcree = Self::createProfil($request, $membre_id, $equipe_id);
+      } catch (\Exception $e) {
+          // En cas d'erreur, envoi d'un message d'erreur
+          Message::error('bd.error');
+          // Redirection vers le formulaire, avec inputs
+          // return redirect()->back()->withInput();
+          return "bd failed";
+      }
     }
-}
     public function createProfil($request, $membre_id, $equipe_id) {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {
