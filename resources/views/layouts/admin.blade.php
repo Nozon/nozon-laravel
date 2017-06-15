@@ -57,7 +57,8 @@
                         <li><a href="#accueil" id="btn-accueil">Accueil</a></li>
                         <li><a href="#edition" id="btn-edition">Edition</a></li>
                         <li><a href="#equipe" id="btn-equipe">Equipe</a></li>
-                        <li><a href="#equipeSec" id="btn-equipeSec">Equipe secondaire</a></li>
+                        <li><a href="#membre" id="btn-membre">Membre</a></li>
+                        <li><a href="#membreSec" id="btn-memebreSec">Membre secondaire</a></li>
                         <li><a href="#sponsors" id="btn-sponsor">Sponsors</a></li>
                         <li><a href="#medias" id="btn-medias">Medias</a></li>
                         <li><a href="#news" id="btn-news">News</a></li>
@@ -71,9 +72,33 @@
         </div>
 
         <div id="container" class="content-pages">
+            
+            {{-- will be used to show any messages --}}
+                    @if ( session()->has('success'))
+                    <div class="card card-inverse card-success mb-3">{{ session('success') }}</div>
+                    @endif
+                    @if ( session()->has('info'))
+                    <div class="card card-inverse card-info mb-3">{{ session('info') }}</div>
+                    @endif
+                    @if ( session()->has('warning'))
+                    <div class="card card-inverse card-warning mb-3">{{ session('warning') }}</div>
+                    @endif
+                    @if ( session()->has('error'))
+                    <div class="card card-inverse card-error mb-3">{{ session('error') }}</div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                    <div class="card card-inverse card-error mb-3">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
 
             @yield('administration')
-
+            
         </div>
     </body>
     @include('layouts.partials.footer')
