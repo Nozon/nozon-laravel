@@ -54,7 +54,7 @@
                 </div>
                 <div class="collaps navbar-collapse">
                     <ul class="nav navbar-nav" id="menu-admin">
-                        <li><a href="#accueil" id="btn-accueil">Accueil</a></li>
+                        <li><a href="/accueil/create" id="btn-accueil">Accueil</a></li>
                         <li><a href="#edition" id="btn-edition">Edition</a></li>
                         <li><a href="#equipe" id="btn-equipe">Equipe</a></li>
                         <li><a href="#membre" id="btn-membre">Membre</a></li>
