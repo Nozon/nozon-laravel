@@ -95,7 +95,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Aeschimann ',
                 'prenom' => 'Jonathan',
-                'email' => 'jeanjean@hotmail.com',
+                'email' => 'jonathan_a@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -103,7 +103,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Favre',
                 'prenom' => 'Mathias',
-                'email' => 'yvesyves@hotmail.com',
+                'email' => 'mathias@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -111,7 +111,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Coelho',
                 'prenom' => 'Jonathan',
-                'email' => 'PierrePaulJacques@hotmail.com',
+                'email' => 'jonathan_c@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -119,7 +119,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Gerber',
                 'prenom' => 'Julien',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'julien@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -127,7 +127,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'david@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -135,7 +135,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Duarte',
                 'prenom' => 'Dani',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'dani@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -143,7 +143,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Fernandes',
                 'prenom' => 'Dylan',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'dylan@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -151,7 +151,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'david_bolomey@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -159,7 +159,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Enzen Villegas',
                 'prenom' => 'Carla',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'carla@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -167,7 +167,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Lot',
                 'prenom' => 'Antoine',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'antoine@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
