@@ -98,7 +98,7 @@ class PresseController extends Controller {
 
         if ($validate->fails()) {
             Message::error('presse.exists'); // "Presse n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
-w
+
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
         } else {
