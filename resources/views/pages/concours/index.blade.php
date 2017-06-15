@@ -7,7 +7,7 @@
           <div class="concours-description">
               <img src="{{$concours->URL}}"/>
               <p>
-                 {{$concours->textConcours}}
+                 {{$concours->texteConcours}}
               </p>
           </div>
     </div>
