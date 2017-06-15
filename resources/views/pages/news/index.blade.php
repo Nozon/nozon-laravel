@@ -17,7 +17,7 @@
                             <td class="news-descr">
                                 <h3 class="news-titre">{{$new->titre}}</h3>
                                 <p class="news-text">
-                                    {{$new->textNew}}
+                                    {{$new->texte}}
                                 </p>
                                 <p class="newx-more"><a href="">Lire la suite..</a></p></td>
                         </tr>
