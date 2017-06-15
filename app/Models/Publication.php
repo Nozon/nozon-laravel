@@ -6,13 +6,16 @@ use App\Lib\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Session;
+
+use Carbon\Carbon;
+
 
 class Publication extends Model {
 
     public static $rules = [
         'titre' => ['required', 'string'],
         'texte' => ['required', 'string'],
-        'date'  => ['required', 'date']
     ];
 
     public static function getValidation(Request $request) {
@@ -24,7 +27,7 @@ class Publication extends Model {
         // Création du validateur
         $validator = Validator::make($inputs, Publication::$rules);
         // Pas d'ajout de contraintes pour les publications.
-        
+
         // Renvoi du validateur
         return $validator;
     }
@@ -41,16 +44,20 @@ class Publication extends Model {
      */
     public static function createOne(array $values) {
         // Création d'une nouvelle instance de Publication
-        echo("Dans la fonction createOne: ");
+        echo("Dans la fonction createOne de la publication: ");
         echo(implode(" | ", $values));
         echo("<br />");
         $new = new Publication();
         // Définition des propriétés de Publication
         $new->titre = $values['titre'];
         $new->texte = $values['texte'];
-        $new->date = $values['date'];
+        $new->edition_annee = Session::get('edition_annee');
         // Enregistrement de Publication
         $new->save();
+
+        echo ("publication créée dans la BD ! ");
+
+        return $new;
     }
 
     public function medias() {

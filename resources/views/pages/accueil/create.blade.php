@@ -1,7 +1,7 @@
                 <h3>Page d'accueil</h3>
-                 @if (session('error'))
-                    <div> Erreur </div>
-                @endif
+                    @if (session('error'))
+                        <div> Erreur </div>
+                    @endif
                 <form method="POST" class="form-inline" action="{{ url('accueil')}}">
                     <div class="form-group">
                         {{ csrf_field() }}
