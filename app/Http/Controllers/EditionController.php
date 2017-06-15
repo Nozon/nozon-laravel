@@ -9,10 +9,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Edition;
+use App\Models\edition_sponsor;
 use App\Models\Equipe;
+use App\Models\Media;
 use App\Models\Membre;
 use App\Models\Presse;
+use App\Models\Profil;
+use App\Models\Publication;
 use App\Models\Recompense;
+use App\Models\Sponsor;
 
 use Illuminate\Http\Request;
 
@@ -28,54 +33,116 @@ class EditionController extends Controller {
         // Liste de toutes les éditions pour création dynamique du menu
         $editions = DB::table('editions')->orderBy('annee','desc')->get();
 
-//        echo "Listes des éditions : ";
-//        foreach($editions as $edition) {
-//            echo $edition->annee . " ";
-//        }
-//        echo "<br />";
+        // Récupération des informations de l'édition
+        $edition = Edition::where('annee', $annee)->first();
 
         // Récupération de l'id de l'équipe principale de l'édition concernée
         $equipePrincipale = Equipe::where('edition_annee', $annee)->where('type', 'principal')->first();
 
-//        echo("Equipe principale : " . $equipePrincipale->id. "<br />");
-
         // Récupération de l'id de l'équipe secondaire de l'édition concernée
         $equipeSecondaire = Equipe::where('edition_annee', $annee)->where('type', 'secondaire')->first();
 
-//        echo("Equipe secondaire : " . $equipeSecondaire->id. "<br />");
+        // Récupération des profils des membres de l'équipe principale
+        $membresPrincipaux = Profil::all()->where('equipe_id', $equipePrincipale->id);
 
-        // Récupération des membres
-        $membresEqPrinc = Equipe::where('id', $equipePrincipale->id)->first();
+        // Récupération des profils des membres de l'équipe secondaire
+        $membresSecondaires = Profil::all()->where('equipe_id', $equipeSecondaire->id);
 
-//        echo "Listes des membres : ";
-//        foreach($membresEqPrinc as $membreEqPrinc) {
-//            echo $membreEqPrinc->fonction . " ";
-//        }
-//        echo "<br />";
+        // Récupération des informations du concours
+        $concours = $edition;
+
+        // Récupération des publications a.k.a. news
+        $news = Publication::all()->where('edition_annee', $annee);
+
+        // Récupération des medias
+        $medias = Media::all()->where('edition_annee', $annee);
 
         // Récupération des récompenses
         $recompenses = Recompense::all()->where('equipe_id', $equipePrincipale->id);
 
-//        echo "Listes des récompenses : ";
-//        foreach($recompenses as $recompense) {
-//            echo $recompense->type . " ";
-//        }
-//        echo "<br />";
-
         // Récupération des presses
         $presses = Presse::all()->where('edition_annee', $annee);
 
-//        echo "Listes des presses : ";
-//        foreach($presses as $presse) {
-//            echo $presse->titre . " ";
-//        }
-//        echo "<br />";
+        // Récupération des sponsors
+
+        $sponsorMainNom = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'principal')
+            ->first()->sponsor_nom;
+
+        $sponsorMain = Sponsor::where('nom', $sponsorMainNom)->first();
+
+        $editionsSponsorsOr = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'or');
+
+        foreach($editionsSponsorsOr as $editionSponsorOr) {
+            $sponsorsOr = Sponsor::all()->where('nom', $editionSponsorOr->sponsor_nom);
+        }
+
+        $editionsSponsorsArgent = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'argent');
+        foreach($editionsSponsorsArgent as $editionSponsorArgent) {
+            $sponsorsArgent = Sponsor::all()->where('nom', $editionSponsorOr->sponsor_nom);
+        }
+
+        $editionsSponsorsBronze = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'bronze');
+        foreach($editionsSponsorsBronze as $editionSponsorBronze) {
+            $sponsorsBronze = Sponsor::all()->where('nom', $editionSponsorOr->sponsor_nom);
+        }
 
         return view('pages.edition')
+            ->with('edition', $edition)
             ->with('editions', $editions)
             ->with('equipePrincipale', $equipePrincipale)
+            ->with('equipeSecondaire', $equipePrincipale)
+            ->with('membresPrincipaux', $membresPrincipaux)
+            ->with('membresSecondaires', $membresSecondaires)
+            ->with('concours', $concours)
+            ->with('news', $news)
+            ->with('medias', $medias)
             ->with('presses', $presses)
+            ->with('sponsorMain', $sponsorMain)
+            ->with('sponsorsOr', $sponsorsOr)
+            ->with('sponsorsArgent', $sponsorsArgent)
+            ->with('sponsorsBronze', $sponsorsBronze)
             ->with('recompenses', $recompenses);
+
+        // TESTS
+        echo "Listes des éditions : ";
+        foreach($editions as $edition) {
+            echo $edition->annee . " ";
+        }
+
+        echo "<br />";
+        echo("Equipe principale : " . $equipePrincipale->id. "<br />");
+
+        echo("Equipe secondaire : " . $equipeSecondaire->id. "<br />");
+
+        echo "Listes des membres de l'équipe principale :<br />";
+        foreach($membresPrincipaux as $membreEqPrinc) {
+            echo $membreEqPrinc . "<br />";
+        }
+
+        echo "Listes des membres de l'équipe secondaire :<br />";
+        foreach($membresSecondaires as $membreEqSec) {
+            echo $membreEqSec . "<br />";
+        }
+
+        echo "Listes des récompenses : ";
+        foreach($recompenses as $recompense) {
+            echo $recompense->type . " ";
+        }
+        echo "<br />";
+
+        echo "Listes des presses : ";
+        foreach($presses as $presse) {
+            echo $presse->titre . " ";
+        }
+        echo "<br />";
     }
 
     /**
@@ -166,7 +233,7 @@ class EditionController extends Controller {
 
             return Redirect::to('admin/edition');
         }
-}
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -175,13 +242,13 @@ class EditionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $edition = Edition::find($id);
         $edition->delete();
 
         // redirect
         Message::success('edition.delete');
         return Redirect::to('edition');
-        
+
     }
 }

@@ -83,7 +83,9 @@ $(function () {
 function compte_a_rebours() {
 	// récup date via requête ajax
 
-		var date_evenement = $("#dateDuConcours").attr('value').val();
+		var dateConcours = $("#dateDuConcours").val();
+		var date_evenement = new Date ("Sep 4 2017 00:00:00");
+		console.log(date_evenement);
 		var titre = $("#compteAReboursTitre").text("Début du concours dans :");
 		var date_actuelle = new Date();
 		var total_secondes = (date_evenement - date_actuelle) / 1000;
