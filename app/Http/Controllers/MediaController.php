@@ -6,6 +6,8 @@ use App\Lib\Message;
 use App\Http\Controllers\Controller;
 use App\Models\Media;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class MediaController extends Controller {
 
@@ -34,9 +36,27 @@ class MediaController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        //essai d'upload de la photo
-        Media::upload($request);
+    public function store() {
+
+        // create a new image resource
+
+        $img = Image::make(Input::file('image'));
+
+        $path= public_path('img/test.jpg');
+
+        $img->fit(300, 200);
+
+        $img->save($path);
+
+        // Image::make($file->getRealPath())->resize('200','200')->save($filename);
+
+        // // resize image
+        // $img->fit(300, 200);
+        // // save image
+        // $img->save('bar.jpg');
+
+
+
 
         // // Récupération du validateur de Media
         // $validate = Media::getValidation($request);

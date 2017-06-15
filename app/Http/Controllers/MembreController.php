@@ -37,7 +37,7 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        
+
         }
         try {
             // Tentative d'enregistrement de Membre
@@ -66,6 +66,7 @@ class MembreController extends Controller {
             return "bd failed";
         }
     }
+}
     public function createProfil($request, $membre_id, $equipe_id) {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {

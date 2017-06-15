@@ -68,7 +68,7 @@ class Media extends Model
 
       $nomPhoto = "testNom";
 
-      $request->user_photo->move(public_path('images'), $photoName);
+      $request->user_photo->move(public_path('medias'), $photoName);
 
       return "Image sauvée normalement";
     }
