@@ -68,7 +68,7 @@ class PublicationController extends Controller {
             $mediaALier->publications()->attach($publication->id);
 
             Message::success('publication.create');
-            return redirect('publication');
+            return redirect('admin/');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');

@@ -1,6 +1,6 @@
 /* Formulaire "express" pour tester l'édition d'un presse (faire un UPDATE)
   On la garde ici en commentaire pour un éventuel usage futur. */
-  
+
 /*
 <form class="form-mod-press" id="modifierLaPress" method="POST" action="{{ url('presse/1') }}">
 
@@ -66,7 +66,7 @@
         <label>Nom du journal</label>
         <input type="text" class="form-control" id="pressName"/>
     </div>
-    
+
     <div class="form-group">
         <label>Date de l'article</label>
         <input type="date" class="form-control"  id="pressDate"/>
