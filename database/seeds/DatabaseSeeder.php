@@ -95,76 +95,52 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 ]);
 
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image1.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image2.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
+            ]);
+
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image3.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
+            ]);
+
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image4.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
+            ]);
+
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image5.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
+            ]);
+
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image6.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
+            ]);
+
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image7.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-            
+            ]);
+
             DB::table('medias')->insert([
-                'url' => '',
-                'titre' => '',
-                'description' => '',
-                'type' => 'photo',
+                'nom' => 'image8.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
+            ]);
 
             DB::table('membres')->insert([
                 'nom' => 'Aeschimann ',
