@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('content')
-            <div class="container container-edition" id="edition-2017">
+            <div class="container container-edition" id="">
               
               <!--TEAM HYDRO-->
 

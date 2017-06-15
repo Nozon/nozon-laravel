@@ -13,6 +13,8 @@
 
 Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
 
+Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
+
 Route::get('/', function () {
     return redirect('2017');
 });
@@ -20,6 +22,8 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('pages.administration');
 });
+
+
 
 
 Route::get('/login', 'AuthController@login');
@@ -35,7 +39,7 @@ Route::group(['middleware' => 'MyAuth'], function() {
 
     Route::get('/admin', function () {
         $annee = Session::get('edition_annee');
-        return redirect('admin/' . $annee);
+        return redirect('admin/'.$annee);
     });
 
     Route::get('/admin/{annee}', function ($annee) {
@@ -61,8 +65,4 @@ Route::resource('user', 'UserController');
 Route::resource('sponsor', 'SponsorController');
 Route::resource('photo', 'MediaController');
 Route::resource('video', 'MediaController');
-
-
 Route::resource('prix', 'PrixController');
-
-

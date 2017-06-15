@@ -85,8 +85,27 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('titre', 'texte', 'date');
+
+        $validate = Validator::make($inputs, Publication::$rules);
+
+        if ($validate->fails()) {
+            Message::error('publication.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $publication = Publication::find($id);
+            $publication->titre     = $inputs['titre'];
+            $publication->texte     = $inputs['texte'];
+            $publication->date      = $inputs['date'];
+            $publication->save();
+
+            Message::success('publication.update');
+
+            return Redirect::to('admin/publication');
+        }
+}
 
     /**
      * Remove the specified resource from storage.
