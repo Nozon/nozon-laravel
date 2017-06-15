@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Links -->
         <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+        <link rel="SHORTCUT ICON" href="favicon.ico" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
@@ -55,9 +56,8 @@
 
             <div class="video-background-container">
                 <video preload="auto" autoplay loop muted class="video-background">
-                    <source src="videos/home.mp4" type="video/mp4" />
-                    <source src="videos/home.webm" type="video/webm" />
-                    <source src="videos/home.ogv" type="video/ogg" />
+                    <source src="videos/hydro.mp4" type="video/mp4" />
+                    <source src="videos/hydro.webm" type="video/webm" />
                 </video>
 
             </div>
@@ -79,6 +79,7 @@
                 <div class="row leCompteur">
                     <div class="compteur-titre"> 
                         <h4 id="compteAReboursTitre"></h4>
+                        <input type="hidden" name="dateDuConcours" id="dateDuConcours" value="{{$edition->dateConcours}}">
                     </div>
                     <div class="row compteur">
 
@@ -152,6 +153,7 @@
                         </ul>
                     </div>
                     @endif
+
                     <!-- partie a templater -->
 
                     @yield('content')
