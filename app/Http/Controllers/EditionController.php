@@ -42,19 +42,6 @@ class EditionController extends Controller {
         // Récupération de l'id de l'équipe secondaire de l'édition concernée
         $equipeSecondaire = Equipe::where('edition_annee', $annee)->where('type', 'secondaire')->first();
 
-
-        // TESTS
-
-        // On récupère un profil
-        // $profil = Profil::where('id', 1)->first();
-        // On l'affiche
-        // echo($profil);
-        // On récupère l'équipe d'après le profil
-        // echo($profil->equipe_id);
-        // echo(Equipe::where('id', $profil->equipe_id)->first());
-
-
-
         // Récupération des profils des membres de l'équipe principale
         $membresPrincipaux = Profil::all()->where('equipe_id', $equipePrincipale->id);
 
@@ -77,12 +64,38 @@ class EditionController extends Controller {
         $presses = Presse::all()->where('edition_annee', $annee);
 
         // Récupération des sponsors
-        $edition_sponsors = edition_sponsor::all()->where('edition_annee', $annee);
-        $sponsorMain = Sponsor::where('valeur', 'principal')->first();
 
-        $sponsorMain = Sponsor::all()->where('edition_annee', $annee);
+        $sponsorMainNom = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'principal')
+            ->first()->sponsor_nom;
+
+        $sponsorMain = Sponsor::where('nom', $sponsorMainNom)->first();
+
+        $editionsSponsorsOr = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'or');
+
+        foreach($editionsSponsorsOr as $editionSponsorOr) {
+            $sponsorsOr = Sponsor::all()->where('nom', $editionSponsorOr->sponsor_nom);
+        }
+
+        $editionsSponsorsArgent = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'argent');
+        foreach($editionsSponsorsArgent as $editionSponsorArgent) {
+            $sponsorsArgent = Sponsor::all()->where('nom', $editionSponsorOr->sponsor_nom);
+        }
+
+        $editionsSponsorsBronze = edition_sponsor::all()
+            ->where('edition_annee', $annee)
+            ->where('valeur', 'bronze');
+        foreach($editionsSponsorsBronze as $editionSponsorBronze) {
+            $sponsorsBronze = Sponsor::all()->where('nom', $editionSponsorOr->sponsor_nom);
+        }
 
         return view('pages.edition')
+            ->with('edition', $edition)
             ->with('editions', $editions)
             ->with('equipePrincipale', $equipePrincipale)
             ->with('equipeSecondaire', $equipePrincipale)
@@ -93,6 +106,9 @@ class EditionController extends Controller {
             ->with('medias', $medias)
             ->with('presses', $presses)
             ->with('sponsorMain', $sponsorMain)
+            ->with('sponsorsOr', $sponsorsOr)
+            ->with('sponsorsArgent', $sponsorsArgent)
+            ->with('sponsorsBronze', $sponsorsBronze)
             ->with('recompenses', $recompenses);
 
         // TESTS
@@ -112,7 +128,7 @@ class EditionController extends Controller {
         }
 
         echo "Listes des membres de l'équipe secondaire :<br />";
-        foreach($membresEqSec as $membreEqSec) {
+        foreach($membresSecondaires as $membreEqSec) {
             echo $membreEqSec . "<br />";
         }
 

@@ -64,13 +64,17 @@ class edition_sponsor extends Model
 
     public function edition(){
 
-        return $this->belongsTo('App/Models/Edition')->withpivot('edition_annee');
+        return $this->belongsTo('App\Models\Edition')
+            ->withPivot('edition_annee')
+            ->withTimestamps();
 
     }
     
     public function sponsor(){
 
-        return $this->belongsTo('App/Models/Sponsor')->withpivot('sponsor_nom');
+        return $this->belongsTo('App\Models\Sponsor')
+            ->withPivot('sponsor_nom')
+            ->withTimestamps();
 
     }
 
