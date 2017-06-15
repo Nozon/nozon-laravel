@@ -12,9 +12,9 @@ class Equipe extends Model
 {
 
     public static $rules = [
-        'nom' => ['required', 'string'],
-        'description' => ['required', 'string'],
-        'type' => ['required', 'enum:[principal],[secondaire]'],
+        'nom'           => ['required', 'string'],
+        'description'   => ['required', 'string'],
+        'type'          => ['required', 'enum:[principal],[secondaire]'],
     ];
 
     public static function getValidation(Request $request)
