@@ -66,7 +66,13 @@ class PublicationController extends Controller {
             // liaison avec les publications
             $mediaALier->publications()->attach($publication->id);
 
+            // Conflits entre branche d'Antoine/Nicolas et branche dev
+            /* Trucs d'Antoine commenté, trucs de dev suit (ligne avec le return) :
+            Message::success('publication.create');
+            return redirect('admin/');
+            */
             return redirect()->back()->withInput()->with('info', 'Votre publication a bien été ajoutée');
+
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');

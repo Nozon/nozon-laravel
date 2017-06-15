@@ -63,6 +63,14 @@ class Media extends Model
 
       return $image;
     }
+  
+    // //recuperation de l'image depuis la requete
+    // $image = $request->file('image');
+    // //création d'un nom basé sur l'heure actuelle
+    // $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+    // $destinationPath = public_path('/images');
+    // $image->move($destinationPath, $input['imagename']);
+    // $this->postImage->add($input);
 
     public function profil(){
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controllers;
+use App\Models\Edition;
 use App\Models\Membre;
 use App\Models\Profil;
 use App\Models\Equipe;
@@ -22,9 +23,19 @@ class MembreController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $membres = Membre::all();
-        return view('pages.team.index')->with('membre', $membres);
+    public function index($annee) {
+
+        // Récupération des informations de l'édition
+        $edition = Edition::where('annee', $annee)->first();
+
+        // Récupération de l'id de l'équipe principale de l'édition concernée
+        $equipePrincipale = Equipe::where('edition_annee', $annee)->where('type', 'principal')->first();
+
+        $membresPrincipaux = Profil::all()->where('equipe_id', $equipePrincipale->id);
+
+        // dd($membresPrincipaux);
+
+        return view('pages.team.create')->with('membres', $membresPrincipaux);
     }
     /**
      * Show the form for creating a new resource.

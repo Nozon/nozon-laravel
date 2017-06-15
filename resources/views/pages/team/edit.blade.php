@@ -1,7 +1,7 @@
 <h4>Modifier un membre</h4>
 <div class="row">
     <ul class="liste" id="liste-memmbre">
-            @foreach($membres as $membre)
+        @foreach($membres as $membre)
             <li>
                 <button type="button" id="year" class="btn btn-default membre">{{$membre->nom}}</button>
                 <div class="delModMembre">
@@ -14,8 +14,7 @@
                 </div>
 
             </li>
-            @endforeach
-
+        @endforeach
     </ul>
 </div>
 <form method="POST" action="{{ url('equipe')}}" class="form-mod-membre">

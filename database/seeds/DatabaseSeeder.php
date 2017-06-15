@@ -42,11 +42,11 @@ class DatabaseSeeder extends Seeder
                 'lieu' => 'Lausanne',
                 'dateConcours' => '2016-07-28',
                 'texteConcours' => "Événement phare de la Fondation Hydros en 2016, l'HYDROcontest est le premier concours étudiant international dédié à l'efficience énergétique nautique et maritime.
- 
+
 À la fois outil d'éducation, de sensibilisation, et incubateur d'idées, l'HYDROcontest rassemble les futurs ingénieurs et architectes du monde entier autour d'une problématique commune:
- 
+
 TRANSPORTEZ PLUS, PLUS VITE, EN CONSOMMANT MOINS D'ÉNERGIE
- 
+
 Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plus efficient en termes d'énergie." ,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -62,22 +62,21 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'lieu' => 'Ouchy',
                 'dateConcours' => '2015-06-05',
                 'texteConcours' => "Événement phare de la Fondation Hydros en 2015, l'HYDROcontest est le premier concours étudiant international dédié à l'efficience énergétique nautique et maritime.
- 
+
 À la fois outil d'éducation, de sensibilisation, et incubateur d'idées, l'HYDROcontest rassemble les futurs ingénieurs et architectes du monde entier autour d'une problématique commune:
- 
+
 TRANSPORTEZ PLUS, PLUS VITE, EN CONSOMMANT MOINS D'ÉNERGIE
- 
+
 Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plus efficient en termes d'énergie.",
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
-
             DB::table('equipes')->insert([
                 'nom' => 'TEAM HEIG-VD',
                 'description' => 'On aime autant les bateaux que Kostic aime les enfants',
                 'type' => 'principal',
-                'edition_annee' => '2016',
+                'edition_annee' => '2017',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -100,7 +99,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
-      
+
             DB::table('medias')->insert([
                 'nom' => 'image1.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -229,7 +228,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Kostic',
                 'prenom' => 'David',
@@ -309,25 +308,25 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'fonction' => 'Gars casse couille',
                 'description' => "Rappeler périodiquement à mes camarades leur manque d'engagement" ,
                 'departement' => 'Haute-Seine',
-                'anneeEtude' => '798', 
+                'anneeEtude' => '798',
                 'membre_id' => '2',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('profils')->insert([
                 'fonction' => 'Gars casse couille',
                 'description' => "Ma passion? Jesus et les bateaux" ,
                 'departement' => 'Haute-Seine',
-                'anneeEtude' => '798', 
+                'anneeEtude' => '798',
                 'membre_id' => '3',
                 'equipe_id' => '2',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
-            
+
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
                 'texte' => "Cette édition de l’HydroContest sera prête à accueillir les spectateurs pour les courses, mais proposera aussi une multitude d’activités pour tous.
@@ -368,7 +367,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "Transporter plus plus vite, en consommant moins d'énérgie",
                 'texte' => "II s’agit d’une des problématiques actuelles et communes liées au développement industriel et technologique de notre ère. Avec 90% des échanges commerciaux opérés par la mer, le transport maritime est un enjeu économique et environnemental majeur. En effet, si le bateau reste le moyen de transport le plus écologique, en matière d’emissions de CO2 par tonne transportée, il représente tout de même la 5ème source de pollution mondiale.
@@ -394,7 +393,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-            
+
             DB::table('recompenses')->insert([
                 'type' => "Prix de l'innovation 'Transport de masse'",
                 'description' => "Durant cette édition 2016, nous avons remporté le prix de l'innovation dans la catégorie 'Transports de masse'.",
@@ -402,7 +401,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-            
+
             DB::table('recompenses')->insert([
                 'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
                 'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",

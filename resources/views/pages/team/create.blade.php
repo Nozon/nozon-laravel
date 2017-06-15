@@ -1,4 +1,8 @@
-                <h3>Membre</h3>
+@extends('layouts.admin')
+
+@section('administration')
+
+            <h3>Membre</h3>
                 <div class="row">
 
                     <div class="administration" id="creerEquipe">
@@ -25,11 +29,11 @@
                             <label for="departement">Département</label>
                             <input type="text" name="departement" class="form-control" placeholder="Département" value="{{ old('departement')}}" />
                             <label for="etude">Année(s) d'étude</label>
-                            <input type="number" name="etude" class="form-control" placeholder="2 ans" value="{{ old('etude')}}" />
+                            <input type="number" name="anneeEtude" class="form-control" placeholder="2 ans" value="{{ old('etude')}}" />
                             <label for="imgMembre">Insérer une image</label>
                             <input name="imgMembre" type="file">
-                            <label for="descrMembre">Description</label>
-                            <textarea class="form-control" rows="3" name="descrMembre" placeholder="Ecrire ici..."></textarea>
+                            <label for="description">Description</label>
+                            <textarea class="form-control" rows="3" name="description" placeholder="Ecrire ici..."></textarea>
                             <button class="btn btn-nozon" id="btnCreer">Ajouter membre</button>
                         </div>
                     </form>
@@ -37,3 +41,5 @@
                         @include('pages.team.edit')
                     </div>
                 </div>
+
+@endsection

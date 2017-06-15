@@ -1,5 +1,4 @@
 
-
 <div class="article content-team-hydro template-team-hydro" id="team">
   <div class="row">
     <div class="team-hydro-titre">
