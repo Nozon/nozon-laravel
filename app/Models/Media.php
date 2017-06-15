@@ -60,12 +60,7 @@ class Media extends Model
 
       return $image;
     }
-
-    public static function upload($request) {
-      $path= public_path('img/test.jpg');
-      $img->save($path);
-    }
-
+    
     // //recuperation de l'image depuis la requete
     // $image = $request->file('image');
     // //création d'un nom basé sur l'heure actuelle
