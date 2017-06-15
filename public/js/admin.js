@@ -1,6 +1,10 @@
 $(function () {
     $(".form-create").hide();
     $(".form-mod").hide();
+    
+    $(".form-add-equipe").hide();
+    $(".form-mod-equipe").hide();
+    
     $(".form-mod-membre").hide();
     $(".form-add-membre").hide();
     $(".form-add-sponsor").hide();
@@ -37,6 +41,14 @@ $(function () {
     // modif édition
     $(".year-edition").click(function () {
         $('.form-mod').toggle();
+    });
+    // modif équipe
+    $(".equipe").click(function () {
+        $('.form-mod-equipe').show();
+    });
+    // ajouter equipe
+    $(".btn-add-equipe").click(function (){
+        $('.form-add-equipe').toggle();
     });
     // modif membre
     $(".membre").click(function () {

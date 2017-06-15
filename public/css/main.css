@@ -431,8 +431,7 @@ nav.navbar {
   border-left: 50px solid whitesmoke;
   border-bottom: 40px solid whitesmoke;
 }
-  padding-left: 1%;
-}
+
 .news-text {
   
 }
@@ -452,6 +451,8 @@ nav.navbar {
   padding-top: 40px;
   margin-top: 50px;
   width: 100%;
+  clear: both;
+  bottom: 0;
 }
 .footer-container p{
    color: white;
