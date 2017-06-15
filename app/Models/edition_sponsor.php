@@ -16,6 +16,8 @@ class edition_sponsor extends Model
         'valeur' => ['required', 'enum:[principale],[or], [argent], [bronze]']
     ];
 
+    protected $table = "edition_sponsor";
+
     public static function getValidation(Request $request)
     {
         // Récupération des inputs

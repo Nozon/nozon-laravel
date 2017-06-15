@@ -94,6 +94,15 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
+            DB::table('equipes')->insert([
+                'nom' => 'TEAM HEIG-VD Communication',
+                'description' => 'En bateau, Toto',
+                'type' => 'secondaire',
+                'edition_annee' => '2016',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+      
             DB::table('medias')->insert([
                 'nom' => 'image1.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
