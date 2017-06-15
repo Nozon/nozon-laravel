@@ -217,7 +217,7 @@ class EditionController extends Controller {
 
             return Redirect::to('admin/edition');
         }
-}
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -226,13 +226,13 @@ class EditionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $edition = Edition::find($id);
         $edition->delete();
 
         // redirect
         Message::success('edition.delete');
         return Redirect::to('edition');
-        
+
     }
 }
