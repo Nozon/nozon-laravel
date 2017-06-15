@@ -23,9 +23,6 @@ Route::get('/admin', function () {
     return view('pages.administration');
 });
 
-
-
-
 Route::get('/login', 'AuthController@login');
 Route::post('/auth/login', 'AuthController@check');
 Route::post('checkAuth', 'AuthController@check');
