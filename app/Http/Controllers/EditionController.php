@@ -28,7 +28,7 @@ class EditionController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($annee)
+    public function indexPublique($annee)
     {
         // Liste de toutes les éditions pour création dynamique du menu
         $editions = DB::table('editions')->orderBy('annee','desc')->get();
@@ -143,6 +143,16 @@ class EditionController extends Controller {
             echo $presse->titre . " ";
         }
         echo "<br />";
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index($annee)
+    {
+        return view('pages.concours.edit');
     }
 
     /**

@@ -60,7 +60,7 @@ class Media extends Model
 
       return $image;
     }
-    
+
     // //recuperation de l'image depuis la requete
     // $image = $request->file('image');
     // //création d'un nom basé sur l'heure actuelle
