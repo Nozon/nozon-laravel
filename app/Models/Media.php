@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+
 use App\Lib\Message;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -10,13 +12,6 @@ use Illuminate\Support\Facades\Validator;
 
 class Media extends Model
 {
-
-    public static $rules = [
-        'url' => ['required', 'url'],
-        'titre' => ['required', 'string'],
-        'description' => ['required', 'string'],
-        'type' => ['required', 'enum:[photo],[video]']
-    ];
 
     public static function getValidation(Request $request)
     {
@@ -38,13 +33,6 @@ class Media extends Model
         return $validator;
     }
 
-
-    public static function exists($url)
-    {
-        // Vérifie qu'il n'existe pas de ligne dans la BD pour cette url
-        return Media::where('url', $url)->first() !== null;
-    }
-
     /**
      * Enregistre en base de données un nouveau Media selon les $values donnés
      * @param array $values
@@ -64,18 +52,16 @@ class Media extends Model
         $new->save();
     }
 
-    public static function upload($request) {
-      $path= public_path('img/test.jpg');
-      $img->save($path);
-    }
+    public static function upload($image, $type) {
+      $CarbonNow = Carbon::now();
+      $StrinsTimestamp = $CarbonNow->toDateString();
 
-    // //recuperation de l'image depuis la requete
-    // $image = $request->file('image');
-    // //création d'un nom basé sur l'heure actuelle
-    // $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
-    // $destinationPath = public_path('/images');
-    // $image->move($destinationPath, $input['imagename']);
-    // $this->postImage->add($input);
+      $nomImage = md5($type.time());
+      // $nomImage = "HydroNozonUpload".$StrinsTimestamp.$type;
+
+      $path= public_path("img/".$type."/".$nomImage.".jpg");
+      $image->save($path);
+    }
 
     public function profil(){
 

@@ -31,9 +31,6 @@ class DatabaseSeeder extends Seeder
             DB::table('sponsors')->truncate();
             DB::table('edition_sponsor')->truncate();
 
-            $this->call(ACLSeeder::class);
-
-
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => "Bienvenue à tous, 2016 c' bien",
@@ -75,23 +72,16 @@ class DatabaseSeeder extends Seeder
 
 
             DB::table('medias')->insert([
-                'url' => 'https://www.google.ch/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwibr5u8-L3UAhXHVxoKHZHXA3EQjRwIBw&url=http%3A%2F%2Fwww.casafun.com%2Fimages_droles%2Fbateau_resto.htm&psig=AFQjCNHevUxKdBHb-2LB8eMCbFY95-cJ0g&ust=1497550492997746',
-                'titre' => 'Un beau bateau',
-                'description' => 'Ca bosse dur à hydrocontest',
-                'type' => 'photo',
+                'nom' => 'mediatest',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
             DB::table('medias')->insert([
-                'url' => 'https://www.google.ch/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwit_tnz-L3UAhWCWBoKHR6VCjoQjRwIBw&url=http%3A%2F%2Fhumourger.com%2Fbateau%2Findex2.html&psig=AFQjCNHevUxKdBHb-2LB8eMCbFY95-cJ0g&ust=1497550492997746',
-                'titre' => 'site',
-                'description' => "Quelle bonne surprise! Une équipe de gitan s'est jointe à la compétition!",
-                'type' => 'photo',
+                'nom' => 'mediatest1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-
 
             DB::table('membres')->insert([
                 'nom' => 'Aeschimann ',
@@ -108,7 +98,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Coelho',
                 'prenom' => 'Jonathan',
@@ -116,7 +106,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Gerber',
                 'prenom' => 'Julien',
@@ -124,7 +114,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
@@ -132,7 +122,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Duarte',
                 'prenom' => 'Dani',
@@ -140,7 +130,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Fernandes',
                 'prenom' => 'Dylan',
@@ -148,7 +138,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
@@ -156,7 +146,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Enzen Villegas',
                 'prenom' => 'Carla',
@@ -164,7 +154,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Lot',
                 'prenom' => 'Antoine',
@@ -191,7 +181,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
-      
+
             DB::table('presses')->insert([
                 'url' => 'http://www.presseocean.fr/actualite/nantes-lecole-centrale-remporte-lhydrocontest-31-07-2016-199732',
                 'titre' => 'lémanbleu',
@@ -227,8 +217,8 @@ class DatabaseSeeder extends Seeder
                 'edition_annee' => '2015',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            ]);    
-                 
+            ]);
+
             DB::table('profils')->insert([
                 'fonction' => 'Enjailleur',
                 'description' => 'Raconter un minimum de 3 blagues moyennes par tranche de 5 heures',
@@ -244,7 +234,7 @@ class DatabaseSeeder extends Seeder
                 'fonction' => 'Gars casse couille',
                 'description' => "Rappeler périodiquement à mes camarades leur manque d'engagement" ,
                 'departement' => 'Haute-Seine',
-                'anneeEtude' => '798', 
+                'anneeEtude' => '798',
                 'membre_id' => '5',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -260,7 +250,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
                 'texte' => "Les hautes écoles suisses et françaises ont dominé l’édition 2016 de l’HydroContest. Dans la catégorie « bateaux légers », c’est Central Nantes qui s’impose, alors que la catégorie « bateaux lourds » a vu, contre toute attente, la victoire de l’ENSTA Bretagne – Paris-La-Villette. La « Long Distance Race » a été marquée par le triomphe de la Haute Ecole d'Ingénierie et d'Architecture (HEIA) de Fribourg.
@@ -269,7 +259,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "Vainqueurs de l'édition 2016:",
                 'texte' => "Trophée catégorie « Transport légers » : Central Nantes (France)
@@ -300,7 +290,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => 'HYDROCONTEST : C’EST PARTI POUR L’ÉDITION 2015',
                 'texte' => "Les 16 équipes internationales d’étudiants ingénieurs et leurs prototypes de bateaux du futur entament demain les phases de qualification de l’HYDROCONTEST 2015. Rendez-vous du 14 au 19 juillet au village HYDROCONTEST situé à Lausanne aux Pyramides de Vidy pour suivre ce concours unique au monde et admirer les bateaux volants, innovants, performants et toujours plus efficients…
@@ -308,9 +298,9 @@ class DatabaseSeeder extends Seeder
                 'edition_annee' => '2015',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]); 
-            
-            
+                ]);
+
+
             DB::table('recompenses')->insert([
                 'type' => 'Trophée "Best Comunication"',
                 'description' => "Cette année, notre équipe de communication à remporté le trophée de la meilleur communication ! Nous somme très fier de ce prix car nous avons investi beaucoup de temps et de moyens afin de communiqué au mieux notre parcours durant cette édition.",
@@ -326,7 +316,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-      
+
             DB::table('recompenses')->insert([
                 'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
                 'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",
@@ -334,7 +324,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-            
+
 
             DB::table('sponsors')->insert([
                 'nom' => 'la Loterie Romande',
@@ -349,7 +339,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'Migros Catering Services',
                 'url' => 'www.vd.ch',
@@ -365,7 +355,7 @@ class DatabaseSeeder extends Seeder
                 ]);
 
             $this->call(ACLSeeder::class);
-            
+
             Schema::enableForeignKeyConstraints();
     }
 }

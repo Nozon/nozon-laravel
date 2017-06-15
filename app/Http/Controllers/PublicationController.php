@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Lib\Message;
 use App\Http\Controllers\Controller;
+
 use App\Models\Publication;
+use App\Models\Media;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+
+use Intervention\Image\ImageManagerStatic as Image;
 
 class PublicationController extends Controller {
 
@@ -35,12 +41,18 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        if ($request->hasFile('imgNews'))
+        {
+            $recupImage = Image::make(Input::file('imgNews'));
+            Media::upload($recupImage, "news");
+        }
         // Récupération du validateur de Publication
         $validate = Publication::getValidation($request);
         // En cas d'échec de validation
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+            // return redirect()->back()->withInput()->withErrors($validate);
+            return "valisation fail ! ";
         }
         // En cas de succès de la validation
         try {
@@ -53,7 +65,8 @@ class PublicationController extends Controller {
             // En cas d'erreur, envoi d'un message d'erreur
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
+            // return redirect()->back()->withInput();
+            return "MEC ECHEC";
         }
     }
 
@@ -114,14 +127,14 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
+
         $publication = Publication::find($id);
         $publication->delete();
 
         // redirect
         Message::success('publication.delete');
         return Redirect::to('publication');
-        
+
     }
 
 }

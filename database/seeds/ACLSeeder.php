@@ -12,11 +12,11 @@ class ACLSeeder extends Seeder
     public function run()
     {
       /*** CLEAN UP ***/
-      DB::table('utilisateurs')->truncate();
-      DB::table('groupes')->truncate();
-      DB::table('groupe_utilisateur')->truncate();
-      DB::table('ressources')->truncate();
-      DB::table('groupe_ressource')->truncate();
+        DB::table('utilisateurs')->truncate();
+        DB::table('groupes')->truncate();
+        DB::table('groupe_utilisateur')->truncate();
+        DB::table('ressources')->truncate();
+        DB::table('groupe_ressource')->truncate();
 
         $user1 = new App\Models\Utilisateur();
         $user1->email = 'john@example.com';
