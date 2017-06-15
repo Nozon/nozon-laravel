@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             DB::table('groupe_utilisateur')->truncate();
             DB::table('ressources')->truncate();
             DB::table('groupe_ressource')->truncate();
+
             DB::table('editions')->truncate();
             DB::table('equipes')->truncate();
             DB::table('medias')->truncate();
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
             DB::table('edition_sponsor')->truncate();
 
             $this->call(ACLSeeder::class);
+
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => "Pour cette édition 2016, la team hydrocontest de la HEIG-VD a le plaisir d'acueillir au sein de son équipe deux seins."
@@ -73,8 +75,8 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 ]);
 
             DB::table('equipes')->insert([
-                'nom' => 'TEAM HEIG-VD',
-                'description' => 'On aime autant les bateaux que Kostic aime les enfants',
+                'nom' => 'Team HEIG-VD',
+                'description' => "Tous ensemble vers l'efficience énergétique! ",
                 'type' => 'principal',
                 'edition_annee' => '2017',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -82,7 +84,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 ]);
 
             DB::table('equipes')->insert([
-                'nom' => 'TEAM HEIG-VD',
+                'nom' => 'Team HEIG-VD',
                 'description' => 'La team HEIG est fière de représenter le nord vaudois dans cette édition 2015.'
                 . 'Surprise cette année, 2 filles se joignent',
                 'type' => 'principal',
@@ -92,10 +94,19 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 ]);
 
             DB::table('equipes')->insert([
-                'nom' => 'TEAM HEIG-VD Communication',
+                'nom' => 'Team HEIG-VD Communication',
                 'description' => 'En bateau, Toto',
                 'type' => 'secondaire',
                 'edition_annee' => '2016',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+            DB::table('equipes')->insert([
+                'nom' => 'Team HEIG-VD Communication',
+                'description' => "La communication est un élément clé du succès de l'équipe représentant la HEIG-VD au concours Hydrocontest. Nous sommes là pour les assister.",
+                'type' => 'secondaire',
+                'edition_annee' => '2017',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
