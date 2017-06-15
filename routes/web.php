@@ -22,19 +22,30 @@ Route::get('/admin', function () {
 });
 
 
+
+
 Route::get('/login', 'AuthController@login');
 Route::post('/auth/login', 'AuthController@check');
 Route::post('checkAuth', 'AuthController@check');
 
+// Tout ce qui passe par ce middleware n'est accessible qu'aux personnes authentifiées
 Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/auth/logout', 'AuthController@logout');
     Route::get('/secure1', function () {
         return 'Je suis bien logué';
     });
+
+    Route::get('/admin', function () {
+        $annee = Session::get('edition_annee');
+        return redirect('admin/'.$annee);
+    });
+
     Route::get('/admin/{annee}', function ($annee) {
         Session::put('edition_annee', $annee);
-        return ("Console d'administration pour l'annee ".$annee);
+        return view('pages.administration');
     });
+
+    Route::get('presse/edit/{id}', 'PresseController@edit');
 });
 
 Route::resource('accueil', 'AccueilController');
@@ -52,6 +63,3 @@ Route::resource('user', 'UserController');
 Route::resource('sponsor', 'SponsorController');
 Route::resource('photo', 'MediaController');
 Route::resource('video', 'MediaController');
-
-
-Route::get('presse/edit/{id}', 'PresseController@edit');
