@@ -41,10 +41,13 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        if ($request->hasFile('imgNews'))
-        {
+        if ($request->hasFile('imgNews')) {
+          try {
             $recupImage = Image::make(Input::file('imgNews'));
-            Media::upload($recupImage, "news");
+            $imageUploadee = Media::upload($recupImage, "news");
+          } catch (Exception $e) {
+            Message::error('bd.error');
+          }
         }
         // Récupération du validateur de Publication
         $validate = Publication::getValidation($request);
@@ -57,8 +60,9 @@ class PublicationController extends Controller {
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Publication
-            Publication::createOne($validate->getData());
+            $publication = Publication::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Publications
+            Media::createOne($imageUploadee->basename, $publication);
             Message::success('publication.create');
             return redirect('publication');
         } catch (\Exception $e) {
@@ -66,7 +70,6 @@ class PublicationController extends Controller {
             Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
             // return redirect()->back()->withInput();
-            return "MEC ECHEC";
         }
     }
 

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Validator;
 
 class Media extends Model
 {
+    protected $table = "medias";
 
     public static function getValidation(Request $request)
     {
@@ -37,19 +38,17 @@ class Media extends Model
      * Enregistre en base de données un nouveau Media selon les $values donnés
      * @param array $values
      */
-    public static function createOne(array $values) {
+    public static function createOne($nom, $publication) {
         // Création d'une nouvelle instance de Media
-        echo("Dans la fonction createOne: ");
-        echo(implode(" | ", $values));
+        echo("Dans la fonction createOne du Media: ");
+        echo($nom);
         echo("<br />");
         $new = new Media();
-        // Définition des propriétés de Media
-        $new->url = $values['url'];
-        $new->titre = $values['titre'];
-        $new->description = $values['description'];
-        $new->date = $values['type'];
-        // Enregistrement de Media
+        $new->nom = $nom;
+
         $new->save();
+
+        $new->publications()->attach($publication->id);
     }
 
     public static function upload($image, $type) {
@@ -61,35 +60,37 @@ class Media extends Model
 
       $path= public_path("img/".$type."/".$nomImage.".jpg");
       $image->save($path);
+
+      return $image;
     }
 
     public function profil(){
 
-        return $this->belongsToMany('App/Models/Profil');
+        return $this->belongsToMany('App\Models\Profil');
 
     }
 
     public function equipes(){
 
-        return $this->belongsToMany('App/Models/Equipe');
+        return $this->belongsToMany('App\Models\Equipe');
 
     }
 
     public function concours(){
 
-        return $this->belongsToMany('App/Models/Concours');
+        return $this->belongsToMany('App\Models\Concours');
 
     }
 
     public function publications(){
 
-        return $this->belongsToMany('App/Models/Publication');
+        return $this->belongsToMany('App\Models\Publication');
 
     }
 
     public function sponsors(){
 
-        return $this->belongsToMany('App/Models/Sponsor');
+        return $this->belongsToMany('App\Models\Sponsor');
 
     }
 

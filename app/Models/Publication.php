@@ -44,7 +44,7 @@ class Publication extends Model {
      */
     public static function createOne(array $values) {
         // Création d'une nouvelle instance de Publication
-        echo("Dans la fonction createOne: ");
+        echo("Dans la fonction createOne de la publication: ");
         echo(implode(" | ", $values));
         echo("<br />");
         $new = new Publication();
@@ -55,7 +55,9 @@ class Publication extends Model {
         // Enregistrement de Publication
         $new->save();
 
-        return "publication  enrgistrée";
+        echo ("publication créée dans la BD ! ");
+
+        return $new;
     }
 
     public function medias() {
