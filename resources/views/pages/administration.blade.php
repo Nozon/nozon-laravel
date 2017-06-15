@@ -57,7 +57,7 @@
             </div>
 
 
-            <div id="page_presse" class="page">
+            <div id="presse" class="page">
 
                 @include('pages.presse.create')
 
