@@ -8,6 +8,7 @@
 
             <table class="table " id="tabNews">
                 <tbody>
+
                     @foreach($news->slice(0, 5) as $new)
                         <tr class="news-article">
                             <td class="news-img">
@@ -21,6 +22,7 @@
                                 <p class="newx-more"><a href="">Lire la suite..</a></p></td>
                         </tr>
                     @endforeach
+
                 </tbody>
             </table>
 
