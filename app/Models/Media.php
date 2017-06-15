@@ -14,8 +14,6 @@ class Media extends Model
 {
     protected $table = "medias";
 
-    protected $table = "medias";
-
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
