@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Links -->
         <link href="{{asset('css/bootstrap.css')}}" rel="stylesheet">
+        <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.ico')}}" />
         <link rel="SHORTCUT ICON" href="favicon.ico" />
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
