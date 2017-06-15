@@ -12,17 +12,17 @@ class Edition extends Model
 {
 
     public static $rules = [
-        'annee' => ['required', 'integer'],
-        'texte_presentation' => ['required', 'string'],
-        'lieu' => ['required', 'string'],
-        'date_concours' => ['required', 'date'],
-        'texte_concours' => ['required', 'string']
+        'annee'             => ['required', 'integer'],
+        'textePresentation' => ['required', 'string'],
+        'lieu'              => ['required', 'string'],
+        'dateConcours'      => ['required', 'date'],
+        'texteConcours'     => ['required', 'string']
     ];
 
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
-        $inputs = $request->only('anne', 'texte_presentation', 'lieu');
+        $inputs = $request->only('anne', 'textePresentation', 'lieu');
         echo("Dans la fonction getValidation du Model: ");
         echo(implode(" | ", $inputs));
         echo("<br />");
@@ -58,10 +58,10 @@ class Edition extends Model
         $new = new Edition();
         // Définition des propriétés de Edition
         $new->annee = $values['annee'];
-        $new->texte_presentation = $values['texte_presentation'];
+        $new->texte_presentation = $values['textePresentation'];
         $new->lieu = $values['lieu'];
-        $new->date_concours = $values['date_concours'];
-        $new->texte_concours = $values['texte_concours'];
+        $new->date_concours = $values['dateConcours'];
+        $new->texte_concours = $values['texteConcours'];
 
         // Enregistrement de Edition
         $new->save();

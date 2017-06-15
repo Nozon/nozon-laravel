@@ -134,8 +134,29 @@ class EditionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('annee', 'textePresentation', 'lieu', 'dateConcours', 'texteConcours');
+
+        $validate = Validator::make($inputs, Edition::$rules);
+
+        if ($validate->fails()) {
+            Message::error('edition.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $edition = Edition::find($id);
+            $edition->annee               = $inputs['annee'];
+            $edition->textePresentation   = $inputs['textePresentation'];
+            $edition->lieu                = $inputs['lieu'];
+            $edition->dateConcours        = $inputs['dateConcours'];
+            $edition->texteConcours       = $inputs['texteConcours'];
+            $edition->save();
+
+            Message::success('edition.update');
+
+            return Redirect::to('admin/edition');
+        }
+}
 
     /**
      * Remove the specified resource from storage.

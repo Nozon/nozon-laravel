@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Validator;
 class Presse extends Model
 {
     public static $rules = [
-        'url' => ['required', 'string'],
-        'titre' => ['required', 'string'],
-        'description' => ['required', 'string'],
-        'date' => ['required', 'string'],
+        'url'           => ['required', 'string'],
+        'titre'         => ['required', 'string'],
+        'description'   => ['required', 'string'],
+        'date'          => ['required', 'string'],
         'edition_annee' => ['sometimes', 'required', 'integer']
     ];
 

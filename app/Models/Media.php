@@ -12,10 +12,10 @@ class Media extends Model
 {
 
     public static $rules = [
-        'url' => ['required', 'url'],
-        'titre' => ['required', 'string'],
-        'description' => ['required', 'string'],
-        'type' => ['required', 'enum:[photo],[video]']
+        'url'           => ['required', 'url'],
+        'titre'         => ['required', 'string'],
+        'description'   => ['required', 'string'],
+        'type'          => ['required', 'enum:[photo],[video]']
     ];
 
     public static function getValidation(Request $request)

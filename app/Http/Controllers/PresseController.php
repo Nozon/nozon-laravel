@@ -99,22 +99,24 @@ class PresseController extends Controller {
 
         if ($validate->fails()) {
             Message::error('presse.exists'); // "Presse n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+w
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
         } else {
             $presse = Presse::find($id);
-            $presse->url         = $inputs['url'];
-            $presse->titre       = $inputs['titre'];
-            $presse->description = $inputs['description'];
-            $presse->date        = $inputs['date'];
+          
+            $presse->url           = $inputs['url'];
+            $presse->titre         = $inputs['titre'];
+            $presse->description   = $inputs['email'];
+            $presse->date          = $inputs['date'];
+
             $presse->save();
 
             Message::success('presse.update');
-
-            //Session::flash('message', 'Successfully updated nerd!');
             return Redirect::to('admin/presse');
         }
 }
+
     /**
      * Remove the specified resource from storage.
      *
