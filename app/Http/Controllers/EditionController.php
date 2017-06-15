@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 
 use App\Models\Edition;
+use App\Models\edition_sponsor;
 use App\Models\Equipe;
 use App\Models\Media;
 use App\Models\Membre;
@@ -76,7 +77,7 @@ class EditionController extends Controller {
         $presses = Presse::all()->where('edition_annee', $annee);
 
         // Récupération des sponsors
-        $edition_sponsors = edition_sponsorController::all()->where('edition_annee', $annee);
+        $edition_sponsors = edition_sponsor::all()->where('edition_annee', $annee);
         $sponsorMain = Sponsor::where('valeur', 'principal')->first();
 
         $sponsorMain = Sponsor::all()->where('edition_annee', $annee);
