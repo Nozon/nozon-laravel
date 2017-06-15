@@ -16,7 +16,7 @@ class EquipeController extends Controller {
      */
     public function index() {
         $equipe = Equipe::all();
-        return view('equipe/index')->with('equipe', $equipe);
+        return view('pages.equipe.create')->with('equipe', $equipe);
     }
 
     /**

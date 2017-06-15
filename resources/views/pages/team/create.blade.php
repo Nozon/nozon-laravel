@@ -1,4 +1,8 @@
-                <h3>Membre</h3>
+@extends('layouts.admin')
+
+@section('administration')
+
+            <h3>Membre</h3>
                 <div class="row">
 
                     <div class="administration" id="creerEquipe">
@@ -35,3 +39,5 @@
                         @include('pages.team.edit')
                     </div>
                 </div>
+
+@endsection

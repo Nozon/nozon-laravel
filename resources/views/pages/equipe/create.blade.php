@@ -1,5 +1,8 @@
+@extends('layouts.admin')
 
-<h3>L'équipe</h3>
+@section('administration')
+
+    <h3>L'équipe</h3>
 <div class="row">
     <div class="administration" id="creerEquipe">
         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-equipe">Créer une équipe</button>
@@ -26,7 +29,8 @@
         </form>
     </div>
     <div id="modEquipe">
-        @include('pages.equipe.edit')
+        @include('pages.concours.edit')
     </div>
 </div>
 
+@endsection

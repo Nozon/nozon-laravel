@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+
+@section('administration')
+
                 <h3>L'édition</h3>
                 <div class="row">
                     <div class="administration" id="creerEdition">
@@ -27,3 +31,4 @@
                         @include('pages.concours.edit')
                     </div>
                 </div>
+@endsection
