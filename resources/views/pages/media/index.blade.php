@@ -1,5 +1,5 @@
 <!-- PARTIE MEDIA-->
-<div class="content-media-hydro">
+<div class="content-media-hydro" id="medias">
     <div class="row media-description">
         <div class="team-hydro-titre">
             <h1>Les médias</h1>

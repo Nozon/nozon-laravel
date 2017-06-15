@@ -69,32 +69,32 @@ class Edition extends Model
 
     public function presses(){
 
-        return $this->hasMany('App/Models/Presse');
+        return $this->hasMany('App\Models\Presse');
 
     }
     
-    public function niveaux(){
+    public function edition_sponsors(){
 
-        return $this->hasMany('App/Models/Niveau');
+        return $this->hasMany('App\Models\edition_sponsor');
 
     }
     
     public function publications(){
 
-        return $this->hasMany('App/Models/Publication');
+        return $this->hasMany('App\Models\Publication');
 
     }
     
     public function medias(){
 
-        return $this->belongsMany('App/Models/Edition_media');
+        return $this->belongsMany('App\Models\Edition_media');
 
     }
     
   
     public function equipes(){
 
-        return $this->hasMany('App/Models/Equipe');
+        return $this->hasMany('App\Models\Equipe');
 
     }
 

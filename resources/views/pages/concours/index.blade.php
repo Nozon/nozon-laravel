@@ -5,9 +5,9 @@
             <h1>Le concours</h1>
         </div>
           <div class="concours-description">
-              <img src="{{$concour->URL}}"/>
+              <img src="{{$concours->URL}}"/>
               <p>
-                 {{$concour->textConcour}}
+                 {{$concours->texteConcours}}
               </p>
           </div>
     </div>

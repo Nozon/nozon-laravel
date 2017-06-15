@@ -62,13 +62,15 @@ class Sponsor extends Model
 
     public function medias(){
 
-        return $this->belongsToMany('App/Models/Media');
+        return $this->belongsToMany('App\Models\Media');
 
     }
     
-     public function niveaus(){
+     public function edition_sponsors(){
 
-        return $this->belongsToMany('App/Models/Niveau');
+        return $this->belongsToMany('App\Models\edition_sponsor')
+            ->withTimestamps()
+            ->withPivot('sponsor_nom');
 
     }
 
