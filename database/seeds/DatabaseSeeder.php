@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
             Schema::disableForeignKeyConstraints();
-        
+
             DB::table('utilisateurs')->truncate();
             DB::table('groupes')->truncate();
             DB::table('groupe_utilisateur')->truncate();
@@ -30,9 +30,10 @@ class DatabaseSeeder extends Seeder
             DB::table('recompenses')->truncate();
             DB::table('sponsors')->truncate();
             DB::table('edition_sponsor')->truncate();
-        
-           
-            
+
+            $this->call(ACLSeeder::class);
+
+
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => "Bienvenue à tous, 2016 c' bien",
@@ -52,8 +53,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('equipes')->insert([
                 'nom' => 'TEAM HEIG-VD',
                 'description' => 'On aime autant les bateaux que Kostic aime les enfants',
@@ -62,7 +63,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('equipes')->insert([
                 'nom' => 'EAM HEIG-VD',
                 'description' => 'En bateau, Simon',
@@ -71,8 +72,8 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('medias')->insert([
                 'url' => 'https://www.google.ch/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwibr5u8-L3UAhXHVxoKHZHXA3EQjRwIBw&url=http%3A%2F%2Fwww.casafun.com%2Fimages_droles%2Fbateau_resto.htm&psig=AFQjCNHevUxKdBHb-2LB8eMCbFY95-cJ0g&ust=1497550492997746',
                 'titre' => 'Un beau bateau',
@@ -81,7 +82,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('medias')->insert([
                 'url' => 'https://www.google.ch/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwit_tnz-L3UAhWCWBoKHR6VCjoQjRwIBw&url=http%3A%2F%2Fhumourger.com%2Fbateau%2Findex2.html&psig=AFQjCNHevUxKdBHb-2LB8eMCbFY95-cJ0g&ust=1497550492997746',
                 'titre' => 'site',
@@ -90,20 +91,20 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
-            
+
+
             DB::table('membres')->insert([
                 'nom' => 'Aeschimann ',
                 'prenom' => 'Jonathan',
-                'email' => 'jeanjean@hotmail.com',
+                'email' => 'jonathan_a@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Favre',
                 'prenom' => 'Mathias',
-                'email' => 'yvesyves@hotmail.com',
+                'email' => 'mathias@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -111,7 +112,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Coelho',
                 'prenom' => 'Jonathan',
-                'email' => 'PierrePaulJacques@hotmail.com',
+                'email' => 'jonathan_c@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -119,7 +120,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Gerber',
                 'prenom' => 'Julien',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'julien@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -127,7 +128,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'david@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -135,7 +136,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Duarte',
                 'prenom' => 'Dani',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'dani@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -143,7 +144,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Fernandes',
                 'prenom' => 'Dylan',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'dylan@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -151,7 +152,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'david_bolomey@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -159,7 +160,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Enzen Villegas',
                 'prenom' => 'Carla',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'carla@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -167,7 +168,7 @@ class DatabaseSeeder extends Seeder
             DB::table('membres')->insert([
                 'nom' => 'Lot',
                 'prenom' => 'Antoine',
-                'email' => 'jeannejeanne@hotmail.com',
+                'email' => 'antoine@hotmail.com',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -190,6 +191,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
+      
             DB::table('presses')->insert([
                 'url' => 'http://www.presseocean.fr/actualite/nantes-lecole-centrale-remporte-lhydrocontest-31-07-2016-199732',
                 'titre' => 'lémanbleu',
@@ -237,7 +239,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
+
             DB::table('profils')->insert([
                 'fonction' => 'Gars casse couille',
                 'description' => "Rappeler périodiquement à mes camarades leur manque d'engagement" ,
@@ -248,7 +250,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
                 'texte' => "Cette édition de l’HydroContest sera prête à accueillir les spectateurs pour les courses, mais proposera aussi une multitude d’activités pour tous.
@@ -289,7 +291,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "Transporter plus plus vite, en consommant moins d'énérgie",
                 'texte' => "II s’agit d’une des problématiques actuelles et communes liées au développement industriel et technologique de notre ère. Avec 90% des échanges commerciaux opérés par la mer, le transport maritime est un enjeu économique et environnemental majeur. En effet, si le bateau reste le moyen de transport le plus écologique, en matière d’emissions de CO2 par tonne transportée, il représente tout de même la 5ème source de pollution mondiale.
@@ -316,7 +318,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-            
+
             DB::table('recompenses')->insert([
                 'type' => "Prix de l'innovation 'Transport de masse'",
                 'description' => "Durant cette édition 2016, nous avons remporté le prix de l'innovation dans la catégorie 'Transports de masse'.",
@@ -324,7 +326,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-            
+      
             DB::table('recompenses')->insert([
                 'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
                 'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",
@@ -333,13 +335,14 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
             
+
             DB::table('sponsors')->insert([
                 'nom' => 'la Loterie Romande',
                 'url' => 'www.loro.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'Canton de vaud',
                 'url' => 'www.catering-services-migros.ch',
