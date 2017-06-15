@@ -105,8 +105,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
-                                
+                                    
             DB::table('presses')->insert([
                 'url' => 'http://www.letelegramme.fr/finistere/hydrocontest-2016-l-ensta-bretagne-remporte-la-3e-edition-01-08-2016-11166928.php',
                 'titre' => 'Le Télégramme',
@@ -162,7 +161,6 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);    
                  
-            
             DB::table('profils')->insert([
                 'fonction' => 'Enjailleur',
                 'description' => 'Mon devoir est de raconter un minimum de 3 blagues moyennes par tranche de 5 heures',
@@ -185,7 +183,6 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
             
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
@@ -270,7 +267,6 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-           
             
             DB::table('sponsors')->insert([
                 'nom' => 'BCV',

@@ -8,37 +8,17 @@
         </div>
         <h2>Galerie photos</h2>
         <div class="row gallery-img">
-            <div class="col-md-3">
-                <a data-lightbox="photos" href="img/johnaesch.jpg">
-                    <img src="img/johnaesch.jpg" alt="Bridge">
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a data-lightbox="photos" href="img/trump.jpg">
-                    <img src="img/trump.jpg" alt="Bridge">
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a data-lightbox="photos" href="img/johnaesch.jpg">
-                    <img src="img/johnaesch.jpg" alt="Bridge">
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a data-lightbox="photos" href="img/johnaesch.jpg">
-                    <img src="img/johnaesch.jpg" alt="Bridge">
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a data-lightbox="photos" href="img/trump.jpg">
-                    <img src="img/trump.jpg" alt="Bridge">
-                </a>
-            </div>
-            <div class="col-md-3">
-                <a data-lightbox="photos" href="img/johnaesch.jpg">
-                    <img src="img/johnaesch.jpg" alt="Bridge">
-                </a>
-            </div>
+
+            @foreach($medias as $media)
+                <div class="col-md-3">
+                    <a data-lightbox="photos" href="{{$media->URL}}">
+                        <img src="{{$media->URL}}" alt="Bridge">
+                    </a>
+                </div>
+            @endforeach
         </div>
+        
+
     </div>
 </div>
 <!-- FIN PARTIE MEDIA--> 

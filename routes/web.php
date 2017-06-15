@@ -13,6 +13,8 @@
 
 Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
 
+Route::get('/{annee}', 'EditionController@index')->where('annee', '[2-9][0-9]{1,3}');
+
 Route::get('/', function () {
     return redirect('2017');
 });
@@ -32,7 +34,7 @@ Route::group(['middleware' => 'MyAuth'], function() {
     Route::get('/secure1', function () {
         return 'Je suis bien logué';
     });
-
+  
     Route::get('/admin', function () {
         $annee = Session::get('edition_annee');
         return redirect('admin/' . $annee);
