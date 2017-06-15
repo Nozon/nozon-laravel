@@ -23,9 +23,9 @@ class EditionController extends Controller {
     {
         $recompenses = Recompense::all()->where('equipe_id', '1');
         $presses = Presse::all()->where('edition_annee', $annee);
-        return view('pages.edition')
-            ->with('presses', $presses)
-            ->with('recompenses', $recompenses);
+        return    mview('pages.edition')
+                ->with('presses', $presses)
+                ->with('recompenses', $recompenses);
     }
 
     /**
