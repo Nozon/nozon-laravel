@@ -119,8 +119,8 @@
             </div>
             <h2>Bronze</h2>
             <div class="col">
-                @foreach($sponsorsBronz as $sponsorBronz)
-                    <a href="{{$sponsorBronz->webURL}}"><img src="{{$sponsorBronz->URL}}"/></a>
+                @foreach($sponsorsBronze as $sponsorBronze)
+                    <a href="{{$sponsorBronze->webURL}}"><img src="{{$sponsorBronze->URL}}"/></a>
                 @endforeach
             </div>
         </div>
