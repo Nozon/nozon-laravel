@@ -106,14 +106,34 @@ $(function () {
         $('.form-add-press').toggle();
     });
 
-    // modif news
+    // modif press
         // afficher liste
     $(".press").click(function () {
         $('#listePress').toggle();
         $('.form-mod-press').hide();
     });
-        // afficher form
+        // action click modif
     $(".modif-press").click(function () {
+        // récup l'id
+        var url = $(this).attr('href').val();
+        // récup le titre
+        var titre = $(this).parents(".delMod").siblings().eq(1).children().val();
+        // récup lien image
+        var lienWeb = (this).parents(".delMod").siblings().eq(2).children().val();
+        // récup la date
+        var date = $(this).parents(".delMod").siblings().eq(3).children().val();
+        // récup la descr
+        var descr = $(this).parents(".delMod").siblings().eq(4).children().attr('value').val();
+
+        // insertion action formulaire
+        $("#modifierLaPress").attr('action').val(url);
+        // insertion dans le form
+        $("#pressName").val(titre);
+        $("#pressDate").val(lienWeb);
+        $("#pressArticleLink").val(date);
+        $("#pressTetx").val(descr);
+
+
         $('.form-mod-press').show();
         var speed = 750; // Durée de l'animation (en ms)
         $('html, body').animate( { scrollTop: $("#modifierLaPress").offset().top }, speed ); // Go
@@ -133,6 +153,7 @@ $(function () {
     });
         // afficher form
     $(".modif-prix").click(function () {
+
         $('.form-mod-prix').show();
         var speed = 750; // Durée de l'animation (en ms)
         $('html, body').animate( { scrollTop: $("#modifierLePrix").offset().top }, speed ); // Go
@@ -160,6 +181,17 @@ $(function () {
         $(this).toggleClass("link-active");
         $('a.link-active').removeClass("link-active");
     });
+
+    // récup l'attribut href du btn et l'envoie dans l'action du formulaire puis la même avec les donnée
+    $(".delMod:first-child").children(".modif-press").on("click", function() {
+        // récup l'id
+        var url = $(this).attr('href').val();
+        // récup le titre
+        var titre = $()
+        // on le met dans la chaine
+        $("#modifierLaPress").attr("action").val(url);
+    });
+
     
 });
 
@@ -186,4 +218,5 @@ function switchPageWithHistory(pageId) {
     history.pushState(null, null, '#' + pageId);
     $(window).trigger('popstate');
 }
+
 
