@@ -33,20 +33,40 @@ class DatabaseSeeder extends Seeder
 
             DB::table('editions')->insert([
                 'annee' => '2016',
-                'textePresentation' => "Bienvenue à tous, 2016 c' bien",
-                'lieu' => 'Bora Bora',
+                'textePresentation' => "Pour cette édition 2016, la team hydrocontest de la HEIG-VD a le plaisir d'acueillir au sein de son équipe deux seins."
+                . "Pour la première fois de son histoire, une fille a décidé de faire partie de l'aventure et dese jeter da ns le grand bain. Ca fait plaisir!"
+                . "D'autant que le concours se disputera au bord d'une grande étendue d'eau. Un spot idéal pour étencher la soif de quiconque souhaiterait "
+                . "se désaltérer. De plus, cette année, Hodrocontest accueille plus de cent-mille-milliards d'équipes, prêtes à se foutre sur la gueule à coup de télécommandes. "
+                . "On s'attend à de l'UFC. Ca promet! La TEAM HEIG vous attend nombreux pour venir soutenir l'événement. Vive Hydrocontest!",
+                'lieu' => 'Lausanne',
                 'dateConcours' => '2016-07-28',
-                'texteConcours' => "Cette année, Hodrocontest accueille plus de cent-mille-milliards d'équipes, prêtes à se foutre sur la gueule à coup de télécommandes. On s'attend à de l'UFC. Ca promet!" ,
+                'texteConcours' => "Événement phare de la Fondation Hydros en 2016, l'HYDROcontest est le premier concours étudiant international dédié à l'efficience énergétique nautique et maritime.
+ 
+À la fois outil d'éducation, de sensibilisation, et incubateur d'idées, l'HYDROcontest rassemble les futurs ingénieurs et architectes du monde entier autour d'une problématique commune:
+ 
+TRANSPORTEZ PLUS, PLUS VITE, EN CONSOMMANT MOINS D'ÉNERGIE
+ 
+Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plus efficient en termes d'énergie." ,
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
             DB::table('editions')->insert([
                 'annee' => '2015',
-                'textePresentation' => "Bienvenue à tous, 2015 c'est mieux",
-                'lieu' => 'Bora Bora',
+                'textePresentation' => "Pour l'édition 2015 d'hydrocontest, c'est une équipe remaniée qui se preésente. En effet, pour ce challenge au bord du lac léman."
+                . " Plusieurs sponsor se sont ajoutés à une bande déja bien fournie, ce qui amène son nombre à 13 ce qui est pour le moins réjoissant."
+                . "Cette année, Hodrocontest accueille plus de trois équipes, ce qui, par rapport à l'édition précédente, correspond au même nombre d'équipes, à peu près."
+                . "En effet, l'année dernière ce non pas deux, ni quatres mais bien un nombre d'équipes équivalent à celui que pourrait être le troisième chiffre premier"
+                . " (si l'on exclut le zéro, bien entendu). Des bateaux, des rires, des boobs, de la tise, on va se mettre bien!",
+                'lieu' => 'Ouchy',
                 'dateConcours' => '2015-06-05',
-                'texteConcours' => "Cette année, Hodrocontest accueille plus de trois équipes, ce qui, par rapport à l'édition précédente, correspond au même nombre d'équipes, à peu près",
+                'texteConcours' => "Événement phare de la Fondation Hydros en 2015, l'HYDROcontest est le premier concours étudiant international dédié à l'efficience énergétique nautique et maritime.
+ 
+À la fois outil d'éducation, de sensibilisation, et incubateur d'idées, l'HYDROcontest rassemble les futurs ingénieurs et architectes du monde entier autour d'une problématique commune:
+ 
+TRANSPORTEZ PLUS, PLUS VITE, EN CONSOMMANT MOINS D'ÉNERGIE
+ 
+Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plus efficient en termes d'énergie.",
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -62,26 +82,72 @@ class DatabaseSeeder extends Seeder
                 ]);
 
             DB::table('equipes')->insert([
-                'nom' => 'EAM HEIG-VD',
-                'description' => 'En bateau, Simon',
+                'nom' => 'TEAM HEIG-VD',
+                'description' => 'La team HEIG est fière de représenter le nord vaudois dans cette édition 2015.'
+                . 'Surprise cette année, 2 filles se joignent',
                 'type' => 'principal',
                 'edition_annee' => '2015',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
-
+            DB::table('equipes')->insert([
+                'nom' => 'TEAM HEIG-VD Communication',
+                'description' => 'En bateau, Toto',
+                'type' => 'secondaire',
+                'edition_annee' => '2016',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+      
             DB::table('medias')->insert([
-                'nom' => 'mediatest',
+                'nom' => 'image1.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
             DB::table('medias')->insert([
                 'nom' => 'mediatest1',
+                'nom' => 'image2.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
+            ]);
+
+            DB::table('medias')->insert([
+                'nom' => 'image3.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+            DB::table('medias')->insert([
+                'nom' => 'image4.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+            DB::table('medias')->insert([
+                'nom' => 'image5.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+            DB::table('medias')->insert([
+                'nom' => 'image6.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+            DB::table('medias')->insert([
+                'nom' => 'image7.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+            DB::table('medias')->insert([
+                'nom' => 'image8.jpg',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
 
             DB::table('membres')->insert([
                 'nom' => 'Aeschimann ',
@@ -103,6 +169,7 @@ class DatabaseSeeder extends Seeder
                 'nom' => 'Coelho',
                 'prenom' => 'Jonathan',
                 'email' => 'jonathan_c@hotmail.com',
+
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -159,6 +226,14 @@ class DatabaseSeeder extends Seeder
                 'nom' => 'Lot',
                 'prenom' => 'Antoine',
                 'email' => 'antoine@hotmail.com',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+            
+            DB::table('membres')->insert([
+                'nom' => 'Kostic',
+                'prenom' => 'David',
+                'email' => 'david.kostic@ehig-vd.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -224,7 +299,7 @@ class DatabaseSeeder extends Seeder
                 'description' => 'Raconter un minimum de 3 blagues moyennes par tranche de 5 heures',
                 'departement' => 'TIC',
                 'anneeEtude' => '1',
-                'membre_id' => '4',
+                'membre_id' => '1',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -234,13 +309,24 @@ class DatabaseSeeder extends Seeder
                 'fonction' => 'Gars casse couille',
                 'description' => "Rappeler périodiquement à mes camarades leur manque d'engagement" ,
                 'departement' => 'Haute-Seine',
-                'anneeEtude' => '798',
-                'membre_id' => '5',
+                'anneeEtude' => '798', 
+                'membre_id' => '2',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-
+            
+            DB::table('profils')->insert([
+                'fonction' => 'Gars casse couille',
+                'description' => "Ma passion? Jesus et les bateaux" ,
+                'departement' => 'Haute-Seine',
+                'anneeEtude' => '798', 
+                'membre_id' => '3',
+                'equipe_id' => '2',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+            
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
                 'texte' => "Cette édition de l’HydroContest sera prête à accueillir les spectateurs pour les courses, mais proposera aussi une multitude d’activités pour tous.
@@ -281,7 +367,7 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-
+            
             DB::table('publications')->insert([
                 'titre' => "Transporter plus plus vite, en consommant moins d'énérgie",
                 'texte' => "II s’agit d’une des problématiques actuelles et communes liées au développement industriel et technologique de notre ère. Avec 90% des échanges commerciaux opérés par la mer, le transport maritime est un enjeu économique et environnemental majeur. En effet, si le bateau reste le moyen de transport le plus écologique, en matière d’emissions de CO2 par tonne transportée, il représente tout de même la 5ème source de pollution mondiale.
@@ -299,12 +385,27 @@ class DatabaseSeeder extends Seeder
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-
-
+      
             DB::table('recompenses')->insert([
                 'type' => 'Trophée "Best Comunication"',
                 'description' => "Cette année, notre équipe de communication à remporté le trophée de la meilleur communication ! Nous somme très fier de ce prix car nous avons investi beaucoup de temps et de moyens afin de communiqué au mieux notre parcours durant cette édition.",
                 'equipe_id' => '2',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                 ]);
+            
+            DB::table('recompenses')->insert([
+                'type' => "Prix de l'innovation 'Transport de masse'",
+                'description' => "Durant cette édition 2016, nous avons remporté le prix de l'innovation dans la catégorie 'Transports de masse'.",
+                'equipe_id' => '1',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                 ]);
+            
+            DB::table('recompenses')->insert([
+                'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
+                'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",
+                'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
@@ -325,7 +426,6 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
 
-
             DB::table('sponsors')->insert([
                 'nom' => 'la Loterie Romande',
                 'url' => 'www.loro.ch',
@@ -334,25 +434,89 @@ class DatabaseSeeder extends Seeder
                 ]);
 
             DB::table('sponsors')->insert([
-                'nom' => 'Canton de vaud',
-                'url' => 'www.catering-services-migros.ch',
-                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-                ]);
-
-            DB::table('sponsors')->insert([
-                'nom' => 'Migros Catering Services',
+                'nom' => 'Canton de Vaud',
                 'url' => 'www.vd.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
             DB::table('sponsors')->insert([
-                'nom' => 'SIL Citycable.',
+                'nom' => 'Migros Catering Services',
+                'url' => 'www.catering-services-migros.ch',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                ]);
+
+            DB::table('sponsors')->insert([
+                'nom' => 'SIL Citycable',
                 'url' => 'www.citycable.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
+
+            DB::table('edition_sponsor')->insert([
+                'edition_annee' => '2016',
+                'sponsor_nom' => 'la Loterie Romande',
+                'valeur' => 'principal',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'la Loterie Romande',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'Canton de Vaud',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'Canton de Vaud',
+            'valeur' => 'principal',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'SIL Citycable',
+            'valeur' => 'argent',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'SIL Citycable',
+            'valeur' => 'argent',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'Migros Catering Services',
+            'valeur' => 'bronze',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'Migros Catering Services',
+            'valeur' => 'bronze',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
             $this->call(ACLSeeder::class);
 

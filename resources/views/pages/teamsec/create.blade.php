@@ -1,4 +1,4 @@
-                <h3>L'équipe secondaire</h3>
+                <h3>Membre secondaire</h3>
                 <div class="row">
                     <div class="administration" id="creerEquipe">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-membre">Créer un membre</button>
@@ -14,6 +14,7 @@
                         </select>
                     -->
                         <div class="form-group">
+                            <input type="hidden" name="secondaire">
                             <label>Nom</label>
                             <input type="text" class="form-control" placeholder="Nom">
                             <label>Prénom</label>

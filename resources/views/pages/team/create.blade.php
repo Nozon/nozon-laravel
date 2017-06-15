@@ -1,4 +1,4 @@
-                <h3>L'équipe</h3>
+                <h3>Membre</h3>
                 <div class="row">
 
                     <div class="administration" id="creerEquipe">
@@ -8,6 +8,7 @@
                         <div> Erreur </div>
                     @endif
                     <form method="POST" action="{{ url('membre')}}" class="form-add-membre" enctype="multipart/form-data">
+
                         <div class="form-group">
                             {{ csrf_field() }}
                             <input type="hidden" name="type_equipe" value="principal">

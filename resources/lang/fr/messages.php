@@ -66,7 +66,7 @@ return [
       'update' => "Le article a bien été modifié",
       'delete' => "Le article a bien été supprimé",
     ],
-    
+
     
     'Profil' => [
       'exists' => "Ce profil existe déjà !",
