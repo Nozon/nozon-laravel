@@ -19,8 +19,8 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $membre = Membre::all();
-        return view('pages.membre.index')->with('membre', $membre);
+        $membres = Membre::all();
+        return view('pages.team.index')->with('membre', $membres);
     }
     /**
      * Show the form for creating a new resource.
@@ -28,7 +28,7 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('pages.membre.create');
+        return view('pages.team.create');
     }
     /**
      * Store a newly created resource in storage.
