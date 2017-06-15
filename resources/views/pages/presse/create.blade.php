@@ -3,6 +3,7 @@
                     <div class="administration" id="creerEdition">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-press">Ajouter un article de presse</button>
                         <form class="form-add-press" method="POST" action="{{ url('presse') }}">
+                            {{csrf_field()}}
                             <div class="form-group">
                                 <label>Nom du journal</label>
                                 <input type="text" class="form-control" placeholder="titre" name="titre" value="{{ old('titre') }}" />
