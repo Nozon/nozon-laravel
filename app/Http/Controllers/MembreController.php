@@ -45,7 +45,7 @@ class MembreController extends Controller {
         try {
           $recupImage = Image::make(Input::file('imgMembre'));
           $imageUploadee = Media::upload($recupImage, "profils");
-          return "Upload fini !";
+
         }
         catch (Exception $e) {
           return "echec de l'upload";
@@ -57,7 +57,8 @@ class MembreController extends Controller {
       if ($validate->fails()) {
           // Redirection vers le formulaire, avec inputs et erreurs
           // return redirect()->back()->withInput()->withErrors($validate);
-          return "valisation fail ! ";
+        return redirect()->back()->withInput()->with('error', 'Les paramètres entrés sont incorrects');
+
       }
 
       try {
@@ -92,8 +93,7 @@ class MembreController extends Controller {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            echo ("validate failed");
-            return redirect()->back()->withInput()->withErrors($validate);
+            return redirect()->back()->withInput()->with('error', 'Les paramètres entrés sont incorrects');
         }
         // En cas de succès de la validation
         try {
@@ -101,14 +101,14 @@ class MembreController extends Controller {
             echo ("j'essaye de créer le profil : ".implode(" | ",$validate->getData()));
             return Profil::createOne($validate->getData(), $membre_id, $equipe_id);
             // Message de succès, puis redirection vers la liste des profils
-            Message::success('profil.saved');
+ //Revoir la redirection           
+            return redirect()->with('success', 'Un nouveau membre a été ajouté');
             //return redirect('profil');
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             //Message::error('bd.error');
             // Redirection vers le formulaire, avec inputs
-            return redirect()->back()->withInput();
-            return "lol";
+            return redirect()->back()->withInput()->with('error', 'Toutes nos excuses. Problème de connexion avec la base de donnée');
         }
     }
     /**
@@ -143,9 +143,8 @@ class MembreController extends Controller {
         $validate = Validator::make($inputs, Membre::$rules);
 
         if ($validate->fails()) {
-            Message::error('membre.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
+
+            return redirect()->back()->withInput()->with('error', 'Les paramètres entrés sont incorrects');
         } else {
             $membre = Membre::find($id);
             $membre->nom      = $inputs['nom'];
@@ -153,7 +152,6 @@ class MembreController extends Controller {
             $membre->email    = $inputs['email'];
             $membre->save();
 
-            Message::success('membre.update');
 
             return Redirect::to('admin/membre');
         }
