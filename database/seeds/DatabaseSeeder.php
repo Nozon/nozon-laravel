@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             DB::table('sponsors')->truncate();
             DB::table('edition_sponsor')->truncate();
 
+            $this->call(ACLSeeder::class);
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => "Pour cette édition 2016, la team hydrocontest de la HEIG-VD a le plaisir d'acueillir au sein de son équipe deux seins."
@@ -107,7 +108,6 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 ]);
 
             DB::table('medias')->insert([
-                'nom' => 'mediatest1',
                 'nom' => 'image2.jpg',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -326,6 +326,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
+
             
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
@@ -385,7 +386,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-      
+
             DB::table('recompenses')->insert([
                 'type' => 'Trophée "Best Comunication"',
                 'description' => "Cette année, notre équipe de communication à remporté le trophée de la meilleur communication ! Nous somme très fier de ce prix car nous avons investi beaucoup de temps et de moyens afin de communiqué au mieux notre parcours durant cette édition.",

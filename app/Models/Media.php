@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Validator;
 class Media extends Model
 {
     protected $table = "medias";
-
-    protected $table = "medias";
-
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
@@ -65,6 +62,19 @@ class Media extends Model
 
       return $image;
     }
+
+    public static function upload($request) {
+      $path= public_path('img/test.jpg');
+      $img->save($path);
+    }
+
+    // //recuperation de l'image depuis la requete
+    // $image = $request->file('image');
+    // //création d'un nom basé sur l'heure actuelle
+    // $input['imagename'] = time().'.'.$image->getClientOriginalExtension();
+    // $destinationPath = public_path('/images');
+    // $image->move($destinationPath, $input['imagename']);
+    // $this->postImage->add($input);
 
     public function profil(){
 
