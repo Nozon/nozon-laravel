@@ -3,7 +3,6 @@
 @section('content')
             <div class="container container-edition" id="edition-2017">
               
-
               <!--TEAM HYDRO-->
 
               @include('pages.team.index')

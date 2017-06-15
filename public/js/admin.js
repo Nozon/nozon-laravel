@@ -15,6 +15,9 @@ $(function () {
     $(".form-add-press").hide();
     $("#listePress").hide();
     $(".form-mod-press").hide();
+    $(".form-add-prix").hide();
+    $("#listePrix").hide();
+    $(".form-mod-prix").hide();
     menuHandler();
     $(".container").on("click", "header.online .connection", function () {
         switchPageWithHistory('synch');
@@ -51,9 +54,8 @@ $(function () {
         // afficher form
     $(".modif-sponsor").click(function () {
         $('.form-mod-sponsor').show();
-        var page = $(this).attr('href'); // Page cible
         var speed = 750; // Durée de l'animation (en ms)
-        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        $('html, body').animate( { scrollTop: $("#modifierLeSponsor").offset().top }, speed ); // Go
         return false;
     });
     // ajouter média
@@ -70,9 +72,8 @@ $(function () {
         // afficher form
     $(".modif-media").click(function () {
         $('.form-mod-media').show();
-        var page = $(this).attr('href'); // Page cible
         var speed = 750; // Durée de l'animation (en ms)
-        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        $('html, body').animate( { scrollTop: $("#modifierLeMedia").offset().top }, speed ); // Go
         return false;
     });
 
@@ -90,9 +91,8 @@ $(function () {
         // afficher form
     $(".modif-news").click(function () {
         $('.form-mod-news').show();
-        var page = $(this).attr('href'); // Page cible
         var speed = 750; // Durée de l'animation (en ms)
-        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        $('html, body').animate( { scrollTop: $("#modifierLaNews").offset().top }, speed ); // Go
         return false;
     });
 
@@ -110,9 +110,27 @@ $(function () {
         // afficher form
     $(".modif-press").click(function () {
         $('.form-mod-press').show();
-        var page = $(this).attr('href'); // Page cible
         var speed = 750; // Durée de l'animation (en ms)
-        $('html, body').animate( { scrollTop: $(page).offset().top }, speed ); // Go
+        $('html, body').animate( { scrollTop: $("#modifierLaPress").offset().top }, speed ); // Go
+        return false;
+    });
+
+    // ajout récompenses
+    $(".btn-add-prix").click(function () {
+        $('.form-add-prix').toggle();
+    });
+
+    // modif prix
+        // afficher liste
+    $(".prix").click(function () {
+        $('#listePrix').toggle();
+        $('.form-mod-prix').hide();
+    });
+        // afficher form
+    $(".modif-prix").click(function () {
+        $('.form-mod-prix').show();
+        var speed = 750; // Durée de l'animation (en ms)
+        $('html, body').animate( { scrollTop: $("#modifierLePrix").offset().top }, speed ); // Go
         return false;
     });
 

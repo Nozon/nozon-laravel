@@ -13,3 +13,4 @@ npm-debug.log
 /public/.htaccess
 /nbproject/private/
 /nbproject/
+resources/views/layouts/partials/footer.blade.php

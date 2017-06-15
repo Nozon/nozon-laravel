@@ -9,11 +9,13 @@
                     <div class="row team">
                       
                       <div class="col-md-4 template-membre team-member">
-                        <img src="img/johnaesch.jpg" class="img-responsive" id="img-membre">
+                        <img src="img/johnaesch.jpg" class="img-responsive image-membre" id="img-membre">
                         <div class="membre-description">
-                          <h5 id="name">name</h5>
-                          <p id="fonction">fonction</p>
-                          <p id="description">"adieu l'équipe sa joue ou bien, sjnncjcjc nwcnw cwcbwis ccwihcwieuechhHCHBWhc cwihc w"</p>
+                          <div class="text">
+                            <h5 id="name">name</h5>
+                            <p id="fonction">fonction</p>
+                            <p id="description">"adieu l'équipe sa joue ou bien, sjnncjcjc nwcnw cwcbwis ccwihcwieuechhHCHBWhc cwihc w"</p>
+                          </div>
                         </div>
                       </div>
 
