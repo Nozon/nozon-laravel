@@ -18,7 +18,7 @@ class MediaController extends Controller {
      */
     public function index() {
         $media = Media::all();
-        return view('media/index')->with('media', $medias);
+        return view('media/index')->with('media', $media);
     }
 
     /**
@@ -37,16 +37,14 @@ class MediaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store() {
+        $recupFichierImage = Image::make(Input::file('image'));
+        try {
+          Media::upload($recupFichierImage);
+        } catch (Exception $e) {
 
-        // create a new image resource
+        }
 
-        $img = Image::make(Input::file('image'));
 
-        $path= public_path('img/test.jpg');
-
-        $img->fit(300, 200);
-
-        $img->save($path);
 
         // Image::make($file->getRealPath())->resize('200','200')->save($filename);
 
@@ -108,28 +106,9 @@ class MediaController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
+        //
 
-        $inputs = $request->only('nom', 'description', 'type');
-
-        $validate = Validator::make($inputs, Media::$rules);
-
-        if ($validate->fails()) {
-            Message::error('media.exists'); // "Media n'existe pas" (à voir la formulation) plutot que "media.exists", non?
-            // Redirection vers le formulaire, avec inputs et erreurs
-            return redirect()->back()->withInput()->withErrors($validate);
-        } else {
-            $media = Media::find($id);
-            $media->nom           = $inputs['nom'];
-            $media->description   = $inputs['description'];
-            $media->type          = $inputs['type'];
-            $media->save();
-
-            Message::success('media.update');
-
-            return Redirect::to('admin/media');
-        }
-}
-
+    }
 
     /**
      * Remove the specified resource from storage.

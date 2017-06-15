@@ -14,16 +14,21 @@
                 @include('pages.concours.create')
 
             </div>
-
-
+            
             <div id="page_equipe" class="page">
+                
+                @include('pages.equipe.create')
+
+            </div>
+
+            <div id="page_membre" class="page">
                 
                 @include('pages.team.create')
 
             </div>
 
 
-            <div id="page_equipeSec" class="page">
+            <div id="page_membreSec" class="page">
                 
                 @include('pages.teamsec.create')
 

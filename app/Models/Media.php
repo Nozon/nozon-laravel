@@ -12,11 +12,13 @@ class Media extends Model
 {
 
     public static $rules = [
-        'url'           => ['required', 'url'],
-        'titre'         => ['required', 'string'],
-        'description'   => ['required', 'string'],
-        'type'          => ['required', 'enum:[photo],[video]']
+        'url' => ['required', 'url'],
+        'titre' => ['required', 'string'],
+        'description' => ['required', 'string'],
+        'type' => ['required', 'enum:[photo],[video]']
     ];
+
+    protected $table = "medias";
 
     public static function getValidation(Request $request)
     {
@@ -65,12 +67,8 @@ class Media extends Model
     }
 
     public static function upload($request) {
-
-      $nomPhoto = "testNom";
-
-      $request->user_photo->move(public_path('medias'), $photoName);
-
-      return "Image sauvée normalement";
+      $path= public_path('img/test.jpg');
+      $img->save($path);
     }
 
     // //recuperation de l'image depuis la requete

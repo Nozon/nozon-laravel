@@ -10,13 +10,13 @@
           <tbody>
           
             <!--DEBUT TMPL-->
-            @foreach($presses as $press)
+            @foreach($presses as $presse)
                 <tr>
-                    <td>{{ $press->titre}}</td>
+                    <td>{{ $presse->titre}}</td>
                     <td>{{ $presse->date}}</td>
                     <td>
-                        <p>{{ $press->description}}</p>
-                        <a href="{{ $press->url}}" target="_blank">Lire l'article</a>
+                        <p>{{ $presse->description}}</p>
+                        <a href="{{ $presse->url}}" target="_blank">Lire l'article</a>
                     </td>
                 </tr>
             @endforeach
