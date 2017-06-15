@@ -292,7 +292,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'description' => 'Raconter un minimum de 3 blagues moyennes par tranche de 5 heures',
                 'departement' => 'TIC',
                 'anneeEtude' => '1',
-                'membre_id' => '4',
+                'membre_id' => '1',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -303,7 +303,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'description' => "Rappeler périodiquement à mes camarades leur manque d'engagement" ,
                 'departement' => 'Haute-Seine',
                 'anneeEtude' => '798', 
-                'membre_id' => '5',
+                'membre_id' => '2',
                 'equipe_id' => '1',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -314,8 +314,8 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'description' => "Ma passion? Jesus et les bateaux" ,
                 'departement' => 'Haute-Seine',
                 'anneeEtude' => '798', 
-                'membre_id' => '5',
-                'equipe_id' => '1',
+                'membre_id' => '3',
+                'equipe_id' => '2',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
@@ -428,25 +428,89 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 ]);
 
             DB::table('sponsors')->insert([
-                'nom' => 'Canton de vaud',
-                'url' => 'www.catering-services-migros.ch',
+                'nom' => 'Canton de Vaud',
+                'url' => 'www.vd.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
             
             DB::table('sponsors')->insert([
                 'nom' => 'Migros Catering Services',
-                'url' => 'www.vd.ch',
+                'url' => 'www.catering-services-migros.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
 
             DB::table('sponsors')->insert([
-                'nom' => 'SIL Citycable.',
+                'nom' => 'SIL Citycable',
                 'url' => 'www.citycable.ch',
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
+
+            DB::table('edition_sponsor')->insert([
+                'edition_annee' => '2016',
+                'sponsor_nom' => 'la Loterie Romande',
+                'valeur' => 'principal',
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+                'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'la Loterie Romande',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'Canton de Vaud',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'Canton de Vaud',
+            'valeur' => 'principal',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'SIL Citycable',
+            'valeur' => 'argent',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'SIL Citycable',
+            'valeur' => 'argent',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'Migros Catering Services',
+            'valeur' => 'bronze',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'Migros Catering Services',
+            'valeur' => 'bronze',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
 
             $this->call(ACLSeeder::class);
             
