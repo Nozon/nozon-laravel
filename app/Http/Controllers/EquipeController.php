@@ -85,8 +85,27 @@ class EquipeController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('nom', 'description', 'type');
+
+        $validate = Validator::make($inputs, Equipe::$rules);
+
+        if ($validate->fails()) {
+            Message::error('equipe.exists'); // "Equipe n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $equipe = Equipe::find($id);
+            $equipe->nom            = $inputs['nom'];
+            $equipe->description    = $inputs['description'];
+            $equipe->type           = $inputs['type'];
+            $equipe->save();
+
+            Message::success('equipe.update');
+
+            return Redirect::to('admin/equipe');
+        }
+}
 
     /**
      * Remove the specified resource from storage.

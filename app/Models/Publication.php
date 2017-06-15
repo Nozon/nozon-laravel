@@ -12,7 +12,7 @@ class Publication extends Model {
     public static $rules = [
         'titre' => ['required', 'string'],
         'texte' => ['required', 'string'],
-        'date' => ['required', 'date']
+        'date'  => ['required', 'date']
     ];
 
     public static function getValidation(Request $request) {

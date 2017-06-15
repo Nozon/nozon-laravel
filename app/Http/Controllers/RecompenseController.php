@@ -85,8 +85,26 @@ class RecompenseController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        //
-    }
+
+        $inputs = $request->only('type', 'description');
+
+        $validate = Validator::make($inputs, Recompense::$rules);
+
+        if ($validate->fails()) {
+            Message::error('recompense.exists'); // "Edition n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
+            // Redirection vers le formulaire, avec inputs et erreurs
+            return redirect()->back()->withInput()->withErrors($validate);
+        } else {
+            $recompense = Recompense::find($id);
+            $recompense->type          = $inputs['type'];
+            $recompense->description   = $inputs['description'];
+            $recompense->save();
+
+            Message::success('recompense.update');
+
+            return Redirect::to('admin/recompense');
+        }
+}
 
     /**
      * Remove the specified resource from storage.
