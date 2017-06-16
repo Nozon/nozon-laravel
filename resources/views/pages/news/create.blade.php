@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="administration" id="creerNews">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-news">Ajouter une news</button>
-                        <form class="form-add-news" method="POST" action="{{ url('publication') }}" enctype="multipart/form-data">
+                        <form class="form-add-news" method="POST" action="{{ url('/admin/2017/news') }}" enctype="multipart/form-data">
                             <div class="form-group">
                                 <label>Insérer une image</label>
                                 <input type="file" name="imgNews"/>

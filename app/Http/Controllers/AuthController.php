@@ -23,24 +23,24 @@ class AuthController extends Controller
 
       // Check user exists
       if (!isset($user)) {
-          return redirect()->back()->with('alert', 'Adresse mail ou mot de passe incorrect');
+          return redirect()->back()->with('error', 'Adresse mail ou mot de passe incorrect');
            //Message::error('auth.success');
          // return redirect()->back()->withInput();
       }
 
       // Check password
       if (!Hash::check($mdp, $user->motDePasse)) {
-        return redirect()->back()->with('alert', 'Adresse mail ou mot de passe incorrect'); 
-       
+        return redirect()->back()->with('error', 'Adresse mail ou mot de passe incorrect');
+
       }
 
       // Auth persistance
       Session::put('user_id', $user->id);
-      return redirect('/admin/2017')->with('success', 'Vous êtes bien connecté'); 
+      return redirect('/admin/2017')->with('success', 'Vous êtes bien connecté');
 
-        
 
-      
+
+
   }
 
   public function logout() {

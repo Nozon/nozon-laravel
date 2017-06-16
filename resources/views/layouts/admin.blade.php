@@ -72,19 +72,19 @@
         </div>
 
         <div id="container" class="content-pages">
-            
+
             {{-- will be used to show any messages --}}
-                    @if ( Session::has('message'))
-                    <div class="alert alert-info">{{ Session::get('message') }}</div>
+                    @if ( Session::has('info'))
+                    <div class="alert alert-info">{{ Session::get('info') }}</div>
                     @endif
-                    @if ( Session::has('message'))
-                    <div class="alert alert-warning">{{ Session::get('message') }}</div>
+                    @if ( Session::has('warning'))
+                    <div class="alert alert-warning">{{ Session::get('warning') }}</div>
                     @endif
-                    @if ( Session::has('alert'))
-                    <div class="alert alert-danger">{{ Session::get('alert') }}</div>
+                    @if ( Session::has('error'))
+                    <div class="alert alert-danger">{{ Session::get('error') }}</div>
                     @endif
-                    @if ( Session::has('message'))
-                    <div class="alert alert-success">{{ Session::get('message') }}</div>
+                    @if ( Session::has('success'))
+                    <div class="alert alert-success">{{ Session::get('success') }}</div>
                     @endif
 
                     @if (count($errors) > 0)
@@ -98,7 +98,7 @@
                     @endif
 
             @yield('administration')
-            
+
         </div>
     </body>
     @include('layouts.partials.footer')

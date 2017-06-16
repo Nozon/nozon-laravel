@@ -42,14 +42,13 @@
                 <nav id="mainNav" class="navbar navbar-fixed-top">
                     <div class="container">
                         <ul class="main-nav">
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#team">team</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#concours">concours</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#news">news</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#medias">médias</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#presse">presse</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#prix">récompenses</a></li>
-                            <li class="main-nav-link"><a class="js-scrollTo" href="#sponsors">sponsors</a></li>
-
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#team">L'équipe</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#concours">Concours</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#news">News</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#medias">Médias</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#presse">Presse</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#prix">Récompenses</a></li>
+                            <li class="main-nav-link"><a class="js-scrollTo" href="#sponsors">Sponsors</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -78,7 +77,7 @@
 
             <div class="container-compteur">
                 <div class="row leCompteur">
-                    <div class="compteur-titre"> 
+                    <div class="compteur-titre">
                         <h4 id="compteAReboursTitre"></h4>
                         <input type="hidden" name="dateDuConcours" id="dateDuConcours" value="{{$edition->dateConcours}}">
                     </div>
@@ -124,10 +123,10 @@
         </div>
         <section id="main-content">
 
-            
+
             <div class="row pattern-overlay">
                 @include('layouts.partials.nav')
-                
+
                 @include('layouts.partials.contact')
 
                 <div id="content-pages">

@@ -22,7 +22,7 @@ class PublicationController extends Controller {
      */
     public function index() {
         $publication = Publication::all();
-        return view('pages.news.create')->with('publication', $publication);
+        return view('pages.news.create')->with('news', $publication);
     }
 
     /**
@@ -31,7 +31,7 @@ class PublicationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return view('publication.create');
+        return view('news.create');
     }
 
     /**
@@ -43,8 +43,10 @@ class PublicationController extends Controller {
     public function store(Request $request) {
         if ($request->hasFile('imgNews')) {
           try {
+
             $recupImage = Image::make(Input::file('imgNews'));
             $imageUploadee = Media::upload($recupImage, "news");
+
           } catch (Exception $e) {
             Message::error('bd.error');
           }
@@ -54,15 +56,13 @@ class PublicationController extends Controller {
         // En cas d'échec de validation
         if ($validate->fails()) {
             return redirect()->back()->withInput()->with('error', 'Les paramètres entrés sont incorrects');
-
         }
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Publication
             $publication = Publication::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Publications
-            $mediaALier = Media::createOne($imageUploadee->basename, $publication);
-
+            $mediaALier = Media::createOne($imageUploadee->basename);
             // liaison avec les publications
             $mediaALier->publications()->attach($publication->id);
 

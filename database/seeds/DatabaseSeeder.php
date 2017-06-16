@@ -33,6 +33,22 @@ class DatabaseSeeder extends Seeder
         DB::table('sponsors')->truncate();
         DB::table('edition_sponsor')->truncate();
 
+        DB::table('recompenses')->insert([
+            'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
+            'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",
+            'equipe_id' => '5',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+             ]);
+
+        DB::table('recompenses')->insert([
+            'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
+            'description' => "Cette édition 2017 a décerné à notre seconde équipe HEIG le 1er prix de la communication",
+            'equipe_id' => '5',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+             ]);
+
         /* Appel du seeder des utilisateurs/groupes/ressources */
         $this->call(ACLSeeder::class);
 
@@ -702,6 +718,8 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+
 
 
 /* Tests d'ajout d'élément dans la BD avec les méthodes purement lavareliennes
