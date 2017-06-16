@@ -21,9 +21,6 @@ class Membre extends Model
     {
         // Récupération des inputs
         $inputs = $request->only('nom', 'prenom', 'email');
-        echo("Dans la fonction getValidation du modele Membre : ");
-        echo(implode(" | ", $inputs));
-        echo("<br />");
         // Création du validateur
         $validator = Validator::make($inputs, Membre::$rules);
         // Ajout des contraintes supplémentaires
@@ -34,6 +31,8 @@ class Membre extends Model
             }
 
         });
+
+
         // Renvoi du validateur
         return $validator;
     }
@@ -51,18 +50,11 @@ class Membre extends Model
      */
     public static function createOne(array $values) {
         // Création d'une nouvelle instance de Membre
-        echo("Dans la fonction createOne du Membre : <br />");
-        echo(implode(" | ", $values));
-        echo("<br />");
         $new = new Membre();
         // Définition des propriétés de Membre
         $new->nom = $values['nom'];
         $new->prenom = $values['prenom'];
         $new->email = $values['email'];
-
-
-        echo("Membre avant sauvegarde :<br />");
-        echo($new->nom. " " . $new->prenom. " " . $new->email);
 
         // Enregistrement de Membre
         $new->save();

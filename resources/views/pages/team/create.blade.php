@@ -12,7 +12,7 @@
                         <div> Erreur </div>
                     @endif
 
-                    <form method="POST" action="{{ url('membre')}}" class="form-add-membre" enctype="multipart/form-data">
+                    <form method="POST" action="{{ url('admin/2017/membre')}}" class="form-add-membre" enctype="multipart/form-data">
                         <div class="form-group">
                             {{ csrf_field() }}
                             <input type="hidden" name="type_equipe" value="principal">
@@ -36,7 +36,7 @@
                         </div>
                     </form>
                     <div class="administration" id="modEquipe">
-                        @include('pages.team.edit')
+                        <!--  sinclude('pages.team.edit') -->
                     </div>
                 </div>
 

@@ -38,7 +38,6 @@ class ProfilController extends Controller {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            echo ("validate failed");
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation
@@ -61,7 +60,6 @@ class ProfilController extends Controller {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
-            echo ("validate failed");
             return redirect()->back()->withInput()->withErrors($validate);
         }
         // En cas de succès de la validation

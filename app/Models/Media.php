@@ -18,9 +18,6 @@ class Media extends Model
     {
         // Récupération des inputs
         $inputs = $request->only('url', 'titre', 'description', 'type');
-        echo("Dans la fonction getValidation du Model: ");
-        echo(implode(" | ", $inputs));
-        echo("<br />");
         // Création du validateur
         $validator = Validator::make($inputs, Media::$rules);
         // Ajout des contraintes supplémentaires
@@ -38,18 +35,12 @@ class Media extends Model
      * Enregistre en base de données un nouveau Media selon les $values donnés
      * @param array $values
      */
-    public static function createOne($nom, $publication) {
+    public static function createOne($nom) {
         // Création d'une nouvelle instance de Media
-        echo("Dans la fonction createOne du Media: ");
-        echo($nom);
-        echo("<br />");
         $new = new Media();
         $new->nom = $nom;
 
         $new->save();
-
-
-        $new->publications()->attach($publication->id);
 
         return $new;
     }
@@ -75,7 +66,7 @@ class Media extends Model
     // $image->move($destinationPath, $input['imagename']);
     // $this->postImage->add($input);
 
-    public function profil(){
+    public function profils(){
 
         return $this->belongsToMany('App\Models\Profil');
 

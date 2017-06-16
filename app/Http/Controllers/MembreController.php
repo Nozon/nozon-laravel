@@ -35,7 +35,7 @@ class MembreController extends Controller {
 
         // dd($membresPrincipaux);
 
-        return view('pages.team.create')->with('membres', $membresPrincipaux);
+        return view('pages.team.create')->with('membresPrincipaux', $membresPrincipaux);
     }
     /**
      * Show the form for creating a new resource.
@@ -52,12 +52,10 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        dd($request);
       if ($request->hasFile('imgMembre')) {
         try {
           $recupImage = Image::make(Input::file('imgMembre'));
           $imageUploadee = Media::upload($recupImage, "profils");
-
         }
         catch (Exception $e) {
           return "echec de l'upload";
@@ -78,7 +76,6 @@ class MembreController extends Controller {
           $membre_id = Membre::createOne($validate->getData())->id;
           $edition_annee = Session::get('edition_annee');
           //recup type equipe dans les inputs
-          dd($request);
           $type = $request->input('type_equipe');
           //recup de l'id de l'equipe
           $equipe_id = Equipe::where('edition_annee', $edition_annee)
@@ -90,9 +87,9 @@ class MembreController extends Controller {
           //                             ['request' => $request,
           //                             'membre_id' => $membre->id,
           //                             'equipe_id' => $equipe_id]);
+          $profilcree = Self::createProfil($request, $membre_id, $equipe_id, $imageUploadee);
 
-
-          $profilcree = Self::createProfil($request, $membre_id, $equipe_id);
+          return redirect()->back()->withInput()->with('info', 'Un nouveau membre a été ajouté');
       } catch (\Exception $e) {
           // En cas d'erreur, envoi d'un message d'erreur
           Message::error('bd.error');
@@ -101,7 +98,8 @@ class MembreController extends Controller {
           return "bd failed";
       }
     }
-    public function createProfil($request, $membre_id, $equipe_id) {
+
+    public function createProfil($request, $membre_id, $equipe_id, $imageUploadee) {
         $validate = Profil::getValidation($request, $membre_id, $equipe_id);
         if ($validate->fails()) {
             // Redirection vers le formulaire, avec inputs et erreurs
@@ -110,12 +108,13 @@ class MembreController extends Controller {
         // En cas de succès de la validation
         try {
             // Tentative d'enregistrement de Profil
-            echo ("j'essaye de créer le profil : ".implode(" | ",$validate->getData()));
-            return Profil::createOne($validate->getData(), $membre_id, $equipe_id);
+            $leProfil =  Profil::createOne($validate->getData(), $membre_id, $equipe_id);
             // Message de succès, puis redirection vers la liste des profils
- //Revoir la redirection           
-            return redirect()->with('success', 'Un nouveau membre a été ajouté');
-            //return redirect('profil');
+            $mediaALier = Media::createOne($imageUploadee->basename);
+
+            $mediaALier->profils()->attach($leProfil->id);
+
+            //Revoir la redirection
         } catch (\Exception $e) {
             // En cas d'erreur, envoi d'un message d'erreur
             //Message::error('bd.error');
@@ -139,7 +138,7 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        
+
     }
     /**
      * Update the specified resource in storage.
