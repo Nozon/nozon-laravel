@@ -28,7 +28,7 @@ class EditionController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function indexPublique($annee)
+    public function indexPublic($annee)
     {
         // Liste de toutes les éditions pour création dynamique du menu
         $editions = DB::table('editions')->orderBy('annee','desc')->get();

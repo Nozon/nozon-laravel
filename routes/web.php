@@ -11,13 +11,11 @@
   |
  */
 
-Route::get('/{annee}', 'EditionController@indexPublique')->where('annee', '[2-9][0-9]{1,3}');
+Route::get('/{annee}', 'EditionController@indexPublic')->where('annee', '[2-9][0-9]{1,3}');
 
 Route::get('/', function () {
     return redirect('2017');
 });
-
-Route::get('/{annee}', 'EditionController@indexPublique')->where('annee', '[2-9][0-9]{1,3}');
 
 Route::get('/login', 'AuthController@login');
 Route::post('/auth/login', 'AuthController@check');
