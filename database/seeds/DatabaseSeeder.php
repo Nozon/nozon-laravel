@@ -39,6 +39,22 @@ class DatabaseSeeder extends Seeder
 /* EDITIONS ------------------------------------------------------------------------------------------------- */
 
         DB::table('editions')->insert([
+            'annee' => '2017',
+            'textePresentation' => "Pour cette nouvelle édition du concours Hydrocontest, qui se déroulera du 4 au 10 septembre 2017, les étudiants de la HEIG-VD sont à nouveau au rendez-vous!",
+            'lieu' => 'Saint-Tropez',
+            'dateConcours' => '2017-09-04',
+            'texteConcours' => "Événement phare de la Fondation Hydros en 2016, l'HYDROcontest est le premier concours étudiant international dédié à l'efficience énergétique nautique et maritime.
+
+À la fois outil d'éducation, de sensibilisation, et incubateur d'idées, l'HYDROcontest rassemble les futurs ingénieurs et architectes du monde entier autour d'une problématique commune:
+
+TRANSPORTEZ PLUS, PLUS VITE, EN CONSOMMANT MOINS D'ÉNERGIE
+
+Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plus efficient en termes d'énergie." ,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('editions')->insert([
             'annee' => '2016',
             'textePresentation' => "Pour cette édition 2016, la team hydrocontest de la HEIG-VD a le plaisir d'acueillir au sein de son équipe deux seins."
             . "Pour la première fois de son histoire, une fille a décidé de faire partie de l'aventure et dese jeter da ns le grand bain. Ca fait plaisir!"
@@ -277,7 +293,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '2',
             'membre_id' => '1',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -286,7 +302,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '2',
             'membre_id' => '2',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -295,7 +311,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '3',
             'membre_id' => '3',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -304,7 +320,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '3',
             'membre_id' => '4',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -313,7 +329,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '3',
             'membre_id' => '5',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -322,7 +338,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '3',
             'membre_id' => '6',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -331,7 +347,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'Externe',
             'anneeEtude' => '10',
             'membre_id' => '7',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -340,7 +356,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'TIN',
             'anneeEtude' => '23',
             'membre_id' => '8',
-            'equipe_id' => '1',
+            'equipe_id' => '5',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -349,7 +365,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'COMEM',
             'anneeEtude' => '2',
             'membre_id' => '9',
-            'equipe_id' => '2',
+            'equipe_id' => '6',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -358,7 +374,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'COMEM',
             'anneeEtude' => '2',
             'membre_id' => '10',
-            'equipe_id' => '2',
+            'equipe_id' => '6',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -367,7 +383,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'COMEM',
             'anneeEtude' => '2',
             'membre_id' => '11',
-            'equipe_id' => '2',
+            'equipe_id' => '6',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ],[
@@ -376,7 +392,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'departement' => 'COMEM',
             'anneeEtude' => '2',
             'membre_id' => '12',
-            'equipe_id' => '2',
+            'equipe_id' => '6',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]]);
@@ -422,7 +438,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
         ]);
         DB::table('presses')->insert([
             'url' => 'http://www.laliberte.ch/news-agence/detail/hydrocontest-l-epfl-remporte-une-des-trois-competitions/292457#.WUJBaGjyhPY',
-            'titre' => 'LA LIBERTÉ',
+            'titre' => 'La Liberté',
             'description' => "Hydrocontest: l'EPFL remporte une des trois compétitions",
             'date' => '2015-07-19',
             'edition_annee' => '2015',
@@ -442,7 +458,23 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
 /* PUBLICATIONS ------------------------------------------------------------------------------------------------- */
 
         DB::table('publications')->insert([
-            'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
+            'titre' => "Des nouvelles de l'atelier",
+            'texte' => "Comme promis ce week-end nous n'avons pas chômé. Les choses avances gentiment et on est toujours autant aux taquets. C'était notre dernier long week-end avant les examens qui sont à la fin du mois.",
+            'edition_annee' => '2017',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('publications')->insert([
+            'titre' => "Des courses de bateau pendant la semaine grillades!",
+            'texte' => "Les courses de bateaux télécommandés ont attirés du monde malgré le temps maussade. Tous les particpants se sont dits ravis!",
+            'edition_annee' => '2017',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('publications')->insert([
+            'titre' => "Succès suisse et français lors de l'Hydrocontest 2016",
             'texte' => "Cette édition de l’HydroContest sera prête à accueillir les spectateurs pour les courses, mais proposera aussi une multitude d’activités pour tous.
             Le public aura la chance de tester des bateaux radiocommandés dans un bassin rattaché au ponton où les courses se dérouleront. 10 maquettes de bateaux à foils radiocommandés de 60 cm réalisées par Hydos et l'architecte naval Antoine Mainfray seront mis à disposition pour tester l’hydrodynamique et l’efficience énergétique de la technologie des foils.
             Les spectateurs auront aussi une possibilité de voir les phases finales de la compétition en paddle board. En effet, Fool Moon mettra à disposition 15 paddles pour vivre l’expérience HydroContest de façon optimale.",
@@ -452,7 +484,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             ]);
 
         DB::table('publications')->insert([
-            'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
+            'titre' => "Une énorme réussite pour les étudiants de la HEIG-VD.",
             'texte' => "Les hautes écoles suisses et françaises ont dominé l’édition 2016 de l’HydroContest. Dans la catégorie « bateaux légers », c’est Central Nantes qui s’impose, alors que la catégorie « bateaux lourds » a vu, contre toute attente, la victoire de l’ENSTA Bretagne – Paris-La-Villette. La « Long Distance Race » a été marquée par le triomphe de la Haute Ecole d'Ingénierie et d'Architecture (HEIA) de Fribourg.
             Travail acharné jusque tard dans la nuit, modifications de dernière minute, échange continu, les 250 étudiants de l’HydroContest ont tout donné pour peaufiner leurs bateaux lors de ces phases finales. Un florilège de prototypes aux formes très différentes les unes des autres s’est affronté dès jeudi donnant lieu à de très belles courses.",
             'edition_annee' => '2016',
@@ -575,31 +607,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
 /* EDITIONS_SPONSORS ---------------------------------------------------------------------------------------------- */
 
         DB::table('edition_sponsor')->insert([
-            'edition_annee' => '2016',
-            'sponsor_nom' => 'la Loterie Romande',
-            'valeur' => 'principal',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
-        DB::table('edition_sponsor')->insert([
-            'edition_annee' => '2015',
-            'sponsor_nom' => 'la Loterie Romande',
-            'valeur' => 'or',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
-        DB::table('edition_sponsor')->insert([
-            'edition_annee' => '2016',
-            'sponsor_nom' => 'Canton de Vaud',
-            'valeur' => 'or',
-            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
-            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
-        ]);
-
-        DB::table('edition_sponsor')->insert([
-            'edition_annee' => '2015',
+            'edition_annee' => '2017',
             'sponsor_nom' => 'Canton de Vaud',
             'valeur' => 'principal',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -607,15 +615,47 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
         ]);
 
         DB::table('edition_sponsor')->insert([
-            'edition_annee' => '2016',
+            'edition_annee' => '2017',
             'sponsor_nom' => 'SIL Citycable',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2017',
+            'sponsor_nom' => 'la Loterie Romande',
             'valeur' => 'argent',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
 
         DB::table('edition_sponsor')->insert([
-            'edition_annee' => '2015',
+            'edition_annee' => '2017',
+            'sponsor_nom' => 'Migros Catering Services',
+            'valeur' => 'bronze',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'la Loterie Romande',
+            'valeur' => 'principal',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
+            'sponsor_nom' => 'Canton de Vaud',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2016',
             'sponsor_nom' => 'SIL Citycable',
             'valeur' => 'argent',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
@@ -626,6 +666,30 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'edition_annee' => '2016',
             'sponsor_nom' => 'Migros Catering Services',
             'valeur' => 'bronze',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'Canton de Vaud',
+            'valeur' => 'principal',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'la Loterie Romande',
+            'valeur' => 'or',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('edition_sponsor')->insert([
+            'edition_annee' => '2015',
+            'sponsor_nom' => 'SIL Citycable',
+            'valeur' => 'argent',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
