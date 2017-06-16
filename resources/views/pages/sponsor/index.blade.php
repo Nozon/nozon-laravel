@@ -103,24 +103,24 @@
         <div class="grid sponsor-description">
             <h2>Principal</h2>
             <div class="col">
-                <a href="#"><img src="{{$sponsorMain->url}}"/></a>
+                <a href="#"><img src="{{asset('/img/'.$sponsorMain->url.'.png')}}"/></a>
             </div>
             <h2>Or</h2>
             <div class="col">
                 @foreach($sponsorsOr as $sponsorOr)
-                    <a href="{{$sponsorOr->webURL}}"><img src="{{$sponsorOr->url}}"/></a>
+                    <a href="{{$sponsorOr->webURL}}"><img src="{{asset('/img/'.$sponsorOr->url.'.png')}}"/></a>
                 @endforeach
             </div>
             <h2>Argent</h2>
             <div class="col">
                 @foreach($sponsorsArgent as $sponsorArgent)
-                    <a href="{{$sponsorArgent->webURL}}"><img src="{{$sponsorArgent->url}}"/></a>
+                    <a href="{{$sponsorArgent->webURL}}"><img src="{{asset('/img/'.$sponsorArgent->url.'.png')}}"/></a>
                 @endforeach
             </div>
             <h2>Bronze</h2>
             <div class="col">
                 @foreach($sponsorsBronze as $sponsorBronze)
-                    <a href="{{$sponsorBronze->webURL}}"><img src="{{$sponsorBronze->url}}"/></a>
+                    <a href="{{$sponsorBronze->webURL}}"><img src="{{asset('/img/'.$sponsorBronze->url.'.png')}}"/></a>
                 @endforeach
             </div>
         </div>
