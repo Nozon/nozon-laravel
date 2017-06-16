@@ -16,7 +16,7 @@ class SponsorController extends Controller {
      */
     public function index() {
         $sponsor = Sponsor::all();
-        return view('sponsor/index')->with('sponsor', $sponsor);
+        return view('pages.sponsor.create')->with('sponsor', $sponsor);
     }
 
     /**

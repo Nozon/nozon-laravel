@@ -34,13 +34,13 @@
         <section class="content-section video-section" id="intro-content">
 
             <div class="logo-home">
-                <a href="http://127.0.0.1:8000/"><img src="../img/logoteamheig.png" id="img-index" class="img-responsive" alt="Image team HEIG-VD"></a>
+                <a href="http://127.0.0.1:8000/"><img src="{{asset('/img/logoteamheig.png')}}" id="img-index" class="img-responsive" alt="Image team HEIG-VD"></a>
                 <div class="menu-persistant-container">
                     <ul class="menu-persistant">
                         <li><a href="#">Sociaux</a></li>
-                        <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/"><img class="img-responsive socials-icone" src="../img/facebooklogo.png"></a></li>
-                        <li><a href="https://www.instagram.com/hydrocontest_heig_vd/"><img class="img-responsive socials-icone" src="../img/instagramlogo.png"></a></li>
-                        <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g"><img class="img-responsive socials-icone" src="../img/youtubelogo.png"></a></li>
+                        <li><a href="https://www.facebook.com/teamheigvd.hydrocontest/"><img class="img-responsive socials-icone" src="{{asset('/img/facebooklogo.png')}}"></a></li>
+                        <li><a href="https://www.instagram.com/hydrocontest_heig_vd/"><img class="img-responsive socials-icone" src="{{asset('/img/instagramlogo.png')}}"></a></li>
+                        <li><a href="https://www.youtube.com/channel/UCM3d-hi1emSK0ua6oWWjd_g"><img class="img-responsive socials-icone" src="{{asset('/img/youtubelogo.png')}}"></a></li>
                     </ul>
                 </div>
             </div>
@@ -54,18 +54,18 @@
                 </div>
                 <div class="collaps navbar-collapse">
                     <ul class="nav navbar-nav" id="menu-admin">
-                        <li><a href="#accueil" id="btn-accueil">Accueil</a></li>
-                        <li><a href="#edition" id="btn-edition">Edition</a></li>
-                        <li><a href="#equipe" id="btn-equipe">Equipe</a></li>
-                        <li><a href="#membre" id="btn-membre">Membre</a></li>
-                        <li><a href="#membreSec" id="btn-memebreSec">Membre secondaire</a></li>
-                        <li><a href="#sponsors" id="btn-sponsor">Sponsors</a></li>
-                        <li><a href="#medias" id="btn-medias">Medias</a></li>
-                        <li><a href="#news" id="btn-news">News</a></li>
-                        <li><a href="#presse" id="btn-presse">Presse</a></li>
-                        <li><a href="#prix" id="btn-prix">Prix</a></li>
-                        <li><a href="#devSponsors" id="btn-devSponsors">Devenir sponsors</a></li>
-                        <li><a href="#compte" id="btn-compte">Compte</a></li>
+                        <li><a href="accueil" id="btn-accueil">Accueil</a></li>
+                        <li><a href="edition" id="btn-edition">Edition</a></li>
+                        <li><a href="equipe" id="btn-equipe">Equipe</a></li>
+                        <li><a href="membre" id="btn-membre">Membre</a></li>
+                        <li><a href="membreSec" id="btn-memebreSec">Membre secondaire</a></li>
+                        <li><a href="sponsor" id="btn-sponsor">Sponsor</a></li>
+                        <li><a href="media" id="btn-medias">Medias</a></li>
+                        <li><a href="news" id="btn-news">News</a></li>
+                        <li><a href="presse" id="btn-presse">Presse</a></li>
+                        <li><a href="prix" id="btn-prix">Prix</a></li>
+                        <li><a href="devenirSponsor" id="btn-devSponsors">Devenir sponsor</a></li>
+                        <li><a href="compte" id="btn-compte">Compte</a></li>
                     </ul>
                 </div>
             </div>
@@ -74,17 +74,17 @@
         <div id="container" class="content-pages">
             
             {{-- will be used to show any messages --}}
-                    @if ( session()->has('success'))
-                    <div class="card card-inverse card-success mb-3">{{ session('success') }}</div>
+                    @if ( Session::has('message'))
+                    <div class="alert alert-info">{{ Session::get('message') }}</div>
                     @endif
-                    @if ( session()->has('info'))
-                    <div class="card card-inverse card-info mb-3">{{ session('info') }}</div>
+                    @if ( Session::has('message'))
+                    <div class="alert alert-warning">{{ Session::get('message') }}</div>
                     @endif
-                    @if ( session()->has('warning'))
-                    <div class="card card-inverse card-warning mb-3">{{ session('warning') }}</div>
+                    @if ( Session::has('alert'))
+                    <div class="alert alert-danger">{{ Session::get('alert') }}</div>
                     @endif
-                    @if ( session()->has('error'))
-                    <div class="card card-inverse card-error mb-3">{{ session('error') }}</div>
+                    @if ( Session::has('message'))
+                    <div class="alert alert-success">{{ Session::get('message') }}</div>
                     @endif
 
                     @if (count($errors) > 0)

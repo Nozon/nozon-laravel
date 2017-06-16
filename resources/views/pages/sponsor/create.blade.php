@@ -1,4 +1,8 @@
-                <h3>Les sponsors</h3>
+@extends('layouts.admin')
+
+@section('administration')
+
+    <h3>Les sponsors</h3>
                 <div class="row">
                     <div class="administration" id="creerEdition">
                         <button type="button" id="btn-show-form" class="btn btn-default btn-lg btn-add-sponsor">Ajouter un sponsor</button>
@@ -35,3 +39,5 @@
                         @include('pages.sponsor.edit')
                     </div>
                 </div>
+
+@endsection

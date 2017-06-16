@@ -28,6 +28,11 @@ $(function () {
     $(".form-add-compte").hide();
 
 
+    // En commentaire chez Nicolas, récupéré de chez Guido, à vérifier si ça marche
+    // menuHandler();
+    // $(".container").on("click", "header.online .connection", function () {
+    //     switchPageWithHistory('synch');
+    // });
     $(".container").on("click", "header.online .connection", function () {
         switchPageWithHistory('synch');
     });
@@ -207,8 +212,6 @@ $(function () {
     
 });
 
-
-
 /*
 function menuHandler() {
     // History manipulation
@@ -237,4 +240,3 @@ function switchPageWithHistory(pageId) {
 }
 
 */
-

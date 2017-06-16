@@ -17,9 +17,9 @@ class PresseController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $presse = Presse::all();
-        return view('pages.presse.index')->with('presse', $presse);
+    public function index($annee) {
+        $presses = Presse::all()->where('edition_annee', $annee);
+        return view('pages.presse.create')->with('presses', $presses);
     }
 
     /**

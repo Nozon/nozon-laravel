@@ -111,4 +111,10 @@ return [
       'exists' => "Il existe déjà un sponsor principal pour cette édition",
       'saved'  => "L'image a été chargée :)",
     ],
+    
+    
+    'Auth' => [
+      'false' => "L'identifiant ou le mot de passe incorrect",
+      'success' => "Fuck yeah!!!",
+    ],
 ];

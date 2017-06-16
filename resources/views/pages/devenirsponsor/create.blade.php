@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+
+@section('administration')
+
 <h3>Devenir sponsors</h3>
 <div class="row">
     <div class="administration" id="creerPrix">
@@ -22,3 +26,6 @@
     </div>
 </div>
 
+
+
+@endsection

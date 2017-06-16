@@ -9,7 +9,7 @@
           @foreach($membresSecondaires as $membreSecondaire)
 
             <div class="col-md-3 template-membre-soutien team-soutien-member">
-              <img src="{{$membreSecondaire->URL}}" class="img-responsive" id="img-membre-soutien">
+              <img src="{{asset('img/johnaesch.jpg')}}" class="img-responsive" id="img-membre-soutien">
               <div class="membre-soutien-description">
                 <div class="text-soutien">
                   <h5 id="name">{{$membreSecondaire->nom}}</h5>

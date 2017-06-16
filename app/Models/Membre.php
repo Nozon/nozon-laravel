@@ -74,7 +74,7 @@ class Membre extends Model
 
     public function profils(){
 
-        return $this->hasMany('App/Models/Profil');
+        return $this->hasMany('App\Models\Profil');
 
     }
 
