@@ -14,9 +14,15 @@ $(function () {
       if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
             $('#mainNav').fadeIn("slow", function() {
             	$('#mainNav').show();
+            	// on abaisse le logo
+            	$('.logo-home').fadeIn("slow", function() {
+            		$('.logo-home').removeClass("logo-home").addClass("logo-home-main"); // -----> TROUVER UN MOYEN D?ANIMER LE CHANGEMENT FLUIDEMENT
+            	});
             }); // On affiche le 2
       } else {
-            $('#mainNav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
+            $('#mainNav').hide();
+            // on réhause le logo
+            $(".logo-home-main").removeClass("logo-home-main").addClass("logo-home");
       }
    	});
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
@@ -25,15 +31,19 @@ $(function () {
             	$('#main-sidenav').show();
             }); // On affiche le 2
       } else {
-            $('#main-sidenav').hide(); // "et vice et versa" (© Les inconnus, 1990 ^^)
+            $('#main-sidenav').hide(); 
       }
-   });
+   	});
+
+ 	// lors de l'arrivée sur le  main content logo home se décale de 50px
+ 	
+   	
 
     // connexion/déconnexion
     
     // Devenir sponsor
       $("#btn-dev").on('click', function() {
-          console.log("Yeah");
+          
           $("#devSponsor").toggleClass('hidden');
       });
 
