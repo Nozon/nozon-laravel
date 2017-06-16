@@ -22,9 +22,10 @@ Route::post('/auth/login', 'AuthController@check');
 Route::post('checkAuth', 'AuthController@check');
 
 
+Route::get('/auth/logout', 'AuthController@logout');
+
 // Tout ce qui passe par ce middleware n'est accessible qu'aux personnes authentifiées
 Route::group(['middleware' => 'MyAuth'], function() {
-    Route::get('/auth/logout', 'AuthController@logout');
     Route::get('/secure1', function () {
         return 'Je suis bien logué';
     });

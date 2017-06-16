@@ -421,6 +421,25 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'titre' => 'Le Télégramme',
             'description' => "HydroContest 2016. L'Ensta Bretagne remporte la 3e édition",
             'date' => '2016-08-01',
+            'edition_annee' => '2017',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+        DB::table('presses')->insert([
+            'url' => 'http://www.presseocean.fr/actualite/nantes-lecole-centrale-remporte-lhydrocontest-31-07-2016-199732',
+            'titre' => 'Presse Océan',
+            'description' => "Nantes : L'école Centrale remporte l'Hydrocontest",
+            'date' => '2016-07-31',
+            'edition_annee' => '2017',
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
+
+        DB::table('presses')->insert([
+            'url' => 'http://www.letelegramme.fr/finistere/hydrocontest-2016-l-ensta-bretagne-remporte-la-3e-edition-01-08-2016-11166928.php',
+            'titre' => 'Le Télégramme',
+            'description' => "HydroContest 2016. L'Ensta Bretagne remporte la 3e édition",
+            'date' => '2016-08-01',
             'edition_annee' => '2016',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),

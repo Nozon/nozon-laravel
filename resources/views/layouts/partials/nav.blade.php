@@ -6,7 +6,7 @@
                     @foreach($editions as $edition)
                         <li class="nav-edition-circle" id="cercle">
                           <div class="nav-edition-container-year">
-                            <a href="/{{$edition->annee}}" class="nav-edition-year">{{$edition->annee}}</a>
+                            <a href="/nozon/{{$edition->annee}}" class="nav-edition-year">{{$edition->annee}}</a>
                           </div>
                         </li>
                     @endforeach

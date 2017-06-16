@@ -50,7 +50,7 @@
         <div class="navbar navbar-admin navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                    <a href="/" class="navbar-brand"><span id="home" class="glyphicon glyphicon-home"></span></a>
+                    <a href="/nozon/2017" class="navbar-brand"><span id="home" class="glyphicon glyphicon-home"></span></a>
                 </div>
                 <div class="collaps navbar-collapse">
                     <ul class="nav navbar-nav" id="menu-admin">

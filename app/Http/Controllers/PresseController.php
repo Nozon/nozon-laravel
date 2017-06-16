@@ -54,7 +54,7 @@ class PresseController extends Controller {
             Presse::createOne($validate->getData());
             // Message de succès, puis redirection vers la liste des Presses
             Message::success('presse.create');
-            return redirect('presse');
+            return redirect('admin/2017/quepresse');
         } catch (\Exception $e) {
             echo("Erreur bd");
             // En cas d'erreur, envoi d'un message d'erreur

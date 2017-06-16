@@ -45,8 +45,6 @@ class AuthController extends Controller
 
   public function logout() {
       Session::flush();
-      return redirect()->back()->withInput()->with('info', 'Vous êtes déconnecté');
-
-      return redirect('/');
+      return redirect('2017')->withInput()->with('info', 'Vous êtes déconnecté');
   }
 }

@@ -11,7 +11,7 @@
                             <i class="fa fa-trophy fa-2x" aria-hidden="true"></i>Prix de communication
                         </td>
                         <td>
-                            La team HEIG-VD a remporter le prix de la meilleure communication. Nous sommes très fière de ce prix car on a sucé beaucoup de queues :)
+                            La team HEIG-VD a remporter le prix de la meilleure communication.
                         </td>
                         <td>
                             <div class="delMod">
