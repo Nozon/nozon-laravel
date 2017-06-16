@@ -595,28 +595,28 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
 
         DB::table('sponsors')->insert([
             'nom' => 'la Loterie Romande',
-            'url' => 'www.loro.ch',
+            'url' => 'LoterieRomande',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
 
         DB::table('sponsors')->insert([
             'nom' => 'Canton de Vaud',
-            'url' => 'www.vd.ch',
+            'url' => 'BCV',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
 
         DB::table('sponsors')->insert([
             'nom' => 'Migros Catering Services',
-            'url' => 'www.catering-services-migros.ch',
+            'url' => 'Migros',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
 
         DB::table('sponsors')->insert([
             'nom' => 'SIL Citycable',
-            'url' => 'www.citycable.ch',
+            'url' => 'SIL',
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
