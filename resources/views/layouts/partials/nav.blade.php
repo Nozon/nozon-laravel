@@ -3,13 +3,12 @@
         <div class="nav-edition">
             <h4>édition</h4>
             <ul class="nav-edition-liste">
-
-                    <li class="nav-edition-circle circle-activ" id="cercle">
                     @foreach($editions as $edition)
-                      <div class="nav-edition-container-year">
-                        <a href="/{{$edition->annee}}" class="nav-edition-year year-activ">{{$edition->annee}}</a>
-                      </div>
-                    </li>
+                        <li class="nav-edition-circle" id="cercle">
+                          <div class="nav-edition-container-year">
+                            <a href="/{{$edition->annee}}" class="nav-edition-year">{{$edition->annee}}</a>
+                          </div>
+                        </li>
                     @endforeach
 
                 {{--<li class="nav-edition-circle circle-activ" id="cercle">--}}

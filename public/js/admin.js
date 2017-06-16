@@ -58,9 +58,19 @@ $(function () {
     // modif membre
     $(".sup-membre").click(function () {
         // récup l'id
-        var url = $(this).val();
+        var membreId = $(this).attr('data-id').val();
         // récup le titre
-        
+     
+        $.ajax({
+           url : '/admin/membre?id='+membreId, // La ressource ciblée
+           type : 'GET' // Le type de la requête HTTP.
+           data : 'membre=' + membreId;
+        });
+   
+    });
+
+           
+
         // récup lien image
         /*
         var lienWeb = (this).parents(".delMod").siblings().eq(2).children().val();
