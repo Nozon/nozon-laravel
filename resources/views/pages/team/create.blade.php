@@ -13,8 +13,6 @@
                     @endif
 
                     <form method="POST" action="{{ url('membre')}}" class="form-add-membre" enctype="multipart/form-data">
-
-
                         <div class="form-group">
                             {{ csrf_field() }}
                             <input type="hidden" name="type_equipe" value="principal">

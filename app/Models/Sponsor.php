@@ -68,9 +68,7 @@ class Sponsor extends Model
     
      public function edition_sponsors(){
 
-        return $this->belongsToMany('App\Models\edition_sponsor')
-            ->withTimestamps()
-            ->withPivot('sponsor_nom');
+        return $this->HasMany('App\Models\edition_sponsor', 'sponsor_nom', 'nom');
 
     }
 

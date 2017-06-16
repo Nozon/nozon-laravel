@@ -52,6 +52,7 @@ class MembreController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
+        dd($request);
       if ($request->hasFile('imgMembre')) {
         try {
           $recupImage = Image::make(Input::file('imgMembre'));

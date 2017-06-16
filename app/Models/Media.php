@@ -84,9 +84,9 @@ class Media extends Model
 
     }
 
-    public function concours(){
+    public function editions(){
 
-        return $this->belongsToMany('App\Models\Concours');
+        return $this->belongsToMany('App\Models\Edition');
 
     }
 

@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
         /* Appel du seeder des utilisateurs/groupes/ressources */
         $this->call(ACLSeeder::class);
 
+
 /* EDITIONS ------------------------------------------------------------------------------------------------- */
 
         DB::table('editions')->insert([
@@ -701,6 +702,59 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
             'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+
+
+/* Tests d'ajout d'élément dans la BD avec les méthodes purement lavareliennes
+    FONCTIONNE! :) Mais mis en commentaires pour pas avoir d'édition 2018 dans la BD */
+
+//         //Création d'une édition
+//        $edition = new \App\Models\Edition();
+//        $edition
+//            ->setAttribute("annee", "2018")
+//            ->setAttribute("textePresentation", "Test")
+//            ->setAttribute("texteConcours", "Test")
+//            ->setAttribute("lieu", "Miami Beach")
+//            ->setAttribute("dateConcours", "2018-07-04")
+//            ->save();
+//
+//        // Création d'une équipe
+//        $equipe = new \App\Models\Equipe();
+//        $equipe->setAttribute("nom", "Team HEIG-VD")
+//            ->setAttribute("type", "principal")
+//            ->setAttribute("description", "Une fois de plus, la HEIG-VD est présente pour le concours Hydrocontest!")
+//            ->setAttribute("edition_annee", $edition->annee)
+//            ->save();
+//        // Création d'un membre
+//        $membre = new \App\Models\Membre();
+//        $membre->setAttribute('nom','Mermoud')
+//            ->setAttribute('prenom','Nicolas')
+//            ->setAttribute('email','nicolas@mermoud.me')
+//            ->save();
+//
+//        // Création d'un profil
+//        $profil = new \App\Models\Profil();
+//        $profil->setAttribute('equipe_id', 1)
+//            ->setAttribute('fonction','Fatal Error')
+//            ->setAttribute('description', 'Je tâche ne pas m énerver')
+//            ->setAttribute('departement','COMEM')
+//            ->setAttribute('anneeEtude', '2');
+//        // On enregistre le profil créé en l'associant à un membre
+//        $membre->profils($profil);
+//        $membre->save();
+//
+//        // On crée un sponsor
+//        $sponsor = new \App\Models\Sponsor();
+//        $sponsor->setAttribute("nom", "Ville d'Yverdon-les-Bains")
+//            ->setAttribute("url", "http://www.yverdon-les-bains.ch")
+//            ->save();
+//
+//        $edition_sponsor = new \App\Models\edition_sponsor();
+//        $edition_sponsor
+//            ->setAttribute("valeur", "principal")
+//            ->setAttribute("sponsor_nom", $sponsor->nom);
+//
+//        $edition->edition_sponsors()->save($edition_sponsor); // <---- pour sauvegarder des associations
+
 
         Schema::enableForeignKeyConstraints();
     }
