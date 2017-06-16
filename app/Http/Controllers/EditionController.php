@@ -36,14 +36,15 @@ class EditionController extends Controller {
         // Récupération des informations de l'édition
         $edition = Edition::where('annee', $annee)->first();
 
-        // Récupération de l'id de l'équipe principale de l'édition concernée
+        // Récupération de l'équipe principale de l'édition concernée
         $equipePrincipale = Equipe::where('edition_annee', $annee)->where('type', 'principal')->first();
 
-        // Récupération de l'id de l'équipe secondaire de l'édition concernée
+        // Récupération de l'équipe secondaire de l'édition concernée
         $equipeSecondaire = Equipe::where('edition_annee', $annee)->where('type', 'secondaire')->first();
 
         // Récupération des profils des membres de l'équipe principale
         $membresPrincipaux = Profil::all()->where('equipe_id', $equipePrincipale->id);
+        //dd($membresPrincipaux);
 
         // Récupération des profils des membres de l'équipe secondaire
         $membresSecondaires = Profil::all()->where('equipe_id', $equipeSecondaire->id);

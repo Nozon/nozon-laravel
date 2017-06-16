@@ -8,7 +8,7 @@
       <div class="row team">
         @foreach($membresPrincipaux as $membrePrincipal)
           <div class="col-md-4 template-membre team-member">
-            <img src="" class="img-responsive image-membre" id="img-membre">
+            <img src="{{asset('img/johnaesch.jpg')}}" class="img-responsive image-membre" id="img-membre">
             <div class="membre-description">
               <div class="text">
                 <h5 id="name">{{$membrePrincipal->nom}}</h5>
