@@ -12,7 +12,7 @@
                     @foreach($news->slice(0, 5) as $new)
                         <tr class="news-article">
                             <td class="news-img">
-                                <img src="{{$new->URL}}"/>
+                                <img src="public/img/news/{{$new->nom}}"/>
                             </td>
                             <td class="news-descr">
                                 <h3 class="news-titre">{{$new->titre}}</h3>

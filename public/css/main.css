@@ -133,7 +133,7 @@ nav.navbar {
 /* ----------------------- COMPTEUR --------------------------------*/
 .container-compteur {
   position: absolute;
-  margin-top: -5%;
+  margin-top: -2%;
   margin-left: 70%;
   margin-right: 2%;
   width: 100%;
@@ -224,7 +224,7 @@ nav.navbar {
     height: 50px;
     margin-bottom: 30%;
 }
-.circle-activ {
+li.nav-edition-circle:hover {
 	background: #f5f5f5;
     border-radius: 50%;
     width: 70px;
@@ -254,7 +254,7 @@ nav.navbar {
   	text-decoration: none;
   	font-size: 1em;
 }
-.year-activ {
+a.nav-edition-year:hover {
 	padding-left: 0.7em;
 	margin-top: 40vh; /* poussé de la moitié de hauteur de viewport */
   	transform: translateY(-60%);

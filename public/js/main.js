@@ -1,6 +1,6 @@
 
 var hauteur = 800; // XXX, c'est le nombre de pixels à partir duquel on déclenche le tout
-
+var hauteurRemonte = 0;
 $(function () {
 	// activation compteur
 	compte_a_rebours();
@@ -12,10 +12,35 @@ $(function () {
 	$('.membre-soutien-description').hide();
  	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
       if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
+      		$('.logo-home').animate({
+            		marginTop: "-35%"
+            }, 500);
             $('#mainNav').fadeIn("slow", function() {
-            	$('#mainNav').show();
             	// on abaisse le logo
-            	$('.logo-home').fadeIn("slow", function() {
+            	$('#mainNav').show();
+            }); // On affiche le 2
+      } else {
+            $('#mainNav').hide();
+            // on réhause le logo
+            
+      }
+   	});
+   	
+ 	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
+      if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
+            $('#main-sidenav').fadeIn("slow", function() {
+            	$('#main-sidenav').show();
+           		// 
+            }); // On affiche le 2
+      } else {
+            $('#main-sidenav').hide(); 
+      }
+   	});
+
+
+ 	// lors de l'arrivée sur le  main content logo home se décale de 50px
+ 	/*
+ 	$('.logo-home').fadeIn("slow", function() {
             		$('.logo-home').removeClass("logo-home").addClass("logo-home-main"); // -----> TROUVER UN MOYEN D?ANIMER LE CHANGEMENT FLUIDEMENT
             	});
             }); // On affiche le 2
@@ -24,19 +49,8 @@ $(function () {
             // on réhause le logo
             $(".logo-home-main").removeClass("logo-home-main").addClass("logo-home");
       }
-   	});
- 	$(window).scroll(function () {//Au scroll dans la fenetre on déclenche la fonction
-      if ($(this).scrollTop() > hauteur) { //si on a défile de plus de XXX (variable "hauteur) pixels du haut vers le bas
-            $('#main-sidenav').fadeIn("slow", function() {
-            	$('#main-sidenav').show();
-            }); // On affiche le 2
-      } else {
-            $('#main-sidenav').hide(); 
-      }
-   	});
+      */
 
- 	// lors de l'arrivée sur le  main content logo home se décale de 50px
- 	
    	
 
     // connexion/déconnexion
@@ -56,6 +70,7 @@ $(function () {
 	});
 
 	// nav édition changement cercle
+	/*
 	$('div').filter('.nav-edition-container-year').mouseover(function (){
 		$(this).children('a.nav-edition-year').addClass("year-activ");
 		$(this).parents('li.nav-edition-circle').addClass("circle-activ");
@@ -64,11 +79,14 @@ $(function () {
 		$(this).children('a.nav-edition-year').removeClass("year-activ");
 		$(this).parents('li.nav-edition-circle').removeClass("circle-activ");
 	});
+	*/
 
 	$('div').filter('.nav-edition-container-year').click(function (){
 		$(this).children('a.nav-edition-year').addClass("year-activ");
 		$(this).parents('li.nav-edition-circle').addClass("circle-activ");
 	});
+	
+
 	
 	// membre show description
 	$(".team-member").mouseover(function () {

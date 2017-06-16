@@ -57,8 +57,8 @@
 
             <div class="video-background-container">
                 <video preload="auto" autoplay loop muted class="video-background">
-                    <source src="videos/hydro.mp4" type="video/mp4" />
-                    <source src="videos/hydro.webm" type="video/webm" />
+                    <source src="videos/home.mp4" type="video/mp4" />
+                    <source src="videos/home.webm" type="video/webm" />
                 </video>
 
             </div>
