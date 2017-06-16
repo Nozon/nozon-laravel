@@ -3,13 +3,13 @@
     <ul class="liste" id="liste-memmbre">
             @foreach($membres as $membre)
             <li>
-                <button type="button" id="year" class="btn btn-default membre">{{$membre->nom}}</button>
+                <button type="button" id="year" class="btn btn-default membre">/*{{$membre->nom}}*/</button>
                 <div class="delModMembre">
                     <div class=" icone-modif-sponsor">
-                        <a class="modif-membre" href="#modifierLemembre" value="{{$membre->id}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                        <a class="modif-membre" href="#modifierLemembre" value="/*{{$membre->id}}*/"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                     </div>
                     <div class=" icone-sup-sponsor">
-                        <a class="sup-membre" href="#supprimerLeMembre" value="{{$membre->id}}><span class="glyphicon glyphicon-remove-sign"></span></a>
+                        <a class="sup-membre" href="#supprimerLeMembre" value="/*{{$membre->id}}*/><span class="glyphicon glyphicon-remove-sign"></span></a>
                     </div>
                 </div>
 
