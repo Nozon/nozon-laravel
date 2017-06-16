@@ -65,6 +65,6 @@ class Recompense extends Model
     }
 
     public function equipe(){
-        return $this->belongsTo('App/Models/Equipe');
+        return $this->belongsTo('App\Models\Equipe');
     }
 }

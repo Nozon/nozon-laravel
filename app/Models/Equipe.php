@@ -66,25 +66,25 @@ class Equipe extends Model
 
      public function recompenses(){
 
-        return $this->hasMany('App/Models/Recompense');
+        return $this->hasMany('App\Models\Recompense');
 
     }
     
      public function profils(){
 
-        return $this->hasMany('App/Models/Profil');
+        return $this->hasMany('App\Models\Profil');
 
     }
     
      public function medias(){
 
-        return $this->hasMany('App/Models/Media');
+        return $this->hasMany('App\Models\Media');
 
     }
     
      public function Edition(){
 
-        return $this->belongsTo('App/Models/Edition');
+        return $this->belongsTo('App\Models\Edition');
 
     }
 

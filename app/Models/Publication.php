@@ -62,12 +62,12 @@ class Publication extends Model {
 
     public function medias() {
 
-        return $this->belongsToMany('App/Models/Media');
+        return $this->belongsToMany('App\Models\Media');
     }
 
     public function edition() {
 
-        return $this->belongsTo('App/Models/Edition');
+        return $this->belongsTo('App\Models\Edition');
     }
 
 }

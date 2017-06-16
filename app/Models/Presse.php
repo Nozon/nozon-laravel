@@ -65,7 +65,7 @@ class Presse extends Model
 
 
      public function edition(){
-        return $this->belongsTo('App/Models/Edition');
+        return $this->belongsTo('App\Models\Edition');
     }
 
 }
