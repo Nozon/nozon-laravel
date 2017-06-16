@@ -1,6 +1,4 @@
 <!-- PARTIE MEDIA-->
-
-
 <div class="content-media-hydro" id="medias">
     <div class="row media-description">
         <div class="team-hydro-titre">
@@ -11,14 +9,12 @@
 
             @foreach($medias as $media)
                 <div class="col-md-3">
-                    <a data-lightbox="photos" href="{{$media->name}}">
-                        <img src="{{$media->name}}" alt="Bridge">
+                    <a data-lightbox="photos" href='public/img/news/'.{{$media->nom}}>
+                        <img src='public/img/news/'.{{$media->nom}} alt="Bridge">
                     </a>
                 </div>
             @endforeach
         </div>
-        
-
-    </div>
+      </div>
 </div>
-<!-- FIN PARTIE MEDIA--> 
+<!-- FIN PARTIE MEDIA-->

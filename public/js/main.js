@@ -2,9 +2,8 @@
 var hauteur = 800; // XXX, c'est le nombre de pixels à partir duquel on déclenche le tout
 
 $(function () {
-	var dateConcours = $("#dateDuConcours").attr("value").val();
 	// activation compteur
-	compte_a_rebours(dateConcours);
+	compte_a_rebours();
 	$("#main-sidenav").hide();
 
 	// nav cachée puis activ au scroll
@@ -81,11 +80,13 @@ $(function () {
 
 });
 
-function compte_a_rebours(date) {
+function compte_a_rebours() {
 	// récup date via requête ajax
 
+		var dateConcours = $("#dateDuConcours").val();
+		var date_evenement = new Date ("Sep 4 2017 00:00:00");
+		console.log(date_evenement);
 		var titre = $("#compteAReboursTitre").text("Début du concours dans :");
-		var date_evenement = $(date).val();
 		var date_actuelle = new Date();
 		var total_secondes = (date_evenement - date_actuelle) / 1000;
 			 

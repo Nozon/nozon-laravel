@@ -32,8 +32,6 @@ class DatabaseSeeder extends Seeder
             DB::table('edition_sponsor')->truncate();
 
             $this->call(ACLSeeder::class);
-
-
             DB::table('editions')->insert([
                 'annee' => '2016',
                 'textePresentation' => "Pour cette édition 2016, la team hydrocontest de la HEIG-VD a le plaisir d'acueillir au sein de son équipe deux seins."
@@ -166,7 +164,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Coelho',
                 'prenom' => 'Jonathan',
@@ -175,7 +173,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Gerber',
                 'prenom' => 'Julien',
@@ -183,7 +181,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
@@ -191,7 +189,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Duarte',
                 'prenom' => 'Dani',
@@ -199,7 +197,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Fernandes',
                 'prenom' => 'Dylan',
@@ -207,7 +205,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Bolomey',
                 'prenom' => 'David',
@@ -215,7 +213,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Enzen Villegas',
                 'prenom' => 'Carla',
@@ -223,7 +221,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('membres')->insert([
                 'nom' => 'Lot',
                 'prenom' => 'Antoine',
@@ -295,7 +293,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
             ]);
-                 
+
             DB::table('profils')->insert([
                 'fonction' => 'Enjailleur',
                 'description' => 'Raconter un minimum de 3 blagues moyennes par tranche de 5 heures',
@@ -328,7 +326,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-                
+
             
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
@@ -339,7 +337,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "SUCCÈS SUISSE ET FRANÇAIS LORS DE L’HYDROCONTEST 2016",
                 'texte' => "Les hautes écoles suisses et françaises ont dominé l’édition 2016 de l’HydroContest. Dans la catégorie « bateaux légers », c’est Central Nantes qui s’impose, alors que la catégorie « bateaux lourds » a vu, contre toute attente, la victoire de l’ENSTA Bretagne – Paris-La-Villette. La « Long Distance Race » a été marquée par le triomphe de la Haute Ecole d'Ingénierie et d'Architecture (HEIA) de Fribourg.
@@ -348,7 +346,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => "Vainqueurs de l'édition 2016:",
                 'texte' => "Trophée catégorie « Transport légers » : Central Nantes (France)
@@ -379,7 +377,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('publications')->insert([
                 'titre' => 'HYDROCONTEST : C’EST PARTI POUR L’ÉDITION 2015',
                 'texte' => "Les 16 équipes internationales d’étudiants ingénieurs et leurs prototypes de bateaux du futur entament demain les phases de qualification de l’HYDROCONTEST 2015. Rendez-vous du 14 au 19 juillet au village HYDROCONTEST situé à Lausanne aux Pyramides de Vidy pour suivre ce concours unique au monde et admirer les bateaux volants, innovants, performants et toujours plus efficients…
@@ -388,7 +386,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('recompenses')->insert([
                 'type' => 'Trophée "Best Comunication"',
                 'description' => "Cette année, notre équipe de communication à remporté le trophée de la meilleur communication ! Nous somme très fier de ce prix car nous avons investi beaucoup de temps et de moyens afin de communiqué au mieux notre parcours durant cette édition.",
@@ -420,7 +418,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                  ]);
-      
+
             DB::table('recompenses')->insert([
                 'type' => 'Grand Prix - catégorie Transport de Masse (TM)',
                 'description' => "Notre team est, également, arrivée en 2ème position du Grand Prix 'HYDROCONTEST', dans la catégorie Transport de Masse (TM), juste derrière a team EPFL. ",
@@ -442,7 +440,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
                 'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
                 ]);
-            
+
             DB::table('sponsors')->insert([
                 'nom' => 'Migros Catering Services',
                 'url' => 'www.catering-services-migros.ch',
@@ -522,7 +520,7 @@ Les étudiants sont invités à concevoir, fabriquer et piloter le bateau le plu
         ]);
 
             $this->call(ACLSeeder::class);
-            
+
             Schema::enableForeignKeyConstraints();
     }
 }
