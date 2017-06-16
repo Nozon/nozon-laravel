@@ -19,6 +19,8 @@ class Edition extends Model
         'texteConcours'     => ['required', 'string']
     ];
 
+    protected $table = "editions";
+
     public static function getValidation(Request $request)
     {
         // Récupération des inputs
@@ -75,10 +77,10 @@ class Edition extends Model
     
     public function edition_sponsors(){
 
-        return $this->hasMany('App\Models\edition_sponsor');
+        return $this->hasMany('App\Models\edition_sponsor', 'edition_annee', 'annee');
 
     }
-    
+
     public function publications(){
 
         return $this->hasMany('App\Models\Publication');
@@ -90,11 +92,10 @@ class Edition extends Model
         return $this->belongsMany('App\Models\Edition_media');
 
     }
-    
   
     public function equipes(){
 
-        return $this->hasMany('App\Models\Equipe');
+        return $this->hasMany('App\Models\Equipe', 'edition_annee', 'annee');
 
     }
 

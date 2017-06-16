@@ -7,6 +7,7 @@ use Auth;
 use Hash;
 use Session;
 use App\Models\Utilisateur;
+use App\Lib\Message;
 
 
 class AuthController extends Controller
@@ -22,23 +23,30 @@ class AuthController extends Controller
 
       // Check user exists
       if (!isset($user)) {
-          return 'login failed : Utilisateur incorrect !';
+          return redirect()->back()->with('alert', 'Adresse mail ou mot de passe incorrect');
+           //Message::error('auth.success');
+         // return redirect()->back()->withInput();
       }
 
       // Check password
       if (!Hash::check($mdp, $user->motDePasse)) {
-          // return redirect()->action('AuthController@login')->with('error', true);
-          return 'login failed : mode de passe incorrect !'.$mdp;
+        return redirect()->back()->with('alert', 'Adresse mail ou mot de passe incorrect'); 
+       
       }
 
       // Auth persistance
       Session::put('user_id', $user->id);
+      return redirect('/admin/2017')->with('success', 'Vous êtes bien connecté'); 
 
-      return redirect('/admin');
+        
+
+      
   }
 
   public function logout() {
       Session::flush();
+      return redirect()->back()->withInput()->with('info', 'Vous êtes déconnecté');
+
       return redirect('/');
   }
 }

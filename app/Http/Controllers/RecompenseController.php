@@ -16,7 +16,7 @@ class RecompenseController extends Controller {
      */
     public function index() {
         $recompense = Recompense::all();
-        return view('recompense/index')->with('recompense', $recompense);
+        return view('pages.prix.create')->with('recompense', $recompense);
     }
 
     /**

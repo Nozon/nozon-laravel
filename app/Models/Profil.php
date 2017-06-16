@@ -68,6 +68,7 @@ class Profil extends Model
         echo(implode(" | ", $values));
         echo(" | ".$membre_id." | ".$equipe_id);
         echo("<br />");
+
         $new = new Profil();
         // Définition des propriétés de Profil
 
@@ -87,19 +88,19 @@ class Profil extends Model
 
     public function membre(){
 
-        return $this->belongsTo('App/Models/Membre');
+        return $this->belongsTo('App\Models\Membre');
 
     }
-    
+
     public function medias(){
 
-        return $this->belongsToMany('App/Models/Media');
+        return $this->belongsToMany('App\Models\Media');
 
     }
 
     public function equipe(){
 
-        return $this->belongsTo('App/Models/Equipe');
+        return $this->belongsTo('App\Models\Equipe');
 
     }
 

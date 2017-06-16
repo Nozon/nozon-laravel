@@ -1,3 +1,6 @@
+@extends('layouts.admin')
+
+@section('administration')
 
                 <h3>Les prix/récompenses</h3>
                 <div class="row">
@@ -23,3 +26,5 @@
                     </div>
                 </div>
 
+
+@endsection

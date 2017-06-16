@@ -17,9 +17,9 @@ class PresseController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        $presse = Presse::all();
-        return view('pages.presse.index')->with('presse', $presse);
+    public function index($annee) {
+        $presses = Presse::all()->where('edition_annee', $annee);
+        return view('pages.presse.create')->with('presses', $presses);
     }
 
     /**
@@ -98,7 +98,7 @@ class PresseController extends Controller {
 
         if ($validate->fails()) {
             Message::error('presse.exists'); // "Presse n'existe pas" (à voir la formulation) plutot que "presse.exists", non?
-w
+
             // Redirection vers le formulaire, avec inputs et erreurs
             return redirect()->back()->withInput()->withErrors($validate);
         } else {

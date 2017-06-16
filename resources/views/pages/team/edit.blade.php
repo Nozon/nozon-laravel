@@ -1,12 +1,20 @@
 <h4>Modifier un membre</h4>
 <div class="row">
     <ul class="liste" id="liste-memmbre">
-        <!-- début boucle pour membre-->
-        <li><button type="button" id="year" class="btn btn-default membre">Antoine Lot</button></li>
-        <li><button type="button" id="year" class="btn btn-default membre">Christophe Baer</button></li>
-        <li><button type="button" id="year" class="btn btn-default membre">Sami othmane</button></li>
-        <li><button type="button" id="year" class="btn btn-default membre">Philippe Spat</button></li>
-        <!-- fin boucle-->
+        @foreach($membres as $membre)
+            <li>
+                <button type="button" id="year" class="btn btn-default membre">/*{{$membre->nom}}*/</button>
+                <div class="delModMembre">
+                    <div class=" icone-modif-sponsor">
+                        <a class="modif-membre" href="#modifierLemembre" value="/*{{$membre->id}}*/"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                    </div>
+                    <div class=" icone-sup-sponsor">
+                        <a class="sup-membre" href="#supprimerLeMembre" value="/*{{$membre->id}}*/><span class="glyphicon glyphicon-remove-sign"></span></a>
+                    </div>
+                </div>
+
+            </li>
+        @endforeach
     </ul>
 </div>
 <form method="POST" action="{{ url('equipe')}}" class="form-mod-membre">

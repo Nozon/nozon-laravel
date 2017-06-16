@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+
+@section('administration')
+
 <h3>Gestion de compte</h3>
 <div class="row">
     <div class="administration" id="creerEdition">
@@ -41,3 +45,5 @@
         
     </div>
 </div>
+    
+@endsection
