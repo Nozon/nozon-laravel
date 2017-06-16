@@ -55,13 +55,15 @@ Route::group(['middleware' => 'MyAuth'], function() {
 
 
     Route::resource('/admin/{annee}/profil', 'ProfilController');
-    Route::resource('/admin/{annee}/publication', 'PublicationController');
-    Route::resource('/admin/{annee}/recompense', 'RecompenseController');
+    Route::resource('/admin/{annee}/news', 'PublicationController');
+    Route::resource('/admin/{annee}/prix', 'RecompenseController');
     Route::resource('/admin/{annee}/user', 'UserController');
     Route::resource('/admin/{annee}/sponsor', 'SponsorController');
+    Route::resource('/admin/{annee}/devenirSponsor', 'DevenirSponsorController');
+    Route::resource('/admin/{annee}/compte', 'CompteController');
+
     Route::resource('/admin/{annee}/photo', 'MediaController');
     Route::resource('/admin/{annee}/video', 'MediaController');
-    Route::resource('/admin/{annee}/prix', 'PrixController');
 });
 
 

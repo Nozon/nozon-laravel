@@ -1,3 +1,7 @@
+@extends('layouts.admin')
+
+@section('administration')
+
 <h3>La presse</h3>
 <div class="row">
     <div class="administration" id="creerEdition">
@@ -37,3 +41,5 @@
         @include('pages.presse.edit')
     </div>
 </div>
+
+@endsection

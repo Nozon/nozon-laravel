@@ -22,7 +22,7 @@ class PublicationController extends Controller {
      */
     public function index() {
         $publication = Publication::all();
-        return view('publication/index')->with('publication', $publication);
+        return view('pages.news.create')->with('publication', $publication);
     }
 
     /**

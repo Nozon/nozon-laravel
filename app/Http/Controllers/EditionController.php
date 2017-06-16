@@ -153,7 +153,7 @@ class EditionController extends Controller {
      */
     public function index($annee)
     {
-        return view('pages.concours.edit');
+        return view('pages.concours.create');
     }
 
     /**

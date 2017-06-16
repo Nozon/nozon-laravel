@@ -59,12 +59,12 @@
                         <li><a href="equipe" id="btn-equipe">Equipe</a></li>
                         <li><a href="membre" id="btn-membre">Membre</a></li>
                         <li><a href="membreSec" id="btn-memebreSec">Membre secondaire</a></li>
-                        <li><a href="sponsors" id="btn-sponsor">Sponsors</a></li>
-                        <li><a href="medias" id="btn-medias">Medias</a></li>
+                        <li><a href="sponsor" id="btn-sponsor">Sponsor</a></li>
+                        <li><a href="media" id="btn-medias">Medias</a></li>
                         <li><a href="news" id="btn-news">News</a></li>
                         <li><a href="presse" id="btn-presse">Presse</a></li>
                         <li><a href="prix" id="btn-prix">Prix</a></li>
-                        <li><a href="devSponsors" id="btn-devSponsors">Devenir sponsors</a></li>
+                        <li><a href="devenirSponsor" id="btn-devSponsors">Devenir sponsor</a></li>
                         <li><a href="compte" id="btn-compte">Compte</a></li>
                     </ul>
                 </div>
