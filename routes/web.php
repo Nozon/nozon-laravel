@@ -53,7 +53,6 @@ Route::group(['middleware' => 'MyAuth'], function() {
 
     Route::get('/admin/{annee}/presse/edit/{id}', 'PresseController@edit');
 
-
     Route::resource('/admin/{annee}/profil', 'ProfilController');
     Route::resource('/admin/{annee}/news', 'PublicationController');
     Route::resource('/admin/{annee}/prix', 'RecompenseController');
@@ -65,7 +64,3 @@ Route::group(['middleware' => 'MyAuth'], function() {
     Route::resource('/admin/{annee}/photo', 'MediaController');
     Route::resource('/admin/{annee}/video', 'MediaController');
 });
-
-
-
-

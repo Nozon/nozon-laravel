@@ -42,7 +42,6 @@ class MediaController extends Controller {
           Media::upload($recupFichierImage, "galerie");
           return "l'image a pu être créée ! ";
         } catch (Exception $e) {
-
           return "l'image n'a pas pu etre créée";
         }
 

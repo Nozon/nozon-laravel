@@ -48,7 +48,10 @@ class Media extends Model
 
         $new->save();
 
+
         $new->publications()->attach($publication->id);
+
+        return $new;
     }
 
     public static function upload($image, $type) {
@@ -63,7 +66,7 @@ class Media extends Model
 
       return $image;
     }
-  
+
     // //recuperation de l'image depuis la requete
     // $image = $request->file('image');
     // //création d'un nom basé sur l'heure actuelle

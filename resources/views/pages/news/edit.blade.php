@@ -5,21 +5,24 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="delMod">
+                      @foreach ($news as $new )
                         <div class="icone-modif-sponsor">
-                            <a class="modif-news" href="#modifierLaNews"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-                            </div>
-                        <div class="icone-sup-sponsor">
-                            <a class="sup-news" href="#supprimerLaNews"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                            <a class="modif-news" href="{{$new->id}}"</a>><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
                         </div>
-                    </div>
-                    <div class="news-description">
-                        <h5 id="title-news">Titre</h5>
-                    </div>
-                    <div class="img-news">
-                        <img class="img-liste-sponsor" src="../img/facebooklogo.png"/>
-                    </div>
-                    <div class="nes-description">
-                        <p id="date-news" type="date">12.03.2016</p>
+                        <div class="icone-sup-sponsor">
+                            <a class="sup-news" href="{{$new->id}}"><span class="glyphicon glyphicon-remove-sign"></span></a>
+                        </div>
+                        </div>
+                        <div class="news-description">
+                            <h5 id="title-news">{{$new->titre}}</h5>
+                        </div>
+                        <div class="img-news">
+                            <img class="img-liste-sponsor" src="public/img/news{{}}"/>
+                        </div>
+                        <div class="nes-description">
+                            <p id="date-news" type="date">12.03.2016</p>
+                        </div>
+                      @endforeach
                     </div>
                 </div>
             </div>
